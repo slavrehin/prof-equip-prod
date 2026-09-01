@@ -1,5 +1,18 @@
 <?
-$isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+if (preg_match('#^/product-category/([^/]+)/#', $_SERVER['REQUEST_URI'], $sectionUrlMatch)) {
+    CModule::IncludeModule("iblock");
+    $rsRequestedSection = CIBlockSection::GetList([], [
+        "IBLOCK_ID" => GetIBlockIDByCode("catalog"),
+        "CODE" => $sectionUrlMatch[1],
+        "ACTIVE" => "Y",
+    ], false, ["ID"]);
+    if (!$rsRequestedSection->GetNext()) {
+        include($_SERVER["DOCUMENT_ROOT"]."/404.php");
+        die();
+    }
+}
+
+$isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
           strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 $APPLICATION->SetTitle("Каталог товаров");

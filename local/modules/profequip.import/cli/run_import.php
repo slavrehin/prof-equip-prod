@@ -4,7 +4,9 @@
  *   docker compose exec web php /var/www/html/local/modules/profequip.import/cli/run_import.php /path/to/file.csv
  */
 
-$_SERVER['DOCUMENT_ROOT'] = ($_SERVER['DOCUMENT_ROOT'] ?? '') ?: '/var/www/wordpress';
+// DOCUMENT_ROOT вычисляется из расположения файла, чтобы не хардкодить
+// разный путь на проде (/var/www/wordpress) и в контейнере test3 (/var/www/html).
+$_SERVER['DOCUMENT_ROOT'] = ($_SERVER['DOCUMENT_ROOT'] ?? '') ?: dirname(__DIR__, 4);
 $_SERVER['SERVER_NAME'] = ($_SERVER['SERVER_NAME'] ?? '') ?: 'prof-equip.ru';
 $_SERVER['REQUEST_METHOD'] = ($_SERVER['REQUEST_METHOD'] ?? '') ?: 'GET';
 

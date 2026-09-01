@@ -281,10 +281,14 @@
     // Текущий URL страницы
     $curPage = $APPLICATION->GetCurPage();
     $fullUrl = $domain . $curPage;
-    $canonicalUrl = $domain . $curPage;
+
+    // Для непосадочных комбинаций умного фильтра canonical схлопывается к разделу
+    // (см. local/templates/profequip/components/bitrix/catalog/catalog/section.php)
+    $canonicalOverride = $APPLICATION->GetProperty("canonical_override");
+    $canonicalUrl = $canonicalOverride ? ($domain . $canonicalOverride) : ($domain . $curPage);
 
     // Добавляем каноническую ссылку в head
-    $APPLICATION->AddHeadString('<link rel="canonical" href="' . $canonicalUrl . '" />'); 
+    $APPLICATION->AddHeadString('<link rel="canonical" href="' . $canonicalUrl . '" />');
 
     // Формируем массив Open Graph тегов
     $ogTags = [

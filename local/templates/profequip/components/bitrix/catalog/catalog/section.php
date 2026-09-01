@@ -55,6 +55,100 @@ if (!empty($arResult["VARIABLES"]["SECTION_CODE"])) {
             "FAQ"=> $arSection["UF_FAQ"]
         ];
     }
+
+    // ===== SEO умного фильтра =====
+    // Валидируем каждый сегмент /f/свойство-is-значение/ по реальным свойствам и
+    // значениям каталога: несуществующая комбинация -> 404, вместо мягкого 200.
+    // Для валидных комбинаций подбираем шаблон META по правилу из инфоблока
+    // "seofilterrules" (раздел + свойство), иначе -> noindex + canonical на раздел.
+    if (!empty($arResult["CURRENT_SECTION_DATA"]) && trim((string)($_REQUEST["SMART_FILTER_PATH"] ?? '')) !== '') {
+        $smartFilterSegments = array_values(array_filter(explode('/', trim($_REQUEST["SMART_FILTER_PATH"], '/'))));
+        $parsedFilterValues = [];
+        $smartFilterIsValid = true;
+
+        foreach ($smartFilterSegments as $segment) {
+            if (!preg_match('#^([a-z0-9_]+)-is-(.+)$#i', $segment, $segMatch)) {
+                continue; // служебные сегменты (apply и т.п.) не относятся к свойствам
+            }
+
+            $arProp = CIBlockProperty::GetList([], [
+                "IBLOCK_ID" => $iblockId,
+                "CODE" => strtoupper($segMatch[1]),
+            ])->Fetch();
+
+            $arEnum = $arProp ? CIBlockPropertyEnum::GetList([], [
+                "IBLOCK_ID" => $iblockId,
+                "PROPERTY_ID" => $arProp["ID"],
+                "XML_ID" => $segMatch[2],
+            ])->Fetch() : false;
+
+            if (!$arProp || !$arEnum) {
+                $smartFilterIsValid = false;
+                break;
+            }
+
+            $parsedFilterValues[] = [
+                "PROPERTY_CODE" => $arProp["CODE"],
+                "VALUE_TEXT" => $arEnum["VALUE"],
+            ];
+        }
+
+        if (!$smartFilterIsValid) {
+            include($_SERVER["DOCUMENT_ROOT"]."/404.php");
+            die();
+        }
+
+        $seoFilterRuleFound = false;
+        if (count($parsedFilterValues) === 1) {
+            $seoFilterRuleIblockId = GetIBlockIDByCode("seofilterrules");
+            $ruleCode = $sectionCode . "__" . strtolower($parsedFilterValues[0]["PROPERTY_CODE"]);
+
+            $obRule = $seoFilterRuleIblockId ? CIBlockElement::GetList([], [
+                "IBLOCK_ID" => $seoFilterRuleIblockId,
+                "CODE" => $ruleCode,
+                "ACTIVE" => "Y",
+            ], false, false, ["ID", "IBLOCK_ID"])->GetNextElement() : false;
+
+            if ($obRule) {
+                $ruleProps = $obRule->GetProperties();
+                $valueText = $parsedFilterValues[0]["VALUE_TEXT"];
+                $substitute = function ($template) use ($valueText, $arResult) {
+                    return str_replace(
+                        ["#VALUE#", "#SECTION_NAME#"],
+                        [$valueText, $arResult["CURRENT_SECTION_DATA"]["NAME"]],
+                        // "~VALUE" — исходный текст без экранирования спецсимволов
+                        // (GetProperties() отдаёт "VALUE" уже через htmlspecialchars).
+                        (string)($template["~VALUE"] ?? '')
+                    );
+                };
+
+                // Заголовок и meta применяются НИЖЕ, после bitrix:catalog.section — тот
+                // компонент вызван с SET_TITLE/SET_BROWSER_TITLE/SET_META_*=Y и иначе
+                // перетрёт эти значения.
+                $seoFilterTitleOverride = [
+                    "H1" => !empty($ruleProps["H1_TEMPLATE"]["~VALUE"]) ? $substitute($ruleProps["H1_TEMPLATE"]) : null,
+                    "TITLE" => !empty($ruleProps["TITLE_TEMPLATE"]["~VALUE"]) ? $substitute($ruleProps["TITLE_TEMPLATE"]) : null,
+                    "DESCRIPTION" => !empty($ruleProps["DESCRIPTION_TEMPLATE"]["~VALUE"]) ? $substitute($ruleProps["DESCRIPTION_TEMPLATE"]) : null,
+                ];
+
+                // Текстовый SEO-блок под товарами — применяется сразу, ничего его
+                // после этого места в шаблоне больше не перезаписывает.
+                if (!empty($ruleProps["SEO_TEXT_TEMPLATE"]["~VALUE"])) {
+                    $arResult["CURRENT_SECTION_DATA"]["DESCRIPTION"] = $substitute($ruleProps["SEO_TEXT_TEMPLATE"]);
+                }
+
+                $APPLICATION->SetPageProperty("robots", "index, follow");
+                $seoFilterRuleFound = true;
+            }
+        }
+
+        if (!$seoFilterRuleFound) {
+            // Комбинация валидна, но не размечена как посадочная: не мусорим индекс,
+            // но и не блокируем обход — canonical схлопывает её к странице раздела.
+            $APPLICATION->SetPageProperty("robots", "noindex, follow");
+            $APPLICATION->SetPageProperty("canonical_override", "/product-category/" . $sectionCode . "/");
+        }
+    }
 }
 
     ?>
@@ -184,6 +278,22 @@ if (!empty($arResult["VARIABLES"]["SECTION_CODE"])) {
                             ],
                             $component
                         );
+                        ?>
+                        <?
+                        // SEO умного фильтра — применяем ПОСЛЕ bitrix:catalog.section, который
+                        // сам выставляет title/description (SET_TITLE и т.п. выше) и иначе
+                        // затёр бы шаблонные значения, подготовленные выше по файлу.
+                        if (!empty($seoFilterTitleOverride)) {
+                            if ($seoFilterTitleOverride["H1"] !== null) {
+                                $APPLICATION->SetTitle($seoFilterTitleOverride["H1"]);
+                            }
+                            if ($seoFilterTitleOverride["TITLE"] !== null) {
+                                $APPLICATION->SetPageProperty("title", $seoFilterTitleOverride["TITLE"]);
+                            }
+                            if ($seoFilterTitleOverride["DESCRIPTION"] !== null) {
+                                $APPLICATION->SetPageProperty("description", $seoFilterTitleOverride["DESCRIPTION"]);
+                            }
+                        }
                         ?>
                     </div>
                 </div>
