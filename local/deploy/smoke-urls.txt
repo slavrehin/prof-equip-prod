@@ -1,0 +1,8 @@
+# Список путей для smoke-проверки после деплоя (local/deploy/smoke.sh).
+# По одному пути на строку, без домена. Строки с # — комментарии.
+# Дополняйте этот список своими важными страницами.
+
+/
+/product-category/prachechnoe-oborudovanie/
+/product/fermest-enzim/
+/product-category/stiralnye-mashiny/f/proizvoditel-is-fermest/
