@@ -152,7 +152,7 @@ function sendFormToBitrix24($RESULT_ID, $arFields) {
         $comments .= "URL: $url\n";
     }
     
-    $webhookUrl = 'https://profequip.bitrix24.ru/rest/195/omwt6dzhyxynebvj/';
+    $webhookUrl = BITRIX24_WEBHOOK_URL;
     
     // Данные для лида
     $leadData = [
