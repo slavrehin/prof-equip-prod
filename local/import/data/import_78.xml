@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Аксессуары для официантов" date="2026-03-11 13:28:23" total="7" id="78" code="aksessuary-dlya-ofitsiantov"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/bejsbolka-ofitsianta-10-tsvetov-st100-greiff/"/>
+    <product id="2" url="https://prof-equip.ru/product/galstuk-ofitsianta-10-tsvetov-st6921-greiff/"/>
+    <product id="3" url="https://prof-equip.ru/product/galstuk-lenta-ofitsianta-9-tsvetov-st297-greiff/"/>
+    <product id="4" url="https://prof-equip.ru/product/podtyazhki-ofitsianta-i-barmena-chernyj-st6941-greiff/"/>
+    <product id="5" url="https://prof-equip.ru/product/galstuk-babochka-ofitsianta-chernyj-st3907-greiff/"/>
+    <product id="6" url="https://prof-equip.ru/product/galstuk-8-sm-st6900-greiff/"/>
+    <product id="7" url="https://prof-equip.ru/product/tonkij-galstuk-6-sm-st6918-greiff/"/>
+  </products>
+</import>

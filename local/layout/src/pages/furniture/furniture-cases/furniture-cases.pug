@@ -1,0 +1,73 @@
+mixin furniture-cases()
+    section.furniture-cases
+        .furniture-cases__inner.container
+            h2.furniture-cases__title Примеры мебели
+            .furniture-cases-swiper 
+                .swiper-wrapper 
+                    .swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/furniture-cases/new.jpg',
+                                alt: 'case'
+                            })
+                    .swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/furniture-cases/1.jpg',
+                                src2x: 'assets/img/furniture-cases/1@2x.jpg',
+                                alt: 'case'
+                            })
+                    .swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/furniture-cases/2.jpg',
+                                src2x: 'assets/img/furniture-cases/2@2x.jpg',
+                                alt: 'case'
+                            })
+                    .swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/furniture-cases/3.jpg',
+                                src2x: 'assets/img/furniture-cases/3@2x.jpg',
+                                alt: 'case'
+                            })
+                    .swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/furniture-cases/1.jpg',
+                                src2x: 'assets/img/furniture-cases/1@2x.jpg',
+                                alt: 'case'
+                            })
+                    .swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/furniture-cases/2.jpg',
+                                src2x: 'assets/img/furniture-cases/2@2x.jpg',
+                                alt: 'case'
+                            })
+                    .swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/furniture-cases/3.jpg',
+                                src2x: 'assets/img/furniture-cases/3@2x.jpg',
+                                alt: 'case'
+                            })
+                .navigation 
+                    +button().furniture-cases__prev
+                        +svg('arrow-swiper-left')
+                    +button().furniture-cases__next
+                        +svg('arrow-swiper-right')
+            .furniture-cases__content 
+                .furniture-cases__content-text 
+                    p «Профэквип» специализируется на поставках как мягкой, так и корпусной мебели, предлагая разнообразные стили и решения от ведущих производителей. Мы поможем вам создать классический, современный, лофт, скандинавский или любой другой интерьер, отражающий вашу индивидуальность и привлекающий целевую аудиторию.
+                    +button({
+                        text: 'Получить консультацию'
+                    }).black.consultation__btn(data-modal-load='./modals/consultation-modal.html')
+                .furniture-cases__content-image 
+                    .image-wrapper 
+                        +img({
+                            src: 'assets/img/furniture-cases/4.jpg',
+                            src2x: 'assets/img/furniture-cases/4@2x.jpg',
+                            alt: 'case'
+                        })
+                    p Индивидуальный подход – один из ключевых принципов нашей работы. Мы внимательно изучаем потребности каждого клиента и разрабатываем персонализированные решения, учитывающие особенности помещения, бюджет и стилистические предпочтения. Выгодные цены, гибкие условия сотрудничества и возможность реализации проектов любой сложности делают «Профэквип» вашим идеальным партнером в создании успешного и прибыльного бизнеса.

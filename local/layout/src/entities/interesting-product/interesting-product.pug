@@ -1,0 +1,12 @@
+mixin interesting-product({src,src2x,title} ={})
+    a(href="#").interesting-product 
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'product'
+            })
+        .interesting-product__content 
+            p.product__title !{title}
+            button.btn.cost__btn 
+                span Подробнее

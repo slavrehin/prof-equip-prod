@@ -1,0 +1,24 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.areas-activity {
+	margin-bottom: rem(73);
+	.areas-activity__inner {
+		.areas-activity__title {
+			@include h2;
+			margin-bottom: rem(40);
+		}
+		.areas-activity__list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: rem(64);
+			row-gap: rem(50);
+			@media (max-width: $desktop-lg) {
+				gap: rem(25);
+			}
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+				gap: rem(60);
+			}
+		}
+	}
+}

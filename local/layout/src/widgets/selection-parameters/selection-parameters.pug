@@ -1,0 +1,27 @@
+mixin selection-parameters()
+    .selection-parameters
+        .selection-parameters__inner.container 
+            .selection-parameters__filters
+                p.filter__title Подбор по параметрам
+                button.btn.clear__btn Сбросить
+            .selection-parameters__list 
+                +selection-parameters-card({
+                    src: 'assets/img/selection-parameters/1.jpg',
+                    src2x: 'assets/img/selection-parameters/1@2x.jpg',
+                    title: 'Запасные части IMESA'
+                })
+                +selection-parameters-card({
+                    src: 'assets/img/selection-parameters/1.jpg',
+                    src2x: 'assets/img/selection-parameters/1@2x.jpg',
+                    title: 'Запасные части TOLON'
+                })
+                +selection-parameters-card({
+                    src: 'assets/img/selection-parameters/2.jpg',
+                    src2x: 'assets/img/selection-parameters/2@2x.jpg',
+                    title: 'Запасные части для кухонного оборудования'
+                })
+                +selection-parameters-card({
+                    src: 'assets/img/selection-parameters/3.jpg',
+                    src2x: 'assets/img/selection-parameters/3@2x.jpg',
+                    title: 'Запасные части для прачечного оборудования'
+                })

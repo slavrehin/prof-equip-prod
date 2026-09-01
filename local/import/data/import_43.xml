@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Линии раздачи" date="2026-03-11 13:20:21" total="16" id="43" code="linii-razdachi"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/oborudovanie-dlya-linii-razdachi-pitaniya-emainox-drop-in/"/>
+    <product id="2" url="https://prof-equip.ru/product/oborudovanie-dlya-shvedskogo-stola-emainox-self-700/"/>
+    <product id="3" url="https://prof-equip.ru/product/oborudovanie-dlya-shvedskogo-stola-emainox-self-800/"/>
+    <product id="4" url="https://prof-equip.ru/product/linii-razdachi-pitaniya-emainox-supreme/"/>
+    <product id="5" url="https://prof-equip.ru/product/holodilnye-vitriny-enofrigo-mondrian/"/>
+    <product id="6" url="https://prof-equip.ru/product/oborudovanie-shvedskogo-stola-enofrigo-doge/"/>
+    <product id="7" url="https://prof-equip.ru/product/oborudovanie-linii-razdachi-pitaniya-enofrigo-fast-gourmet/"/>
+    <product id="8" url="https://prof-equip.ru/product/vstraivaemoe-oborudovanie-dlya-linii-samoobsluzhivaniya-electrolux-servery-space/"/>
+    <product id="9" url="https://prof-equip.ru/product/linii-samoobsluzhivaniya-electrolux-fit-system/"/>
+    <product id="10" url="https://prof-equip.ru/product/linii-samoobsluzhivaniya-electrolux-self-service/"/>
+    <product id="11" url="https://prof-equip.ru/product/mobilnye-prilavki-dlya-detej-i-podrostkov-blanco-basic-line-kids/"/>
+    <product id="12" url="https://prof-equip.ru/product/mobilnye-prilavki-blanco-basic-line-design/"/>
+    <product id="13" url="https://prof-equip.ru/product/oborudovanie-razdachi-blyud-blanco-manhattan/"/>
+    <product id="14" url="https://prof-equip.ru/product/teplovye-prilavki-blanco-basic-line-emotion/"/>
+    <product id="15" url="https://prof-equip.ru/product/sistemy-razdachi-blyud-blanco-basic-line-smart/"/>
+    <product id="16" url="https://prof-equip.ru/product/innovatsionnyj-bufet-enofrigo-widevision/"/>
+  </products>
+</import>

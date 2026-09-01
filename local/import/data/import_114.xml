@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Электрические плиты" date="2026-03-11 13:04:13" total="8" id="114" code="elektricheskie-plity"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/elektricheskaya-plita-mkn-optima-850-vitro-4-gn-2-1-s-elektricheskim-shkafom/"/>
+    <product id="2" url="https://prof-equip.ru/product/elektricheskaya-plita-vitro-4/"/>
+    <product id="3" url="https://prof-equip.ru/product/elektricheskaya-plita-vitro-2/"/>
+    <product id="4" url="https://prof-equip.ru/product/elektricheskaya-plita-mkn-optima-850-gn-2-1-s-varochnoj-poverhnostyu-na-4-zony-i-elektricheskim-shkafom/"/>
+    <product id="5" url="https://prof-equip.ru/product/elektricheskaya-plita-mkn-optima-850-s-varochnoj-poverhnostyu-na-4-zony/"/>
+    <product id="6" url="https://prof-equip.ru/product/elektricheskaya-plita-mkn-optima-850-s-varochnoj-poverhnostyu-na-2-zony/"/>
+    <product id="7" url="https://prof-equip.ru/product/elektricheskaya-plita-mkn-optima-850-gn-2-1-s-4-konforkami-i-elektricheskim-shkafom-2/"/>
+    <product id="8" url="https://prof-equip.ru/product/elektricheskaya-plita-mkn-optima-850-gn-2-1-s-4-konforkami-i-elektricheskim-shkafom/"/>
+  </products>
+</import>

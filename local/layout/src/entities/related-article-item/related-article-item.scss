@@ -1,0 +1,38 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.related-article-item {
+	display: flex;
+	gap: rem(20);
+	.image-wrapper {
+		min-width: rem(110);
+		min-height: rem(80);
+		max-width: rem(110);
+		max-height: rem(80);
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.related-article__content {
+		display: flex;
+		flex-direction: column;
+		gap: rem(5);
+		.title {
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(15);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(24);
+		}
+		.date {
+			color: rgba(27, 33, 84, 0.5);
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+		}
+	}
+}

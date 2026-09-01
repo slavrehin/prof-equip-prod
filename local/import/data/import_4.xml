@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Химия профессиональная" date="2026-03-11 13:25:33" total="35" id="4" code="professionalnaya-himiya"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/fermest-enzim/"/>
+    <product id="2" url="https://prof-equip.ru/product/fermest-aktiv-mineral/"/>
+    <product id="3" url="https://prof-equip.ru/product/fermest-aktiv-plyus/"/>
+    <product id="4" url="https://prof-equip.ru/product/fermest-aktiv/"/>
+    <product id="5" url="https://prof-equip.ru/product/fermest-bust/"/>
+    <product id="6" url="https://prof-equip.ru/product/fermest-standart/"/>
+    <product id="7" url="https://prof-equip.ru/product/fermest-nejtral/"/>
+    <product id="8" url="https://prof-equip.ru/product/fermest-soft/"/>
+    <product id="9" url="https://prof-equip.ru/product/fermest-dezostar-hipo/"/>
+    <product id="10" url="https://prof-equip.ru/product/fermest-forte/"/>
+    <product id="11" url="https://prof-equip.ru/product/fermest-dikso/"/>
+    <product id="12" url="https://prof-equip.ru/product/a02-lagoon-colour-transfer-reducer-electrolux/"/>
+    <product id="13" url="https://prof-equip.ru/product/a01-lagoon-pre-treatment-electrolux/"/>
+    <product id="14" url="https://prof-equip.ru/product/w03-lagoon-sensitive-conditioner-electrolux/"/>
+    <product id="15" url="https://prof-equip.ru/product/w02-lagoon-delicate-detergent-electrolux/"/>
+    <product id="16" url="https://prof-equip.ru/product/w01-lagoon-sensitive-detergent-electrolux/"/>
+    <product id="17" url="https://prof-equip.ru/product/sultrasoft-hi/"/>
+    <product id="18" url="https://prof-equip.ru/product/sultraspot-tint/"/>
+    <product id="19" url="https://prof-equip.ru/product/sultraspot-soft/"/>
+    <product id="20" url="https://prof-equip.ru/product/sultraspot-protein/"/>
+    <product id="21" url="https://prof-equip.ru/product/sultraspot-mineral/"/>
+    <product id="22" url="https://prof-equip.ru/product/sultraspot-metal/"/>
+    <product id="23" url="https://prof-equip.ru/product/sultraspot-color/"/>
+    <product id="24" url="https://prof-equip.ru/product/rastvoritel-higlo/"/>
+    <product id="25" url="https://prof-equip.ru/product/sultrafresh/"/>
+    <product id="26" url="https://prof-equip.ru/product/sultracare/"/>
+    <product id="27" url="https://prof-equip.ru/product/sultraqua/"/>
+    <product id="28" url="https://prof-equip.ru/product/sultrasoft-deo-hi/"/>
+    <product id="29" url="https://prof-equip.ru/product/sultrex-hi/"/>
+    <product id="30" url="https://prof-equip.ru/product/sultrasoft-deo-hc/"/>
+    <product id="31" url="https://prof-equip.ru/product/sultrasoft-hc/"/>
+    <product id="32" url="https://prof-equip.ru/product/sultrex-hc/"/>
+    <product id="33" url="https://prof-equip.ru/product/sultrasoft-deo-p/"/>
+    <product id="34" url="https://prof-equip.ru/product/sultrasoft-p/"/>
+    <product id="35" url="https://prof-equip.ru/product/sultrex-p/"/>
+  </products>
+</import>

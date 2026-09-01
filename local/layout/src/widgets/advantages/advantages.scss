@@ -1,0 +1,30 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.advantages {
+	margin-bottom: rem(80);
+	@media (max-width: $laptop) {
+		margin-bottom: rem(110);
+	}
+	@media (max-width: $tab-sm) {
+		margin-bottom: rem(40);
+	}
+	.advantages__inner {
+		.advantages__title {
+			@include h2;
+			margin-bottom: rem(40);
+		}
+		.advantages__list {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			column-gap: rem(50);
+			row-gap: rem(25);
+			@media (max-width: $desktop-lg) {
+				grid-template-columns: repeat(2, 1fr);
+				gap: rem(25);
+			}
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+}

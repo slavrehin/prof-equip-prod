@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Упаковочное оборудование" date="2026-03-11 13:09:02" total="14" id="23" code="upakovochnoe-oborudovanie"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/sistema-monitoringa-i-planirovaniya-proizvodstva-jensen-target-monitoring/"/>
+    <product id="2" url="https://prof-equip.ru/product/impulsnye-upakovochnye-mashiny-hawo-hpl-1500-1800-ms-dlya-matrasov/"/>
+    <product id="3" url="https://prof-equip.ru/product/vakuumnaya-upakovochnaya-mashina-hawo-hv-630-ap-2/"/>
+    <product id="4" url="https://prof-equip.ru/product/vakuumnaya-upakovochnaya-mashina-hawo-hv-450-ap-2/"/>
+    <product id="5" url="https://prof-equip.ru/product/impulsnyj-termosvarshhik-hawo-hpl-isz-dlya-germetizatsii-polietilenovoj-upakovki/"/>
+    <product id="6" url="https://prof-equip.ru/product/mashina-upakovochnaya-dlya-odezhdy-hawo-hp-500-tm/"/>
+    <product id="7" url="https://prof-equip.ru/product/mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-ws/"/>
+    <product id="8" url="https://prof-equip.ru/product/servisnyj-paket-jensen-futurial/"/>
+    <product id="9" url="https://prof-equip.ru/product/mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-kw-p/"/>
+    <product id="10" url="https://prof-equip.ru/product/mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-kst-p-bs/"/>
+    <product id="11" url="https://prof-equip.ru/product/mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-kst-bs/"/>
+    <product id="12" url="https://prof-equip.ru/product/mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-kst-p/"/>
+    <product id="13" url="https://prof-equip.ru/product/mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-kw/"/>
+    <product id="14" url="https://prof-equip.ru/product/mashina-upakovochnaya-dlya-odezhdy-hawo-kst-630/"/>
+  </products>
+</import>

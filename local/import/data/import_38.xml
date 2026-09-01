@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Барное оборудование" date="2026-03-11 13:21:16" total="3" id="38" code="barnoe-oborudovanie"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/oborudovanie-dlya-bara-emainox-frigobar/"/>
+    <product id="2" url="https://prof-equip.ru/product/barnaya-stantsiya-profitex/"/>
+    <product id="3" url="https://prof-equip.ru/product/oborudovanie-dlya-bara-tecnosteel-bar/"/>
+  </products>
+</import>

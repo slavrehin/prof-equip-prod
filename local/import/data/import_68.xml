@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Машины химчистки" date="2026-03-11 13:07:08" total="17" id="68" code="mashiny-himchistki"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-a90l-zagruzka-40-kg/"/>
+    <product id="2" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-a80l-zagruzka-32-kg/"/>
+    <product id="3" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-a60l/"/>
+    <product id="4" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-a50l-zagruzka-20-kg/"/>
+    <product id="5" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-a40l-zagruzka-18-kg/"/>
+    <product id="6" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-a60s-zagruzka-25-kg/"/>
+    <product id="7" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-a50s-zagruzka-20-kg/"/>
+    <product id="8" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-a40s-zagruzka-18-kg/"/>
+    <product id="9" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-s15-lt3-zagruzka-15-kg/"/>
+    <product id="10" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-s15-lt2-zagruzka-15-kg/"/>
+    <product id="11" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-s15-st2-zagruzka-15-kg/"/>
+    <product id="12" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-s12-lt3-zagruzka-12-kg/"/>
+    <product id="13" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-s12-lt2-zagruzka-12-kg/"/>
+    <product id="14" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-s12-st2-zagruzka-12-kg/"/>
+    <product id="15" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-s10-lt3-zagruzka-10-kg/"/>
+    <product id="16" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-s10-lt2-zagruzka-10-kg/"/>
+    <product id="17" url="https://prof-equip.ru/product/mashina-himicheskoj-chistki-sovrana-s10-st2-zagruzka-10-kg/"/>
+  </products>
+</import>

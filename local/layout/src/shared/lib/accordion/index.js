@@ -1,0 +1,1 @@
+export { initAccordion } from './accordion';

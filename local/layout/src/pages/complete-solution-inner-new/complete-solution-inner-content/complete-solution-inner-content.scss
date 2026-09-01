@@ -1,0 +1,113 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.complete-solution-inner-content-wrapper {
+	margin-top: rem(105);
+	@media (max-width: $tab-sm) {
+		margin-top: rem(129);
+	}
+	.complete-solution-inner-content {
+		margin-bottom: rem(64);
+		@media (max-width: $tab-sm) {
+			margin-bottom: rem(50);
+		}
+		p {
+			color: #000;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(24);
+			margin-bottom: rem(10);
+		}
+		.images {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: rem(24);
+			margin: rem(48) 0;
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+				gap: rem(15);
+				margin: rem(28) 0;
+			}
+			.image-wrapper {
+				position: relative;
+				padding-bottom: 75%;
+				img {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					object-fit: contain;
+				}
+			}
+		}
+		table {
+			width: 100%;
+			margin-bottom: rem(48);
+			@media (max-width: $tab-sm) {
+				margin-bottom: rem(28);
+			}
+			thead {
+				tr {
+					width: 100%;
+					th {
+						border: 1px solid #e6e7e9;
+						width: 100%;
+						text-align: center;
+						color: #000;
+						font-family: 'Montserrat', sans-serif;
+						padding: rem(10);
+						font-size: rem(16);
+						font-style: normal;
+						font-weight: 600;
+						line-height: rem(24); /* 150% */
+					}
+				}
+			}
+			tbody {
+				tr {
+					display: grid;
+					grid-template-columns: rem(111) 1fr rem(382);
+					@media (max-width: $tab-sm) {
+						grid-template-columns: rem(32) 1fr rem(82);
+					}
+					td {
+						border: 1px solid #e6e7e9;
+						color: #000;
+						font-family: 'Montserrat', sans-serif;
+						padding: rem(10) rem(7);
+						font-size: rem(16);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(24); /* 150% */
+						&:first-child,
+						&:last-child {
+							text-align: center;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+						}
+					}
+				}
+			}
+		}
+		& > .image-wrapper {
+			position: relative;
+			width: auto;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			@media (max-width: $tab-sm) {
+				width: 100%;
+			}
+			img {
+				width: auto;
+				height: 100%;
+				object-fit: contain;
+				@media (max-width: $tab-sm) {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

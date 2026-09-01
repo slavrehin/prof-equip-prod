@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Prof Equip</title>
+    <meta name="description" content="template">
+    <meta name="keywords" content="template">
+    <meta name="robots" content="index, follow">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="./assets/static/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/static/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="./assets/static/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/static/apple-touch-icon.png">
+    <link rel="manifest" href="./assets/static/site.webmanifest.json">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/css/intlTelInput.css">
+    <link href="./assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header black">
+        <div class="header__inner container"><a class="logo" href="home.html">
+                <div class="white-logo">
+                    <picture>
+                        <source srcset="assets/img/icons/logo.webp, assets/img/icons/logo@2x.webp 2x" type="image/webp"><img src="assets/img/icons/logo.png" srcset="assets/img/icons/logo.png, assets/img/icons/logo@2x.png 2x" alt="logo">
+                    </picture>
+                </div>
+                <div class="color-logo">
+                    <picture>
+                        <source srcset="assets/img/icons/logo-filled.webp" type="image/webp"><img src="assets/img/icons/logo-filled.png" srcset="assets/img/icons/logo-filled.png" alt="logo">
+                    </picture>
+                </div>
+            </a><button class="btn primary s burger__btn" type="button"><span class="burger__icon"><span></span><span></span><span></span></span><span class="btn__text">Каталог</span></button>
+            <nav class="header__navigation"><button class="btn nav__link direction__btn" type="button">Направления</button><a class="nav__link" href="#">Проекты</a><a class="nav__link" href="#">Бренды</a><button class="btn nav__link services__btn" type="button">Услуги</button><a class="nav__link" href="about.html">О компании</a></nav>
+            <div class="header__features">
+                <div class="header__contacts"><a href="tel:+74993023762"><svg>
+                            <use xlink:href="assets/img/sprite.svg#phone"></use>
+                        </svg>+7 (499) 302-37-62 </a><a href="mailto:INFO@PROF-EQUIP.RU"><svg>
+                            <use xlink:href="assets/img/sprite.svg#mail"></use>
+                        </svg>INFO@PROF-EQUIP.RU</a></div><button class="btn phone__btn" type="button" aria-label="Телефон"><svg>
+                        <use xlink:href="assets/img/sprite.svg#phone-fill"></use>
+                    </svg></button>
+                <div class="search-btns"><button class="btn search__btn" type="button" aria-label="Поиск"><svg>
+                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                        </svg></button><button class="btn close-search__btn hidden" type="button" aria-label="закрыть поиск"><svg>
+                            <use xlink:href="assets/img/sprite.svg#close"></use>
+                        </svg></button></div><button class="btn burger__btn" type="button" aria-label="Меню" data-modal-load="./modals/mobile-menu-modal.html"><svg>
+                        <use xlink:href="assets/img/sprite.svg#burger"></use>
+                    </svg></button>
+            </div>
+        </div>
+        <div class="direction-catalog">
+            <div class="direction-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">кухня</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Прачечная</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Текстиль</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Химия</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Мебель</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="services-catalog">
+            <div class="services-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Консалтинг</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Монтажные и пусконаладочные работы</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Комплексное оснащение отелей и гостиниц</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Поставка аксессуаров и запасных частей</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Продажа оборудования</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Сервисное обслуживание</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Технологическое проектирование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="header-catalog">
+            <div class="header-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Прачечное оборудование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Текстиль</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Запасные части</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Химия</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Кухонное оборудование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="search-block">
+            <form class="search-block__inner container">
+                <div class="input-wrapper">
+                    <div class="input__row">
+                        <div class="input-wrapper"><input class="input input__valid-name" placeholder="Поиск" value="" name=""></div>
+                    </div><button class="btn submit-search__btn"><svg>
+                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                        </svg></button>
+                </div>
+            </form>
+        </div>
+    </header>
+    <main>
+        <section class="project-content">
+            <div class="project-content__inner container">
+                <div class="project-content__wrapper">
+                    <div class="title-block">
+                        <h1 class="title-block__title">MANTERA Supreme Seaside 5*</h1>
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs__inner container"><a class="breadcrumb__link" href="home.html">Главная </a><a class="breadcrumb__link" href="brands.html">/ Готовые решения </a><a class="breadcrumb__link" href="brand4.html">/ Коммерческая прачечная</a></div>
+                        </div>
+                    </div>
+                    <div class="project-content__swiper-wrapper">
+                        <div class="project-content__swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><a class="image-wrapper" href="assets/img/project-content/1@2x.png" data-fancybox="project">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/1.webp, assets/img/project-content/1@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/1.png" srcset="assets/img/project-content/1.png, assets/img/project-content/1@2x.png 2x" alt="image">
+                                        </picture>
+                                    </a></div>
+                                <div class="swiper-slide"><a class="image-wrapper" href="assets/img/project-content/2@2x.png" data-fancybox="project">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/2.webp, assets/img/project-content/2@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/2.png" srcset="assets/img/project-content/2.png, assets/img/project-content/2@2x.png 2x" alt="image">
+                                        </picture>
+                                    </a></div>
+                                <div class="swiper-slide"><a class="image-wrapper" href="assets/img/project-content/3@2x.png" data-fancybox="project">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/3.webp, assets/img/project-content/3@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/3.png" srcset="assets/img/project-content/3.png, assets/img/project-content/3@2x.png 2x" alt="image">
+                                        </picture>
+                                    </a></div>
+                                <div class="swiper-slide"><a class="image-wrapper" href="assets/img/project-content/4@2x.png" data-fancybox="project">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/4.webp, assets/img/project-content/4@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/4.png" srcset="assets/img/project-content/4.png, assets/img/project-content/4@2x.png 2x" alt="image">
+                                        </picture>
+                                    </a></div>
+                                <div class="swiper-slide"><a class="image-wrapper" href="assets/img/project-content/5@2x.png" data-fancybox="project">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/5.webp, assets/img/project-content/5@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/5.png" srcset="assets/img/project-content/5.png, assets/img/project-content/5@2x.png 2x" alt="image">
+                                        </picture>
+                                    </a></div>
+                            </div>
+                            <div class="navigation"><button class="btn swiper-prev"><svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-swiper-left"></use>
+                                    </svg></button><button class="btn swiper-next"><svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-swiper-right"></use>
+                                    </svg></button></div>
+                        </div>
+                        <div class="project-content__swiper-thumbs">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/1.webp, assets/img/project-content/1@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/1.png" srcset="assets/img/project-content/1.png, assets/img/project-content/1@2x.png 2x" alt="image">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/2.webp, assets/img/project-content/2@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/2.png" srcset="assets/img/project-content/2.png, assets/img/project-content/2@2x.png 2x" alt="image">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/3.webp, assets/img/project-content/3@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/3.png" srcset="assets/img/project-content/3.png, assets/img/project-content/3@2x.png 2x" alt="image">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/4.webp, assets/img/project-content/4@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/4.png" srcset="assets/img/project-content/4.png, assets/img/project-content/4@2x.png 2x" alt="image">
+                                        </picture>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="image-wrapper">
+                                        <picture>
+                                            <source srcset="assets/img/project-content/5.webp, assets/img/project-content/5@2x.webp 2x" type="image/webp"><img src="assets/img/project-content/5.png" srcset="assets/img/project-content/5.png, assets/img/project-content/5@2x.png 2x" alt="image">
+                                        </picture>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content__info">
+                        <h3 class="info__title">Оснащение прачечного комплекса премиального курорта</h3>
+                        <div class="info__list">
+                            <div class="info__item">
+                                <p class="label">Объект:</p>
+                                <p class="value">MANTERA Supreme Seaside 5*</p>
+                            </div>
+                            <div class="info__item">
+                                <p class="label">Локация:</p>
+                                <p class="value">Сочи, первая береговая линия</p>
+                            </div>
+                            <div class="info__item">
+                                <p class="label">Направление:</p>
+                                <p class="value">Профессиональная прачечная, аквачистка, химическая чистка, финишная обработка</p>
+                            </div>
+                            <div class="info__item">
+                                <p class="label">Начало сотрудничества:</p>
+                                <p class="value">2024 год</p>
+                            </div>
+                            <div class="info__item">
+                                <p class="label">Формат объекта:</p>
+                                <p class="value">Премиальный курорт с номерным фондом, ресторанами, барами, бассейнами и термальным комплексом. По данным страницы проекта, инфраструктура включает 400 дизайнерских номеров, 11 бассейнов, термальный комплекс, 5 ресторанов и 6 баров.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content__text accordion">
+                        <div class="accordion__item active"><button class="btn accordion__title">
+                                <h2>Задача проекта</h2>
+                                <div class="accordion__icon"><svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow2"></use>
+                                    </svg></div>
+                            </button>
+                            <div class="accordion__content">
+                                <p>Перед ПРОФЭКВИП стояла задача подобрать и поставить профессиональное оборудование для прачечного комплекса курортного объекта уровня 5*, где ежедневно обрабатывается большой объём гостиничного текстиля.</p>
+                                <p>Важно было предусмотреть не только базовую стирку и сушку, но и полный цикл обработки: аквачистку, химическую чистку, глажение, финишную обработку, пятновыведение и упаковку изделий.</p><strong>Ключевые задачи:</strong>
+                                <ul>
+                                    <li>обеспечить стабильную обработку больших объёмов белья;</li>
+                                    <li>подобрать оборудование для разных типов текстиля и изделий;</li>
+                                    <li>предусмотреть решения для деликатной обработки и химической чистки;</li>
+                                    <li>сформировать технологический комплекс, соответствующий уровню премиального курорта;</li>
+                                    <li>обеспечить объект профессиональным оборудованием для ежедневной интенсивной эксплуатации.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="accordion__item"><button class="btn accordion__title">
+                                <h2>Особенности проекта</h2>
+                                <div class="accordion__icon"><svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow2"></use>
+                                    </svg></div>
+                            </button>
+                            <div class="accordion__content">
+                                <p>MANTERA Supreme Seaside — объект с высокой нагрузкой на прачечную службу. Большой номерной фонд, развитая SPA- и ресторанная инфраструктура, бассейны и термальный комплекс формируют постоянный поток белья, полотенец, халатов, униформы и других текстильных изделий.</p>
+                                <p>Поэтому в проекте был сделан акцент на комплексность. В состав поставки вошли стиральные и сушильные машины, оборудование для аквачистки и химической чистки, гладильные каландры, пароманекены, гладильный стол, пятновыводной стол, упаковочная машина и вспомогательное оборудование.</p>
+                                <p>Такой подход позволяет закрыть основные этапы обработки текстиля внутри объекта и поддерживать стабильное качество, необходимое для гостиницы премиального уровня.</p>
+                            </div>
+                        </div>
+                        <div class="accordion__item"><button class="btn accordion__title">
+                                <h2>Выполненные работы</h2>
+                                <div class="accordion__icon"><svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow2"></use>
+                                    </svg></div>
+                            </button>
+                            <div class="accordion__content">
+                                <p>В рамках проекта ПРОФЭКВИП обеспечил подбор и поставку профессионального прачечного оборудования под задачи объекта.</p>
+                                <ul>
+                                    <li>анализ задач прачечного комплекса;</li>
+                                    <li>подбор оборудования под загрузку и типы текстиля;</li>
+                                    <li>поставка профессионального оборудования;</li>
+                                    <li>комплектация участков стирки, сушки, химической чистки, глажения и финишной обработки;</li>
+                                    <li>формирование решения для полного цикла обработки изделий.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content__products-swiper-wrapper accordion">
+                        <div class="accordion__item"><button class="btn accordion__title">
+                                <h3>Осуществлена поставка и монтаж оборудования:</h3>
+                                <div class="accordion__icon"><svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow2"></use>
+                                    </svg></div>
+                            </button>
+                            <div class="accordion__content">
+                                <div class="project-content__products-swiper">
+                                    <div class="swiper-wrapper"><a class="catalog-card swiper-slide" href="#">
+                                            <div class="image-wrapper">
+                                                <picture>
+                                                    <source srcset="assets/img/catalog/card.webp, assets/img/catalog/card@2x.webp 2x" type="image/webp"><img src="assets/img/catalog/card.jpg" srcset="assets/img/catalog/card.jpg, assets/img/catalog/card@2x.jpg 2x" alt="catalog card">
+                                                </picture>
+                                            </div>
+                                            <div class="catalog-card__content">
+                                                <p class="catalog-card__title">Электрическая керамическая варочная поверхность MKN VITRO 2</p><button class="btn cost__btn" data-modal-load="./modals/cost-modal.html"><span>ЗАПРОСИТЬ СТОИМОСТЬ</span></button>
+                                            </div>
+                                        </a><a class="catalog-card swiper-slide" href="#">
+                                            <div class="image-wrapper">
+                                                <picture>
+                                                    <source srcset="assets/img/catalog/card.webp, assets/img/catalog/card@2x.webp 2x" type="image/webp"><img src="assets/img/catalog/card.jpg" srcset="assets/img/catalog/card.jpg, assets/img/catalog/card@2x.jpg 2x" alt="catalog card">
+                                                </picture>
+                                            </div>
+                                            <div class="catalog-card__content">
+                                                <p class="catalog-card__title">Газовая плита MKN GN 2/1 с 4 конфорками и газовым шкафом</p><button class="btn cost__btn" data-modal-load="./modals/cost-modal.html"><span>ЗАПРОСИТЬ СТОИМОСТЬ</span></button>
+                                            </div>
+                                        </a><a class="catalog-card swiper-slide" href="#">
+                                            <div class="image-wrapper">
+                                                <picture>
+                                                    <source srcset="assets/img/catalog/card.webp, assets/img/catalog/card@2x.webp 2x" type="image/webp"><img src="assets/img/catalog/card.jpg" srcset="assets/img/catalog/card.jpg, assets/img/catalog/card@2x.jpg 2x" alt="catalog card">
+                                                </picture>
+                                            </div>
+                                            <div class="catalog-card__content">
+                                                <p class="catalog-card__title">Газовая плита MKN GN 2/1 с 4 конфорками и электрическим шкафом</p><button class="btn cost__btn" data-modal-load="./modals/cost-modal.html"><span>ЗАПРОСИТЬ СТОИМОСТЬ</span></button>
+                                            </div>
+                                        </a><a class="catalog-card swiper-slide" href="#">
+                                            <div class="image-wrapper">
+                                                <picture>
+                                                    <source srcset="assets/img/catalog/card.webp, assets/img/catalog/card@2x.webp 2x" type="image/webp"><img src="assets/img/catalog/card.jpg" srcset="assets/img/catalog/card.jpg, assets/img/catalog/card@2x.jpg 2x" alt="catalog card">
+                                                </picture>
+                                            </div>
+                                            <div class="catalog-card__content">
+                                                <p class="catalog-card__title">Газовая плита MKN с 4 конфорками</p><button class="btn cost__btn" data-modal-load="./modals/cost-modal.html"><span>ЗАПРОСИТЬ СТОИМОСТЬ</span></button>
+                                            </div>
+                                        </a><a class="catalog-card swiper-slide" href="#">
+                                            <div class="image-wrapper">
+                                                <picture>
+                                                    <source srcset="assets/img/catalog/card.webp, assets/img/catalog/card@2x.webp 2x" type="image/webp"><img src="assets/img/catalog/card.jpg" srcset="assets/img/catalog/card.jpg, assets/img/catalog/card@2x.jpg 2x" alt="catalog card">
+                                                </picture>
+                                            </div>
+                                            <div class="catalog-card__content">
+                                                <p class="catalog-card__title">Электрическая керамическая варочная поверхность MKN VITRO 2</p><button class="btn cost__btn" data-modal-load="./modals/cost-modal.html"><span>ЗАПРОСИТЬ СТОИМОСТЬ</span></button>
+                                            </div>
+                                        </a><a class="catalog-card swiper-slide" href="#">
+                                            <div class="image-wrapper">
+                                                <picture>
+                                                    <source srcset="assets/img/catalog/card.webp, assets/img/catalog/card@2x.webp 2x" type="image/webp"><img src="assets/img/catalog/card.jpg" srcset="assets/img/catalog/card.jpg, assets/img/catalog/card@2x.jpg 2x" alt="catalog card">
+                                                </picture>
+                                            </div>
+                                            <div class="catalog-card__content">
+                                                <p class="catalog-card__title">Газовая плита MKN GN 2/1 с 4 конфорками и газовым шкафом</p><button class="btn cost__btn" data-modal-load="./modals/cost-modal.html"><span>ЗАПРОСИТЬ СТОИМОСТЬ</span></button>
+                                            </div>
+                                        </a><a class="catalog-card swiper-slide" href="#">
+                                            <div class="image-wrapper">
+                                                <picture>
+                                                    <source srcset="assets/img/catalog/card.webp, assets/img/catalog/card@2x.webp 2x" type="image/webp"><img src="assets/img/catalog/card.jpg" srcset="assets/img/catalog/card.jpg, assets/img/catalog/card@2x.jpg 2x" alt="catalog card">
+                                                </picture>
+                                            </div>
+                                            <div class="catalog-card__content">
+                                                <p class="catalog-card__title">Газовая плита MKN GN 2/1 с 4 конфорками и электрическим шкафом</p><button class="btn cost__btn" data-modal-load="./modals/cost-modal.html"><span>ЗАПРОСИТЬ СТОИМОСТЬ</span></button>
+                                            </div>
+                                        </a><a class="catalog-card swiper-slide" href="#">
+                                            <div class="image-wrapper">
+                                                <picture>
+                                                    <source srcset="assets/img/catalog/card.webp, assets/img/catalog/card@2x.webp 2x" type="image/webp"><img src="assets/img/catalog/card.jpg" srcset="assets/img/catalog/card.jpg, assets/img/catalog/card@2x.jpg 2x" alt="catalog card">
+                                                </picture>
+                                            </div>
+                                            <div class="catalog-card__content">
+                                                <p class="catalog-card__title">Газовая плита MKN с 4 конфорками</p><button class="btn cost__btn" data-modal-load="./modals/cost-modal.html"><span>ЗАПРОСИТЬ СТОИМОСТЬ</span></button>
+                                            </div>
+                                        </a></div>
+                                    <div class="navigation"><button class="btn swiper-prev"><svg>
+                                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-left"></use>
+                                            </svg></button><button class="btn swiper-next"><svg>
+                                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-right"></use>
+                                            </svg></button></div>
+                                    <div class="pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-content__brands">
+                <h3 class="container">Бренды, задействованные в проекте:</h3>
+                <div class="project-content__brands-list">
+                    <div class="project-content__brands-track">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/project-brands/1.webp, assets/img/project-brands/1@2x.webp 2x" type="image/webp"><img src="assets/img/project-brands/1.png" srcset="assets/img/project-brands/1.png, assets/img/project-brands/1@2x.png 2x" alt="brand">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="calculate-project">
+            <div class="calculate-project__inner container">
+                <div class="calculate-project__text">
+                    <div class="calculate-project__text_top">
+                        <h2 class="calculate-project__title">Рассчитать проект</h2>
+                        <p class="calculate-project__descr">Оставьте заявку и получите консультацию и расчеты по вашему проекту</p>
+                    </div>
+                    <div class="calculate-project__text_bottom">
+                        <p class="calculate-project__alert">Или позвоните нам по телефону, мы всегда на связи!</p><a class="calculate-project__phone" href="tel:+74993023762"><img src="assets/img/icons/phone.svg" alt="phone">+7 (499) 302-37-62</a>
+                    </div>
+                </div>
+                <form class="calculate-project-form form" novalidate="novalidate">
+                    <div class="inputs">
+                        <div class="input__row">
+                            <div class="input-wrapper"><input class="input input__valid-name" placeholder="Имя" value="" name="" required><span class="req-star">*</span></div>
+                        </div>
+                        <div class="input__row">
+                            <div class="input-wrapper"><input class="input input__valid-phone" placeholder="Телефон" value="" name="" required id="phone"><span class="req-star">*</span></div>
+                        </div>
+                        <div class="input__row">
+                            <div class="input-wrapper"><input class="input" placeholder="Компания" value="" name=""></div>
+                        </div>
+                        <div class="input__row">
+                            <div class="input-wrapper"><input class="input" placeholder="E-mail" value="" name=""></div>
+                        </div>
+                    </div>
+                    <p class="hint"><span>* </span>- обязательные поля</p><button class="btn gradient" type="submit"><span class="btn__text">Рассчитать</span></button>
+                    <p class="alert">Нажимая на кнопку, вы соглашаетесь с <a href="policy.html" target="_blank">политикой обработки персональных данных</a></p>
+                </form>
+            </div>
+        </section>
+        <div class="navigation-links">
+            <div class="navigation-links__inner container"><a class="navigation__link" href="#"><svg>
+                        <use xlink:href="assets/img/sprite.svg#arrow-swiper-left"></use>
+                    </svg>
+                    <div class="navigation__link-text">
+                        <p class="hint">Предыдущая</p>
+                        <p class="title">MANTERA Supreme Seaside 5*</p>
+                    </div>
+                </a><a class="navigation__link" href="#">
+                    <div class="navigation__link-text">
+                        <p class="hint">Следующая</p>
+                        <p class="title">Прачечная “Стандарт чистоты”</p>
+                    </div><svg>
+                        <use xlink:href="assets/img/sprite.svg#arrow-swiper-right"></use>
+                    </svg>
+                </a></div>
+        </div>
+        <section class="objects">
+            <div class="objects__inner container">
+                <h3>Другие объекты</h3>
+                <div class="objects__swiper">
+                    <div class="swiper-wrapper"><a class="swiper-slide" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/objects/1.webp, assets/img/objects/1@2x.webp 2x" type="image/webp"><img src="assets/img/objects/1.jpg" srcset="assets/img/objects/1.jpg, assets/img/objects/1@2x.jpg 2x" alt="object">
+                                </picture>
+                            </div>
+                            <div class="object__content">
+                                <p class="object__title">Отель RUMA</p>
+                                <p class="object__date">24.03.2025</p>
+                            </div>
+                        </a><a class="swiper-slide" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/objects/2.webp, assets/img/objects/2@2x.webp 2x" type="image/webp"><img src="assets/img/objects/2.jpg" srcset="assets/img/objects/2.jpg, assets/img/objects/2@2x.jpg 2x" alt="object">
+                                </picture>
+                            </div>
+                            <div class="object__content">
+                                <p class="object__title">VLADIVOSTOK Grand Hotel & SPA</p>
+                                <p class="object__date">24.03.2025</p>
+                            </div>
+                        </a><a class="swiper-slide" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/objects/3.webp, assets/img/objects/3@2x.webp 2x" type="image/webp"><img src="assets/img/objects/3.jpg" srcset="assets/img/objects/3.jpg, assets/img/objects/3@2x.jpg 2x" alt="object">
+                                </picture>
+                            </div>
+                            <div class="object__content">
+                                <p class="object__title">Riviera Wellness Resort</p>
+                                <p class="object__date">24.03.2025</p>
+                            </div>
+                        </a><a class="swiper-slide" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/objects/4.webp, assets/img/objects/4@2x.webp 2x" type="image/webp"><img src="assets/img/objects/4.jpg" srcset="assets/img/objects/4.jpg, assets/img/objects/4@2x.jpg 2x" alt="object">
+                                </picture>
+                            </div>
+                            <div class="object__content">
+                                <p class="object__title">MANTERA Supreme Seaside 5*</p>
+                                <p class="object__date">24.03.2025</p>
+                            </div>
+                        </a><a class="swiper-slide" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/objects/1.webp, assets/img/objects/1@2x.webp 2x" type="image/webp"><img src="assets/img/objects/1.jpg" srcset="assets/img/objects/1.jpg, assets/img/objects/1@2x.jpg 2x" alt="object">
+                                </picture>
+                            </div>
+                            <div class="object__content">
+                                <p class="object__title">Отель RUMA</p>
+                                <p class="object__date">24.03.2025</p>
+                            </div>
+                        </a><a class="swiper-slide" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/objects/2.webp, assets/img/objects/2@2x.webp 2x" type="image/webp"><img src="assets/img/objects/2.jpg" srcset="assets/img/objects/2.jpg, assets/img/objects/2@2x.jpg 2x" alt="object">
+                                </picture>
+                            </div>
+                            <div class="object__content">
+                                <p class="object__title">VLADIVOSTOK Grand Hotel & SPA</p>
+                                <p class="object__date">24.03.2025</p>
+                            </div>
+                        </a><a class="swiper-slide" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/objects/3.webp, assets/img/objects/3@2x.webp 2x" type="image/webp"><img src="assets/img/objects/3.jpg" srcset="assets/img/objects/3.jpg, assets/img/objects/3@2x.jpg 2x" alt="object">
+                                </picture>
+                            </div>
+                            <div class="object__content">
+                                <p class="object__title">Riviera Wellness Resort</p>
+                                <p class="object__date">24.03.2025</p>
+                            </div>
+                        </a><a class="swiper-slide" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/objects/4.webp, assets/img/objects/4@2x.webp 2x" type="image/webp"><img src="assets/img/objects/4.jpg" srcset="assets/img/objects/4.jpg, assets/img/objects/4@2x.jpg 2x" alt="object">
+                                </picture>
+                            </div>
+                            <div class="object__content">
+                                <p class="object__title">MANTERA Supreme Seaside 5*</p>
+                                <p class="object__date">24.03.2025</p>
+                            </div>
+                        </a></div>
+                    <div class="navigation"><button class="btn objects__prev" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-left"></use>
+                            </svg></button><button class="btn objects__next" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-right"></use>
+                            </svg></button></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner container">
+            <div class="footer__content_top row">
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Новости</p>
+                    <div class="footer__news-list"><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/1.webp, assets/img/footer/1@2x.webp 2x" type="image/webp"><img src="assets/img/footer/1.png" srcset="assets/img/footer/1.png, assets/img/footer/1@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Как прошел RUVIERA Hotel<br>Business Week 2025?</p>
+                                <p class="date">16.12.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/2.webp, assets/img/footer/2@2x.webp 2x" type="image/webp"><img src="assets/img/footer/2.png" srcset="assets/img/footer/2.png, assets/img/footer/2@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">ПРОФЭКВИП на PIR-Expo 2025: внимание к бренду FRESCO MAGGIORE и новые деловые контакты</p>
+                                <p class="date">28.11.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/3.webp, assets/img/footer/3@2x.webp 2x" type="image/webp"><img src="assets/img/footer/3.png" srcset="assets/img/footer/3.png, assets/img/footer/3@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Как прошла выставка CleanExpo Moscow 2025</p>
+                                <p class="date">28.11.2025</p>
+                            </div>
+                        </a></div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Статьи</p>
+                    <div class="footer__news-list"><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/4.webp, assets/img/footer/4@2x.webp 2x" type="image/webp"><img src="assets/img/footer/4.png" srcset="assets/img/footer/4.png, assets/img/footer/4@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Самые ожидаемые<br>горнолыжные курорты России</p>
+                                <p class="date">15.01.2026</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/5.webp, assets/img/footer/5@2x.webp 2x" type="image/webp"><img src="assets/img/footer/5.png" srcset="assets/img/footer/5.png, assets/img/footer/5@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Дефростеры: что это, виды, как выбрать</p>
+                                <p class="date">12.12.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/6.webp, assets/img/footer/6@2x.webp 2x" type="image/webp"><img src="assets/img/footer/6.png" srcset="assets/img/footer/6.png, assets/img/footer/6@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Одеяла в отеле: как выбрать</p>
+                                <p class="date">01.12.2025</p>
+                            </div>
+                        </a></div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Компания</p>
+                    <div class="footer__navigation accordion"><a class="footer__link" href="#">О нас</a>
+                        <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Направления</span><span class="accordion__icon"> <svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow"></use>
+                                    </svg></span></button>
+                            <div class="accordion__content"><a class="footer__link" href="#">Кухня </a><a class="footer__link" href="#">Прачечная </a><a class="footer__link" href="#">Текстиль </a><a class="footer__link" href="#">Химия</a></div>
+                        </div>
+                        <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Услуги</span><span class="accordion__icon"> <svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow"></use>
+                                    </svg></span></button>
+                            <div class="accordion__content"><a class="footer__link" href="#">Консалтинг </a><a class="footer__link" href="#">Технологическое проектирование </a><a class="footer__link" href="#">Продажа оборудования </a><a class="footer__link" href="#">Монтажные и пусконаладочные работы </a><a class="footer__link" href="#">Поставка аксессуаров и запасных частей </a><a class="footer__link" href="#">Сервисное обслуживание</a></div>
+                        </div><a class="footer__link" href="#">Наши проекты</a><a class="footer__link" href="#">Готовые решения</a><a class="footer__link" href="#">Бренды</a><a class="footer__link" href="#">Новости</a><a class="footer__link" href="#">Политика конфиденциальности</a><a class="footer__link" href="#">Партнерам</a><a class="footer__link" href="#">Контакты</a>
+                    </div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Контакты</p>
+                    <div class="footer__contacts"><a class="contact__link" href="tel:84993023762">8 (499) 302-37-62</a><a class="contact__link" href="mailto:info@prof-equip.ru">info@prof-equip.ru</a>
+                        <p class="address">127106, Россия, г. Москва, ул. Гостиничная 3</p>
+                        <div class="social">
+                            <p class="social__title">Найдите нас:</p><a class="social__link" href="#" target="_blank"><svg>
+                                    <use xlink:href="assets/img/sprite.svg#tg"></use>
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__content_bottom row">
+                <p class="copy">© 2026 Prof-Equip Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+    <div class="sale-banner">
+        <div class="sale-banner__content"><button class="btn sale-banner__close" type="button" aria-label="Закрыть"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.90159 8.00004L15.6062 2.29544C16.1313 1.77033 16.1313 0.918951 15.6062 0.393911C15.0811 -0.131204 14.2298 -0.131204 13.7047 0.393911L7.99998 6.09858L2.29531 0.393836C1.7702 -0.131279 0.918895 -0.131279 0.39378 0.393836C-0.13126 0.918951 -0.13126 1.77033 0.39378 2.29537L6.09845 7.99996L0.39378 13.7046C-0.13126 14.2297 -0.13126 15.0811 0.39378 15.6062C0.918895 16.1313 1.7702 16.1313 2.29531 15.6062L7.99998 9.90149L13.7047 15.6062C14.2297 16.1313 15.0811 16.1313 15.6062 15.6062C16.1313 15.081 16.1313 14.2297 15.6062 13.7046L9.90159 8.00004Z" fill="white"></path>
+                </svg></button><a class="sale-banner__link" href="https://prof-equip.ru/novosti/rasprodazha-oborudovaniya-dlya-prachechnykh-skladskoy-zapas-po-spetstsenam/" target="_blank" rel="noopener"><img src="assets/img/sale-promo/promo.png" alt="Складской запас по спецценам"></a></div>
+    </div>
+    <div class="modals"></div>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=43191fbc-c80b-4bf4-98ef-b14487ccd9d8&amp;lang=ru_RU" defer="defer"></script>
+    <script defer="defer" src="./assets/js/main.js"></script>
+</body>
+
+</html>

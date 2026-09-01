@@ -1,0 +1,40 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.direction-catalog {
+	padding: rem(60) 0;
+	background: var(--white-color);
+	border-radius: 0 0 rem(40) rem(40);
+	pointer-events: none;
+	opacity: 0;
+	pointer-events: none;
+	transition: var(--trs-300);
+	box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: rem(80);
+	@media (max-width: $tab) {
+		height: rem(450);
+		overflow: auto;
+	}
+	@media (max-width: $tab-sm) {
+		padding: rem(20) 0;
+	}
+	.direction-catalog__inner {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: rem(50);
+		row-gap: rem(60);
+		@media (max-width: $tab) {
+			gap: rem(25);
+		}
+	}
+}
+.header {
+	&.direction-open {
+		.direction-catalog {
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+}

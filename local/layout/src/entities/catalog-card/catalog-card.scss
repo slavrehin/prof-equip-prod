@@ -1,0 +1,45 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.catalog-card {
+	padding: 0 rem(22);
+	display: flex;
+	flex-direction: column;
+	@media (max-width: $desktop-lg) {
+		padding: 0;
+	}
+	.image-wrapper {
+		position: relative;
+		padding-bottom: 100%;
+		width: 100%;
+		margin: 0 auto rem(15);
+		@media (max-width: $tab-sm) {
+			max-width: 50%;
+			padding-bottom: 50%;
+		}
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.catalog-card__content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		.catalog-card__title {
+			color: #1b2154;
+			text-align: center;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(26);
+			margin-bottom: rem(10);
+		}
+		.cost__btn {
+			margin: auto;
+		}
+	}
+}

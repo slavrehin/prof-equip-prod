@@ -1,0 +1,120 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.catalog-product-info {
+	margin-top: rem(20);
+	.catalog-product-info__inner {
+		padding-bottom: rem(58);
+		border-bottom: 1px solid rgba(171, 176, 184, 0.3);
+		.tabs {
+			display: flex;
+			align-items: center;
+			gap: rem(40);
+			margin-bottom: rem(30);
+			.tab {
+				color: #6b6b6b;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(14);
+				font-style: normal;
+				font-weight: 500;
+				line-height: rem(26);
+				padding: 0;
+				&.active {
+					transition: var(--trs-300);
+					color: #1b2154;
+				}
+			}
+		}
+		.tab-content {
+			table {
+				padding: rem(20) rem(30);
+				border-collapse: separate;
+				border: none;
+				@media (max-width: $tab-sm) {
+					padding: 0;
+				}
+				tbody {
+					tr {
+						border-bottom: 1px solid rgba(171, 176, 184, 0.3);
+						@media (max-width: $tab-sm) {
+							display: flex;
+							flex-direction: column;
+							gap: rem(5);
+							padding: rem(15) 0;
+						}
+						th {
+							padding: rem(5) rem(10) rem(5) rem(5);
+							text-transform: uppercase;
+							text-align: left;
+							font-weight: 500;
+							font-family: 'Montserrat', sans-serif;
+							font-size: rem(16);
+							@media (max-width: $tab-sm) {
+								padding: 0;
+							}
+						}
+						td {
+							font-family: 'Montserrat', sans-serif;
+
+							a {
+								font-weight: 500;
+								text-decoration: underline;
+								color: #1d214e;
+							}
+						}
+					}
+				}
+			}
+			h2 {
+				color: #000;
+				font-family: 'Montserrat', sans-serif;
+
+				font-size: rem(36);
+				font-style: normal;
+				font-weight: 500;
+				line-height: 100%;
+				margin-bottom: rem(20);
+			}
+			p {
+				color: #000;
+				font-family: 'Montserrat', sans-serif;
+
+				font-size: rem(16);
+				font-style: normal;
+				font-weight: 500;
+				line-height: rem(24);
+				margin-bottom: rem(13);
+				strong {
+					margin-bottom: 0;
+					display: contents;
+				}
+			}
+			strong {
+				display: inline-block;
+				color: #1b2154;
+				font-family: 'Montserrat', sans-serif;
+
+				font-size: rem(16);
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				margin-bottom: rem(13);
+			}
+			ul {
+				margin-left: rem(20);
+				margin-bottom: rem(13);
+				li {
+					color: #000;
+					font-family: 'Montserrat', sans-serif;
+
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: rem(24);
+				}
+			}
+			iframe {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+Deploy Production:
+  stage: deploy
+  when: on_success
+
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+
+    - eval $(ssh-agent -s)
+    - echo "${PROFEQUIP_DEV_KEY}" | tr -d '\r' | ssh-add - > /dev/null
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan -t rsa 109.71.247.147 >> ~/.ssh/known_hosts
+  script:
+    - ssh profequipdev@109.71.247.147 'cd /var/www/profequipdev/data/www/profequip.paradigma-dev.ru/local/layout && git pull origin master'
+  only:
+    - master

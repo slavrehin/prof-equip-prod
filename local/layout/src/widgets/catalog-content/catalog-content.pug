@@ -1,0 +1,41 @@
+mixin catalog-content()
+    .catalog__features 
+        button.btn.filter__btn  
+            +svg('filter')
+            | Фильтр
+        p.catalog__total Отображение 1–16 из 156
+        .catalog__list-view 
+            button.btn.catalog-view__btn.active(data-view='columns')
+                +svg('columns')
+            button.btn.catalog-view__btn(data-view='lines')
+                +svg('lines')
+    .catalog__content 
+        +catalog-sidebar()
+        .catalog__list-wrapper
+            .catalog__list
+                +catalog-card({title: 'Электрическая керамическая варочная поверхность MKN VITRO 2'})
+                +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и газовым шкафом'})
+                +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и электрическим шкафом'})
+                +catalog-card({title: 'Газовая плита MKN с 4 конфорками'})
+                +catalog-card({title: 'Электрическая керамическая варочная поверхность MKN VITRO 2'})
+                +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и газовым шкафом'})
+                +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и электрическим шкафом'})
+                +catalog-card({title: 'Газовая плита MKN с 4 конфорками'})
+                +catalog-card({title: 'Электрическая керамическая варочная поверхность MKN VITRO 2'})
+                +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и газовым шкафом'})
+                +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и электрическим шкафом'})
+                +catalog-card({title: 'Газовая плита MKN с 4 конфорками'})
+                +catalog-card({title: 'Электрическая керамическая варочная поверхность MKN VITRO 2'})
+                +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и газовым шкафом'})
+                +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и электрическим шкафом'})
+                +catalog-card({title: 'Газовая плита MKN с 4 конфорками'})
+            .catalog__pagination 
+                a(href="#").pagination__link 1 
+                a(href="#").pagination__link 2 
+                a(href="#").pagination__link 3 
+                a(href="#").pagination__link 4 
+                a(href="#").pagination__link 5 
+                .pagination__dots ...
+                a(href="#").pagination__link 10
+                a(href="#").pagination__arrow
+                    +svg('pagination-arrow')  

@@ -1,0 +1,32 @@
+mixin news()
+    section.news
+        .news__inner.container
+            .news__title-wrapper 
+                h2.news__title Новости
+                +button().link__btn
+                    span.btn__text Все новости
+                    span.arrow__icon
+                        +svg('arrow-top')
+            .news__list 
+                +news-card({
+                    src: 'assets/img/news/1.jpg',
+                    src2x: 'assets/img/news/1@2x.jpg',
+                    date: '16.12.2025',
+                    title: 'Как прошел RUVIERA Hotel Business Week 2025?'
+                })
+                +news-card({
+                    src: 'assets/img/news/2.jpg',
+                    src2x: 'assets/img/news/2@2x.jpg',
+                    date: '28.11.2025',
+                    title: 'ПРОФЭКВИП на PIR-Expo 2025: внимание к бренду FRESCO MAGGIORE и новые деловые контакты'
+                })
+                +news-card({
+                    src: 'assets/img/news/3.jpg',
+                    src2x: 'assets/img/news/3@2x.jpg',
+                    date: '28.11.2025',
+                    title: 'Как прошла выставка CleanExpo Moscow 2025'
+                })
+            +button({isLink: true}).link__btn.fill.black.btn_mob
+                span.btn__text Читать все новости
+                span.arrow__icon
+                    +svg('arrow-top')

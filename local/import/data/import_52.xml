@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Гладильные столы" date="2026-03-11 13:10:09" total="48" id="52" code="gladilnye-stoly"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-s-plus-f/"/>
+    <product id="2" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-s-f/"/>
+    <product id="3" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-s/"/>
+    <product id="4" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-s-plus/"/>
+    <product id="5" url="https://prof-equip.ru/product/gladilnyj-stol-pony-tas-f/"/>
+    <product id="6" url="https://prof-equip.ru/product/gladilnyj-stol-pony-tas/"/>
+    <product id="7" url="https://prof-equip.ru/product/gladilnyj-stol-pony-classic-r/"/>
+    <product id="8" url="https://prof-equip.ru/product/gladilnyj-stol-pony-classic-130/"/>
+    <product id="9" url="https://prof-equip.ru/product/gladilnyj-stol-pony-classic-110/"/>
+    <product id="10" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-sv-plus/"/>
+    <product id="11" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-sv-vystavochnyj-obrazets/"/>
+    <product id="12" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-superplatine/"/>
+    <product id="13" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-tpa/"/>
+    <product id="14" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-electrolux-fit7-fit7-wc-light-boiler-s-uvelichennoj-stoleshnitsej/"/>
+    <product id="15" url="https://prof-equip.ru/product/parovaya-shhetka-macpi-44/"/>
+    <product id="16" url="https://prof-equip.ru/product/professionalnyj-utyug-macpi-28-s-elektricheskim-nagrevom-i-proparivaniem/"/>
+    <product id="17" url="https://prof-equip.ru/product/professionalnyj-utyug-macpi-32-s-elektricheskim-nagrevom-i-proparivaniem/"/>
+    <product id="18" url="https://prof-equip.ru/product/skladnoj-gladilnyj-stol-macpi-156-reguliruemyj-po-vysote-s-vakuumom-i-nagrevom/"/>
+    <product id="19" url="https://prof-equip.ru/product/gladilnyj-stol-macpi-104/"/>
+    <product id="20" url="https://prof-equip.ru/product/vakuumnyj-gladilnyj-stol-macpi-159/"/>
+    <product id="21" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-macpi-105-dlya-obrabotki-shtor/"/>
+    <product id="22" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-macpi-178-dlya-shtor-skatertej-i-prostynej/"/>
+    <product id="23" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-macpi-103/"/>
+    <product id="24" url="https://prof-equip.ru/product/professionalnyj-elektropnevmaticheskij-vakuumnyj-gladilnyj-stol-macpi-307/"/>
+    <product id="25" url="https://prof-equip.ru/product/professionalnyj-vakuumnyj-gladilnyj-stol-macpi-173-s-funktsiej-proparivaniya/"/>
+    <product id="26" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-macpi-174-dlya-trikotazhnyh-izdelij/"/>
+    <product id="27" url="https://prof-equip.ru/product/professionalnyj-vakuumnyj-gladilnyj-stol-macpi-167-s-naklonom/"/>
+    <product id="28" url="https://prof-equip.ru/product/professionalnyj-vakuumnyj-gladilnyj-stol-macpi-166-s-elektricheskim-nagrevom-poverhnosti/"/>
+    <product id="29" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-record-s-vb/"/>
+    <product id="30" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-vc-vc-maxi/"/>
+    <product id="31" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-vb-vb-maxi/"/>
+    <product id="32" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-ta/"/>
+    <product id="33" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-fvc-s/"/>
+    <product id="34" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-fvc/"/>
+    <product id="35" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-classic-110-classic-130-classic-r/"/>
+    <product id="36" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-tas-f/"/>
+    <product id="37" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-silver-a-silver-s-silver-sv/"/>
+    <product id="38" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-genus-sv-genus-sv-plus/"/>
+    <product id="39" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-pony-genus-s-genus-s-plus/"/>
+    <product id="40" url="https://prof-equip.ru/product/poluprofessionalnyj-gladilnyj-stol-pony-omega-2000-perenosnoj-parogenerator-s-utyugom-baby-plus/"/>
+    <product id="41" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-imesa-easy-table-utyug-s-bojlerom-easyiron/"/>
+    <product id="42" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-imesa-tav-164/"/>
+    <product id="43" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-imesa-ass-170/"/>
+    <product id="44" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-imesa-ass-156/"/>
+    <product id="45" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-electrolux-fit1-wc/"/>
+    <product id="46" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-electrolux-fit2b/"/>
+    <product id="47" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-electrolux-fit2a/"/>
+    <product id="48" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-stol-electrolux-fit1/"/>
+  </products>
+</import>

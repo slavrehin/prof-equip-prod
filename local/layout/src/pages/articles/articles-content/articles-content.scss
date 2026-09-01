@@ -1,0 +1,25 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.articles-content {
+	margin-top: rem(106);
+	margin-bottom: rem(50);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	.title-block {
+		@media (max-width: $tab-sm) {
+			margin-bottom: rem(30);
+		}
+	}
+	.articles-content__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: rem(30);
+		@media (max-width: $tab) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: $tab-sm) {
+			grid-template-columns: 1fr;
+		}
+	}
+}

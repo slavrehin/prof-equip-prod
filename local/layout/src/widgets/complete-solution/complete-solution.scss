@@ -1,0 +1,29 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.complete-solution {
+	margin-top: rem(105);
+	margin-bottom: rem(70);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	.complete-solution__inner {
+		.breadcrumbs {
+			margin-bottom: rem(72);
+		}
+		.complete-solution__list {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: rem(5);
+
+			@media (max-width: $desktop-lg) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+			@media (max-width: $laptop) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+}

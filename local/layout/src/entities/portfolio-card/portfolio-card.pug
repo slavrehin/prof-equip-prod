@@ -1,0 +1,14 @@
+mixin portfolio-card({src, src2x, title, descr} = {})
+    a(href="#").portfolio-card&attributes(attributes) 
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'portfolio'
+            }) 
+        .portfolio-card__content
+            p.title !{title}
+            if descr
+                p.descr !{descr}
+            p.link Подробнее
+                +svg('arrow-right-fill')

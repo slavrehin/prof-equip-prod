@@ -1,0 +1,36 @@
+mixin sale-equipment-content()
+    section.sale-equipment-content
+        .sale-equipment-content__inner.container
+            +title-block({
+                title: 'Продажа оборудования',
+                breadcrumbs: [
+                    {
+                        href: 'home.html',
+                        title: 'Главная'
+                    },
+                    {
+                        href: 'sale-equipment.html',
+                        title: 'Продажа оборудования'
+                    }
+                ]
+            })
+            .sale-equipment-content__main 
+                .image-wrapper 
+                    +img({
+                        src: 'assets/img/sale-equipment/1.png',
+                        src2x: 'assets/img/sale-equipment/1@2x.png',
+                        alt: 'sale equipment'
+                    })
+                .sale-equipment-content__text
+                    p Компания «ПРОФЭКВИП» осуществляет продажу профессионального оборудования и инвентаря для предприятий общественного питания. Также мы представляем широкий оборудование для оснащения предприятий индустрии гостеприимства, химчисток и прачечных.
+                    p Ассортимент нашего оборудования представлен крупнейшими мировыми производителями:
+                        strong  Electrolux, Modular, HiCold, Polair и пр.
+                    h2 Мы предлагаем:
+                    .info 
+                        p.info__item Оборудование для оснащения профессиональной кухни предприятий общественного питания и индустрии гостеприимства
+                        p.info__item Оборудование и товары для зала ресторана, кафе, столовой
+                        p.info__item Оборудование для оснащения прачечных и химчисток
+                        p.info__item Оборудование для оснащения пищевых производств и перерабатывающих цехов
+                        p.info__item Оборудование для оснащения фаст-фудов, кейтеринговых компаний
+                        p.info__item Оборудование для оснащения магазинов и уличной торговли
+                        p.info__item Оборудование для оснащения спортивных центров

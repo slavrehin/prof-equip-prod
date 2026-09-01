@@ -1,0 +1,12 @@
+mixin catalog-card({title} ={})
+    a(href="#").catalog-card&attributes(attributes) 
+        .image-wrapper 
+            +img({
+                src: 'assets/img/catalog/card.jpg',
+                src2x: 'assets/img/catalog/card@2x.jpg',
+                alt: 'catalog card'
+            }) 
+        .catalog-card__content 
+            p.catalog-card__title #{title}
+            button.btn.cost__btn(data-modal-load='./modals/cost-modal.html')
+                span ЗАПРОСИТЬ СТОИМОСТЬ

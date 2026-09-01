@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Аксессуары для поваров" date="2026-03-11 13:31:18" total="11" id="80" code="aksessuary-dlya-povarov"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/povarskie-pukli-black-with-print-st5900-greiff/"/>
+    <product id="2" url="https://prof-equip.ru/product/povarskie-knopki-white-with-print-st5900-greiff/"/>
+    <product id="3" url="https://prof-equip.ru/product/povarskie-pugovitsy-classic-st5900-greiff/"/>
+    <product id="4" url="https://prof-equip.ru/product/povarskie-pugovitsy-food-st5900-greiff/"/>
+    <product id="5" url="https://prof-equip.ru/product/povarskie-knopki-arms-flags-st5900-greiff/"/>
+    <product id="6" url="https://prof-equip.ru/product/povarskie-pukli-silver-gold-st5900-greiff/"/>
+    <product id="7" url="https://prof-equip.ru/product/povarskoj-treugolnyj-sharf-st5950-greiff/"/>
+    <product id="8" url="https://prof-equip.ru/product/povarskoj-kolpak-st5711-greiff/"/>
+    <product id="9" url="https://prof-equip.ru/product/povarskaya-bandana-st5710-greiff/"/>
+    <product id="10" url="https://prof-equip.ru/product/povarskaya-kepka-st5721-greiff/"/>
+    <product id="11" url="https://prof-equip.ru/product/povarskoj-kolpak-frantsuzskij-st5700-greiff/"/>
+  </products>
+</import>

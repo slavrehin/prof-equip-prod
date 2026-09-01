@@ -1,0 +1,11 @@
+mixin brand-about({icon, icon2x})
+    .brand-about
+        .image-wrapper 
+            +img({
+                src: icon,
+                src2x: icon2x,
+                alt: 'brand'
+            })
+        .brand-about__text 
+            if block
+                block

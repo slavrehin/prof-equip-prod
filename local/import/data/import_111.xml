@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Индукционные грили" date="2026-03-11 13:15:22" total="11" id="111" code="induktsionnye-grili"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/induktsionnaya-kombo-plita-smart-induction-2-konforki-2-h-zonnyj-riflenyj-gril/"/>
+    <product id="2" url="https://prof-equip.ru/product/induktsionnaya-kombo-plita-smart-induction-2-konforki-2-h-zonnyj-ploskij-gril/"/>
+    <product id="3" url="https://prof-equip.ru/product/induktsionnaya-kombo-plita-smart-induction-2-konforki-2-h-zonnyj-gril/"/>
+    <product id="4" url="https://prof-equip.ru/product/induktsionnaya-kombo-plita-smart-induction-4-konforki-riflenyj-gril/"/>
+    <product id="5" url="https://prof-equip.ru/product/induktsionnaya-kombo-plita-smart-induction-4-konforki-ploskij-gril/"/>
+    <product id="6" url="https://prof-equip.ru/product/induktsionnaya-kombo-plita-smart-induction-2-zony-riflenyj-gril-plita/"/>
+    <product id="7" url="https://prof-equip.ru/product/induktsionnaya-kombo-plita-smart-induction-2-zony-ploskij-gril-plita/"/>
+    <product id="8" url="https://prof-equip.ru/product/induktsionnaya-kombo-plita-smart-induction-2-zony-plita-riflenyj-gril/"/>
+    <product id="9" url="https://prof-equip.ru/product/induktsionnyj-gril-smart-induction-3-zony/"/>
+    <product id="10" url="https://prof-equip.ru/product/induktsionnyj-gril-smart-induction-2-zony/"/>
+    <product id="11" url="https://prof-equip.ru/product/induktsionnyj-gril-smart-induction-1-zona/"/>
+  </products>
+</import>

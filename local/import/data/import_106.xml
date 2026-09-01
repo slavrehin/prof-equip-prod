@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Холодильные шкафы" date="2026-03-11 13:03:41" total="9" id="106" code="holodilnye-shkafy"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/rs-6-gn2-l-holodilnyj-shkaf/"/>
+    <product id="2" url="https://prof-equip.ru/product/holodilnyj-shkaf-dlya-hraneniya-morozhenogo-coldline-ice/"/>
+    <product id="3" url="https://prof-equip.ru/product/konditerskij-holodilnik-coldline-wind/"/>
+    <product id="4" url="https://prof-equip.ru/product/holodilnyj-shkaf-dlya-konditerskih-izdelij-coldline-clima/"/>
+    <product id="5" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-smart/"/>
+    <product id="6" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-master-combi/"/>
+    <product id="7" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-master-fish/"/>
+    <product id="8" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-master/"/>
+    <product id="9" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-vision/"/>
+  </products>
+</import>

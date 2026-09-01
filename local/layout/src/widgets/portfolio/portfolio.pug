@@ -1,0 +1,13 @@
+mixin portfolio({title} ={})
+    section.portfolio
+        .portfolio__inner.container
+            h2.portfolio__title !{title}
+            .portfolio-swiper
+                .swiper-wrapper 
+                    if block 
+                        block
+                .navigation 
+                    +button().portfolio__prev
+                        +svg('arrow-swiper-left')
+                    +button().portfolio__next
+                        +svg('arrow-swiper-right')

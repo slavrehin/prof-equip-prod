@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Prof Equip</title>
+    <meta name="description" content="template">
+    <meta name="keywords" content="template">
+    <meta name="robots" content="index, follow">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="./assets/static/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/static/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="./assets/static/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/static/apple-touch-icon.png">
+    <link rel="manifest" href="./assets/static/site.webmanifest.json">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/css/intlTelInput.css">
+    <link href="./assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header black">
+        <div class="header__inner container"><a class="logo" href="home.html">
+                <div class="white-logo">
+                    <picture>
+                        <source srcset="assets/img/icons/logo.webp, assets/img/icons/logo@2x.webp 2x" type="image/webp"><img src="assets/img/icons/logo.png" srcset="assets/img/icons/logo.png, assets/img/icons/logo@2x.png 2x" alt="logo">
+                    </picture>
+                </div>
+                <div class="color-logo">
+                    <picture>
+                        <source srcset="assets/img/icons/logo-filled.webp" type="image/webp"><img src="assets/img/icons/logo-filled.png" srcset="assets/img/icons/logo-filled.png" alt="logo">
+                    </picture>
+                </div>
+            </a><button class="btn primary s burger__btn" type="button"><span class="burger__icon"><span></span><span></span><span></span></span><span class="btn__text">Каталог</span></button>
+            <nav class="header__navigation"><button class="btn nav__link direction__btn" type="button">Направления</button><a class="nav__link" href="#">Проекты</a><a class="nav__link" href="#">Бренды</a><button class="btn nav__link services__btn" type="button">Услуги</button><a class="nav__link" href="about.html">О компании</a></nav>
+            <div class="header__features">
+                <div class="header__contacts"><a href="tel:+74993023762"><svg>
+                            <use xlink:href="assets/img/sprite.svg#phone"></use>
+                        </svg>+7 (499) 302-37-62 </a><a href="mailto:INFO@PROF-EQUIP.RU"><svg>
+                            <use xlink:href="assets/img/sprite.svg#mail"></use>
+                        </svg>INFO@PROF-EQUIP.RU</a></div><button class="btn phone__btn" type="button" aria-label="Телефон"><svg>
+                        <use xlink:href="assets/img/sprite.svg#phone-fill"></use>
+                    </svg></button>
+                <div class="search-btns"><button class="btn search__btn" type="button" aria-label="Поиск"><svg>
+                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                        </svg></button><button class="btn close-search__btn hidden" type="button" aria-label="закрыть поиск"><svg>
+                            <use xlink:href="assets/img/sprite.svg#close"></use>
+                        </svg></button></div><button class="btn burger__btn" type="button" aria-label="Меню" data-modal-load="./modals/mobile-menu-modal.html"><svg>
+                        <use xlink:href="assets/img/sprite.svg#burger"></use>
+                    </svg></button>
+            </div>
+        </div>
+        <div class="direction-catalog">
+            <div class="direction-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">кухня</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Прачечная</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Текстиль</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Химия</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Мебель</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="services-catalog">
+            <div class="services-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Консалтинг</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Монтажные и пусконаладочные работы</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Комплексное оснащение отелей и гостиниц</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Поставка аксессуаров и запасных частей</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Продажа оборудования</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Сервисное обслуживание</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Технологическое проектирование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="header-catalog">
+            <div class="header-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Прачечное оборудование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Текстиль</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Запасные части</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Химия</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Кухонное оборудование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="search-block">
+            <form class="search-block__inner container">
+                <div class="input-wrapper">
+                    <div class="input__row">
+                        <div class="input-wrapper"><input class="input input__valid-name" placeholder="Поиск" value="" name=""></div>
+                    </div><button class="btn submit-search__btn"><svg>
+                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                        </svg></button>
+                </div>
+            </form>
+        </div>
+    </header>
+    <main>
+        <section class="catalog-product-hero">
+            <div class="catalog-product-hero__inner container">
+                <div class="title-block">
+                    <h1 class="title-block__title">Профессиональная стиральная машина TOLON TWE 10, загрузка 10 кг</h1>
+                    <div class="breadcrumbs">
+                        <div class="breadcrumbs__inner container"><a class="breadcrumb__link" href="home.html">Главная </a><a class="breadcrumb__link" href="catalog.html">/ Прачечное оборудование </a><a class="breadcrumb__link" href="catalog.html">/ Прачечное оборудование в наличии </a><a class="breadcrumb__link" href="catalog-product.html">/ Профессиональная стиральная машина TOLON TWE 10, загрузка 10 кг</a></div>
+                    </div>
+                </div>
+                <div class="catalog-product-hero__info">
+                    <div class="catalog-product-hero__swiper-wrapper">
+                        <div class="catalog-product-hero__swiper">
+                            <div class="swiper-wrapper"><a class="image-wrapper zoom-wrapper swiper-slide" href="assets/img/catalog-product/1@2x.png" data-fancybox="exterior">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                    <div class="fancy__button"><svg>
+                                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                                        </svg></div>
+                                </a><a class="image-wrapper zoom-wrapper swiper-slide" href="assets/img/catalog-product/1@2x.png" data-fancybox="exterior">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                    <div class="fancy__button"><svg>
+                                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                                        </svg></div>
+                                </a><a class="image-wrapper zoom-wrapper swiper-slide" href="assets/img/catalog-product/1@2x.png" data-fancybox="exterior">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                    <div class="fancy__button"><svg>
+                                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                                        </svg></div>
+                                </a><a class="image-wrapper zoom-wrapper swiper-slide" href="assets/img/catalog-product/1@2x.png" data-fancybox="exterior">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                    <div class="fancy__button"><svg>
+                                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                                        </svg></div>
+                                </a><a class="image-wrapper zoom-wrapper swiper-slide" href="assets/img/catalog-product/1@2x.png" data-fancybox="exterior">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                    <div class="fancy__button"><svg>
+                                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                                        </svg></div>
+                                </a><a class="image-wrapper zoom-wrapper swiper-slide" href="assets/img/catalog-product/1@2x.png" data-fancybox="exterior">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                    <div class="fancy__button"><svg>
+                                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                                        </svg></div>
+                                </a></div>
+                        </div>
+                        <div class="catalog-product-hero__swiper-thumbs">
+                            <div class="swiper-wrapper">
+                                <div class="image-wrapper swiper-slide">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                </div>
+                                <div class="image-wrapper swiper-slide">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                </div>
+                                <div class="image-wrapper swiper-slide">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                </div>
+                                <div class="image-wrapper swiper-slide">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                </div>
+                                <div class="image-wrapper swiper-slide">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                </div>
+                                <div class="image-wrapper swiper-slide">
+                                    <picture>
+                                        <source srcset="assets/img/catalog-product/1.webp, assets/img/catalog-product/1@2x.webp 2x" type="image/webp"><img src="assets/img/catalog-product/1.png" srcset="assets/img/catalog-product/1.png, assets/img/catalog-product/1@2x.png 2x" alt="product">
+                                    </picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="catalog-product-hero__info-text">
+                        <div class="info__list">
+                            <p>Производитель: TOLON<br>Страна: Турция<br>Модель: TWE 10<br>Загрузка (кг): 10<br>Производительность (кг/ч): 15<br>Объем барабана (л): 103<br>Скорость при отжиме (об/мин): 1012<br>Мощность (кВт): 9<br>Тип нагрева: без нагрева/электричество/пар/комбинированный – электричество/пар;<br>Габаритные размеры Ш*Г*В (мм): 880*976*1500<br>Габаритные размеры с пьедесталом 160 мм Ш*Г*В (мм): 880*976*1710<br>Вес нетто (кг): 438<br>Вес нетто с пьедесталом (кг): 460</p>
+                            <p></p>
+                        </div>
+                        <p class="status">В НАЛИЧИИ</p><button class="btn cost__btn" data-modal-load="./modals/cost-modal.html"><span>ЗАПРОСИТЬ СТОИМОСТЬ</span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="catalog-product-info">
+            <div class="catalog-product-info__inner container">
+                <div class="tabs"><button class="btn tab active" data-tab="0">Описание</button><button class="btn tab" data-tab="1">Детали</button></div>
+                <div class="tab-content">
+                    <h2>Описание</h2>
+                    <p>Компактная и эффективная высокоскоростная стиральная машина <strong>TOLON TWE 10 </strong>полностью удовлетворяет потребностям как небольшой прачечной, так и коммерческой прачечной. Стиральная машина проста в установке и обслуживании. Конструкция корпуса машины продумана таким образом, чтобы максимально экономно использовать пространство.</p><strong>Стандартные характеристики:</strong>
+                    <ul>
+                        <li>Отдельностоящая высокоскоростная стиральная машина с полным отжимом;</li>
+                        <li>Компактный и современный дизайн подходит для небольших прачечных помещений;</li>
+                        <li>Большая дверца загрузки и выгрузки белья открывается под углом 180°, предоставляя легкий доступ к барабану машины;</li>
+                        <li>Контейнер для порошков и жидкой химии состоит из 5 отделений;</li>
+                        <li>Подготовка к подаче жидкой химии в стандартной комплектации;</li>
+                        <li>Барабан, передняя и верхняя панели из нержавеющей стали AISI 304;</li>
+                        <li>Несущий вал с керамическим покрытием обеспечивает длительную эксплуатацию благодаря снижению трения уплотняющих поверхностей;</li>
+                        <li>Удобное и простое управление с большим цветным экраном 7″ позволяет полностью контролировать процесс стирки;</li>
+                        <li>Передняя панель машины оснащена USB для соединения с компьютером и передачи данных в формате .csv;</li>
+                        <li>Простое и понятное руководство устранения ошибок в процессе стирки;</li>
+                        <li>Световые индикаторы позволяют отслеживать состояние машины;</li>
+                        <li>Большой диаметр сливного клапана (размер 3″) для быстрого слива воды;</li>
+                        <li>Жаропрочное двойное стекло из плексигласа;</li>
+                        <li>Датчик вибраций для идеальной балансировки;</li>
+                        <li>Программатор с 18-ю предустановленными программами и 99-ю ячейками для индивидуальных программ стирки;</li>
+                        <li>Гибкие шланги для подачи воды;</li>
+                    </ul><strong>Опции:</strong>
+                    <ul>
+                        <li>Возможность комбинированного нагрева – электрика и пар;</li>
+                        <li>Боковые панели из нержавеющей стали;</li>
+                        <li>Задняя панель из нержавеющей стали;</li>
+                        <li>Третий входной клапан для подключения мягкой воды;</li>
+                        <li>Пневматические клапана для воды;</li>
+                        <li>Пневматический паровой клапан;</li>
+                        <li>Пьедестал для увеличения высоты загрузки, эргономичности при использовании тележек для белья;</li>
+                        <li>Увеличенные клапана впуска воды (холодной и горячей);</li>
+                        <li>Улучшенная шумоизоляция;</li>
+                        <li>Специальное напряжение (вместо 380-400V);</li>
+                    </ul><strong>Комплектация высокоскоростной профессиональной стиральной машины TOLON TWE 10:</strong>
+                    <p>без нагрева/электричество/пар/комбинированный нагрев – электричество/пар, барабан, передняя, верхняя панели из нержавеющей стали, мощность 9 кВт, программируемое автоматическое управление, вода – холодная и горячая, контейнер для порошков и жидкой химии, сливная помпа.</p>
+                    <p>Модель <strong>TOLON TWE 10</strong>будет идеальным выбором для оснащения химчистки, прачечной в гостинице, на предприятии, в больнице, мини-прачечной, коммерческой и индустриальной прачечной.</p>
+                </div>
+                <div class="tab-content">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>ПРОИЗВОДИТЕЛЬ:</th>
+                                <td><a href="#">TOLON</a></td>
+                            </tr>
+                            <tr>
+                                <th>СТРАНА:</th>
+                                <td><a href="#">Турция</a></td>
+                            </tr>
+                            <tr>
+                                <th>МОДЕЛЬ:</th>
+                                <td><a href="#">TWE 10</a></td>
+                            </tr>
+                            <tr>
+                                <th>ТИП ОБОРУДОВАНИЯ:</th>
+                                <td><a href="#">Стиральное оборудование</a></td>
+                            </tr>
+                            <tr>
+                                <th>ЗАГРУЗКА, кг:</th>
+                                <td><a href="#">10</a></td>
+                            </tr>
+                            <tr>
+                                <th>ПРОИЗВОДИТЕЛЬНОСТЬ, кг/ч:</th>
+                                <td><a href="#">15</a></td>
+                            </tr>
+                            <tr>
+                                <th>ПОЛНОЕ ВРЕМЯ ЦИКЛА, мин:</th>
+                                <td><a href="#">30-45</a></td>
+                            </tr>
+                            <tr>
+                                <th>ДИАМЕТР БАРАБАНА, мм:</th>
+                                <td><a href="#">630</a></td>
+                            </tr>
+                            <tr>
+                                <th>ГЛУБИНА БАРАБАНА, мм:</th>
+                                <td><a href="#">330</a></td>
+                            </tr>
+                            <tr>
+                                <th>ОБЪЁМ БАРАБАНА, л:</th>
+                                <td><a href="#">103</a></td>
+                            </tr>
+                            <tr>
+                                <th>СКОРОСТЬ ПРИ СТИРКЕ, об/мин:</th>
+                                <td><a href="#">43</a></td>
+                            </tr>
+                            <tr>
+                                <th>СКОРОСТЬ ПРИ ОТЖИМЕ, об/мин:</th>
+                                <td><a href="#">1012</a></td>
+                            </tr>
+                            <tr>
+                                <th>G-ФАКТОР:</th>
+                                <td><a href="#">360</a></td>
+                            </tr>
+                            <tr>
+                                <th>ДИАМЕТР ЗАГРУЗОЧНОГО ЛЮКА, мм:</th>
+                                <td><a href="#">455</a></td>
+                            </tr>
+                            <tr>
+                                <th>МОЩНОСТЬ, кВт:</th>
+                                <td><a href="#">9</a></td>
+                            </tr>
+                            <tr>
+                                <th>РАБОЧЕЕ ДАВЛЕНИЕ ПАРА, бар:</th>
+                                <td><a href="#">4-6</a></td>
+                            </tr>
+                            <tr>
+                                <th>НОМИНАЛЬНОЕ ПОТРЕБЛЕНИЕ ЭЛЕКТРОЭНЕРГИИ, кВт:</th>
+                                <td><a href="#">2,34</a></td>
+                            </tr>
+                            <tr>
+                                <th>РАСХОД ЭЛЕКТРОЭНЕРГИИ ДВИГАТЕЛЯ, кВт:</th>
+                                <td><a href="#">1,5</a></td>
+                            </tr>
+                            <tr>
+                                <th>ПАРОВОЙ КЛАПАН, ПОДСОЕДИНЕНИЕ, ДИАМЕТР, DN-BSP:</th>
+                                <td><a href="#">15-1/2"</a></td>
+                            </tr>
+                            <tr>
+                                <th>ДАВЛЕНИЕ ПАРА, кПа:</th>
+                                <td><a href="#">400-600</a></td>
+                            </tr>
+                            <tr>
+                                <th>РАСХОД ПАРА, кг/цикл:</th>
+                                <td><a href="#">5</a></td>
+                            </tr>
+                            <tr>
+                                <th>ПРОИЗВОДИТЕЛЬ:</th>
+                                <td><a href="#">TOLON</a></td>
+                            </tr>
+                            <tr>
+                                <th>СТРАНА:</th>
+                                <td><a href="#">Турция</a></td>
+                            </tr>
+                            <tr>
+                                <th>МОДЕЛЬ:</th>
+                                <td><a href="#">TWE 10</a></td>
+                            </tr>
+                            <tr>
+                                <th>ТИП ОБОРУДОВАНИЯ:</th>
+                                <td><a href="#">Стиральное оборудование</a></td>
+                            </tr>
+                            <tr>
+                                <th>ЗАГРУЗКА, кг:</th>
+                                <td><a href="#">10</a></td>
+                            </tr>
+                            <tr>
+                                <th>ПРОИЗВОДИТЕЛЬНОСТЬ, кг/ч:</th>
+                                <td><a href="#">15</a></td>
+                            </tr>
+                            <tr>
+                                <th>ПОЛНОЕ ВРЕМЯ ЦИКЛА, мин:</th>
+                                <td><a href="#">30-45</a></td>
+                            </tr>
+                            <tr>
+                                <th>ДИАМЕТР БАРАБАНА, мм:</th>
+                                <td><a href="#">630</a></td>
+                            </tr>
+                            <tr>
+                                <th>ГЛУБИНА БАРАБАНА, мм:</th>
+                                <td><a href="#">330</a></td>
+                            </tr>
+                            <tr>
+                                <th>ОБЪЁМ БАРАБАНА, л:</th>
+                                <td><a href="#">103</a></td>
+                            </tr>
+                            <tr>
+                                <th>СКОРОСТЬ ПРИ СТИРКЕ, об/мин:</th>
+                                <td><a href="#">43</a></td>
+                            </tr>
+                            <tr>
+                                <th>СКОРОСТЬ ПРИ ОТЖИМЕ, об/мин:</th>
+                                <td><a href="#">1012</a></td>
+                            </tr>
+                            <tr>
+                                <th>G-ФАКТОР:</th>
+                                <td><a href="#">360</a></td>
+                            </tr>
+                            <tr>
+                                <th>ДИАМЕТР ЗАГРУЗОЧНОГО ЛЮКА, мм:</th>
+                                <td><a href="#">455</a></td>
+                            </tr>
+                            <tr>
+                                <th>МОЩНОСТЬ, кВт:</th>
+                                <td><a href="#">9</a></td>
+                            </tr>
+                            <tr>
+                                <th>РАБОЧЕЕ ДАВЛЕНИЕ ПАРА, бар:</th>
+                                <td><a href="#">4-6</a></td>
+                            </tr>
+                            <tr>
+                                <th>НОМИНАЛЬНОЕ ПОТРЕБЛЕНИЕ ЭЛЕКТРОЭНЕРГИИ, кВт:</th>
+                                <td><a href="#">2,34</a></td>
+                            </tr>
+                            <tr>
+                                <th>РАСХОД ЭЛЕКТРОЭНЕРГИИ ДВИГАТЕЛЯ, кВт:</th>
+                                <td><a href="#">1,5</a></td>
+                            </tr>
+                            <tr>
+                                <th>ПАРОВОЙ КЛАПАН, ПОДСОЕДИНЕНИЕ, ДИАМЕТР, DN-BSP:</th>
+                                <td><a href="#">15-1/2"</a></td>
+                            </tr>
+                            <tr>
+                                <th>ДАВЛЕНИЕ ПАРА, кПа:</th>
+                                <td><a href="#">400-600</a></td>
+                            </tr>
+                            <tr>
+                                <th>РАСХОД ПАРА, кг/цикл:</th>
+                                <td><a href="#">5</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <section class="interesting-products">
+            <div class="interesting-products__inner container">
+                <h3 class="interesting-products__title">Вам может быть интересно</h3>
+                <div class="interesting-products__list"><a class="interesting-product" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/interesting-products/1.webp, assets/img/interesting-products/1@2x.webp 2x" type="image/webp"><img src="assets/img/interesting-products/1.png" srcset="assets/img/interesting-products/1.png, assets/img/interesting-products/1@2x.png 2x" alt="product">
+                            </picture>
+                        </div>
+                        <div class="interesting-product__content">
+                            <p class="product__title">Высокоскоростная профессиональная стиральная машина Imesa LM 23, загрузка 23 кг</p><button class="btn cost__btn"><span>Подробнее</span></button>
+                        </div>
+                    </a><a class="interesting-product" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/interesting-products/1.webp, assets/img/interesting-products/1@2x.webp 2x" type="image/webp"><img src="assets/img/interesting-products/1.png" srcset="assets/img/interesting-products/1.png, assets/img/interesting-products/1@2x.png 2x" alt="product">
+                            </picture>
+                        </div>
+                        <div class="interesting-product__content">
+                            <p class="product__title">Профессиональная стиральная машина Electrolux W41100H, загрузка 120 кг</p><button class="btn cost__btn"><span>Подробнее</span></button>
+                        </div>
+                    </a><a class="interesting-product" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/interesting-products/1.webp, assets/img/interesting-products/1@2x.webp 2x" type="image/webp"><img src="assets/img/interesting-products/1.png" srcset="assets/img/interesting-products/1.png, assets/img/interesting-products/1@2x.png 2x" alt="product">
+                            </picture>
+                        </div>
+                        <div class="interesting-product__content">
+                            <p class="product__title">Профессиональная стиральная машина Electrolux W4850H, загрузка 90 кг</p><button class="btn cost__btn"><span>Подробнее</span></button>
+                        </div>
+                    </a><a class="interesting-product" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/interesting-products/1.webp, assets/img/interesting-products/1@2x.webp 2x" type="image/webp"><img src="assets/img/interesting-products/1.png" srcset="assets/img/interesting-products/1.png, assets/img/interesting-products/1@2x.png 2x" alt="product">
+                            </picture>
+                        </div>
+                        <div class="interesting-product__content">
+                            <p class="product__title">Профессиональная стиральная машина Electrolux W4600H, загрузка 65 кг</p><button class="btn cost__btn"><span>Подробнее</span></button>
+                        </div>
+                    </a></div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner container">
+            <div class="footer__content_top row">
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Новости</p>
+                    <div class="footer__news-list"><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/1.webp, assets/img/footer/1@2x.webp 2x" type="image/webp"><img src="assets/img/footer/1.png" srcset="assets/img/footer/1.png, assets/img/footer/1@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Как прошел RUVIERA Hotel<br>Business Week 2025?</p>
+                                <p class="date">16.12.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/2.webp, assets/img/footer/2@2x.webp 2x" type="image/webp"><img src="assets/img/footer/2.png" srcset="assets/img/footer/2.png, assets/img/footer/2@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">ПРОФЭКВИП на PIR-Expo 2025: внимание к бренду FRESCO MAGGIORE и новые деловые контакты</p>
+                                <p class="date">28.11.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/3.webp, assets/img/footer/3@2x.webp 2x" type="image/webp"><img src="assets/img/footer/3.png" srcset="assets/img/footer/3.png, assets/img/footer/3@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Как прошла выставка CleanExpo Moscow 2025</p>
+                                <p class="date">28.11.2025</p>
+                            </div>
+                        </a></div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Статьи</p>
+                    <div class="footer__news-list"><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/4.webp, assets/img/footer/4@2x.webp 2x" type="image/webp"><img src="assets/img/footer/4.png" srcset="assets/img/footer/4.png, assets/img/footer/4@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Самые ожидаемые<br>горнолыжные курорты России</p>
+                                <p class="date">15.01.2026</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/5.webp, assets/img/footer/5@2x.webp 2x" type="image/webp"><img src="assets/img/footer/5.png" srcset="assets/img/footer/5.png, assets/img/footer/5@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Дефростеры: что это, виды, как выбрать</p>
+                                <p class="date">12.12.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/6.webp, assets/img/footer/6@2x.webp 2x" type="image/webp"><img src="assets/img/footer/6.png" srcset="assets/img/footer/6.png, assets/img/footer/6@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Одеяла в отеле: как выбрать</p>
+                                <p class="date">01.12.2025</p>
+                            </div>
+                        </a></div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Компания</p>
+                    <div class="footer__navigation accordion"><a class="footer__link" href="#">О нас</a>
+                        <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Направления</span><span class="accordion__icon"> <svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow"></use>
+                                    </svg></span></button>
+                            <div class="accordion__content"><a class="footer__link" href="#">Кухня </a><a class="footer__link" href="#">Прачечная </a><a class="footer__link" href="#">Текстиль </a><a class="footer__link" href="#">Химия</a></div>
+                        </div>
+                        <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Услуги</span><span class="accordion__icon"> <svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow"></use>
+                                    </svg></span></button>
+                            <div class="accordion__content"><a class="footer__link" href="#">Консалтинг </a><a class="footer__link" href="#">Технологическое проектирование </a><a class="footer__link" href="#">Продажа оборудования </a><a class="footer__link" href="#">Монтажные и пусконаладочные работы </a><a class="footer__link" href="#">Поставка аксессуаров и запасных частей </a><a class="footer__link" href="#">Сервисное обслуживание</a></div>
+                        </div><a class="footer__link" href="#">Наши проекты</a><a class="footer__link" href="#">Готовые решения</a><a class="footer__link" href="#">Бренды</a><a class="footer__link" href="#">Новости</a><a class="footer__link" href="#">Политика конфиденциальности</a><a class="footer__link" href="#">Партнерам</a><a class="footer__link" href="#">Контакты</a>
+                    </div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Контакты</p>
+                    <div class="footer__contacts"><a class="contact__link" href="tel:84993023762">8 (499) 302-37-62</a><a class="contact__link" href="mailto:info@prof-equip.ru">info@prof-equip.ru</a>
+                        <p class="address">127106, Россия, г. Москва, ул. Гостиничная 3</p>
+                        <div class="social">
+                            <p class="social__title">Найдите нас:</p><a class="social__link" href="#" target="_blank"><svg>
+                                    <use xlink:href="assets/img/sprite.svg#tg"></use>
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__content_bottom row">
+                <p class="copy">© 2026 Prof-Equip Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+    <div class="sale-banner">
+        <div class="sale-banner__content"><button class="btn sale-banner__close" type="button" aria-label="Закрыть"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.90159 8.00004L15.6062 2.29544C16.1313 1.77033 16.1313 0.918951 15.6062 0.393911C15.0811 -0.131204 14.2298 -0.131204 13.7047 0.393911L7.99998 6.09858L2.29531 0.393836C1.7702 -0.131279 0.918895 -0.131279 0.39378 0.393836C-0.13126 0.918951 -0.13126 1.77033 0.39378 2.29537L6.09845 7.99996L0.39378 13.7046C-0.13126 14.2297 -0.13126 15.0811 0.39378 15.6062C0.918895 16.1313 1.7702 16.1313 2.29531 15.6062L7.99998 9.90149L13.7047 15.6062C14.2297 16.1313 15.0811 16.1313 15.6062 15.6062C16.1313 15.081 16.1313 14.2297 15.6062 13.7046L9.90159 8.00004Z" fill="white"></path>
+                </svg></button><a class="sale-banner__link" href="https://prof-equip.ru/novosti/rasprodazha-oborudovaniya-dlya-prachechnykh-skladskoy-zapas-po-spetstsenam/" target="_blank" rel="noopener"><img src="assets/img/sale-promo/promo.png" alt="Складской запас по спецценам"></a></div>
+    </div>
+    <div class="modals"></div>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=43191fbc-c80b-4bf4-98ef-b14487ccd9d8&amp;lang=ru_RU" defer="defer"></script>
+    <script defer="defer" src="./assets/js/main.js"></script>
+</body>
+
+</html>

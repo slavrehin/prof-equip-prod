@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Промышленные стиральные машины" date="2026-03-11 13:07:20" total="5" id="70" code="promyshlennye-stiralnye-mashiny"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/promyshlennaya-stiralnaya-mashina-jensen-jwe-270/600/"/>
+    <product id="2" url="https://prof-equip.ru/product/promyshlennaya-stiralnaya-mashina-jensen-tumble-dryer-jtd/"/>
+    <product id="3" url="https://prof-equip.ru/product/promyshlennaya-stiralnaya-mashina-jensen-washer-extractor-jwe/"/>
+    <product id="4" url="https://prof-equip.ru/product/promyshlennaya-barernaya-stiralnaya-mashina-jensen-tunnel-washer-uniq/"/>
+    <product id="5" url="https://prof-equip.ru/product/promyshlennaya-barernaya-stiralnaya-mashina-jensen-barrier-washer-jbw/"/>
+  </products>
+</import>

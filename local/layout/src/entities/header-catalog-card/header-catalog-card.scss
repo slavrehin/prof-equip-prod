@@ -1,0 +1,103 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.header-catalog-card {
+	width: calc(calc(33% - rem(29)));
+	display: flex;
+	align-items: center;
+	gap: rem(25);
+
+	@media (max-width: $desktop-lg) {
+		width: calc(calc(50% - rem(29)));
+	}
+	@media (max-width: $tab) {
+		width: 100%;
+		padding-bottom: rem(25);
+		border-bottom: 1px solid #000;
+	}
+	&:hover {
+		.image-wrapper {
+			.eye__icon {
+				opacity: 1;
+			}
+		}
+	}
+	.image-wrapper {
+		position: relative;
+		border-radius: rem(5);
+		min-width: rem(280);
+		min-height: rem(140);
+		max-width: rem(280);
+		max-height: rem(140);
+		overflow: hidden;
+		@media (max-width: 1600px) {
+			min-width: rem(150);
+			min-height: rem(100);
+			max-width: rem(150);
+			max-height: rem(100);
+		}
+		@media (max-width: $tab-sm) {
+			min-width: rem(100);
+			min-height: rem(100);
+			max-width: rem(100);
+			max-height: rem(100);
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+		}
+		.eye__icon {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+			width: rem(60);
+			height: rem(60);
+			background: #1186a3;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 999px;
+			transition: var(--trs-300);
+			opacity: 0;
+			svg {
+				width: rem(24);
+				height: rem(24);
+				color: var(--white-color);
+			}
+		}
+	}
+	.catalog-card__content {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		.badge {
+			background: linear-gradient(225deg, rgba(100, 204, 197, 1), rgba(29, 33, 78, 1) 100%);
+			line-height: 100%;
+			font-size: rem(14);
+			color: var(--white-color);
+			border-radius: 999px;
+			padding: rem(5) rem(10);
+			width: fit-content;
+			text-align: center;
+			margin-bottom: rem(10);
+		}
+		.title {
+			color: rgba(34, 34, 34, 1);
+			font-family: 'Montserrat', sans-serif;
+			line-height: 100%;
+			font-size: rem(20);
+		}
+		.link {
+			margin-top: auto;
+			color: rgba(119, 119, 119, 1);
+			font-size: rem(16);
+			line-height: 100%;
+			text-align: left;
+			font-family: 'Montserrat', sans-serif;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+mixin reviews()
+    section.reviews
+        .reviews__inner.container 
+            h2.reviews__title ОТЗЫВЫ
+            .reviews-swiper 
+                .swiper-wrapper 
+                    .swiper-slide
+                        +reviews-item({
+                            src: 'assets/img/reviews/1.png',
+                            src2x: 'assets/img/reviews/1@2x.png',
+                            text: 'ЗАО «Гостиница «Сокольники» благодарит Вас за профессионально выполненные работы по проектированию, поставке и монтажу оборудования для прачечной.',
+                            author: 'Ген.директор, Карелов А.Б.'
+                        })
+                    .swiper-slide
+                        +reviews-item({
+                            src: 'assets/img/reviews/1.png',
+                            src2x: 'assets/img/reviews/1@2x.png',
+                            text: 'ЗАО «Гостиница «Сокольники» благодарит Вас за профессионально выполненные работы по проектированию, поставке и монтажу оборудования для прачечной.',
+                            author: 'Ген.директор, Карелов А.Б.'
+                        })
+                .navigation 
+                    +button().reviews__prev
+                        +svg('arrow-swiper-left')
+                    +button().reviews__next
+                        +svg('arrow-swiper-right')
+                .pagination

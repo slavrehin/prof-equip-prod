@@ -1,0 +1,17 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +blog-inner-about()
+        +calculate-project({hasBg: true})
+        +navigation-links({
+            title1: 'Самые ожидаемые горнолыжные курорты России',
+            title2: 'Встречаемся на выставке-форуме «Крым.Сезон – 2026',
+        })
+        +related-articles()
+block footer 
+    +footer()

@@ -1,0 +1,91 @@
+mixin objects()
+    section.objects
+        .objects__inner.container
+            h3 Другие объекты
+            .objects__swiper
+                .swiper-wrapper
+                    a(href="#").swiper-slide
+                        .image-wrapper
+                            +img({
+                                src: 'assets/img/objects/1.jpg',
+                                src2x: 'assets/img/objects/1@2x.jpg',
+                                alt: 'object',
+                            })
+                        .object__content 
+                            p.object__title Отель RUMA
+                            p.object__date 24.03.2025
+                    a(href="#").swiper-slide
+                        .image-wrapper
+                            +img({
+                                src: 'assets/img/objects/2.jpg',
+                                src2x: 'assets/img/objects/2@2x.jpg',
+                                alt: 'object',
+                            })
+                        .object__content 
+                            p.object__title VLADIVOSTOK Grand Hotel & SPA
+                            p.object__date 24.03.2025
+                    a(href="#").swiper-slide
+                        .image-wrapper
+                            +img({
+                                src: 'assets/img/objects/3.jpg',
+                                src2x: 'assets/img/objects/3@2x.jpg',
+                                alt: 'object',
+                            })
+                        .object__content 
+                            p.object__title Riviera Wellness Resort
+                            p.object__date 24.03.2025
+                    a(href="#").swiper-slide
+                        .image-wrapper
+                            +img({
+                                src: 'assets/img/objects/4.jpg',
+                                src2x: 'assets/img/objects/4@2x.jpg',
+                                alt: 'object',
+                            })
+                        .object__content 
+                            p.object__title MANTERA Supreme Seaside 5*
+                            p.object__date 24.03.2025
+                    a(href="#").swiper-slide
+                        .image-wrapper
+                            +img({
+                                src: 'assets/img/objects/1.jpg',
+                                src2x: 'assets/img/objects/1@2x.jpg',
+                                alt: 'object',
+                            })
+                        .object__content 
+                            p.object__title Отель RUMA
+                            p.object__date 24.03.2025
+                    a(href="#").swiper-slide
+                        .image-wrapper
+                            +img({
+                                src: 'assets/img/objects/2.jpg',
+                                src2x: 'assets/img/objects/2@2x.jpg',
+                                alt: 'object',
+                            })
+                        .object__content 
+                            p.object__title VLADIVOSTOK Grand Hotel & SPA
+                            p.object__date 24.03.2025
+                    a(href="#").swiper-slide
+                        .image-wrapper
+                            +img({
+                                src: 'assets/img/objects/3.jpg',
+                                src2x: 'assets/img/objects/3@2x.jpg',
+                                alt: 'object',
+                            })
+                        .object__content 
+                            p.object__title Riviera Wellness Resort
+                            p.object__date 24.03.2025
+                    a(href="#").swiper-slide
+                        .image-wrapper
+                            +img({
+                                src: 'assets/img/objects/4.jpg',
+                                src2x: 'assets/img/objects/4@2x.jpg',
+                                alt: 'object',
+                            })
+                        .object__content 
+                            p.object__title MANTERA Supreme Seaside 5*
+                            p.object__date 24.03.2025
+                .navigation
+                    +button().objects__prev
+                        +svg('arrow-swiper-left')
+                    +button().objects__next
+                        +svg('arrow-swiper-right')

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Средства для выведения пятен" date="2026-03-11 13:25:21" total="6" id="35" code="sredstva-dlya-vyvedeniya-pyaten"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/sultraspot-tint/"/>
+    <product id="2" url="https://prof-equip.ru/product/sultraspot-soft/"/>
+    <product id="3" url="https://prof-equip.ru/product/sultraspot-protein/"/>
+    <product id="4" url="https://prof-equip.ru/product/sultraspot-mineral/"/>
+    <product id="5" url="https://prof-equip.ru/product/sultraspot-metal/"/>
+    <product id="6" url="https://prof-equip.ru/product/sultraspot-color/"/>
+  </products>
+</import>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Гладильные каландры" date="2026-03-10 23:10:16" total="40" id="59" code="gladilnye-kalandry"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/gladilnyj-kalandr-sailstar-yc8-28-1r/"/>
+    <product id="2" url="https://prof-equip.ru/product/gladilnyj-kalandr-sailstar-yc8-30-1r/"/>
+    <product id="3" url="https://prof-equip.ru/product/gladilnyj-kalandr-sailstar-yc8-28-2r/"/>
+    <product id="4" url="https://prof-equip.ru/product/gladilnyj-kalandr-sailstar-yc8-33-2r/"/>
+    <product id="5" url="https://prof-equip.ru/product/gladilnyj-kalandr-sailstar-yc8-30-2r/"/>
+    <product id="6" url="https://prof-equip.ru/product/gladilnyj-kalandr-sailstar-yc8-30-3r/"/>
+    <product id="7" url="https://prof-equip.ru/product/gladilnyj-kalandr-sailstar-yc8-33-3r/"/>
+    <product id="8" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-girbau-pbp-5132-dlina-vala-3165-mm/"/>
+    <product id="9" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-girbau-pbp-5125-dlina-vala-2530-mm/"/>
+    <product id="10" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-girbau-pbp-5119-dlina-vala-1900-mm/"/>
+    <product id="11" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-girbau-pb-5132-dlina-vala-3165-mm/"/>
+    <product id="12" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-girbau-pb-5125-dlina-vala-2530-mm/"/>
+    <product id="13" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-girbau-pb-5119-dlina-vala-1900-mm/"/>
+    <product id="14" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-girbau-pb-3221-dlina-vala-2120-mm/"/>
+    <product id="15" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-girbau-pb-3215-dlina-vala-1540-mm/"/>
+    <product id="16" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi3516/"/>
+    <product id="17" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi6015-dlina-vala-1500-mm/"/>
+    <product id="18" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi3218-dlina-vala-1800-mm/"/>
+    <product id="19" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi3521/"/>
+    <product id="20" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi6020-dlina-vala-2000-mm/"/>
+    <product id="21" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi6025-dlina-vala-2500-mm/"/>
+    <product id="22" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi6026-dlina-vala-2600-mm/"/>
+    <product id="23" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi6032-dlina-vala-3200-mm/"/>
+    <product id="24" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi8030-dlina-vala-3000-mm/"/>
+    <product id="25" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-imesa-msm-3200-dlina-vala-3135-mm/"/>
+    <product id="26" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-imesa-msm-2800-dlina-vala-2720-mm/"/>
+    <product id="27" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-imesa-msm-2500-dlina-vala-2508-mm/"/>
+    <product id="28" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-imesa-msa-210-dlina-vala-2068-mm/"/>
+    <product id="29" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-imesa-msa-180-dlina-vala-1880-mm/"/>
+    <product id="30" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-imesa-msa-150-dlina-vala-1504-mm/"/>
+    <product id="31" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic44832-ffs-dlina-vala-3170-mm/"/>
+    <product id="32" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic44825-ffs-dlina-vala-2540-mm/"/>
+    <product id="33" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic44819-ffs-dlina-vala-1910-mm/"/>
+    <product id="34" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic44832-dlina-vala-3170-mm/"/>
+    <product id="35" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic44828-dlina-vala-2750-mm/"/>
+    <product id="36" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic44825-dlina-vala-2540-mm/"/>
+    <product id="37" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic44821-dlina-vala-2120-mm/"/>
+    <product id="38" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic44819-dlina-vala-1910-mm/"/>
+    <product id="39" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic43320-dlina-vala-2065-mm/"/>
+    <product id="40" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-electrolux-ic43316-dlina-vala-1650-mm/"/>
+  </products>
+</import>

@@ -1,0 +1,77 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.modal {
+	background: rgba(249, 247, 241, 0.3);
+	backdrop-filter: blur(rem(20));
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transition: var(--trs-300);
+	opacity: 0;
+	z-index: 130;
+	// mix-blend-mode: inherit;
+	pointer-events: none;
+	&.active {
+		opacity: 1;
+		pointer-events: all;
+		.modal-content {
+			transform: translate(0);
+		}
+	}
+	&.top {
+		.modal-content {
+			position: absolute;
+			top: rem(66);
+			background: var(--beige-color);
+			transform: translateY(-100%);
+			transition: var(--trs-300);
+		}
+		&.active {
+			.modal-content {
+				transform: translateY(0);
+			}
+		}
+		&.mob-left {
+			.modal-content {
+				@media (max-width: $tab-sm) {
+					width: 80%;
+					transform: translateY(0);
+					transform: translateX(-100%);
+					max-height: 100vh;
+					top: 0;
+					height: 100%;
+				}
+			}
+			&.active {
+				opacity: 1;
+				.modal-content {
+					transform: translateX(0);
+					opacity: 1;
+				}
+			}
+		}
+	}
+	&.right {
+		z-index: 110;
+		.modal-content {
+			transform: translateX(100%);
+			max-height: 100vh;
+			right: 0;
+			top: 0;
+			height: 100%;
+			background: var(--beige-color);
+			position: absolute;
+			transition: var(--trs-300);
+			@media (max-width: $tab-sm) {
+				width: 100%;
+			}
+		}
+		&.active {
+			.modal-content {
+				transform: translate(0);
+			}
+		}
+	}
+}

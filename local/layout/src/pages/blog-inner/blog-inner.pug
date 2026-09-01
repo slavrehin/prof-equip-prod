@@ -1,0 +1,17 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +blog-inner-content()
+        +calculate-project({hasBg: true})
+        +navigation-links({
+            title1: 'Символы по уходу за текстильными изделиями',
+            title2: 'Как выбрать качественную ткань для отеля?',
+        })
+        +related-articles()
+block footer 
+    +footer()

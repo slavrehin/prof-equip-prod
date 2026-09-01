@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Наволочки" date="2026-03-11 13:18:38" total="3" id="86" code="navolochki"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/navolochka-tselnokroennaya-s-klapanom-po-storone-52-sm-belaya-52-75-20-sm/"/>
+    <product id="2" url="https://prof-equip.ru/product/navolochka-tselnokroennaya-s-klapanom-po-storone-52-sm-belaya-52-75-30-sm/"/>
+    <product id="3" url="https://prof-equip.ru/product/navolochka-tselnokroenaya-razmer-52-4-75-4-25-4-sm-klapan-po-storone-52-sm/"/>
+  </products>
+</import>

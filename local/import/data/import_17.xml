@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Прачечное оборудование в наличии" date="2026-03-11 13:05:45" total="41" id="17" code="prachechnoe-oborudovanie-v-nalichii"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-mashina-tolon-twe-10-zagruzka-10-kg/"/>
+    <product id="2" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-mashina-tolon-twe-18-zagruzka-18-kg/"/>
+    <product id="3" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-mashina-tolon-twe-24-zagruzka-24-kg/"/>
+    <product id="4" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-mashina-tolon-twe-28-zagruzka-28-kg/"/>
+    <product id="5" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-mashina-tolon-twe-40-zagruzka-40-kg/"/>
+    <product id="6" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-mashina-tolon-twe-60-zagruzka-60-kg/"/>
+    <product id="7" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-mashina-tolon-twe-110-zagruzka-110-kg/"/>
+    <product id="8" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-tolon-ttd20-zagruzka-20-kg/"/>
+    <product id="9" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-tolon-ttd40-zagruzka-40-kg/"/>
+    <product id="10" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-tolon-ttd60-zagruzka-60-kg/"/>
+    <product id="11" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-tolon-trd11-zagruzka-10-5-kg-12-kg/"/>
+    <product id="12" url="https://prof-equip.ru/product/komplekt-oborudovaniya-tolon-dlya-prachechnoj-s-zagruzkoj-800-kg-v-smenu/"/>
+    <product id="13" url="https://prof-equip.ru/product/komplekt-oborudovaniya-tolon-dlya-prachechnoj-s-zagruzkoj-600-kg-v-smenu/"/>
+    <product id="14" url="https://prof-equip.ru/product/komplekt-oborudovaniya-tolon-dlya-prachechnoj-s-zagruzkoj-300-kg-v-smenu/"/>
+    <product id="15" url="https://prof-equip.ru/product/komplekt-oborudovaniya-tolon-dlya-prachechnoj-s-zagruzkoj-200-kg-v-smenu/"/>
+    <product id="16" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-s-plus-f/"/>
+    <product id="17" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-s-f/"/>
+    <product id="18" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-s/"/>
+    <product id="19" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-s-plus/"/>
+    <product id="20" url="https://prof-equip.ru/product/gladilnyj-stol-pony-tas-f/"/>
+    <product id="21" url="https://prof-equip.ru/product/gladilnyj-stol-pony-tas/"/>
+    <product id="22" url="https://prof-equip.ru/product/gladilnyj-stol-pony-classic-r/"/>
+    <product id="23" url="https://prof-equip.ru/product/gladilnyj-stol-pony-classic-130/"/>
+    <product id="24" url="https://prof-equip.ru/product/gladilnyj-stol-pony-classic-110/"/>
+    <product id="25" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-sv-plus/"/>
+    <product id="26" url="https://prof-equip.ru/product/gladilnyj-stol-pony-genus-sv-vystavochnyj-obrazets/"/>
+    <product id="27" url="https://prof-equip.ru/product/universalnyj-komplekt-prachechnogo-oborudovaniya-electrolux/"/>
+    <product id="28" url="https://prof-equip.ru/product/komplekt-oborudovaniya-dlya-prachechnoj-s-zagruzkoj-170-kg-v-smenu/"/>
+    <product id="29" url="https://prof-equip.ru/product/komplekt-oborudovaniya-dlya-prachechnoj-s-nebolshoj-zagruzkoj/"/>
+    <product id="30" url="https://prof-equip.ru/product/komplekt-prachechnogo-oborudovaniya-imesa-dlya-mini-otelya/"/>
+    <product id="31" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi6032-dlina-vala-3200-mm/"/>
+    <product id="32" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-imesa-fi-2000-33-dlina-vala-2000-mm/"/>
+    <product id="33" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-imesa-fi-1750-33-dlina-vala-1750-mm/"/>
+    <product id="34" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-imesa-es-34-zagruzka-34-kg/"/>
+    <product id="35" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-imesa-es-23-zagruzka-23-kg/"/>
+    <product id="36" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-imesa-es-18-zagruzka-18-kg/"/>
+    <product id="37" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-imesa-es-14-zagruzka-14-kg/"/>
+    <product id="38" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-imesa-es-10-zagruzka-10-kg/"/>
+    <product id="39" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-mashina-jensen-jwe-110-250-zagruzka-110-kg/"/>
+    <product id="40" url="https://prof-equip.ru/product/vysokoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-lm-14-zagruzka-14-kg/"/>
+    <product id="41" url="https://prof-equip.ru/product/vysokoskorostnaya-stiralnaya-mashina-imesa-lm-11-zagruzka-11-kg/"/>
+  </products>
+</import>

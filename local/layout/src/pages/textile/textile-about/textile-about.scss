@@ -1,0 +1,73 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.textile-about {
+	margin-bottom: rem(10);
+	.textile-about__inner {
+		.textile-about-container {
+			padding: rem(10) rem(25);
+			border: rem(9) double #888;
+			.textile-about__title {
+				color: #1b2154;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(34);
+				font-style: normal;
+				font-weight: 500;
+				line-height: rem(44);
+				margin-bottom: rem(40);
+			}
+			.textile-about__text-container {
+				display: grid;
+				grid-template-columns: 1fr rem(440);
+				gap: rem(90);
+				@media (max-width: $tab-sm) {
+					grid-template-columns: 1fr;
+					gap: rem(60);
+				}
+				.textile-about__text {
+					h3 {
+						color: #000;
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(20);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(32);
+						margin-bottom: rem(25);
+					}
+					p {
+						color: #000;
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(16);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(26);
+						margin-bottom: rem(10);
+					}
+				}
+				.textile-about__features {
+					display: flex;
+					flex-direction: column;
+					gap: rem(42);
+					.feature__item {
+						.feature__title {
+							color: #555;
+							font-family: 'Roboto', sans-serif;
+							font-size: rem(20);
+							font-style: normal;
+							font-weight: 500;
+							line-height: rem(32);
+							margin-bottom: rem(25);
+						}
+						.feature__descr {
+							color: #000;
+							font-family: 'Montserrat', sans-serif;
+							font-size: rem(16);
+							font-style: normal;
+							font-weight: 500;
+							line-height: rem(26);
+						}
+					}
+				}
+			}
+		}
+	}
+}

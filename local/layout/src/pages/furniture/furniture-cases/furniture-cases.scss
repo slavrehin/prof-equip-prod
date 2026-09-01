@@ -1,0 +1,121 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.furniture-cases {
+	overflow: hidden;
+	margin-bottom: rem(50);
+	.furniture-cases__title {
+		margin-bottom: rem(40);
+		color: #000;
+		font-family: 'Roboto', sans-serif;
+		font-size: rem(64);
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		@media (max-width: $laptop) {
+			font-size: rem(40);
+		}
+		@media (max-width: $tab-sm) {
+			font-size: rem(30);
+			margin-bottom: rem(20);
+		}
+	}
+	.furniture-cases-swiper {
+		position: relative;
+		margin-bottom: rem(50);
+		.swiper-slide {
+			width: auto;
+			.image-wrapper {
+				width: auto;
+				max-height: 600px;
+				@media (max-width: $tab-sm) {
+					width: 100%;
+					position: relative;
+					padding-bottom: 100%;
+				}
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					max-height: 600px;
+
+					@media (max-width: $tab-sm) {
+						position: absolute;
+					}
+				}
+			}
+		}
+		.navigation {
+			position: absolute;
+			top: 0;
+			right: rem(-16);
+			left: rem(-16);
+			bottom: 0;
+			margin: auto;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			pointer-events: none;
+			z-index: 2;
+
+			.btn {
+				pointer-events: all;
+				border-radius: 999px;
+				width: rem(36);
+				height: rem(36);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+				background: #fff;
+				svg {
+					width: rem(11);
+					height: rem(18);
+					color: #1b2154;
+				}
+			}
+		}
+	}
+	.furniture-cases__content {
+		display: grid;
+		grid-template-columns: rem(487) 1fr;
+		gap: rem(50);
+		@media (max-width: $laptop) {
+			grid-template-columns: 1fr;
+		}
+		.furniture-cases__content-text {
+			p {
+				color: #101010;
+				font-family: 'Roboto', sans-serif;
+				font-size: rem(20);
+				font-style: normal;
+				font-weight: 300;
+				line-height: rem(30);
+				margin-bottom: rem(97);
+				@media (max-width: $tab-sm) {
+					margin-bottom: rem(20);
+				}
+			}
+		}
+		.furniture-cases__content-image {
+			.image-wrapper {
+				position: relative;
+				padding-bottom: 40%;
+				margin-bottom: rem(50);
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					position: absolute;
+				}
+			}
+			p {
+				color: #101010;
+				font-family: 'Roboto', sans-serif;
+				font-size: rem(20);
+				font-style: normal;
+				font-weight: 300;
+				line-height: rem(30);
+			}
+		}
+	}
+}

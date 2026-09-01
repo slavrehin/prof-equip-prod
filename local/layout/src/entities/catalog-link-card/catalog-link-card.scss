@@ -1,0 +1,70 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.catalog-link-card {
+	position: relative;
+	padding-bottom: 70%;
+	background: rgba(0, 117, 21, 0.61);
+	&:hover {
+		img {
+			opacity: 0.3;
+		}
+		.catalog-link-card__content {
+			.title {
+				transform: translateY(rem(-20));
+			}
+			.link {
+				transform: translateY(0);
+
+				opacity: 1;
+			}
+		}
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+		opacity: 0.7;
+		transition: var(--trs-300);
+	}
+	.catalog-link-card__content {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		.title {
+			color: #fff;
+			text-align: center;
+
+			font-family: 'Roboto', sans-serif;
+			font-size: rem(26);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(30);
+			transition: var(--trs-300);
+		}
+		.link {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: rem(15);
+			margin: auto;
+			transform: translateY(rem(10));
+			font-family: 'Roboto', sans-serif;
+			font-size: rem(14);
+			line-height: rem(22);
+			color: #fff;
+			opacity: 0;
+			transition: var(--trs-300);
+			display: inline-block;
+			text-align: center;
+		}
+	}
+}

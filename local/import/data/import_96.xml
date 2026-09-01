@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Для растворителя ПХЭ" date="2026-03-11 13:23:00" total="3" id="96" code="dlya-rastvoritelya-phe"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/sultrasoft-deo-p/"/>
+    <product id="2" url="https://prof-equip.ru/product/sultrasoft-p/"/>
+    <product id="3" url="https://prof-equip.ru/product/sultrex-p/"/>
+  </products>
+</import>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Стирально-сушильные машины" date="2026-03-11 13:07:24" total="10" id="71" code="stiralno-sushilnye-mashiny"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/mnogourovnevaya-stiralno-otzhimnaya-mashina-sushilka-fermest-fwds-15/"/>
+    <product id="2" url="https://prof-equip.ru/product/mnogourovnevaya-stiralno-otzhimnaya-mashina-sushilka-fermest-fwds-10/"/>
+    <product id="3" url="https://prof-equip.ru/product/sailstar-msm-70/"/>
+    <product id="4" url="https://prof-equip.ru/product/sailstar-msm-100/"/>
+    <product id="5" url="https://prof-equip.ru/product/sailstar-msm-150/"/>
+    <product id="6" url="https://prof-equip.ru/product/sailstar-msm-100-t-vysokoskorostnaya-podressorennaya-mashina-100-kg/"/>
+    <product id="7" url="https://prof-equip.ru/product/sailstar-msm-150-t/"/>
+    <product id="8" url="https://prof-equip.ru/product/sailstar-msm-200-t/"/>
+    <product id="9" url="https://prof-equip.ru/product/sailstar-msm-30-30-kg/"/>
+    <product id="10" url="https://prof-equip.ru/product/sailstar-msm-50-vysokoskorostnaya-podressorennaya-mashina-50-kg/"/>
+  </products>
+</import>

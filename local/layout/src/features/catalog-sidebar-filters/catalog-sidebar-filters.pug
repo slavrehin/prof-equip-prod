@@ -1,0 +1,118 @@
+mixin catalog-sidebar-filters()
+    .catalog-sidebar-filters
+        button.close-filters 
+            +svg('close')
+        p.catalog-sidebar-filters__title Подбор по параметрам
+        .accordion
+            .filter__item.accordion__item
+                button.btn.accordion__title  
+                    span.filter__title Производитель:
+                    span.filter__icon 
+                        +svg('accordion-arrow')
+                .filters__list.accordion__content
+                    .filter-label__list
+                        label.filter-label
+                            input(type="checkbox")
+                            span Аквачистка
+                                span (93)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Коммерческая прачечная
+                                span (80)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Мини-прачечная
+                                span (64)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Прачечная в больнице
+                                span (36)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Прачечная в гостинице
+                                span (45)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Прачечная на предприятии
+                                span (46)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Прачечная самообслуживания
+                                span (12)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Промышленная прачечная
+                                span (17)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Химчистка
+                                span (43)
+            .filter__item.accordion__item
+                button.btn.accordion__title 
+                    span.filter__title Страна:
+                    span.filter__icon 
+                        +svg('accordion-arrow')
+                .filters__list.accordion__content 
+                    .filter-label__list
+                        label.filter-label
+                            input(type="checkbox")
+                            span Италия
+                                span (298)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Турция
+                                span (36)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Германия
+                                span (58)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Испания
+                                span (43)
+            .filter__item.accordion__item
+                button.btn.accordion__title 
+                    span.filter__title Тип предприятия:
+                    span.filter__icon 
+                        +svg('accordion-arrow')
+                .filters__list.accordion__content 
+                    .filter-label__list
+                        label.filter-label
+                            input(type="checkbox")
+                            span Коммерческая прачечная
+                                span (473)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Аквачистка
+                                span (300)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Прачечная в гостинице
+                                span (430)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Прачечная на предприятии
+                                span (469)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Прачечная в больнице
+                                span (418)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Мини-прачечная
+                                span (264)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Прачечная самообслуживания
+                                span (69)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Промышленная прачечная
+                                span (496)
+                        label.filter-label
+                            input(type="checkbox")
+                            span Химчистка
+                                span (388)
+        .filter__btns
+            button.btn.accept__btn.hidden Показать
+            button.btn.clear__btn Сбросить

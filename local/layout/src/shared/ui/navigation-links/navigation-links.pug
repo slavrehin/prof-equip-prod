@@ -1,0 +1,13 @@
+mixin navigation-links({title1, title2} = {})
+    .navigation-links
+        .navigation-links__inner.container 
+            a(href="#").navigation__link
+                +svg('arrow-swiper-left')
+                .navigation__link-text
+                    p.hint Предыдущая 
+                    p.title #{title1} 
+            a(href="#").navigation__link
+                .navigation__link-text
+                    p.hint Следующая 
+                    p.title #{title2} 
+                +svg('arrow-swiper-right')

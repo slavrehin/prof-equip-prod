@@ -1,0 +1,35 @@
+mixin furniture-places()
+    section.furniture-places
+        .furniture-places__inner.container
+            h2.furniture-places__title Мягкая мебель
+            .furniture-places__list 
+                .furniture-places__item 
+                    .image-wrapper 
+                        +img({
+                            src: 'assets/img/furniture-places/1.jpg',
+                            src2x: 'assets/img/furniture-places/1@2x.jpg',
+                            alt: 'place'
+                        })
+                    .furniture-places__item-content 
+                        p.title Из Европы
+                        p.descr Весь спектр мебели, независимо от современных барьеров
+                .furniture-places__item 
+                    .image-wrapper 
+                        +img({
+                            src: 'assets/img/furniture-places/2.jpg',
+                            src2x: 'assets/img/furniture-places/2@2x.jpg',
+                            alt: 'place'
+                        })
+                    .furniture-places__item-content 
+                        p.title Из России
+                        p.descr Производство мебели на заказ
+                .furniture-places__item 
+                    .image-wrapper 
+                        +img({
+                            src: 'assets/img/furniture-places/3.jpg',
+                            src2x: 'assets/img/furniture-places/3@2x.jpg',
+                            alt: 'place'
+                        })
+                    .furniture-places__item-content 
+                        p.title Из Китая
+                        p.descr Качественные реплики (аналоги) мировых брендов по приятным ценам.

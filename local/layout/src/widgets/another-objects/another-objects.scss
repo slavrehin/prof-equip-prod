@@ -1,0 +1,63 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.another-objects {
+	margin-top: rem(50);
+	overflow: hidden;
+	margin-bottom: rem(135);
+	@media (max-width: $tab-sm) {
+		margin-bottom: rem(112);
+	}
+	.another-objects__inner {
+		.another-objects__title {
+			text-align: center;
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(19);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(50);
+		}
+		.another-objects__swiper {
+			position: relative;
+			.swiper-slide {
+				opacity: 0 !important;
+				transition: var(--trs-300);
+				@media (max-width: $tab-sm) {
+					opacity: 1 !important;
+				}
+				&.visible-slide {
+					opacity: 1 !important;
+				}
+			}
+			.navigation {
+				top: 0;
+				bottom: 0;
+				left: rem(10);
+				right: rem(10);
+				margin: auto;
+				justify-content: space-between;
+				pointer-events: none;
+				align-items: center;
+				position: absolute;
+				z-index: 2;
+				display: flex;
+
+				.btn {
+					width: rem(36);
+					height: rem(36);
+					background: #fff;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 999px;
+					pointer-events: all;
+					svg {
+						width: rem(18);
+						height: rem(18);
+					}
+				}
+			}
+		}
+	}
+}

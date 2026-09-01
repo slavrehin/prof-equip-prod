@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Постельное белье" date="2026-03-11 13:16:53" total="20" id="28" code="postelnoe-bele"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/renaissance-gotovoe-postelnoe-bele-dlya-otelej/"/>
+    <product id="2" url="https://prof-equip.ru/product/prostynya-tselnokroennaya-belaya-240h300-sm-na-matras-160h200-sm/"/>
+    <product id="3" url="https://prof-equip.ru/product/prostynya-tselnokroennaya-belaya-180h300-sm-na-matras-90h200-sm/"/>
+    <product id="4" url="https://prof-equip.ru/product/navolochka-tselnokroennaya-s-klapanom-po-storone-52-sm-belaya-52-75-20-sm/"/>
+    <product id="5" url="https://prof-equip.ru/product/pododeyalnik-pryamougolnyj-tselnokroennyj-belyj-150-215-sm-2/"/>
+    <product id="6" url="https://prof-equip.ru/product/prostynya-tselnokroennaya-belaya-170h300-sm-na-matras-90h200-sm/"/>
+    <product id="7" url="https://prof-equip.ru/product/navolochka-tselnokroennaya-s-klapanom-po-storone-52-sm-belaya-52-75-30-sm/"/>
+    <product id="8" url="https://prof-equip.ru/product/prostynya-tselnokroenaya-belaya-235x300-sm-na-matras-120x200-sm/"/>
+    <product id="9" url="https://prof-equip.ru/product/navolochka-tselnokroenaya-razmer-52-4-75-4-25-4-sm-klapan-po-storone-52-sm/"/>
+    <product id="10" url="https://prof-equip.ru/product/pododeyalnik-pryamougolnyj-tselnokroenyj-razmer-245-230-sm-tsvet-belyj/"/>
+    <product id="11" url="https://prof-equip.ru/product/prostynya-tselnokroenaya-razmer-305x310-sm-na-matras-180x200-sm-tsvet-belyj/"/>
+    <product id="12" url="https://prof-equip.ru/product/tkan-satin-dlya-postelnogo-belya-60-hlopok-135-g-m-kv-ts300-ref-300-standard-textile/"/>
+    <product id="13" url="https://prof-equip.ru/product/tkan-satin-dlya-postelnogo-belya-60-hlopok-120-g-m-kv-ts200-ref-200-standard-textile/"/>
+    <product id="14" url="https://prof-equip.ru/product/tkan-polisatin-dlya-postelnogo-belya-50-hlopok-145-g-m-kv-ts300-ref-418-standard-textile/"/>
+    <product id="15" url="https://prof-equip.ru/product/tkan-byaz-dlya-postelnogo-belya-50-hlopok-135-g-m-kv-ts130-ref-439-color-standard-textile/"/>
+    <product id="16" url="https://prof-equip.ru/product/tkan-byaz-dlya-postelnogo-belya-50-hlopok-135-g-m-kv-ts130-ref-439-standard-textile/"/>
+    <product id="17" url="https://prof-equip.ru/product/tkan-satin-dlya-postelnogo-belya-100-hlopok-140-g-m-kv-ts250-ref-250-radisson-blu-quality-standard-textile/"/>
+    <product id="18" url="https://prof-equip.ru/product/tkan-polisatin-strajp-8x8-dlya-postelnogo-belya-70-hlopok-120-g-m-kv-ts150-ref-408-standard-textile/"/>
+    <product id="19" url="https://prof-equip.ru/product/tkan-polisatin-strajp-2x2-dlya-postelnogo-belya-50-hlopok-145-g-m-kv-ts300-ref-420-standard-textile/"/>
+    <product id="20" url="https://prof-equip.ru/product/tkan-euroval-plus-dlya-postelnogo-belya-70-hlopok-120-g-m-kv-ts120-ref-173-standard-textile/"/>
+  </products>
+</import>

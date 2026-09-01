@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Пододеяльники" date="2026-03-11 13:18:42" total="11" id="88" code="pododeyalniki"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/pododeyalnik-pryamougolnyj-tselnokroennyj-belyj-150-215-sm-2/"/>
+    <product id="2" url="https://prof-equip.ru/product/pododeyalnik-pryamougolnyj-tselnokroenyj-razmer-245-230-sm-tsvet-belyj/"/>
+    <product id="3" url="https://prof-equip.ru/product/tkan-satin-dlya-postelnogo-belya-60-hlopok-135-g-m-kv-ts300-ref-300-standard-textile/"/>
+    <product id="4" url="https://prof-equip.ru/product/tkan-satin-dlya-postelnogo-belya-60-hlopok-120-g-m-kv-ts200-ref-200-standard-textile/"/>
+    <product id="5" url="https://prof-equip.ru/product/tkan-polisatin-dlya-postelnogo-belya-50-hlopok-145-g-m-kv-ts300-ref-418-standard-textile/"/>
+    <product id="6" url="https://prof-equip.ru/product/tkan-byaz-dlya-postelnogo-belya-50-hlopok-135-g-m-kv-ts130-ref-439-color-standard-textile/"/>
+    <product id="7" url="https://prof-equip.ru/product/tkan-byaz-dlya-postelnogo-belya-50-hlopok-135-g-m-kv-ts130-ref-439-standard-textile/"/>
+    <product id="8" url="https://prof-equip.ru/product/tkan-satin-dlya-postelnogo-belya-100-hlopok-140-g-m-kv-ts250-ref-250-radisson-blu-quality-standard-textile/"/>
+    <product id="9" url="https://prof-equip.ru/product/tkan-polisatin-strajp-8x8-dlya-postelnogo-belya-70-hlopok-120-g-m-kv-ts150-ref-408-standard-textile/"/>
+    <product id="10" url="https://prof-equip.ru/product/tkan-polisatin-strajp-2x2-dlya-postelnogo-belya-50-hlopok-145-g-m-kv-ts300-ref-420-standard-textile/"/>
+    <product id="11" url="https://prof-equip.ru/product/tkan-euroval-plus-dlya-postelnogo-belya-70-hlopok-120-g-m-kv-ts120-ref-173-standard-textile/"/>
+  </products>
+</import>

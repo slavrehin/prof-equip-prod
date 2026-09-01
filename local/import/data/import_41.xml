@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Диет-питание (таблет-питание)" date="2026-03-11 13:20:34" total="3" id="41" code="diet-pitanie-tablet-pitanie"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/termokontejnery-cambro/"/>
+    <product id="2" url="https://prof-equip.ru/product/telezhki-dlya-razdachi-zavtrakov-socamel-servizio/"/>
+    <product id="3" url="https://prof-equip.ru/product/sistemy-transportirovki-i-razdachi-pishhi-menumobil-contactline/"/>
+  </products>
+</import>

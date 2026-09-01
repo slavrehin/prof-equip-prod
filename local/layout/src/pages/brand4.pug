@@ -1,0 +1,34 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        section.brand
+            .brand__inner.container 
+                +title-block({
+                    title: 'Electrolux',
+                    breadcrumbs: [
+                        {
+                            href: 'home.html',
+                            title: 'Главная'
+                        },
+                        {
+                            href: 'brands.html',
+                            title: 'Бренды'
+                        },
+                        {
+                            href: 'brand4.html',
+                            title: 'Electrolux'
+                        }
+                    ]
+                })
+                +catalog-content()
+                +brand-about({
+                    icon: 'assets/img/brand/8.png',
+                    icon2x: 'assets/img/brand/8@2x.png',
+                })
+block footer 
+    +footer()

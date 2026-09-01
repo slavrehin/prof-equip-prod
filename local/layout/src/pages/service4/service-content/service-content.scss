@@ -1,0 +1,142 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.service-content {
+	margin-top: rem(105);
+	margin-bottom: rem(120);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	@media (max-width: $tab-sm) {
+		margin-bottom: rem(50);
+	}
+	.service-content__inner {
+		.image-wrapper {
+			margin-bottom: rem(35);
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		p {
+			color: #000;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(24);
+			margin-bottom: rem(13);
+			a {
+				color: #1b2154;
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-skip-ink: auto;
+				text-decoration-thickness: auto;
+				text-underline-offset: auto;
+				text-underline-position: from-font;
+			}
+			strong {
+				margin-bottom: 0;
+				color: #1b2154;
+			}
+		}
+		strong {
+			color: #1b2154;
+
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(24);
+			margin-bottom: rem(13);
+			display: inline-block;
+		}
+		ul {
+			margin-left: rem(20);
+			margin-bottom: rem(13);
+			li {
+				color: #000;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(16);
+				font-style: normal;
+				font-weight: 500;
+				line-height: rem(24);
+			}
+		}
+		.table {
+			margin-bottom: rem(50);
+			.table__title {
+				padding: rem(6);
+				border: 1px solid rgba(171, 176, 184, 0.3);
+				background: #ccc;
+				@media (max-width: $tab-sm) {
+					background: #0089a6;
+				}
+				p {
+					color: #1b2154;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+					margin-bottom: 0;
+					@media (max-width: $tab-sm) {
+						color: #fff;
+					}
+				}
+			}
+			.table__head-row {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				@media (max-width: $tab-sm) {
+					grid-template-columns: 1fr;
+				}
+				p {
+					padding: rem(6);
+					border: 1px solid rgba(171, 176, 184, 0.3);
+					background: #ccc;
+					color: #1b2154;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+					margin-bottom: 0;
+					@media (max-width: $tab-sm) {
+						background: #ff000c;
+					}
+				}
+			}
+			.table__contnent {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				@media (max-width: $tab-sm) {
+					grid-template-columns: 1fr;
+				}
+				.col {
+					display: flex;
+					flex-direction: column;
+					p {
+						padding: rem(6);
+						border: 1px solid rgba(171, 176, 184, 0.3);
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(16);
+						font-style: normal;
+						font-weight: 500;
+						line-height: normal;
+						margin-bottom: 0;
+					}
+					.title {
+						background: #cfcfcf;
+						color: #1b2154;
+					}
+					.descr {
+						flex: 1;
+					}
+				}
+			}
+			.table__content-row {
+			}
+		}
+	}
+}

@@ -1,0 +1,591 @@
+mixin projects-list()
+    section.projects-list
+        .projects-list__inner.container 
+            +title-block({
+                title: 'Проекты',
+                breadcrumbs: [
+                    {
+                        href: 'home.html',
+                        title: 'Главная'
+                    },
+                    {
+                        href: 'projects.html',
+                        title: 'Проекты'
+                    }
+                ]
+            })
+            .projects-list__filters 
+                button.btn.filter.active(data-filter='0') Показать все
+                button.btn.filter(data-filter='1') Ресторан
+                button.btn.filter(data-filter='2') Гостиница
+                button.btn.filter(data-filter='3') Аквачистка
+                button.btn.filter(data-filter='4') Прачечная
+                button.btn.filter(data-filter='5') Кухня
+                button.btn.filter(data-filter='6') Текстиль
+                button.btn.filter(data-filter='7') Химия
+                button.btn.filter(data-filter='8') Туннельная прачечная
+                button.btn.filter(data-filter='9') Стадион
+                button.btn.filter(data-filter='10') Санаторий
+                button.btn.filter(data-filter='11') Казино
+            .projects-list__content 
+                .grid-sizer
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/1.jpg',
+                        src2x: 'assets/img/projects-list/1@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 1 2').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/2.jpg',
+                        src2x: 'assets/img/projects-list/2@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 2 3 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/3.jpg',
+                        src2x: 'assets/img/projects-list/3@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 3 5 10').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/4.jpg',
+                        src2x: 'assets/img/projects-list/4@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 4 6 11').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/5.jpg',
+                        src2x: 'assets/img/projects-list/5@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/6.jpg',
+                        src2x: 'assets/img/projects-list/6@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 5 8').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/7.jpg',
+                        src2x: 'assets/img/projects-list/7@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная
+                a(href="#" data-filter='0 9').project__item.grid-item
+                    +img({
+                        src: 'assets/img/projects-list/8.jpg',
+                        src2x: 'assets/img/projects-list/8@2x.jpg',
+                        alt: 'project'
+                    }) 
+                    p.project__item__title Прачечная

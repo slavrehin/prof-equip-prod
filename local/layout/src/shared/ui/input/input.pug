@@ -1,0 +1,23 @@
+mixin input(opts = {})
+    -
+        const {
+            type = 'text',
+            placeholder = 'Текст',
+            value = '',
+            name = '',
+            required = false,
+            rowAttrs = {},
+            inputAttrs = {}
+        } = opts
+
+    .input__row&attributes(rowAttrs)
+        .input-wrapper
+            input.input(
+                type=type
+                placeholder=placeholder
+                value=value
+                name=name
+                required=required
+            )&attributes(inputAttrs)
+            if required
+                span.req-star *

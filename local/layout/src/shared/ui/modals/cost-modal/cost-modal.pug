@@ -1,0 +1,32 @@
+extends @/app/templates/template-modal.pug
+
+block content
+    +modal('cost-modal')
+        button.btn.close-modal ×
+        p.modal__title Отправиль запрос
+        p.modal__descr Профессиональная сушильная машина TOLON TRD11, загрузка 10,5 кг – 12 кг 
+        form.form.cost__form
+            .inputs
+                +input({
+                    placeholder: 'Имя',
+                    inputAttrs: {
+                        class: 'input__valid-name'
+                    }
+                })
+                +input({
+                    placeholder: 'Телефон',
+                    inputAttrs: {
+                        class: 'input__valid-phone'
+                    }
+                })
+                +input({
+                    placeholder: 'E-mail',
+                    type: 'email',
+                    inputAttrs: {
+                        class: 'input__valid-email'
+                    }
+                })
+                textarea(placeholder="Комментарий")
+            p.policy Нажимая кнопку «Запросить» я даю свое согласие на использование и обработку моих персональных данных в соответствии с ч. 1 ст. 9 ФЗ от 27.07.2006 г. № 152 
+                a(href="#") «О персональных данных»
+            button.btn.submit__btn(type='submit') Запросить

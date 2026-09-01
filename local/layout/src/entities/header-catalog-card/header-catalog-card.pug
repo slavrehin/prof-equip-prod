@@ -1,0 +1,14 @@
+mixin header-catalog-card({src, title, hasBadge = false} = {})
+    a(href="#").header-catalog-card
+        .image-wrapper 
+            +img({
+                src,
+                alt: 'catalog image'
+            }) 
+            .eye__icon 
+                +svg('eye')
+        .catalog-card__content 
+            if hasBadge 
+                span.badge professional
+            p.title !{title}
+            p.link Подробнее

@@ -1,0 +1,13 @@
+mixin equipment-about-item({src,src2x,title,descr})
+    .equipment-about__item&attributes(attributes) 
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'equipment'
+            })
+        .equipment-about__text 
+            h3.equipment__title !{title}
+            p.equipment__descr #{descr}
+            a(href="#").btn.cost__btn 
+                span Подробнее 

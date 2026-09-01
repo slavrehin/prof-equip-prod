@@ -1,0 +1,23 @@
+mixin not-found-content()
+    section.not-found-content
+        .not-found-content__inner.container 
+            +title-block({
+                title: 'Страница не найдена',
+                breadcrumbs: [
+                    {
+                        href: 'home.html',
+                        title: 'Главная'
+                    },
+                    {
+                        href: 'not-found.html',
+                        title: 'Ошибка 404'
+                    }
+                ]
+            })
+            form(method="get").not-found-content__form
+                h4.form__title Ой! Эта страница не найдена.
+                p.form__descr It looks like nothing was found at this location. Try using the search box below:
+                .input-wrapper 
+                    input(type="text" name='search' placeholder='Для поиска нажмите Enter …')
+                    button.btn.search__btn 
+                        +svg('serch2')

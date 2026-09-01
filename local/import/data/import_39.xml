@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Винные библиотеки, комнаты и погреба" date="2026-03-11 13:21:03" total="11" id="39" code="vinnye-biblioteki-komnaty-i-pogreba"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/vitrina-dlya-vina-emainox-decanter/"/>
+    <product id="2" url="https://prof-equip.ru/product/modulnaya-sistema-dlya-hraneniya-vina-enofrigo-wine-library/"/>
+    <product id="3" url="https://prof-equip.ru/product/modulnye-sistemy-dlya-hraneniya-vina-enofrigo-enogalax/"/>
+    <product id="4" url="https://prof-equip.ru/product/vinnye-shkafy-i-am-enofrigo/"/>
+    <product id="5" url="https://prof-equip.ru/product/vinnye-shkafy-enofrigo-miami/"/>
+    <product id="6" url="https://prof-equip.ru/product/multitemperaturnye-vinnye-shkafy-liebherr-vinothek/"/>
+    <product id="7" url="https://prof-equip.ru/product/vstraivaemye-vinnye-shkafy-liebherr/"/>
+    <product id="8" url="https://prof-equip.ru/product/multitemperaturnye-vinnye-shkafy-liebherr-vinidor/"/>
+    <product id="9" url="https://prof-equip.ru/product/klimaticheskie-vinnye-shkafy-liebherr-vinothek/"/>
+    <product id="10" url="https://prof-equip.ru/product/klimaticheskie-vinnye-shkafy-liebherr-grandcru/"/>
+    <product id="11" url="https://prof-equip.ru/product/vinnye-biblioteki-brera/"/>
+  </products>
+</import>

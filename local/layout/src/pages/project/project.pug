@@ -1,0 +1,17 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +project-content()
+        +calculate-project()
+        +navigation-links({
+            title1: 'MANTERA Supreme Seaside 5*',
+            title2: 'Прачечная “Стандарт чистоты”',
+        })
+        +objects()
+block footer 
+    +footer()

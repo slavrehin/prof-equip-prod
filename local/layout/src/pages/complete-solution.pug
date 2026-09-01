@@ -1,0 +1,11 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +complete-solution()
+block footer 
+    +footer()

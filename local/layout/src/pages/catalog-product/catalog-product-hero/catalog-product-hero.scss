@@ -1,0 +1,130 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.catalog-product-hero {
+	margin-top: rem(105);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	.catalog-product-hero__inner {
+		border-bottom: 1px solid rgba(171, 176, 184, 0.3);
+		padding-bottom: rem(60);
+
+		.catalog-product-hero__info {
+			display: grid;
+			grid-template-columns: rem(480) 1fr;
+			gap: rem(50);
+			@media (max-width: $laptop) {
+				grid-template-columns: rem(270) 1fr;
+			}
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+				gap: rem(30);
+			}
+			.catalog-product-hero__swiper-wrapper {
+				overflow: hidden;
+				.catalog-product-hero__swiper {
+					overflow: hidden;
+					.zoom-wrapper {
+						display: block;
+						overflow: hidden;
+						position: relative;
+						cursor: crosshair;
+					}
+
+					.zoom-wrapper img {
+						display: block;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						transform: scale(1);
+						transform-origin: center center;
+						transition: transform 0.1s ease-out;
+						will-change: transform;
+					}
+
+					.zoom-wrapper:hover img {
+						transform: scale(1.8);
+					}
+					.image-wrapper {
+						width: rem(480);
+						height: rem(480);
+						position: relative;
+						@media (max-width: $laptop) {
+							width: rem(270);
+							height: rem(270);
+						}
+						@media (max-width: $tab-sm) {
+							width: rem(360);
+							height: rem(360);
+						}
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: cover;
+						}
+						.fancy__button {
+							width: rem(36);
+							height: rem(36);
+							border-radius: 999px;
+							background: rgba(0, 0, 0, 0.8);
+							position: absolute;
+							top: 0;
+							right: 0;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							svg {
+								color: var(--white-color);
+								width: rem(20);
+								height: rem(20);
+							}
+						}
+					}
+				}
+				.catalog-product-hero__swiper-thumbs {
+					.image-wrapper {
+						width: auto;
+						height: auto;
+						cursor: pointer;
+						opacity: 0.5;
+						transition: var(--trs-300);
+						&:hover,
+						&.swiper-slide-thumb-active {
+							opacity: 1;
+						}
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: contain;
+						}
+					}
+				}
+			}
+			.catalog-product-hero__info-text {
+				.info__list {
+					display: flex;
+					flex-direction: column;
+					gap: rem(5);
+					margin-bottom: rem(12);
+					p {
+						color: #000;
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(16);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(24);
+					}
+				}
+				.status {
+					color: #1b2154;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+					margin-bottom: rem(33);
+				}
+			}
+		}
+	}
+}

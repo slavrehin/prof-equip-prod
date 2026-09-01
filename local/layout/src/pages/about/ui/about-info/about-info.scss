@@ -1,0 +1,61 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.about-info {
+	margin-bottom: rem(170);
+	@media (max-width: $tab-sm) {
+		margin-bottom: rem(150);
+	}
+	.about-info__inner {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		column-gap: rem(30);
+		row-gap: rem(127);
+		@media (max-width: $tab-sm) {
+			grid-template-columns: 1fr;
+			row-gap: rem(50);
+			column-gap: 0;
+		}
+		.about-info__item {
+			.info__title {
+				color: #1b2154;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(22);
+				font-style: normal;
+				font-weight: 500;
+				line-height: rem(32);
+				margin-bottom: rem(30);
+			}
+			ul {
+				list-style: none;
+				li {
+					padding-bottom: rem(10);
+					padding-left: rem(24);
+					padding-top: rem(10);
+					border-bottom: 1px solid rgba(171, 176, 184, 0.3);
+					color: #000;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+					&:last-child {
+						padding-bottom: 0;
+						border-bottom: none;
+					}
+					span {
+						color: #1b2154;
+					}
+				}
+			}
+			p {
+				margin-top: rem(40);
+				color: #000;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(16);
+				font-style: normal;
+				font-weight: 500;
+				line-height: rem(24);
+			}
+		}
+	}
+}

@@ -1,0 +1,85 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.portfolio-inner-hero {
+	margin-top: rem(105);
+	margin-bottom: rem(35);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	.portfolio-inner-hero__inner {
+		.portfolio-inner-hero__content {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-areas: 'image info' 'text text';
+			gap: rem(30);
+			align-items: flex-start;
+			@media (max-width: $laptop) {
+				grid-template-columns: 1fr;
+				grid-template-areas: 'image' 'info' 'text';
+			}
+			.image-wrapper {
+				position: relative;
+				padding-bottom: 67%;
+				grid-area: image;
+
+				img {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			.portfolio-inner-hero__text {
+				grid-area: text;
+				p {
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+					margin-bottom: rem(13);
+					strong {
+						color: #1b2154;
+					}
+				}
+				strong {
+					display: inline-block;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+					margin-bottom: rem(13);
+					color: #1b2154;
+				}
+			}
+			.portfolio-inner-hero__info {
+				background: #e2e2e2;
+				padding: rem(16);
+				grid-area: info;
+
+				p {
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+					margin-bottom: rem(13);
+					strong {
+						color: #1b2154;
+					}
+				}
+				ul {
+					margin-left: rem(20);
+					li {
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(16);
+						font-style: normal;
+						font-weight: 500;
+						line-height: normal;
+					}
+				}
+			}
+		}
+	}
+}

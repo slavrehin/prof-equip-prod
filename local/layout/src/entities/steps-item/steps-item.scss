@@ -1,0 +1,44 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.steps-item {
+	display: flex;
+	align-items: flex-start;
+	gap: rem(15);
+	.steps__icon {
+		min-width: rem(52);
+		min-height: rem(52);
+		max-width: rem(52);
+		max-height: rem(52);
+		border-radius: 999px;
+		border: 1px solid #f8f8f9;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		img {
+			width: rem(38);
+			height: rem(38);
+			object-fit: contain;
+		}
+	}
+	.steps__content {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		.title {
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(19);
+		}
+		.text {
+			color: #000;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+		}
+	}
+}

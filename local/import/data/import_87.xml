@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Простыни" date="2026-03-11 13:18:53" total="6" id="87" code="prostyni"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/renaissance-gotovoe-postelnoe-bele-dlya-otelej/"/>
+    <product id="2" url="https://prof-equip.ru/product/prostynya-tselnokroennaya-belaya-240h300-sm-na-matras-160h200-sm/"/>
+    <product id="3" url="https://prof-equip.ru/product/prostynya-tselnokroennaya-belaya-180h300-sm-na-matras-90h200-sm/"/>
+    <product id="4" url="https://prof-equip.ru/product/prostynya-tselnokroennaya-belaya-170h300-sm-na-matras-90h200-sm/"/>
+    <product id="5" url="https://prof-equip.ru/product/prostynya-tselnokroenaya-belaya-235x300-sm-na-matras-120x200-sm/"/>
+    <product id="6" url="https://prof-equip.ru/product/prostynya-tselnokroenaya-razmer-305x310-sm-na-matras-180x200-sm-tsvet-belyj/"/>
+  </products>
+</import>

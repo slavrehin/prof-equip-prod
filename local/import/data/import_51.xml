@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Гладильные прессы" date="2026-03-11 13:09:38" total="12" id="51" code="gladilnye-pressy"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/promyshlennyj-press-dlya-otzhima-jensen-water-extraction-press-exq-twindrain/"/>
+    <product id="2" url="https://prof-equip.ru/product/gladilnyj-press-pony-pantamaster-pantamaster-hq-pantafast-dlp/"/>
+    <product id="3" url="https://prof-equip.ru/product/pnevmaticheskij-gladilnyj-press-macpi-208/"/>
+    <product id="4" url="https://prof-equip.ru/product/gladilnyj-press-pony-sp-u-sp-up-sp-p-sp-b-sp-ul-sp-upl-sp-pl/"/>
+    <product id="5" url="https://prof-equip.ru/product/gladilnyj-press-pony-cp-u-cp-up-cp-us-cp-p-cp-ul-cp-upl-cp-pl/"/>
+    <product id="6" url="https://prof-equip.ru/product/gladilnyj-press-pony-lav-r1-lav-r2e-lav-bb-lav-f/"/>
+    <product id="7" url="https://prof-equip.ru/product/gladilnyj-press-pony-lav-up/"/>
+    <product id="8" url="https://prof-equip.ru/product/gladilnyj-press-pony-lav-u/"/>
+    <product id="9" url="https://prof-equip.ru/product/gladilnyj-press-imesa-pr-230/"/>
+    <product id="10" url="https://prof-equip.ru/product/gladilnyj-press-electrolux-fpm1-d/"/>
+    <product id="11" url="https://prof-equip.ru/product/gladilnyj-press-electrolux-fra5-wc/"/>
+    <product id="12" url="https://prof-equip.ru/product/gladilnyj-press-electrolux-fpa4-wc/"/>
+  </products>
+</import>

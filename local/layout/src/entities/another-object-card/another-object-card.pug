@@ -1,0 +1,11 @@
+mixin another-object-card({src,src2x,title,date})
+    a(href="#").another-object-card.swiper-slide
+        .image-wapper 
+            +img({
+                src,
+                src2x,
+                alt: 'object'
+            }) 
+        .another-object-card__content 
+            p.title #{title}
+            p.date #{date}

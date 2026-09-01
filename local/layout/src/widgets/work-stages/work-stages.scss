@@ -1,0 +1,50 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.work-stages {
+	margin-bottom: rem(80);
+	@media (max-width: $laptop) {
+		margin-bottom: rem(120);
+	}
+	@media (max-width: $tab-sm) {
+		margin-bottom: rem(40);
+	}
+	.work-stages__inner {
+		.work-stages__title {
+			margin-bottom: rem(10);
+			@include h2;
+		}
+		.work-stages__list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: rem(50);
+			@media (max-width: $desktop-lg) {
+				gap: rem(25);
+			}
+			@media (max-width: $laptop) {
+				gap: rem(20);
+			}
+			.work-stage-card {
+				width: calc(33% - rem(34));
+				&:nth-child(2) {
+					width: calc(66% - rem(29));
+				}
+
+				@media (max-width: $laptop) {
+					width: calc(50% - rem(11));
+					&:nth-child(2) {
+						width: calc(50% - rem(11));
+					}
+					&:last-child {
+						width: 100%;
+					}
+				}
+				@media (max-width: $tab-sm) {
+					width: 100%;
+					&:nth-child(2) {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

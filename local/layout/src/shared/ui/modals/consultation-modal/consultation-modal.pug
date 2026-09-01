@@ -1,0 +1,29 @@
+extends @/app/templates/template-modal.pug
+
+block content
+    +modal('consultation-modal')
+        button.btn.close-modal ×
+        p.modal__title Получить консультацию
+        form.form.consultation__form
+            .inputs
+                +input({
+                    placeholder: 'Имя',
+                    inputAttrs: {
+                        class: 'input__valid-name'
+                    }
+                })
+                +input({
+                    placeholder: 'Телефон',
+                    inputAttrs: {
+                        class: 'input__valid-phone'
+                    }
+                })
+                +input({
+                    placeholder: 'E-mail',
+                    type: 'email',
+                    inputAttrs: {
+                        class: 'input__valid-email'
+                    }
+                })
+                textarea(placeholder="Комментарий")
+            button.btn.submit__btn(type='submit') Отправить

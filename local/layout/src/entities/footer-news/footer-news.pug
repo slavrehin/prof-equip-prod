@@ -1,0 +1,11 @@
+mixin footer-news({src, src2x, title, date})
+    a(href="#").footer-news
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'footer news'
+            })
+        .footer-news__content 
+            p.title !{title}
+            p.date #{date}

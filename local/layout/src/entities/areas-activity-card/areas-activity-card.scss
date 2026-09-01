@@ -1,0 +1,86 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.areas-activity-card {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: rem(30);
+	@media (max-width: $desktop-lg) {
+		// grid-template-columns: 1fr;
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+	@media (max-width: $tab-sm) {
+		gap: rem(15);
+	}
+
+	.image-wrapper {
+		position: relative;
+		padding-bottom: 88%;
+		border-radius: rem(4);
+		overflow: hidden;
+		@media (max-width: $desktop-lg) {
+			padding-bottom: 55%;
+		}
+		@media (max-width: $tab-sm) {
+			padding-bottom: 47%;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+		}
+	}
+	.areas-activity-card__content {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		@media (max-width: $desktop-lg) {
+			height: 100%;
+			gap: rem(15);
+		}
+		@media (max-width: $tab-sm) {
+			gap: rem(10);
+		}
+		.title {
+			color: #000;
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(32);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(13);
+			@media (max-width: $desktop-lg) {
+				margin-bottom: 0;
+			}
+			@media (max-width: $laptop) {
+				font-size: rem(24);
+			}
+		}
+		.text {
+			color: #000;
+
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			opacity: 0.5;
+			display: -webkit-box;
+			-webkit-line-clamp: 7;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			@media (max-width: $tab-sm) {
+				font-size: rem(14);
+			}
+		}
+		.link__btn {
+			.btn__text {
+				@media (max-width: $desktop-lg) {
+					font-size: rem(16);
+				}
+			}
+		}
+	}
+}

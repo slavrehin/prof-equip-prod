@@ -1,0 +1,42 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.about-feature__item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	.icon {
+		width: rem(62);
+		height: rem(62);
+		border-radius: 999px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: 1px solid #333;
+		img {
+			object-fit: contain;
+			width: rem(40);
+			height: rem(40);
+		}
+	}
+	.feature__number {
+		color: #1b2154;
+		text-align: center;
+		font-family: 'Montserrat', sans-serif;
+		font-size: rem(48);
+		font-style: normal;
+		font-weight: 500;
+		line-height: rem(58);
+		text-align: center;
+	}
+	.feature__title {
+		color: #1b2154;
+		text-align: center;
+		font-family: 'Montserrat', sans-serif;
+		font-size: rem(18);
+		font-style: normal;
+		font-weight: 500;
+		line-height: rem(28);
+		text-align: center;
+	}
+}

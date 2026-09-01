@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Вспомогательное оборудование" date="2026-03-11 13:03:26" total="12" id="24" code="vspomogatelnoe-oborudovanie"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/perenosnoj-generator-ozona-pony-ozocubo/"/>
+    <product id="2" url="https://prof-equip.ru/product/mashina-dlya-polnostyu-avtomaticheskogo-razdeleniya-i-podachi-polotenets-jensen-evolution-spider/"/>
+    <product id="3" url="https://prof-equip.ru/product/separator-dlya-pryamogo-belya-jensen-turnus/"/>
+    <product id="4" url="https://prof-equip.ru/product/universalnaya-podayushhaya-mashina-jensen-kliq-feeder/"/>
+    <product id="5" url="https://prof-equip.ru/product/reshenie-dlya-sortirovki-belya-jensen-futurail-directsort/"/>
+    <product id="6" url="https://prof-equip.ru/product/ctantsiya-zagruzki-dlya-raboty-s-odezhdoj-jensen-metriq/"/>
+    <product id="7" url="https://prof-equip.ru/product/sortirovochnye-sistemy-jensen-futurail/"/>
+    <product id="8" url="https://prof-equip.ru/product/soedinitelnyj-poyas-electrolux-stacking-kit-dlya-ustanovki-sushilnoj-mashiny-t5130/"/>
+    <product id="9" url="https://prof-equip.ru/product/dozator-dlya-stiralnoj-mashiny-electrolux-eds/"/>
+    <product id="10" url="https://prof-equip.ru/product/podayushhaya-mashina-alpha-f5-dlya-ruchnoj-podachi/"/>
+    <product id="11" url="https://prof-equip.ru/product/podayushhaya-mashina-alpha-f7/"/>
+    <product id="12" url="https://prof-equip.ru/product/vakuumnaya-transportnaya-sistema-jensen-vacutrans/"/>
+  </products>
+</import>

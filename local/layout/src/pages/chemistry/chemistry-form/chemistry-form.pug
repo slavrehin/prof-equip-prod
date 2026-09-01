@@ -1,0 +1,12 @@
+mixin chemistry-form()
+    section.chemistry-form
+        .chemistry-form__bg 
+            +img({
+                src: 'assets/img/chemistry-form/bg.jpg',
+                src2x: 'assets/img/chemistry-form/bg@2x.jpg',
+                alt: 'bg'
+            })
+        .chemistry-form__inner.container 
+            h2.chemistry-form__title Получить консультацию технолога
+            p.chemistry-form__descr Команда технологов обеспечивает технологическое сопровождение прачечных объектов, на которые осуществляются поставки профессиональной химии компанией ПРОФЭКВИП. Вы можете связаться с вашим технологом в любое время, задать интересующие вопросы, обратиться за решением возникшей проблемы или поломки. Мы всегда готовы помочь оптимизировать качество и себестоимость стирки.
+            +calculate-project({hasBg: true})

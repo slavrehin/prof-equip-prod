@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Комплекты прачечного оборудования" date="2026-03-11 13:05:36" total="14" id="18" code="komplekty-prachechnogo-oborudovaniya"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/komplekt-oborudovaniya-tolon-dlya-prachechnoj-s-zagruzkoj-800-kg-v-smenu/"/>
+    <product id="2" url="https://prof-equip.ru/product/komplekt-oborudovaniya-tolon-dlya-prachechnoj-s-zagruzkoj-600-kg-v-smenu/"/>
+    <product id="3" url="https://prof-equip.ru/product/komplekt-oborudovaniya-tolon-dlya-prachechnoj-s-zagruzkoj-300-kg-v-smenu/"/>
+    <product id="4" url="https://prof-equip.ru/product/komplekt-oborudovaniya-tolon-dlya-prachechnoj-s-zagruzkoj-200-kg-v-smenu/"/>
+    <product id="5" url="https://prof-equip.ru/product/universalnyj-komplekt-prachechnogo-oborudovaniya-electrolux/"/>
+    <product id="6" url="https://prof-equip.ru/product/komplekt-oborudovaniya-dlya-prachechnoj-s-zagruzkoj-170-kg-v-smenu/"/>
+    <product id="7" url="https://prof-equip.ru/product/komplekt-oborudovaniya-dlya-prachechnoj-s-nebolshoj-zagruzkoj/"/>
+    <product id="8" url="https://prof-equip.ru/product/minimalnyj-komplekt-prachechnogo-oborudovaniya-dlya-fitnesa-spa-salona-krasoty/"/>
+    <product id="9" url="https://prof-equip.ru/product/komplekt-prachechnogo-oborudovaniya-dlya-chastnogo-doma/"/>
+    <product id="10" url="https://prof-equip.ru/product/komplekt-prachechnogo-oborudovaniya-imesa-dlya-mini-otelya/"/>
+    <product id="11" url="https://prof-equip.ru/product/komplekt-prachechnogo-oborudovaniya-dlya-bolnitsy/"/>
+    <product id="12" url="https://prof-equip.ru/product/polnyj-komplekt-oborudovaniya-dlya-himchistki-odezhdy/"/>
+    <product id="13" url="https://prof-equip.ru/product/startovyj-komplekt-dlya-akvachistki-electrolux-lagoon-advanced-care/"/>
+    <product id="14" url="https://prof-equip.ru/product/komplekt-oborudovaniya-dlya-otkrytiya-akvachistki/"/>
+  </products>
+</import>

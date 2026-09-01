@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Пароконвектоматы" date="2026-03-11 13:19:22" total="33" id="46" code="parokonvektomaty"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/parokonvektomat-mkn-junior-magicpilot-skecod623tg2/"/>
+    <product id="2" url="https://prof-equip.ru/product/parokonvektomat-mkn-flexicombi-magicpilot-10-1-gaz/"/>
+    <product id="3" url="https://prof-equip.ru/product/parokonvektomat-mkn-flexicombi-magicpilot-6-1-gaz/"/>
+    <product id="4" url="https://prof-equip.ru/product/parokonvektomat-mkn-flexicombi-magicpilot-10-1/"/>
+    <product id="5" url="https://prof-equip.ru/product/parokonvektomat-mkn-flexicombi-classic-6-1/"/>
+    <product id="6" url="https://prof-equip.ru/product/parokonvektomat-mkn-flexicombi-magicpilot-6-1/"/>
+    <product id="7" url="https://prof-equip.ru/product/parokonvektomat-mkn-flexicombi-classic-101/"/>
+    <product id="8" url="https://prof-equip.ru/product/parokonvektomat-mkn-flexicombi-magicpilot-20-1/"/>
+    <product id="9" url="https://prof-equip.ru/product/parokonvektomat-mkn-spacecombi-classic-6-1/"/>
+    <product id="10" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-xs-6-2-3/"/>
+    <product id="11" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-20-2-1-gaz/"/>
+    <product id="12" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-20-2-1/"/>
+    <product id="13" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-20-1-1-e/"/>
+    <product id="14" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-10-2-1-gaz/"/>
+    <product id="15" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-10-2-1/"/>
+    <product id="16" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-10-1-1-e/"/>
+    <product id="17" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-10-1-1-gaz/"/>
+    <product id="18" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-6-2-1-gaz/"/>
+    <product id="19" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-6-1-1-e/"/>
+    <product id="20" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-6-2-1/"/>
+    <product id="21" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-pro-6-1-1-gaz/"/>
+    <product id="22" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-20-2-1-gaz/"/>
+    <product id="23" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-20-2-1/"/>
+    <product id="24" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-20-1-1-e/"/>
+    <product id="25" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-20-1-1-gaz/"/>
+    <product id="26" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-10-2-1-gaz/"/>
+    <product id="27" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-10-2-1/"/>
+    <product id="28" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-10-1-1-gaz/"/>
+    <product id="29" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-6-2-1-gaz/"/>
+    <product id="30" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-6-2-1/"/>
+    <product id="31" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-6-1-1-e/"/>
+    <product id="32" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-6-1-1-gaz/"/>
+    <product id="33" url="https://prof-equip.ru/product/parokonvektomat-rational-icombi-classic-10-1-1/"/>
+  </products>
+</import>

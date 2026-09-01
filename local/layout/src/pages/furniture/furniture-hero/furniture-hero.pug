@@ -1,0 +1,24 @@
+mixin furniture-hero()
+    section.furniture-hero
+        .furniture-hero__bg 
+            +img({
+                src: 'assets/img/furniture-hero/bg.jpg',
+                src2x: 'assets/img/furniture-hero/bg@2x.jpg',
+                alt: 'bg'
+            })
+        .furniture-hero__inner.container 
+            +breadcrumbs([
+                {
+                    href: 'home.html',
+                    title: 'Главная'
+                },
+                {
+                    href: 'brands.html',
+                    title: 'Мебель'
+                }
+            ])
+            h1.furniture-hero__title Мягкая и корпусная мебель <br> для вашего бизнеса
+            p.furniture-hero__descr Компания «Профэквип» – ваш надежный партнер в комплексном оснащении мебелью заведений HoReCa. Мы предлагаем широкий спектр решений для создания уникального и функционального интерьера, отвечающего самым высоким стандартам индустрии гостеприимства.
+            +button({
+                text: 'Получить консультацию'
+            }).gradient.consultation__btn(data-modal-load='./modals/consultation-modal.html')

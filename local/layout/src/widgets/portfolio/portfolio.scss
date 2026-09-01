@@ -1,0 +1,68 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.portfolio {
+	overflow: hidden;
+	background: #f8f8f9;
+	padding: rem(75) 0 rem(96);
+	.portfolio__inner {
+		.portfolio__title {
+			margin-bottom: rem(32);
+			text-align: center;
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(25);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(38);
+		}
+		.portfolio-swiper {
+			position: relative;
+			.swiper-slide {
+				display: flex;
+				flex-direction: column;
+				height: auto;
+			}
+			@media (min-width: $tab-sm) {
+				.swiper-slide {
+					opacity: 0 !important;
+					transition: var(--trs-300);
+					&.visible-slide {
+						opacity: 1 !important;
+					}
+				}
+			}
+			.navigation {
+				position: absolute;
+				top: 0;
+				right: rem(-16);
+				left: rem(-16);
+				margin: auto;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				pointer-events: none;
+				z-index: 2;
+				@media (max-width: $tab-sm) {
+					right: rem(10);
+					left: rem(10);
+				}
+				.btn {
+					pointer-events: all;
+					border-radius: 999px;
+					width: rem(36);
+					height: rem(36);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+					background: #fff;
+					svg {
+						width: rem(11);
+						height: rem(18);
+						color: #1b2154;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Парогенераторы" date="2026-03-11 13:10:42" total="16" id="54" code="parogeneratory"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/parogenerator-dlya-sanatsii-pony-sani-baby/"/>
+    <product id="2" url="https://prof-equip.ru/product/elektricheskie-parogeneratory-pony-inox-series/"/>
+    <product id="3" url="https://prof-equip.ru/product/parogenerator-pony-ge-8-16/"/>
+    <product id="4" url="https://prof-equip.ru/product/parogenerator-electrolux-fsb18/"/>
+    <product id="5" url="https://prof-equip.ru/product/avtomaticheskij-parogenerator-macpi-412-na-kolesah/"/>
+    <product id="6" url="https://prof-equip.ru/product/nastolnyj-parogenerator-macpi-414-v-komplekte-s-utyugom-bojler-1-litr/"/>
+    <product id="7" url="https://prof-equip.ru/product/nastolnyj-parogenerator-macpi-413-v-komplekte-s-utyugom-bojler-3-5-litra/"/>
+    <product id="8" url="https://prof-equip.ru/product/nastolnyj-parogenerator-macpi-410-v-komplekte-s-utyugom-bojler-4-75-litra/"/>
+    <product id="9" url="https://prof-equip.ru/product/parogenerator-macpi-418/"/>
+    <product id="10" url="https://prof-equip.ru/product/parogenerator-macpi-417/"/>
+    <product id="11" url="https://prof-equip.ru/product/avtomaticheskij-parogenerator-macpi-461-na-kolesah/"/>
+    <product id="12" url="https://prof-equip.ru/product/parogenerator-pony-goliath-65-goliath-90/"/>
+    <product id="13" url="https://prof-equip.ru/product/parogenerator-pony-goliath-50/"/>
+    <product id="14" url="https://prof-equip.ru/product/parogenerator-pony-goliath-25/"/>
+    <product id="15" url="https://prof-equip.ru/product/parogenerator-electrolux-fsb24c/"/>
+    <product id="16" url="https://prof-equip.ru/product/parogenerator-electrolux-fsb-3-3/"/>
+  </products>
+</import>

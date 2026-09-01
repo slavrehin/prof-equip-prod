@@ -1,0 +1,65 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.reviews {
+	overflow: hidden;
+	margin: rem(35) 0 rem(115);
+	.reviews__inner {
+		.reviews__title {
+			text-align: center;
+			color: #333;
+			font-family: 'Roboto', sans-serif;
+			font-size: rem(18);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(38);
+			margin-bottom: rem(55);
+		}
+		.reviews-swiper {
+			position: relative;
+			@media (min-width: $tab-sm) {
+				.swiper-slide {
+					opacity: 0 !important;
+					transition: var(--trs-300);
+					&.visible-slide {
+						opacity: 1 !important;
+					}
+				}
+			}
+			.navigation {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: rem(-16);
+				left: rem(-16);
+				margin: auto;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				pointer-events: none;
+				z-index: 2;
+				@media (max-width: $tab-sm) {
+					top: 20%;
+					bottom: auto;
+					left: 0;
+					right: 0;
+				}
+				.btn {
+					pointer-events: all;
+					border-radius: 999px;
+					width: rem(36);
+					height: rem(36);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+					background: #fff;
+					svg {
+						width: rem(11);
+						height: rem(18);
+						color: #1b2154;
+					}
+				}
+			}
+		}
+	}
+}

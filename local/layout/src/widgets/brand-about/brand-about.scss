@@ -1,0 +1,120 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.brand-about {
+	display: grid;
+	grid-template-columns: rem(200) 1fr;
+	gap: rem(40);
+	align-items: flex-start;
+	@media (max-width: $tab-sm) {
+		grid-template-columns: 1fr;
+		gap: rem(10);
+	}
+	& > .image-wrapper {
+		position: relative;
+		padding-bottom: 100%;
+		@media (max-width: $tab-sm) {
+			padding-bottom: 50%;
+		}
+		img {
+			width: 100%;
+			position: absolute;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	.brand-about__text {
+		a {
+			text-decoration: underline;
+			color: #1d214e;
+		}
+		p {
+			margin-bottom: rem(13);
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: rem(24);
+		}
+		h2 {
+			margin-bottom: rem(13);
+			font-weight: 500;
+			font-size: rem(28);
+			color: #1d214e;
+		}
+		h3 {
+			margin-bottom: rem(16);
+			color: #1b2154;
+			font-size: rem(28);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(32);
+			@media (max-width: $tab-sm) {
+				font-size: rem(18);
+				line-height: rem(28);
+			}
+		}
+		ul {
+			margin-left: rem(20);
+			margin-bottom: rem(12);
+			li {
+				font-weight: 500;
+				font-size: rem(16);
+				line-height: rem(24);
+			}
+		}
+		strong {
+			display: inline-block;
+			margin-bottom: rem(12);
+			margin-bottom: rem(13);
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: rem(24);
+			color: #1d214e;
+		}
+		.info {
+			display: flex;
+			flex-direction: column;
+			gap: rem(10);
+			.info__item {
+				padding-bottom: rem(10);
+				border-bottom: 1px solid rgba(173, 176, 182, 0.3);
+				padding-left: rem(24);
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+		}
+		& > .image-wrapper {
+			width: 100%;
+			height: auto;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+		.images-col {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: rem(10);
+			margin-bottom: rem(12);
+			.image-wrapper {
+				width: rem(360);
+				height: rem(360);
+				@media (max-width: $tab-sm) {
+					width: 100%;
+					height: auto;
+					position: relative;
+					padding-bottom: 100%;
+				}
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+					@media (max-width: $tab-sm) {
+						position: absolute;
+					}
+				}
+			}
+		}
+	}
+}

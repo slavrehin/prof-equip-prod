@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Гладильные машины" date="2026-03-10 23:10:32" total="4" id="61" code="gladilnye-mashiny"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/gladilnyj-katok-sailstar-c8-30-1r/"/>
+    <product id="2" url="https://prof-equip.ru/product/gladilnyj-kalandr-sailstar-yc8-30-1r/"/>
+    <product id="3" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi3516/"/>
+    <product id="4" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-kalandr-tolon-tfi3521/"/>
+  </products>
+</import>

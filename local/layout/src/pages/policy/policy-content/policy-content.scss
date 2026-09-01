@@ -1,0 +1,47 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.policy-content {
+	margin-top: rem(106);
+	margin-bottom: rem(50);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	.policy-content__inner {
+		.title-wrapper {
+			.title {
+				font-family: 'Roboto', sans-serif;
+				font-size: rem(28);
+				font-weight: 500;
+				line-height: rem(44);
+				color: #1d214e;
+				margin-bottom: rem(10);
+				@media (max-width: $tab-sm) {
+					line-height: 100%;
+				}
+			}
+			.address {
+				font-family: 'Roboto', sans-serif;
+				font-size: rem(16);
+				font-weight: 500;
+				line-height: 100%;
+			}
+		}
+		hr {
+			margin: rem(33) 0;
+		}
+		p {
+			margin-bottom: rem(13);
+			font-size: rem(16);
+			line-height: rem(24);
+			font-weight: 500;
+		}
+		ul {
+			margin-left: rem(20);
+			li {
+				font-size: rem(16);
+				line-height: rem(24);
+				font-weight: 500;
+			}
+		}
+	}
+}

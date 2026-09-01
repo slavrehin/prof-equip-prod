@@ -1,0 +1,57 @@
+mixin hero()
+    section.hero
+        .hero__swiper 
+            .swiper-wrapper 
+                .swiper-slide 
+                    +img({
+                        src: 'assets/img/home/hero.jpg',
+                        alt: 'hero'
+                    })
+                .swiper-slide 
+                    +img({
+                        src: 'assets/img/home/hero2.jpg',
+                        alt: 'hero'
+                    })
+                .swiper-slide 
+                    +img({
+                        src: 'assets/img/home/hero3.jpg',
+                        alt: 'hero'
+                    })
+                .swiper-slide 
+                    +img({
+                        src: 'assets/img/home/hero4.jpg',
+                        alt: 'hero'
+                    })
+                .swiper-slide 
+                    +img({
+                        src: 'assets/img/home/hero5.jpg',
+                        alt: 'hero'
+                    })
+        .hero__inner.container 
+            h1.hero__title Оснащение
+            .hero__bullets 
+                +button().hero__bullet.active
+                    +svg('divider')
+                    span.btn__text отелей
+                +button().hero__bullet
+                    +svg('divider')
+                    span.btn__text номерной фонд
+                +button().hero__bullet
+                    +svg('divider')
+                    span.btn__text прачечных
+                +button().hero__bullet
+                    +svg('divider')
+                    span.btn__text объектов питания
+                +button().hero__bullet
+                    +svg('divider')
+                    span.btn__text мед. учреждения
+            .hero__features 
+                +button({
+                    text: 'Получить консультацию'
+                }).gradient.consultation__btn(data-modal-load='./modals/consultation-modal.html')
+                +button().outline.projects__btn
+                    span.eye__icon 
+                        +svg('eye') 
+                    span.btn__text Смотреть проекты
+                    span.arrow__icon
+                        +svg('arrow-down')

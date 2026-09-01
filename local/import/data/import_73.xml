@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Туннельные стиральные машины" date="2026-03-11 13:07:32" total="7" id="73" code="tunnelnye-stiralnye-mashiny"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/tunnelnaya-stiralnaya-mashina-jensen-uniq/"/>
+    <product id="2" url="https://prof-equip.ru/product/promyshlennaya-mashina-jensen-cartwashplus-dlya-gigienicheskoj-chistki-telezhek-dlya-belya/"/>
+    <product id="3" url="https://prof-equip.ru/product/tunnelnaya-stiralnaya-mashina-senking-universal-mediline-ot-jensen/"/>
+    <product id="4" url="https://prof-equip.ru/product/promyshlennaya-tunnelnaya-stiralnaya-mashina-jensen-senking-universal/"/>
+    <product id="5" url="https://prof-equip.ru/product/promyshlennaya-tunnelnaya-stiralnaya-mashina-jensen-senking-universal-sl/"/>
+    <product id="6" url="https://prof-equip.ru/product/universalnaya-tunnelnaya-stiralnaya-mashina-alpha-tw5/"/>
+    <product id="7" url="https://prof-equip.ru/product/promyshlennaya-tunnelnaya-stiralnaya-mashina-senking-universal-compactline-cl-500-cl-600-cl-700-ot-jensen/"/>
+  </products>
+</import>

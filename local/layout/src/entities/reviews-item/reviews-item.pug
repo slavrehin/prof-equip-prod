@@ -1,0 +1,11 @@
+mixin reviews-item({src, src2x, text, author} = {})
+    .reviews-item
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'review'
+            })
+        .review__text 
+            p.text !{text}
+            p.author !{author}

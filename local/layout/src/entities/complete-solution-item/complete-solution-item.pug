@@ -1,0 +1,12 @@
+mixin complete-solution-item({src, src2x, title, descr} = {})
+    a(href="#").complete-solution-item
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'complete solution'
+            }) 
+            p.badge Готовые решения
+        .complete-solution-item__content 
+            p.title #{title}
+            p.descr #{descr}

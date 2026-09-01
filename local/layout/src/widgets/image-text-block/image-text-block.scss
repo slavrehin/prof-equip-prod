@@ -1,0 +1,98 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.image-text-block {
+	margin-top: rem(105);
+	margin-bottom: rem(180);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	@media (max-width: $tab-sm) {
+		margin-top: rem(128);
+		margin-bottom: rem(50);
+	}
+	.title-block {
+		@media (max-width: $tab-sm) {
+			margin-bottom: rem(30);
+		}
+	}
+	.image-text-block__inner {
+		.breadcrumbs {
+			margin-bottom: rem(22);
+		}
+		.image-text-block__content {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: rem(30);
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+				gap: rem(30);
+			}
+			.image-wrapper-container {
+				margin-right: rem(85);
+				@media (max-width: $laptop) {
+					margin-right: 0;
+				}
+
+				.image-wrapper {
+					width: 100%;
+					padding-bottom: 72%;
+					position: relative;
+					img {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+			}
+
+			.text {
+				h4 {
+					color: #1b2154;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(28);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+					margin-bottom: rem(12);
+				}
+				p {
+					color: #000;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: rem(24);
+					text-align: left;
+					margin-bottom: rem(12);
+					a {
+						text-decoration: underline;
+						color: #1b2154;
+					}
+				}
+				strong {
+					display: inline-block;
+					margin-bottom: rem(12);
+					color: #1b2154;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+				}
+				.image-text-block__contacts {
+					margin-top: rem(120);
+					color: #000;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: rem(24);
+					a {
+						color: #1b2154;
+					}
+				}
+			}
+		}
+	}
+}

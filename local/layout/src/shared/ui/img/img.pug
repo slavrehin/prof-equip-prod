@@ -1,0 +1,61 @@
+mixin img(data = {})
+  - const imgMobName = data.mobSrc ? data.mobSrc.split('.').slice(0, -1).join('.') : ''
+  - const imgTabName = data.tabSrc ? data.tabSrc.split('.').slice(0, -1).join('.') : ''
+  - const imgName = data.src.split('.').slice(0, -1).join('.')
+  - const imgExt = data.src.split('.').pop().toLowerCase()
+
+  picture&attributes(attributes)
+    if data.mobSrc
+      source(
+        media="(max-width: 767px)"
+        srcset=[
+          `${imgMobName}.webp 1x`,
+          data.mobSrc2x ? `${imgMobName}@2x.webp 2x` : ''
+        ].filter(Boolean).join(', ')
+        type="image/webp"
+      )
+      source(
+        media="(max-width: 767px)"
+        srcset=[
+          `${data.mobSrc} 1x`,
+          data.mobSrc2x ? `${data.mobSrc2x} 2x` : ''
+        ].filter(Boolean).join(', ')
+      )
+
+    if data.tabSrc
+      source(
+        media="(max-width: 1024px)"
+        srcset=[
+          `${imgTabName}.webp 1x`,
+          data.tabSrc2x ? `${imgTabName}@2x.webp 2x` : ''
+        ].filter(Boolean).join(', ')
+        type="image/webp"
+      )
+      source(
+        media="(max-width: 1024px)"
+        srcset=[
+          `${data.tabSrc} 1x`,
+          data.tabSrc2x ? `${data.tabSrc2x} 2x` : ''
+        ].filter(Boolean).join(', ')
+      )
+
+    source(
+      srcset=[
+        `${imgName}.webp 1x`,
+        data.src2x ? `${imgName}@2x.webp 2x` : ''
+      ].filter(Boolean).join(', ')
+      type="image/webp"
+    )
+
+    img(
+      src=data.src
+      srcset=[
+        `${data.src} 1x`,
+        data.src2x ? `${data.src2x} 2x` : ''
+      ].filter(Boolean).join(', ')
+      fetchpriority=data.fetchpriority
+      loading=data.loading
+      alt=data.alt
+      width=data.width
+      height=data.height
+    )

@@ -1,0 +1,4 @@
+# Защита от выполнения PHP в XML файлах
+<FilesMatch "\.xml$">
+    php_flag engine off
+</FilesMatch>

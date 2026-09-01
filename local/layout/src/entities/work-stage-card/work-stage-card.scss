@@ -1,0 +1,71 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.work-stage-card {
+	padding: rem(30) rem(30) rem(75);
+	border-radius: rem(4);
+	background: var(--white-color);
+	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.05);
+	@media (max-width: $laptop) {
+		padding: rem(30) rem(30) rem(85);
+	}
+	@media (max-width: $tab-sm) {
+		padding: rem(10);
+	}
+	.work-stage-card_top {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: rem(15);
+		.image-wrapper {
+			width: rem(60);
+			height: rem(60);
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+			}
+		}
+		.number {
+			color: #000;
+			text-align: center;
+
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(24);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			@media (max-width: $tab-sm) {
+				display: none;
+			}
+		}
+	}
+	.work-stage-card__content {
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+		.title {
+			color: #000;
+
+			font-family: 'Manrope', sans-serif;
+
+			font-size: rem(24);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(36);
+			@media (max-width: $laptop) {
+				font-size: rem(20);
+				line-height: rem(30);
+			}
+		}
+		.text {
+			color: #000;
+
+			font-family: 'Manrope', sans-serif;
+
+			font-size: rem(14);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(21); /* 150% */
+		}
+	}
+}

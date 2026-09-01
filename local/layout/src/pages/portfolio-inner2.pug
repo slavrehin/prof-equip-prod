@@ -1,0 +1,34 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +portfolio-inner-hero({
+            title: 'Гостиница «Империал», Осетия',
+            src: 'assets/img/portfolio-inner-hero/2.png',
+            src2x: 'assets/img/portfolio-inner-hero/2@2x.png',
+        })
+            block text 
+                p В 2023 году команда ПРОФЭКВИП выполнила запрос от гостиницы «Империал» – осуществила поставку гостиничного текстиля в Осетию. Поставляемые нами текстильные изделия отличаются высоким качеством пошива, износостойкостью и разумной стоимостью.
+            block info
+                p 
+                    strong Город: &nbsp; 
+                    | Владикавказ<br>
+                    strong Год выполнения проекта: &nbsp; 
+                    | 2023 <br>
+                    strong Услуги: &nbsp; 
+                    |  консалтинг, поставка профессионального текстиля <br>
+                    strong Выполнена поставка: &nbsp; 
+                ul 
+                    li Гостиничный текстиль
+        +calculate-project({hasBg: true})
+        +navigation-links({
+            title1: 'MANTERA Supreme Seaside 5*',
+            title2: 'Прачечная “Стандарт чистоты”',
+        })
+        +another-objects()
+block footer 
+    +footer()

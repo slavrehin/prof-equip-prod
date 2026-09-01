@@ -1,0 +1,68 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.advantage-card {
+	padding: rem(30);
+	border-radius: rem(4);
+	background: rgba(53, 90, 118, 1);
+	box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+	display: flex;
+	height: rem(380);
+	@media (max-width: $laptop) {
+		height: auto;
+	}
+	@media (max-width: $tab-sm) {
+		padding: rem(20) rem(27) rem(47);
+		flex-direction: column;
+		gap: rem(10);
+	}
+	.advantage-card__content {
+		.title {
+			margin-bottom: rem(15);
+			color: var(--white-color);
+
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(24);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(36);
+			@media (max-width: $tab-sm) {
+				font-size: rem(20);
+				line-height: rem(30);
+			}
+		}
+		.text {
+			color: var(--white-color);
+
+			font-family: 'Manrope', sans-serif;
+
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(24);
+			opacity: 0.6;
+			@media (max-width: $laptop) {
+				font-size: rem(14);
+				line-height: rem(21);
+			}
+		}
+	}
+	.image-wrapper {
+		min-width: rem(100);
+		min-height: rem(100);
+		max-width: rem(100);
+		max-height: rem(100);
+		margin-top: auto;
+		@media (max-width: $tab-sm) {
+			min-width: rem(40);
+			min-height: rem(40);
+			max-width: rem(40);
+			max-height: rem(40);
+			margin-left: auto;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}

@@ -1,0 +1,15 @@
+mixin areas-activity-card({title, text, src, src2x})
+    .areas-activity-card
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'areas activity'
+            })
+        .areas-activity-card__content 
+            p.title !{title}
+            p.text !{text}
+            +button({isLink: true}).link__btn
+                span.btn__text Подробнее об услуге
+                span.arrow__icon
+                    +svg('arrow-top')

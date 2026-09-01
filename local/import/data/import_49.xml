@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Холодильное оборудование" date="2026-03-11 13:03:57" total="18" id="49" code="holodilnoe-oborudovanie"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/rs-6-gn2-l-holodilnyj-shkaf/"/>
+    <product id="2" url="https://prof-equip.ru/product/holodilnye-i-morozilnye-stoly-iz-nerzhaveyushhej-stali-coldline-pastry/"/>
+    <product id="3" url="https://prof-equip.ru/product/holodilnye-stoly-iz-nerzhaveyushhej-stali-coldline-prep-station/"/>
+    <product id="4" url="https://prof-equip.ru/product/saladetty-iz-nerzhaveyushhej-stali-coldline/"/>
+    <product id="5" url="https://prof-equip.ru/product/holodilnye-i-morozilnye-stoly-coldline-master/"/>
+    <product id="6" url="https://prof-equip.ru/product/holodilnye-i-morozilnye-stoly-coldline-snack/"/>
+    <product id="7" url="https://prof-equip.ru/product/holodilnye-stoly-coldline-smart/"/>
+    <product id="8" url="https://prof-equip.ru/product/shkafy-shokovoj-zamorozki-coldline-vision-industry-u-f-nuvo/"/>
+    <product id="9" url="https://prof-equip.ru/product/multifunktsionalnyj-shkaf-shokovoj-zamorozki-coldline-modi-up-modi-active/"/>
+    <product id="10" url="https://prof-equip.ru/product/shkaf-shokovoj-zamorozki-coldline-vision-f-nuvo/"/>
+    <product id="11" url="https://prof-equip.ru/product/holodilnyj-shkaf-dlya-hraneniya-morozhenogo-coldline-ice/"/>
+    <product id="12" url="https://prof-equip.ru/product/konditerskij-holodilnik-coldline-wind/"/>
+    <product id="13" url="https://prof-equip.ru/product/holodilnyj-shkaf-dlya-konditerskih-izdelij-coldline-clima/"/>
+    <product id="14" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-smart/"/>
+    <product id="15" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-master-combi/"/>
+    <product id="16" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-master-fish/"/>
+    <product id="17" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-master/"/>
+    <product id="18" url="https://prof-equip.ru/product/holodilnye-shkafy-dlya-hraneniya-coldline-vision/"/>
+  </products>
+</import>

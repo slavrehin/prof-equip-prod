@@ -1,0 +1,87 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.project-card {
+	display: flex;
+	flex-direction: column;
+	gap: rem(20);
+	.image-wrapper {
+		border-radius: rem(4);
+		overflow: hidden;
+		position: relative;
+		padding-bottom: 57%;
+		width: 100%;
+		@media (max-width: $laptop) {
+			padding-bottom: 100%;
+		}
+		@media (max-width: $tab-sm) {
+			padding-bottom: 62%;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+		}
+	}
+	.project-card__content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		.address {
+			display: flex;
+			align-items: center;
+			gap: rem(19);
+			margin-bottom: rem(15);
+			svg {
+				width: rem(15);
+				height: rem(17);
+			}
+			p {
+				color: #000;
+				font-family: 'Manrope', sans-serif;
+				font-size: rem(16);
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+			}
+		}
+		.title {
+			color: #101010;
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(32);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			text-transform: uppercase;
+			margin-bottom: rem(30);
+			@media (max-width: $laptop) {
+				font-size: rem(20);
+				margin-bottom: rem(25);
+			}
+			@media (max-width: $tab-sm) {
+				margin-bottom: rem(15);
+			}
+		}
+		.text {
+			color: #000;
+
+			font-family: 'Manrope', sans-serif;
+			opacity: 0.5;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(20);
+		}
+		.btn {
+			margin: auto 0 0;
+			@media (max-width: $laptop) {
+				width: 100%;
+				justify-content: center;
+			}
+			@media (max-width: $tab-sm) {
+				width: rem(252);
+			}
+		}
+	}
+}

@@ -1,0 +1,91 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +text-block()
+            h1.text-block__title ПРОФЭКВИП на RUVIERA Hotel Business Week 2025
+            +breadcrumbs([
+                {
+                    href: 'home.html',
+                    title: 'Главная'
+                },
+                {
+                    href: 'news.html',
+                    title: 'Новости'
+                },
+                {
+                    href: 'news-inner.html',
+                    title: 'ПРОФЭКВИП на RUVIERA Hotel Business…'
+                },
+            ])
+            .text-block__image 
+                +img({
+                    src: 'assets/img/news-inner/img2.jpg',
+                    alt: 'news inner'
+                })
+            p В ноябре команда ПРОФЭКВИП отправляется в 
+                span Сочи 
+                |  — на главное событие года для отельеров и представителей гостиничного бизнеса России. <br> Мероприятие объединит деловой форум, выставку и церемонию награждения лидеров индустрии. <br>
+                span RUVIERA Hotel Business Week 2025 
+                | пройдёт с 10 по 12 ноября в Федеральном технопарке «Сириус» (Олимпийский проспект, 1). В этом году мероприятие обещает стать самым масштабным за всю историю: более 120 спикеров, новые площадки и расширенная программа.
+            p В рамках события пройдут:
+            ul 
+                li 
+                    span Ruviera Forum 
+                    |  — бизнес-форум для отелей всех форматов;
+                li 
+                    span Ruviera Development 
+                    |  — саммит по строительству и инвестициям;
+                li 
+                    span Ruviera Expo 
+                    |  — выставка поставщиков оборудования и решений для гостиниц;
+                li 
+                    span Ruviera Top 300
+                    |  — церемония награждения самых влиятельных людей отрасли.
+            p Для ПРОФЭКВИП участие в RUVIERA — это возможность встретиться с клиентами и партнёрами, обсудить новые проекты и представить решения, актуальные для гостиничного рынка. Команда компании традиционно принимает участие в ключевых событиях индустрии, чтобы быть в курсе тенденций и развивать стандарты качества.
+            p Особенно значимо, что в этом году ПРОФЭКВИП номинирован на 
+                span включение в рейтинг RUVIERA TOP 300 
+                |  — список людей и компаний, влияющих на развитие гостиничного бизнеса в России. <br>Торжественная церемония состоится 12 ноября.
+            p Компания приглашает всех партнёров и гостей отрасли посетить 
+                span стенд ПРОФЭКВИП №44 
+                | и лично пообщаться с командой в Сочи — на неделе, где формируется будущее гостиничной индустрии.
+            .news-swiper 
+                .swiper-wrapper
+                    a(href="assets/img/news-swiper/1.jpg" data-fancybox="news").swiper-slide 
+                        +img({
+                            src: 'assets/img/news-swiper/1.jpg',
+                            alt: 'news image'
+                        })
+                    a(href="assets/img/news-swiper/2.jpg" data-fancybox="news").swiper-slide 
+                        +img({
+                            src: 'assets/img/news-swiper/2.jpg',
+                            alt: 'news image'
+                        })
+                    a(href="assets/img/news-swiper/3.jpg" data-fancybox="news").swiper-slide 
+                        +img({
+                            src: 'assets/img/news-swiper/3.jpg',
+                            alt: 'news image'
+                        })
+                    a(href="assets/img/news-swiper/4.jpg" data-fancybox="news").swiper-slide 
+                        +img({
+                            src: 'assets/img/news-swiper/4.jpg',
+                            alt: 'news image'
+                        })
+                    a(href="assets/img/news-swiper/5.jpg" data-fancybox="news").swiper-slide 
+                        +img({
+                            src: 'assets/img/news-swiper/5.jpg',
+                            alt: 'news image'
+                        })
+        +calculate-project({hasBg: true})
+        +navigation-links({
+            title1: 'Система таблет питания',
+            title2: 'Как наладить контакт между кухней и залом в ресторане',
+        })
+        +related-articles()
+        +faq()
+block footer 
+    +footer()

@@ -1,0 +1,46 @@
+mixin textile-faq()
+    section.textile-faq
+        .textile-faq__inner.container 
+            h2.textile-faq__title СТАНДАРТЫ МИРОВЫХ ОТЕЛЕЙ
+            .textile-faq__content 
+                .image-wrapper 
+                    +img({
+                        src: 'assets/img/textile-faq/img.jpg',
+                        src2x: 'assets/img/textile-faq/img@2x.jpg',
+                        alt: 'faq img'
+                    })
+                .textile-faq__accordion-wrapper
+                    p В каталоге представлен широкий ассортимент профессионального текстиля для сетевых отелей: простыни, наволочки, пододеяльники, полотенца. Постельное белье и махровые изделия для отелей на 100% соответствуют требованиям, прописанным в бренд-буке ведущих отельных сетей. Многие позиции — на складе ПРОФЭКВИП в Москве. Высокое качество и износостойкость профессионального текстиля для номерного фонда подтверждена нашими клиентами. Ознакомьтесь с реализованными проектами направления “Текстиль” в разделе “Портфолио”.
+                    .textile-faq__accordion.accordion
+                        +accordion-item({
+                            title: 'InterContinental Hotel Group',
+                            iconHtml: '<span class="plus-icon"><span></span><span></span></span>'
+                        })
+                            p Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.
+                            p Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.
+                        +accordion-item({
+                            title: 'Accor',
+                            iconHtml: '<span class="plus-icon"><span></span><span></span></span>'
+                        })
+                            p Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.
+                            p Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.
+                        +accordion-item({
+                            title: 'Marriott International',
+                            iconHtml: '<span class="plus-icon"><span></span><span></span></span>'
+                        })
+                            p Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.
+                            p Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.
+                        +accordion-item({
+                            title: 'Radisson Hotel Group',
+                            iconHtml: '<span class="plus-icon"><span></span><span></span></span>'
+                        })
+                            p Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.
+                            p Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.
+                        +accordion-item({
+                            title: 'Starwood Hotels and Resorts Worldwide',
+                            iconHtml: '<span class="plus-icon"><span></span><span></span></span>'
+                        })
+                            p Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.
+                            p Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.
+                    a(href="#").btn.cost__btn
+                        span В КАТАЛОГ 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Щелочные усилители" date="2026-03-11 13:24:26" total="6" id="104" code="shhelochnye-usiliteli"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/fermest-enzim/"/>
+    <product id="2" url="https://prof-equip.ru/product/fermest-aktiv-mineral/"/>
+    <product id="3" url="https://prof-equip.ru/product/fermest-aktiv-plyus/"/>
+    <product id="4" url="https://prof-equip.ru/product/fermest-aktiv/"/>
+    <product id="5" url="https://prof-equip.ru/product/fermest-bust/"/>
+    <product id="6" url="https://prof-equip.ru/product/fermest-standart/"/>
+  </products>
+</import>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Коллекция - Основная кухня" date="2026-03-11 13:31:07" total="14" id="82" code="kollektsiya-osnovnaya-kuhnya"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/zhenskie-bryuki-povarskie-5-karmanov-klassicheskij-kroj-siluet-regular-fit-st5319-greiff/"/>
+    <product id="2" url="https://prof-equip.ru/product/zhenskie-bryuki-povarskie-klassicheskij-kroj-siluet-regular-fit-st5313-greiff/"/>
+    <product id="3" url="https://prof-equip.ru/product/zhenskij-kitel-povarskoj-na-potajnyh-knopkah-klassicheskij-kroj-siluet-s-kontrastnymi-detalyami-regular-fit-st5404-greiff/"/>
+    <product id="4" url="https://prof-equip.ru/product/zhenskij-kitel-povarskoj-na-potajnyh-knopkah-klassicheskij-kroj-siluet-regular-fit-st5405-greiff/"/>
+    <product id="5" url="https://prof-equip.ru/product/zhenskij-kitel-povarskoj-klassicheskij-kroj-siluet-regular-fit-st5407-greiff-2/"/>
+    <product id="6" url="https://prof-equip.ru/product/muzhskie-povarskie-svobodnye-bryuki-na-shnurke-klassicheskij-kroj-siluet-regular-fit-st2100-greiff/"/>
+    <product id="7" url="https://prof-equip.ru/product/muzhskie-bryuki-povarskie-5-karmanov-klassicheskij-kroj-siluet-regular-fit-st5321-greiff/"/>
+    <product id="8" url="https://prof-equip.ru/product/muzhskie-bryuki-povarskie-klassicheskij-kroj-siluet-regular-fit-st110-greiff/"/>
+    <product id="9" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-s-kontrastnym-kantom-regular-fit-st5581-greiff/"/>
+    <product id="10" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-s-kontrastnymi-detalyami-regular-fit-st5579-greiff/"/>
+    <product id="11" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-na-potajnyh-knopkah-klassicheskij-kroj-siluet-korotkij-rukav-regular-fit-st5562-greiff/"/>
+    <product id="12" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-na-potajnyh-knopkah-klassicheskij-kroj-siluet-regular-fit-st5580-greiff/"/>
+    <product id="13" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-s-karmanom-korotkij-rukav-regular-fit-st5567-greiff/"/>
+    <product id="14" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-s-karmanom-regular-fit-st5566-greiff/"/>
+  </products>
+</import>

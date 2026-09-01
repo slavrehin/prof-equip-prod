@@ -1,0 +1,15 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.brand-card {
+	position: relative;
+	padding-bottom: 100%;
+	@media (max-width: $tab-sm) {
+		padding-bottom: 50%;
+	}
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}

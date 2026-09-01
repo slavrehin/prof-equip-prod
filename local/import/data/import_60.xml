@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Гладильные катки" date="2026-03-10 23:10:28" total="47" id="60" code="gladilnye-katki"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/gladilnyj-katok-sailstar-c8-30-1r/"/>
+    <product id="2" url="https://prof-equip.ru/product/gladilnyj-katok-sailstar-c8-30-2r/"/>
+    <product id="3" url="https://prof-equip.ru/product/muldovyj-gladilnyj-katok-sailstar-c8-30-3r/"/>
+    <product id="4" url="https://prof-equip.ru/product/gladilnyj-katok-sailstar-c8-33-3r/"/>
+    <product id="5" url="https://prof-equip.ru/product/gladilnyj-katok-sailstar-c8-30-4r/"/>
+    <product id="6" url="https://prof-equip.ru/product/gladilnyj-katok-sailstar-c8-33-4r/"/>
+    <product id="7" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-girbau-p-86-mini-dlina-vala-830-mm/"/>
+    <product id="8" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-girbau-p-2514-dlina-vala-1400-mm/"/>
+    <product id="9" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-girbau-p-2510-dlina-vala-1000-mm/"/>
+    <product id="10" url="https://prof-equip.ru/product/avtonomnyj-gazovyj-gladilnyj-katok-jensen-kalor-g-1200/"/>
+    <product id="11" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-tolon-ti5/"/>
+    <product id="12" url="https://prof-equip.ru/product/press-dlya-glazheniya-rubashek-pony-smart-ccp-double-quad/"/>
+    <product id="13" url="https://prof-equip.ru/product/press-dlya-glazheniya-kozhanyh-izdelij-pony-p3/"/>
+    <product id="14" url="https://prof-equip.ru/product/gladilnyj-press-pony-pantamaster-pantamaster-hq-pantafast-dlp/"/>
+    <product id="15" url="https://prof-equip.ru/product/gladilnyj-katok-electrolux-mypro-is1103-dlina-vala-1030-mm/"/>
+    <product id="16" url="https://prof-equip.ru/product/promyshlennyj-gladilnyj-katok-jensen-hybrid/"/>
+    <product id="17" url="https://prof-equip.ru/product/manzhetno-vorotnichkovyj-press-macpi-387-51/"/>
+    <product id="18" url="https://prof-equip.ru/product/manzhetno-vorotnichkovyj-press-macpi-387-50/"/>
+    <product id="19" url="https://prof-equip.ru/product/manzhetno-vorotnichkovyj-press-macpi-387-70/"/>
+    <product id="20" url="https://prof-equip.ru/product/vertikalnyj-manzhetno-vorotnichkovyj-press-macpi-387-60/"/>
+    <product id="21" url="https://prof-equip.ru/product/pnevmaticheskij-gladilnyj-press-macpi-208/"/>
+    <product id="22" url="https://prof-equip.ru/product/promyshlennyj-gladilnyj-katok-jensen-jenroll-ex-s-parovym-nagrevom-i-traditsionnoj-zhestkoj-muldoj/"/>
+    <product id="23" url="https://prof-equip.ru/product/promyshlennyj-gladilnyj-katok-jensen-jenroll-expg-2000-s-avtonomnym-gazovym-nagrevatelem-i-gibkoj-muldoj/"/>
+    <product id="24" url="https://prof-equip.ru/product/vysokoproizvoditelnyj-gladilnyj-katok-jensen-jenroll-expg-s-avtonomnym-gazovym-nagrevatelem-i-gibkoj-muldoj/"/>
+    <product id="25" url="https://prof-equip.ru/product/promyshlennyj-gladilnyj-katok-jensen-jenroll-express-2000-s-parovym-nagrevom-i-gibkoj-muldoj/"/>
+    <product id="26" url="https://prof-equip.ru/product/vysokoproizvoditelnyj-gladilnyj-katok-jensen-jenroll-express-c-gibkoj-muldoj/"/>
+    <product id="27" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-alpha-i5-s-gibkoj-muldoj/"/>
+    <product id="28" url="https://prof-equip.ru/product/professionalnyj-skladnoj-parovoj-katok-electrolux-mypro-is185-dlina-vala-850-mm/"/>
+    <product id="29" url="https://prof-equip.ru/product/gladilnyj-press-pony-sp-u-sp-up-sp-p-sp-b-sp-ul-sp-upl-sp-pl/"/>
+    <product id="30" url="https://prof-equip.ru/product/gladilnyj-press-pony-cp-u-cp-up-cp-us-cp-p-cp-ul-cp-upl-cp-pl/"/>
+    <product id="31" url="https://prof-equip.ru/product/gladilnyj-press-pony-lav-r1-lav-r2e-lav-bb-lav-f/"/>
+    <product id="32" url="https://prof-equip.ru/product/gladilnyj-press-pony-lav-up/"/>
+    <product id="33" url="https://prof-equip.ru/product/gladilnyj-press-pony-lav-u/"/>
+    <product id="34" url="https://prof-equip.ru/product/gladilnyj-press-imesa-pr-230/"/>
+    <product id="35" url="https://prof-equip.ru/product/gladilnyj-press-electrolux-fpm1-d/"/>
+    <product id="36" url="https://prof-equip.ru/product/gladilnyj-press-electrolux-fra5-wc/"/>
+    <product id="37" url="https://prof-equip.ru/product/gladilnyj-press-electrolux-fpa4-wc/"/>
+    <product id="38" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-imesa-fi-2000-33-dlina-vala-2000-mm/"/>
+    <product id="39" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-imesa-fi-1750-33-dlina-vala-1750-mm/"/>
+    <product id="40" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-imesa-fi-1500-33-dlina-vala-1500-mm/"/>
+    <product id="41" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-imesa-fi-1500-25-dlina-vala-1500-mm/"/>
+    <product id="42" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-imesa-fi-1250-25-dlina-vala-1250-mm/"/>
+    <product id="43" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-imesa-fi-1000-25-dlina-vala-1000-mm/"/>
+    <product id="44" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-electrolux-ib42316-dlina-vala-1650-mm/"/>
+    <product id="45" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-electrolux-ib42314-dlina-vala-1400-mm/"/>
+    <product id="46" url="https://prof-equip.ru/product/professionalnyj-gladilnyj-katok-electrolux-ib42310-dlina-vala-1000-mm/"/>
+    <product id="47" url="https://prof-equip.ru/product/gladilnaya-mashina-electrolux-ib42310/"/>
+  </products>
+</import>

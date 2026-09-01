@@ -1,0 +1,46 @@
+/bitrix/
+/bitrix
+/.idea/
+/.idea
+/uploads/
+/uploads
+/upload/
+/file-upload/uploads
+/local/js/app/player/node_modules
+/local/ajax/upload/tmp
+/1c_catalog/
+/wp-content/
+
+/wp_site/
+/order_test/
+/upload
+/.htaccess
+/.htaccess.restore
+/web.config
+/test
+/*.html
+/*.sql
+/*.txt
+/*.xml
+*.log
+*.tar
+*.mp3
+*.tar.gz
+*.tgz
+*.zip
+*.DS_Store*
+*.log.txt*
+Thumbs.db
+.DS_Store
+.editorconfig
+
+# --- добавлено при переносе в свой репозиторий (2026-09-01) ---
+# .gitmodules/.gitlab-ci.yml принадлежали репозиторию агентства (paradigma-git.ru),
+# local/layout теперь хранится как обычные файлы, без submodule
+/.gitmodules
+/.gitlab-ci.yml
+/.git.agency-backup/
+
+# API-ключи (SmartCaptcha и т.п.), вынесены из constants.php 2026-09-01
+/local/php_interface/include/constants_local.php
+

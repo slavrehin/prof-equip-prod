@@ -1,0 +1,29 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.news-list {
+	margin-top: rem(105);
+	margin-bottom: rem(57);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	.news-list__inner {
+		.breadcrumbs {
+			margin-bottom: rem(47);
+		}
+		.news-list__items {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			row-gap: rem(18);
+			column-gap: rem(74);
+			@media (max-width: $desktop-lg) {
+				column-gap: rem(18);
+			}
+			@media (max-width: $laptop) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+}

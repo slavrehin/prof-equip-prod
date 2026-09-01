@@ -1,0 +1,17 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.title-block {
+	.title-block__title {
+		color: #1b2154;
+		text-align: center;
+		font-family: 'Roboto', sans-serif;
+		font-size: rem(36);
+		font-style: normal;
+		font-weight: 500;
+		line-height: rem(44);
+		margin-bottom: rem(3);
+	}
+	.breadcrumbs {
+		margin-bottom: rem(53);
+	}
+}

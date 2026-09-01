@@ -1,0 +1,43 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.chemistry-features {
+	margin-bottom: rem(42);
+	.chemistry-features__inner {
+		.chemistry-features__title {
+			color: #1b2154;
+			text-align: center;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(25);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(30);
+		}
+		.chemistry-features__list {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: rem(40);
+			row-gap: rem(10);
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+			}
+			.chemistry-feature__item {
+				display: flex;
+				gap: rem(48);
+				img {
+					width: rem(48);
+					height: rem(48);
+					object-fit: contain;
+				}
+				p {
+					color: #000;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: rem(25.6);
+				}
+			}
+		}
+	}
+}

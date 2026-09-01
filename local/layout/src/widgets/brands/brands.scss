@@ -1,0 +1,37 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.brands {
+	margin-bottom: rem(80);
+	@media (max-width: $laptop) {
+		margin-bottom: rem(120);
+	}
+	@media (max-width: $tab-sm) {
+		margin-bottom: rem(40);
+	}
+	.brands__inner {
+		.brands__title-wrapper {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: rem(30);
+			.brands__title {
+				@include h2;
+			}
+		}
+		.brands__list {
+			display: grid;
+			grid-template-columns: repeat(6, 1fr);
+			gap: rem(20);
+			@media (max-width: $desktop-lg) {
+				grid-template-columns: repeat(5, 1fr);
+			}
+			@media (max-width: $laptop) {
+				grid-template-columns: repeat(4, 1fr);
+			}
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+				gap: 0;
+			}
+		}
+	}
+}

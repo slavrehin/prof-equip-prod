@@ -1,0 +1,14 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +about-text()
+        +about-info()
+        +about-features()
+        +about-links()
+block footer 
+    +footer()

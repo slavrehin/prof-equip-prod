@@ -1,0 +1,96 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.direction-about {
+	margin-top: rem(30);
+	margin-bottom: rem(137);
+	.direction-about__inner {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(30);
+		@media (max-width: $laptop) {
+			grid-template-columns: 1fr;
+			gap: rem(62);
+		}
+		@media (max-width: $tab-sm) {
+			gap: rem(95);
+		}
+		.direction-about__text {
+			@media (max-width: $laptop) {
+				order: 0;
+			}
+			h1 {
+				color: #1b2154;
+
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(32);
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				margin-bottom: rem(20);
+				@media (max-width: $tab-sm) {
+					font-size: rem(26);
+					line-height: rem(26);
+				}
+			}
+			strong {
+				display: inline-block;
+				color: #1b2154;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(18.7);
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				margin-bottom: rem(60);
+			}
+			p {
+				margin-bottom: rem(10);
+				color: #000;
+
+				font-family: 'Montserrat', sans-serif;
+
+				font-size: rem(16);
+				font-style: normal;
+				font-weight: 500;
+				line-height: rem(24);
+			}
+			ul {
+				margin: 0 0 rem(10) rem(20);
+				li {
+					color: #000;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: rem(24);
+				}
+			}
+			.btn {
+				margin-top: rem(60);
+				width: rem(200);
+				@media (max-width: $tab-sm) {
+					margin: rem(67) auto 0;
+				}
+			}
+		}
+		.direction-about__image {
+			@media (max-width: $laptop) {
+				order: 1;
+			}
+			@media (max-width: $tab-sm) {
+				display: none;
+			}
+			.image-wrapper {
+				width: 55%;
+				height: auto;
+				@media (max-width: $laptop) {
+					max-width: rem(566);
+				}
+				img {
+					width: 100%;
+					height: auto;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+}

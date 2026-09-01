@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Коллекция - Премиальная кухня" date="2026-03-11 13:30:55" total="13" id="83" code="kollektsiya-premialnaya-kuhnya"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/muzhskie-povarskie-bryuki-chinos-klassicheskij-kroj-siluet-regular-fit-st1320-greiff/"/>
+    <product id="2" url="https://prof-equip.ru/product/muzhskie-bryuki-povarskie-klassicheskij-kroj-siluet-regular-fit-st1318-greiff/"/>
+    <product id="3" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-oblegchennyj-klassicheskij-kroj-siluet-kontrastnaya-otdelka-regular-fit-st5550-greiff/"/>
+    <product id="4" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-tkan-v-polosku-regular-fit-st5544-greiff/"/>
+    <product id="5" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-s-kontrastnym-kantom-regular-fit-st5577-greiff/"/>
+    <product id="6" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-bajkerskij-stil-klassicheskij-kroj-siluet-regular-fit-st5572-greiff/"/>
+    <product id="7" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-s-assimetrichnoj-molniej-regular-fit-st5571-greiff/"/>
+    <product id="8" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-korotkij-rukav-regular-fit-st5567-greiff/"/>
+    <product id="9" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-regular-fit-st5566-greiff/"/>
+    <product id="10" url="https://prof-equip.ru/product/zhenskij-kitel-povarskoj-klassicheskij-kroj-siluet-regular-fit-st5407-greiff/"/>
+    <product id="11" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-klassicheskij-kroj-siluet-s-kontrastnym-kantom-regular-fit-st5568-greiff/"/>
+    <product id="12" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-na-potajnyh-knopkah-klassicheskij-kroj-siluet-korotkij-rukav-regular-fit-st5573-greiff/"/>
+    <product id="13" url="https://prof-equip.ru/product/muzhskoj-kitel-povarskoj-na-potajnyh-knopkah-klassicheskij-kroj-siluet-regular-fit-st5569-greiff/"/>
+  </products>
+</import>

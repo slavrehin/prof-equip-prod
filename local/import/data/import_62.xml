@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Сушильные кабинеты" date="2026-03-11 13:07:52" total="6" id="62" code="sushilnye-kabinety"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/sushilnyj-kabinet-electrolux-dc6-8-zagruzka-8-kg/"/>
+    <product id="2" url="https://prof-equip.ru/product/sushilnyj-kabinet-electrolux-dc6-4-zagruzka-4-kg/"/>
+    <product id="3" url="https://prof-equip.ru/product/sushilnyj-kabinet-electrolux-dc6-14hp-zagruzka-10-kg/"/>
+    <product id="4" url="https://prof-equip.ru/product/sushilnyj-kabinet-electrolux-dc6-10hp-zagruzka-10-kg/"/>
+    <product id="5" url="https://prof-equip.ru/product/sushilnyj-kabinet-electrolux-dc6-8hp-zagruzka-6-8-kg/"/>
+    <product id="6" url="https://prof-equip.ru/product/sushilnyj-kabinet-electrolux-dc6-4hp-zagruzka-4-kg/"/>
+  </products>
+</import>

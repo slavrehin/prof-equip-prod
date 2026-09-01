@@ -1,0 +1,24 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.breadcrumbs {
+	margin-top: rem(10);
+	@media (max-width: $tab-sm) {
+		display: none;
+	}
+	.breadcrumbs__inner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: rem(7);
+		.breadcrumb__link {
+			color: #1b2154;
+			text-align: center;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(20);
+		}
+	}
+}

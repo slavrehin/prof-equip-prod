@@ -1,0 +1,71 @@
+mixin manufacturers()
+    section.manufacturers 
+        .manufacturers__inner.container 
+            h2.manufacturers__title ПРОИЗВОДИТЕЛИ
+            .manufacturers-swiper
+                .swiper-wrapper 
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/1.png',
+                            src2x: 'assets/img/manufacturers/1@2x.png',
+                            isLink: true
+                        })
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/2.png',
+                            src2x: 'assets/img/manufacturers/2@2x.png',
+                            isLink: true
+                        })
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/3.png',
+                            src2x: 'assets/img/manufacturers/3@2x.png',
+                            isLink: true
+                        })
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/4.png',
+                            src2x: 'assets/img/manufacturers/4@2x.png',
+                            isLink: true
+                        })
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/5.png',
+                            src2x: 'assets/img/manufacturers/5@2x.png',
+                            isLink: true
+                        })
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/1.png',
+                            src2x: 'assets/img/manufacturers/1@2x.png',
+                            isLink: true
+                        })
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/2.png',
+                            src2x: 'assets/img/manufacturers/2@2x.png',
+                            isLink: true
+                        })
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/3.png',
+                            src2x: 'assets/img/manufacturers/3@2x.png',
+                            isLink: true
+                        })
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/4.png',
+                            src2x: 'assets/img/manufacturers/4@2x.png',
+                            isLink: true
+                        })
+                    .swiper-slide
+                        +client-card({
+                            src: 'assets/img/manufacturers/5.png',
+                            src2x: 'assets/img/manufacturers/5@2x.png',
+                            isLink: true
+                        })
+                .navigation 
+                    +button().manufacturers__prev
+                        +svg('arrow-swiper-left')
+                    +button().manufacturers__next
+                        +svg('arrow-swiper-right')

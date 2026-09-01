@@ -1,0 +1,101 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.textile-trusted {
+	overflow: hidden;
+	background: rgb(245, 245, 245);
+	padding-bottom: rem(100);
+	padding-top: rem(35);
+	.textile-trusted__inner {
+		.textile-trusted__title {
+			color: #1b2154;
+			text-align: center;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(28);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(70);
+		}
+		.textile-trusted-swiper {
+			position: relative;
+			.swiper-slide {
+				@media (min-width: $tab-sm) {
+					opacity: 0 !important;
+					transition: var(--trs-300);
+					&.visible-slide {
+						opacity: 1 !important;
+					}
+				}
+				.image-wrapper {
+					position: relative;
+					padding-bottom: 100%;
+					margin-bottom: rem(25);
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+						position: absolute;
+					}
+				}
+				.trusted__content {
+					padding: 0 rem(30);
+					.title {
+						color: #1b2154;
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(18);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(26);
+						margin-bottom: rem(5);
+					}
+					.link {
+						color: #1b2154;
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(13);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(17);
+						display: flex;
+						align-items: center;
+						gap: rem(8);
+						svg {
+							width: rem(8);
+							height: rem(12);
+							color: #1b2154;
+						}
+					}
+				}
+			}
+			.navigation {
+				position: absolute;
+				top: 0;
+				right: rem(-16);
+				left: rem(-16);
+				bottom: 0;
+				margin: auto;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				pointer-events: none;
+				z-index: 2;
+
+				.btn {
+					pointer-events: all;
+					border-radius: 999px;
+					width: rem(36);
+					height: rem(36);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+					background: #fff;
+					svg {
+						width: rem(11);
+						height: rem(18);
+						color: #1b2154;
+					}
+				}
+			}
+		}
+	}
+}

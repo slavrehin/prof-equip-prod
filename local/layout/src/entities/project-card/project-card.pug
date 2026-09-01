@@ -1,0 +1,19 @@
+mixin project-card({src, src2x, title, text, hasPin = false} = {})
+    .project-card
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'project'
+            })
+        .project-card__content 
+            if hasPin
+                .address 
+                    +svg('pin')
+                    p Москва
+            p.title !{title}
+            p.text !{text}
+            +button({isLink: true}).link__btn
+                span.eye__icon 
+                    +svg('eye')
+                span.btn__text Смотреть проект

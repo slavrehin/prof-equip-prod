@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Подушки" date="2026-03-11 13:19:06" total="3" id="85" code="podushki"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/podushka-natural-hybrid-pillow-jumbo-51-71-sm/"/>
+    <product id="2" url="https://prof-equip.ru/product/podushka-s-iskusstvennym-napolnitelem-gipoallergennaya-belaya-50-70-sm/"/>
+    <product id="3" url="https://prof-equip.ru/product/podushka-odnokamernaya-s-iskusstvennym-lebyazhim-puhom-gipoallergennaya-dvojnaya-strochka-50-70-sm/"/>
+  </products>
+</import>

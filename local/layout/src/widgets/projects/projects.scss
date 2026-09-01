@@ -1,0 +1,76 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.projects {
+	margin-bottom: rem(60);
+	.projects__inner {
+		.projects__title-wrapper {
+			display: flex;
+			align-items: center;
+			gap: rem(80);
+			margin-bottom: rem(30);
+			@media (max-width: $laptop) {
+				justify-content: space-between;
+			}
+			.projects__title {
+				@include h2;
+			}
+			.btn {
+				width: rem(292);
+				@media (max-width: $tab-sm) {
+					display: none;
+				}
+			}
+		}
+		.projects__list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: rem(50);
+			@media (max-width: $desktop-lg) {
+				gap: rem(25);
+			}
+			@media (max-width: $laptop) {
+				gap: rem(20);
+			}
+			@media (max-width: $tab-sm) {
+				margin-bottom: rem(25);
+			}
+			.project-card {
+				width: calc(33% - rem(33));
+				@media (max-width: $desktop-lg) {
+					width: calc(33% - rem(15));
+				}
+				@media (max-width: $tab-sm) {
+					width: 100%;
+				}
+				&:first-child {
+					width: 100%;
+					flex-direction: row;
+					gap: rem(50);
+					@media (max-width: $tab-sm) {
+						flex-direction: column;
+						gap: rem(16);
+					}
+					.image-wrapper {
+						width: calc(67% - rem(29));
+						padding-bottom: 35%;
+						@media (max-width: $laptop) {
+							width: calc(50% - rem(29));
+							padding-bottom: 62%;
+						}
+						@media (max-width: $tab-sm) {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+		.btn_mob {
+			display: none;
+			width: 100%;
+			justify-content: center;
+			@media (max-width: $tab-sm) {
+				display: flex;
+			}
+		}
+	}
+}

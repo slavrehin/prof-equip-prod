@@ -1,0 +1,31 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +image-text-block({
+            title: 'Поставка аксессуаров и запасных частей',
+            breadcrumbs: [
+                {
+                    href: 'home.html',
+                    title: 'Главная'
+                },
+                {
+                    href: 'service3.html',
+                    title: 'Поставка аксессуаров и запасных частей'
+                },
+            ],
+            src: 'assets/img/service/img3.jpg',
+            src2x: 'assets/img/service/img3@2x.jpg',
+        })
+            h4 Поставка аксессуаров и запасных частей для оборудования прачечных, химчисток, кухни ресторана, предприятия гостиницы.
+            p Компания «ПРОФЭКВИП» осуществляет продажу запасных частей для всех моделей поставляемого оборудования на период всего срока его эксплуатации. Мы располагаем складскими помещениями и гарантируем постоянное наличие запасных частей на складе. Это позволяет нам обеспечить клиентов запасными частями и комплектующими в наиболее короткие сроки.
+            p.image-text-block__contacts Номер отдела аксессуаров и запасных частей: 
+                a(href="tel:84994502915") 8 (499) 450-29-15
+        +calculate-project({hasBg: true})
+        +selection-parameters()
+block footer 
+    +footer()

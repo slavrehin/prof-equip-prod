@@ -1,0 +1,61 @@
+mixin equipment-portfolio-swiper()
+    section.equipment-portfolio-swiper-wrapper 
+        .equipment-portfolio-swiper-wrapper__inner.container 
+            h2.equipment-portfolio-swiper__title ПОРТФОЛИО
+        .equipment-portfolio-swiper-container
+            .equipment-portfolio-swiper-container__inner.container
+                .equipment-portfolio-swiper
+                    .swiper-wrapper 
+                        a(href="#").swiper-slide 
+                            .image-wrapper 
+                                +img({
+                                    src: 'assets/img/equipment-portfolio/1.jpg',
+                                    src2x: 'assets/img/equipment-portfolio/1@2x.jpg',
+                                    alt: 'portfolio'
+                                })
+                            p.portfolio__title Гостевой дом, Великий Устюг
+                        a(href="#").swiper-slide 
+                            .image-wrapper 
+                                +img({
+                                    src: 'assets/img/equipment-portfolio/2.jpg',
+                                    src2x: 'assets/img/equipment-portfolio/2@2x.jpg',
+                                    alt: 'portfolio'
+                                })
+                            p.portfolio__title Сетевой отель DoubleTree By Hilton Hotel Minsk, Беларусь
+                        a(href="#").swiper-slide 
+                            .image-wrapper 
+                                +img({
+                                    src: 'assets/img/equipment-portfolio/3.jpg',
+                                    src2x: 'assets/img/equipment-portfolio/3@2x.jpg',
+                                    alt: 'portfolio'
+                                })
+                            p.portfolio__title VLADIVOSTOK Grand Hotel & SPA
+                        a(href="#").swiper-slide 
+                            .image-wrapper 
+                                +img({
+                                    src: 'assets/img/equipment-portfolio/1.jpg',
+                                    src2x: 'assets/img/equipment-portfolio/1@2x.jpg',
+                                    alt: 'portfolio'
+                                })
+                            p.portfolio__title Гостевой дом, Великий Устюг
+                        a(href="#").swiper-slide 
+                            .image-wrapper 
+                                +img({
+                                    src: 'assets/img/equipment-portfolio/2.jpg',
+                                    src2x: 'assets/img/equipment-portfolio/2@2x.jpg',
+                                    alt: 'portfolio'
+                                })
+                            p.portfolio__title Сетевой отель DoubleTree By Hilton Hotel Minsk, Беларусь
+                        a(href="#").swiper-slide 
+                            .image-wrapper 
+                                +img({
+                                    src: 'assets/img/equipment-portfolio/3.jpg',
+                                    src2x: 'assets/img/equipment-portfolio/3@2x.jpg',
+                                    alt: 'portfolio'
+                                })
+                            p.portfolio__title VLADIVOSTOK Grand Hotel & SPA
+                    .navigation 
+                        +button().equipment-portfolio__prev
+                            +svg('arrow-swiper-left')
+                        +button().equipment-portfolio__next
+                            +svg('arrow-swiper-right')

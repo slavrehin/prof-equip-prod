@@ -1,0 +1,45 @@
+mixin portfolio-swiper()
+    .portfolio-swiper-wrapper 
+        .portfolio-swiper-wrapper__inner.container
+            .portfolio-swiper
+                .swiper-wrapper 
+                    .swiper-slide
+                        a(href='assets/img/portfolio-swiper/1.png' data-fancybox="portfolio").image-wrapper
+                            +img({
+                                src: 'assets/img/portfolio-swiper/1.png',
+                                src2x: 'assets/img/portfolio-swiper/1@2x.png',
+                                alt: 'portfolio'
+                            })
+                    .swiper-slide
+                        a(href='assets/img/portfolio-swiper/2.png' data-fancybox="portfolio").image-wrapper
+                            +img({
+                                src: 'assets/img/portfolio-swiper/2.png',
+                                src2x: 'assets/img/portfolio-swiper/2@2x.png',
+                                alt: 'portfolio'
+                            })
+                    .swiper-slide
+                        a(href='assets/img/portfolio-swiper/3.png' data-fancybox="portfolio").image-wrapper
+                            +img({
+                                src: 'assets/img/portfolio-swiper/3.png',
+                                src2x: 'assets/img/portfolio-swiper/3@2x.png',
+                                alt: 'portfolio'
+                            })
+                    .swiper-slide
+                        a(href='assets/img/portfolio-swiper/4.png' data-fancybox="portfolio").image-wrapper
+                            +img({
+                                src: 'assets/img/portfolio-swiper/4.png',
+                                src2x: 'assets/img/portfolio-swiper/4@2x.png',
+                                alt: 'portfolio'
+                            })
+                    .swiper-slide
+                        a(href='assets/img/portfolio-swiper/5.png' data-fancybox="portfolio").image-wrapper
+                            +img({
+                                src: 'assets/img/portfolio-swiper/5.png',
+                                src2x: 'assets/img/portfolio-swiper/5@2x.png',
+                                alt: 'portfolio'
+                            })
+                .navigation 
+                    +button().portfolio__prev
+                        +svg('arrow-swiper-left')
+                    +button().portfolio__next
+                        +svg('arrow-swiper-right')

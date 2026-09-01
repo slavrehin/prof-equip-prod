@@ -1,0 +1,27 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.brand-row {
+	.brand-row__title {
+		font-size: rem(25);
+		line-height: 100%;
+		margin-bottom: rem(33);
+		padding-bottom: rem(33);
+		border-bottom: 1px solid #ebebeb;
+		color: #1d214e;
+	}
+	.brand-row__list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		column-gap: rem(254);
+		row-gap: rem(43);
+		@media (max-width: $desktop-lg) {
+			column-gap: rem(100);
+		}
+		@media (max-width: $tab) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: $tab-sm) {
+			grid-template-columns: 1fr;
+		}
+	}
+}

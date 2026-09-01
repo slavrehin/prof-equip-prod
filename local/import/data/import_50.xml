@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Транспортировка белья" date="2026-03-10 21:49:45" total="5" id="50" code="transportirovka-belya"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/separator-dlya-pryamogo-belya-jensen-turnus/"/>
+    <product id="2" url="https://prof-equip.ru/product/reshenie-dlya-sortirovki-belya-jensen-futurail-directsort/"/>
+    <product id="3" url="https://prof-equip.ru/product/podayushhaya-mashina-alpha-f5-dlya-ruchnoj-podachi/"/>
+    <product id="4" url="https://prof-equip.ru/product/podayushhaya-mashina-alpha-f7/"/>
+    <product id="5" url="https://prof-equip.ru/product/vakuumnaya-transportnaya-sistema-jensen-vacutrans/"/>
+  </products>
+</import>

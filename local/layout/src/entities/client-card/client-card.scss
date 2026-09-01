@@ -1,0 +1,53 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.client-card {
+	position: relative;
+	padding-bottom: 100%;
+	filter: grayscale(1);
+	transition: var(--trs-300);
+	@media (max-width: $tab-sm) {
+		padding-bottom: 70%;
+	}
+	&:hover {
+		filter: grayscale(0);
+	}
+	img {
+		position: absolute;
+		width: 80%;
+		height: 80%;
+		object-fit: contain;
+		margin: auto;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		@media (max-width: $tab-sm) {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	&.link-card {
+		filter: grayscale(0);
+		padding-bottom: 34%;
+		display: block;
+		&:hover {
+			&:before {
+				opacity: 1;
+			}
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 126, 42, 0.6);
+			z-index: 2;
+			opacity: 0;
+			transition: var(--trs-300);
+		}
+	}
+}

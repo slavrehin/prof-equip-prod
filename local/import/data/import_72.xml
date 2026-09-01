@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Тандем (стиральная и сушильная машина, в колонну)" date="2026-03-11 13:07:28" total="8" id="72" code="tandem-stiralnaya-i-sushilnaya-mashina-v-kolonnu"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/mnogourovnevaya-stiralno-otzhimnaya-mashina-sushilka-fermest-fwds-15/"/>
+    <product id="2" url="https://prof-equip.ru/product/mnogourovnevaya-stiralno-otzhimnaya-mashina-sushilka-fermest-fwds-10/"/>
+    <product id="3" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-i-sushilnaya-mashina-imesa-tdm-1818-zagruzka-18-kg/"/>
+    <product id="4" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-i-sushilnaya-mashina-imesa-tdm-1418-zagruzka-14-kg-18-kg/"/>
+    <product id="5" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-i-sushilnaya-mashina-imesa-tdm-1414-zagruzka-14-kg/"/>
+    <product id="6" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-i-sushilnaya-mashina-imesa-tdm-1111-zagruzka-11-kg/"/>
+    <product id="7" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-i-sushilnaya-mashina-imesa-tdm-0811-zagruzka-8-kg-11-kg/"/>
+    <product id="8" url="https://prof-equip.ru/product/professionalnaya-stiralnaya-i-sushilnaya-mashina-imesa-tdm-0808-zagruzka-8-kg/"/>
+  </products>
+</import>

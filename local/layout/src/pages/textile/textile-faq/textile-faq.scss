@@ -1,0 +1,147 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.textile-faq {
+	margin-bottom: rem(25);
+	.textile-faq__inner {
+		.textile-faq__title {
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(28);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(35);
+		}
+		.textile-faq__content {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: rem(60);
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+				gap: rem(45);
+			}
+			.image-wrapper {
+				img {
+					width: 100%;
+					height: 10% 0;
+					object-fit: contain;
+				}
+			}
+			.textile-faq__accordion-wrapper {
+				& > p {
+					color: #000;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: rem(24);
+					margin-bottom: rem(36);
+				}
+				.textile-faq__accordion {
+					margin-bottom: rem(20);
+
+					.accordion__item {
+						&:first-child {
+							.accordion__title {
+								border-radius: rem(5) rem(5) 0 0;
+							}
+						}
+						&:last-child {
+							.accordion__title {
+								border-radius: 0 0 rem(5) rem(5);
+							}
+						}
+						&.active {
+							.accordion__title {
+								.plus-icon {
+									span {
+										&:nth-child(2) {
+											width: 0;
+										}
+									}
+								}
+							}
+						}
+						.accordion__title {
+							display: flex;
+							flex-direction: row-reverse;
+							justify-content: flex-end;
+							align-items: center;
+							gap: rem(14);
+							padding: 0 rem(20);
+							height: rem(44);
+							border: 1px solid #f0f0f0;
+							background:
+								linear-gradient(
+									180deg,
+									rgba(255, 255, 255, 0.2) 0%,
+									var(--color-white-1, rgba(255, 255, 255, 0.01)) 100%
+								),
+								#f8f8f8;
+
+							.accordion__title__text {
+								color: #666;
+								font-family: 'Montserrat', sans-serif;
+								font-size: rem(16);
+								font-style: normal;
+								font-weight: 500;
+								line-height: rem(16);
+							}
+							.plus-icon {
+								height: rem(14);
+								width: rem(14);
+								position: relative;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								span {
+									background: #666;
+									width: rem(14);
+									height: rem(2);
+									position: absolute;
+									top: 0;
+									left: 0;
+									bottom: 0;
+									right: 0;
+									margin: auto;
+									transition: var(--trs-300);
+									&:nth-child(1) {
+										width: rem(14);
+										height: rem(2);
+									}
+									&:nth-child(2) {
+										transform: rotate(90deg);
+									}
+								}
+							}
+						}
+						.accordion__content {
+							padding: rem(15) rem(21);
+							border: 1px solid #f0f0f0;
+
+							background:
+								linear-gradient(
+									180deg,
+									rgba(255, 255, 255, 0.2) 0%,
+									rgba(255, 255, 255, 0.01) 100%
+								),
+								#f8f8f8;
+							p {
+								margin-bottom: rem(10);
+								color: v #000;
+								font-family: 'Montserrat', sans-serif;
+								font-size: rem(16);
+								font-style: normal;
+								font-weight: rem(500);
+								line-height: rem(24);
+								&:last-child {
+									margin-bottom: 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

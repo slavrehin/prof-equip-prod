@@ -1,0 +1,25 @@
+mixin furniture-cabinet()
+    section.furniture-cabinet
+        .furniture-cabinet__inner.container
+            h2.furniture-cabinet__title Корпусная мебель
+            .furniture-cabinet__content 
+                .image-wrapper 
+                    +img({
+                        src: 'assets/img/furniture-cabinet/img.jpg',
+                        src2x: 'assets/img/furniture-cabinet/img@2x.jpg',
+                        alt: 'cabiet'
+                    })
+                .furniture-cabinet__features 
+                    p.title Российского производства
+                    p.descr Изготовление мебели полного цикла
+                    .furniture-cabinet__features-list
+                        .furniture-cabinet__feature__item 
+                            img(src="assets/img/furniture-cabinet/1.png", alt="cabinet icon")
+                            p Заказ
+                        .furniture-cabinet__feature__item 
+                            img(src="assets/img/furniture-cabinet/2.png", alt="cabinet icon")
+                            p Производство
+                        .furniture-cabinet__feature__item 
+                            img(src="assets/img/furniture-cabinet/3.png", alt="cabinet icon")
+                            p Доставка
+                    button.btn.black(data-modal-load='./modals/consultation-modal.html') Получить консультацию

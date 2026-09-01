@@ -1,0 +1,20 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header()
+block content
+    main
+        +hero()
+        +projects()
+        //- +about-alert()
+        +areas-activity()
+        +news()
+        +work-stages()
+        +clients()
+        +advantages()
+        +brands()
+        +calculate-project()
+block footer 
+    +footer()

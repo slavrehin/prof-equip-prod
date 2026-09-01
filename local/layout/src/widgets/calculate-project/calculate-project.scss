@@ -1,0 +1,176 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.calculate-project {
+	margin-bottom: rem(120);
+	@media (max-width: $tab-sm) {
+		margin-bottom: rem(40);
+	}
+	.calculate-project__inner {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(64);
+		@media (max-width: $tab-sm) {
+			grid-template-columns: 1fr;
+			gap: rem(25);
+		}
+		.calculate-project__text {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			.calculate-project__text_top {
+				display: flex;
+				flex-direction: column;
+				gap: rem(30);
+
+				.calculate-project__title {
+					color: #000;
+					font-family: 'Manrope', sans-serif;
+					font-size: rem(64);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+					@media (max-width: $desktop-lg) {
+						font-size: rem(44);
+					}
+					@media (max-width: $laptop) {
+						font-size: rem(40);
+					}
+					@media (max-width: $tab-sm) {
+						font-size: rem(36);
+					}
+				}
+				.calculate-project__descr {
+					color: #101010;
+
+					font-family: 'Manrope', sans-serif;
+					font-size: rem(32);
+					font-style: normal;
+					font-weight: 500;
+					line-height: rem(48);
+					@media (max-width: $desktop-lg) {
+						font-size: rem(24);
+						line-height: 150%;
+					}
+					@media (max-width: $laptop) {
+						font-size: rem(20);
+					}
+				}
+			}
+			.calculate-project__text_bottom {
+				display: flex;
+				flex-direction: column;
+				gap: rem(25);
+				@media (max-width: $tab-sm) {
+					display: none;
+				}
+				.calculate-project__alert {
+					color: #101010;
+					font-family: 'Manrope', sans-serif;
+					font-size: rem(32);
+					font-style: normal;
+					font-weight: 500;
+					line-height: rem(48);
+					opacity: 0.6;
+					@media (max-width: $desktop-lg) {
+						font-size: rem(24);
+						line-height: 150%;
+					}
+					@media (max-width: $laptop) {
+						font-size: rem(20);
+					}
+				}
+				.calculate-project__phone {
+					display: flex;
+					align-items: center;
+					gap: rem(11);
+					color: #101010;
+					font-family: 'Manrope', sans-serif;
+					font-size: rem(36);
+					font-weight: 500;
+					@media (max-width: $laptop) {
+						font-size: rem(24);
+					}
+					img {
+						width: rem(35);
+						height: rem(35);
+						object-fit: contain;
+					}
+				}
+			}
+		}
+	}
+	&.filled-bg {
+		@media (max-width: $tab-sm) {
+			margin-left: rem(15);
+			margin-right: rem(15);
+		}
+		.calculate-project__inner {
+			padding: rem(44) rem(40) rem(40);
+			border-radius: rem(60) 0;
+			background: #1b2154;
+			grid-template-columns: rem(245) 1fr;
+			gap: rem(61);
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+				gap: rem(30);
+				padding: rem(44) rem(18);
+			}
+			.calculate-project__text {
+				@media (max-width: $desktop-lg) {
+					justify-content: flex-start;
+					gap: rem(118);
+				}
+				@media (max-width: $tab-sm) {
+					align-items: center;
+					gap: rem(30);
+				}
+				.calculate-project__text_top {
+					.calculate-project__title {
+						color: #fff;
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(32);
+						font-style: normal;
+						font-weight: 600;
+						line-height: rem(32);
+						@media (max-width: $tab-sm) {
+							text-align: center;
+							font-size: rem(28);
+							line-height: rem(28);
+						}
+					}
+				}
+				.calculate-project__text_bottom {
+					gap: rem(10);
+					@media (max-width: $tab-sm) {
+						display: flex;
+						align-items: center;
+					}
+					.calculate-project__phone {
+						color: #fff;
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(16);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(16);
+						img {
+							width: rem(30);
+							height: rem(30);
+						}
+					}
+					.calculate-project__alert {
+						color: #ababab;
+						font-family: 'Montserrat', sans-serif;
+
+						font-size: rem(14);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(14);
+						@media (max-width: $tab-sm) {
+							text-align: center;
+						}
+					}
+				}
+			}
+		}
+	}
+}

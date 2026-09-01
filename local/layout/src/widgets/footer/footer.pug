@@ -1,0 +1,81 @@
+mixin footer()
+    footer.footer 
+        .footer__inner.container 
+            .footer__content_top.row 
+                .footer__col.col-12.col-lg-6.col-xxl-3
+                    p.col__title Новости
+                    .footer__news-list 
+                        +footer-news({
+                            src: 'assets/img/footer/1.png',
+                            src2x: 'assets/img/footer/1@2x.png',
+                            title: 'Как прошел RUVIERA Hotel <br> Business Week 2025?',
+                            date: '16.12.2025'
+                        })
+                        +footer-news({
+                            src: 'assets/img/footer/2.png',
+                            src2x: 'assets/img/footer/2@2x.png',
+                            title: 'ПРОФЭКВИП на PIR-Expo 2025: внимание к бренду FRESCO MAGGIORE и новые деловые контакты',
+                            date: '28.11.2025'
+                        })
+                        +footer-news({
+                            src: 'assets/img/footer/3.png',
+                            src2x: 'assets/img/footer/3@2x.png',
+                            title: 'Как прошла выставка CleanExpo Moscow 2025',
+                            date: '28.11.2025'
+                        })
+                .footer__col.col-12.col-lg-6.col-xxl-3
+                    p.col__title Статьи
+                    .footer__news-list 
+                        +footer-news({
+                            src: 'assets/img/footer/4.png',
+                            src2x: 'assets/img/footer/4@2x.png',
+                            title: 'Самые ожидаемые <br> горнолыжные курорты России',
+                            date: '15.01.2026'
+                        })
+                        +footer-news({
+                            src: 'assets/img/footer/5.png',
+                            src2x: 'assets/img/footer/5@2x.png',
+                            title: 'Дефростеры: что это, виды, как выбрать',
+                            date: '12.12.2025'
+                        })
+                        +footer-news({
+                            src: 'assets/img/footer/6.png',
+                            src2x: 'assets/img/footer/6@2x.png',
+                            title: 'Одеяла в отеле: как выбрать',
+                            date: '01.12.2025'
+                        })
+                .footer__col.col-12.col-lg-6.col-xxl-3
+                    p.col__title Компания
+                    .footer__navigation.accordion
+                        a(href="#").footer__link О нас
+                        +accordion-item({title: 'Направления'})
+                            a(href="#").footer__link Кухня 
+                            a(href="#").footer__link Прачечная 
+                            a(href="#").footer__link Текстиль 
+                            a(href="#").footer__link Химия 
+                        +accordion-item({title: 'Услуги'})
+                            a(href="#").footer__link Консалтинг 
+                            a(href="#").footer__link Технологическое проектирование 
+                            a(href="#").footer__link Продажа оборудования 
+                            a(href="#").footer__link Монтажные и пусконаладочные работы 
+                            a(href="#").footer__link Поставка аксессуаров и запасных частей 
+                            a(href="#").footer__link Сервисное обслуживание 
+                        a(href="#").footer__link Наши проекты
+                        a(href="#").footer__link Готовые решения
+                        a(href="#").footer__link Бренды
+                        a(href="#").footer__link Новости
+                        a(href="#").footer__link Политика конфиденциальности
+                        a(href="#").footer__link Партнерам
+                        a(href="#").footer__link Контакты
+                .footer__col.col-12.col-lg-6.col-xxl-3
+                    p.col__title Контакты
+                    .footer__contacts 
+                        a(href="tel:84993023762").contact__link 8 (499) 302-37-62
+                        a(href="mailto:info@prof-equip.ru").contact__link info@prof-equip.ru
+                        p.address 127106, Россия, г. Москва, ул. Гостиничная 3
+                        .social 
+                            p.social__title Найдите нас:
+                            a(href="#" target="_blank").social__link
+                                +svg('tg') 
+            .footer__content_bottom.row
+                p.copy © 2026 Prof-Equip Все права защищены 

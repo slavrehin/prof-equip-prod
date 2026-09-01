@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Средства для аквачистки" date="2026-03-11 13:25:25" total="5" id="34" code="sredstva-dlya-akvachistki"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/a02-lagoon-colour-transfer-reducer-electrolux/"/>
+    <product id="2" url="https://prof-equip.ru/product/a01-lagoon-pre-treatment-electrolux/"/>
+    <product id="3" url="https://prof-equip.ru/product/w03-lagoon-sensitive-conditioner-electrolux/"/>
+    <product id="4" url="https://prof-equip.ru/product/w02-lagoon-delicate-detergent-electrolux/"/>
+    <product id="5" url="https://prof-equip.ru/product/w01-lagoon-sensitive-detergent-electrolux/"/>
+  </products>
+</import>

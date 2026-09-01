@@ -1,0 +1,31 @@
+mixin portfolio-inner-hero({src,src2x, title} ={})
+    section.portfolio-inner-hero
+        .portfolio-inner-hero__inner.container
+            +title-block({
+                title,
+                breadcrumbs: [
+                    {
+                        href: 'home.html',
+                        title: 'Главная'
+                    },
+                    {
+                        href: 'catalog.html',
+                        title: 'Портфолио'
+                    },
+                    {
+                        href: 'catalog-product.html',
+                        title: 'ООО “РТК”'
+                    },
+                ]
+            })
+            .portfolio-inner-hero__content 
+                a(href=src data-fancybox="portfolio").image-wrapper 
+                    +img({
+                        src,
+                        src2x,
+                        alt: 'portfolio'
+                    })
+                .portfolio-inner-hero__text.col-xl-6
+                    block text
+                .portfolio-inner-hero__info
+                    block info 

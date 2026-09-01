@@ -1,0 +1,42 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.about-links {
+	margin-bottom: rem(72);
+
+	.about-links__inner {
+		h2 {
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(22);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(32);
+			margin-bottom: rem(30);
+		}
+		ul {
+			list-style: none;
+			max-width: rem(785);
+			li {
+				padding-bottom: rem(10);
+				padding-top: rem(10);
+				border-bottom: 1px solid rgba(171, 176, 184, 0.3);
+				padding-left: rem(24);
+				&:first-child {
+					padding-top: 0;
+				}
+				&:last-child {
+					padding-bottom: 0;
+					border-bottom: none;
+				}
+				a {
+					color: #1b2154;
+					font-family: 'Montserrat', sans-serif;
+					font-size: rem(16);
+					font-style: normal;
+					font-weight: 500;
+					line-height: normal;
+				}
+			}
+		}
+	}
+}

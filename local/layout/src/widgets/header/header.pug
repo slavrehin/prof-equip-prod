@@ -1,0 +1,59 @@
+mixin header()
+    header.header&attributes(attributes) 
+        .header__inner.container
+            a(href="home.html").logo  
+                .white-logo  
+                    +img({
+                        src: 'assets/img/icons/logo.png',
+                        src2x: 'assets/img/icons/logo@2x.png',
+                        alt: 'logo'
+                    })
+                .color-logo
+                    +img({
+                        src: 'assets/img/icons/logo-filled.png',
+                        alt: 'logo'
+                    })
+            +button().primary.s.burger__btn
+                span.burger__icon 
+                    span
+                    span
+                    span
+                span.btn__text Каталог
+            nav.header__navigation 
+                +button().nav__link.direction__btn Направления
+                a(href="#").nav__link Проекты
+                a(href="#").nav__link Бренды
+                +button().nav__link.services__btn Услуги
+                a(href="about.html").nav__link О компании
+            .header__features 
+                .header__contacts
+                    a(href="tel:+74993023762") 
+                        +svg('phone')
+                        | +7 (499) 302-37-62 
+                    a(href="mailto:INFO@PROF-EQUIP.RU") 
+                        +svg('mail')
+                        | INFO@PROF-EQUIP.RU
+                    
+                +button().phone__btn(aria-label='Телефон')
+                    +svg('phone-fill')
+                .search-btns
+                    +button().search__btn(aria-label='Поиск')
+                        +svg('search')
+                    +button().close-search__btn.hidden(aria-label='закрыть поиск')
+                        +svg('close')
+                +button().burger__btn(aria-label='Меню' data-modal-load='./modals/mobile-menu-modal.html')
+                    +svg('burger')
+        +direction-catalog()     
+        +services-catalog()     
+        +header-catalog()     
+        .search-block 
+            form.search-block__inner.container 
+                .input-wrapper
+                    +input({
+                        placeholder: 'Поиск',
+                        inputAttrs: {
+                            class: 'input__valid-name'
+                        }
+                    })
+                    button.btn.submit-search__btn
+                        +svg('search')

@@ -1,0 +1,15 @@
+mixin client-card({src, src2x, isLink = false} ={})
+    if isLink
+        a(href="#").client-card.link-card
+            +img({
+                src,
+                src2x,
+                alt: 'client'
+            })
+    else
+        .client-card
+            +img({
+                src,
+                src2x,
+                alt: 'client'
+            })

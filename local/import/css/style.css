@@ -1,0 +1,264 @@
+.import-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.import-header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.import-header h1 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.import-header p {
+    color: #666;
+    margin: 0;
+}
+
+.import-tabs {
+    margin-top: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    display: flex;
+    gap: 10px;
+}
+
+.import-tab-button {
+    padding: 10px 20px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.import-tab-button.active {
+    color: #2196f3;
+    border-color: #2196f3;
+    background-color: #f5f9ff;
+}
+
+.import-tab-content {
+    display: none;
+    padding-top: 20px;
+}
+
+.import-tab-content.active {
+    display: block;
+}
+
+.section-selector {
+    margin-bottom: 30px;
+}
+
+.section-selector select {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+.section-selector select:hover {
+    border-color: #2196f3;
+}
+
+.section-selector select:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.section-selector select option {
+    padding: 10px;
+}
+
+.import-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+    display: block;
+    width: 100%;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    min-width: 150px;
+}
+
+.btn-primary {
+    background-color: #2196f3;
+    color: white;
+    border: 2px solid #2196f3;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #1976d2;
+    border-color: #1976d2;
+}
+
+.btn-primary:disabled {
+    background-color: #9e9e9e !important;
+    border-color: #9e9e9e !important;
+    color: white !important;
+    cursor: not-allowed;
+    opacity: 1 !important;
+}
+
+#importBtn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#importBtn:not(:disabled) {
+    background-color: #2196f3 !important;
+    border-color: #2196f3 !important;
+    color: white !important;
+    cursor: pointer !important;
+}
+
+#openXmlBtn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#openXmlBtn.disabled {
+    background-color: #9e9e9e !important;
+    border-color: #9e9e9e !important;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+#openXmlBtn.active {
+    background-color: #2196f3 !important;
+    border-color: #2196f3 !important;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.status-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    display: none;
+}
+
+.status-message.success {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.status-message.error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.status-message.info {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 10px;
+    display: none;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #2196f3;
+    width: 0%;
+    transition: width 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 12px;
+}
+
+.import-common-status {
+    margin-top: 20px;
+}
+
+.xml-sections-table-wrapper {
+    margin-top: 20px;
+    max-height: 500px;
+    overflow: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.xml-sections-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.xml-sections-table th,
+.xml-sections-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.xml-sections-table th {
+    background-color: #f5f5f5;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.xml-exists {
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.xml-exists:hover {
+    text-decoration: underline;
+}
+
+.xml-missing {
+    color: #c62828;
+    font-weight: 500;
+}
+
+.xml-total-mismatch {
+    color: #c62828;
+    font-weight: 500;
+}

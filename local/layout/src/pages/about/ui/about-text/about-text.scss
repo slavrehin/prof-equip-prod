@@ -1,0 +1,47 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.about-text {
+	margin-top: rem(101);
+	margin-bottom: rem(60);
+	@media (max-width: $laptop) {
+		margin-top: rem(141);
+	}
+	@media (max-width: $tab-sm) {
+		margin-top: rem(97);
+	}
+	.about-text__inner {
+		padding-top: rem(36);
+		border-top: 1px solid #ebebeb;
+		.about-text__title {
+			color: #1b2154;
+			text-align: center;
+
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(32);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(10);
+		}
+		.about-text__content {
+			h2 {
+				color: #1b2154;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(22);
+				font-style: normal;
+				font-weight: 500;
+				line-height: rem(32);
+				margin-bottom: rem(30);
+			}
+			p {
+				color: #000;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(16);
+				font-style: normal;
+				font-weight: 500;
+				line-height: rem(24);
+				margin-bottom: rem(10);
+			}
+		}
+	}
+}

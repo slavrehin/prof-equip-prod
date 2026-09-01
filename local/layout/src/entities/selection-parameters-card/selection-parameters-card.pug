@@ -1,0 +1,9 @@
+mixin selection-parameters-card({src, src2x, title})
+    a(href="#").selection-parameters-card
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'selection parameters'
+            })
+        p.title #{title}

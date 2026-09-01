@@ -1,0 +1,118 @@
+SECTION_CODE;SECTION_NAME;PARENT_SECTION_NAME
+zapasnye-chasti;Запасные части;
+mebel;Мебель;
+oborudovanie-professionalnoj-kuhni;Оборудование профессиональной кухни;
+prachechnoe-oborudovanie;Прачечное оборудование;
+professionalnyj-tekstil;Профессиональный текстиль;
+professionalnaya-himiya;Химия профессиональная;
+barnye-stantsii;Барные станции;Барное оборудование
+barnye-stojki;Барные стойки;Барное оборудование
+transportirovka-belya;Транспортировка белья;Вспомогательное оборудование
+gladilnye-kalandry;Гладильные каландры;Гладильное оборудование
+gladilnye-katki;Гладильные катки;Гладильное оборудование
+gladilnye-mashiny;Гладильные машины;Гладильное оборудование
+zapasnye-chasti-dlya-kuhonnogo-oborudovaniya;Запасные части для кухонного оборудования;Запасные части
+zapasnye-chasti-dlya-prachechnogo-oborudovaniya;Запасные части для прачечного оборудования;Запасные части
+zapasnye-chasti-imesa;Запасные части IMESA;Запасные части для прачечного оборудования
+zapasnye-chasti-tolon;Запасные части TOLON;Запасные части для прачечного оборудования
+polotentsa-polotentsa;Полотенца;Махровые изделия
+salfetki-osibori;Салфетки (осибори);Махровые изделия
+halaty;Халаты;Махровые изделия
+divany;Диваны;Мебель
+kresla;Кресла;Мебель
+svetilniki;Светильники;Мебель
+stulya;Стулья;Мебель
+shezlongi;Шезлонги;Мебель
+pechi-dlya-pitstsy;Печи для пиццы;Оборудование для производства пиццы
+barnoe-oborudovanie;Барное оборудование;Оборудование профессиональной кухни
+vinnye-biblioteki-komnaty-i-pogreba;Винные библиотеки, комнаты и погреба;Оборудование профессиональной кухни
+defrostery;Дефростеры;Оборудование профессиональной кухни
+diet-pitanie-tablet-pitanie;Диет-питание (таблет-питание);Оборудование профессиональной кухни
+kuhonnye-ostrova-i-monobloki;Кухонные острова и моноблоки;Оборудование профессиональной кухни
+linii-razdachi;Линии раздачи;Оборудование профессиональной кухни
+mobilnye-kuhonnye-stantsii;Мобильные кухонные станции;Оборудование профессиональной кухни
+neytralnoe-oborudovanie;Нейтральное оборудование;Оборудование профессиональной кухни
+oborudovanie-dlya-proizvodstva-pitstsy;Оборудование для производства пиццы;Оборудование профессиональной кухни
+parokonvektomaty;Пароконвектоматы;Оборудование профессиональной кухни
+parokonvektomaty-rational;Пароконвектоматы Rational;Оборудование профессиональной кухни
+populyarnoe;Популярное;Оборудование профессиональной кухни
+posudomoechnoe-oborudovanie;Посудомоечное оборудование;Оборудование профессиональной кухни
+teplovoe-oborudovanie;Тепловое оборудование;Оборудование профессиональной кухни
+holodilnoe-oborudovanie;Холодильное оборудование;Оборудование профессиональной кухни
+aksessuary-dlya-povarov;Аксессуары для поваров;Поварская форма
+kollektsiya-izyskannaya-kuhnya;Коллекция - Изысканная кухня;Поварская форма
+kollektsiya-osnovnaya-kuhnya;Коллекция - Основная кухня;Поварская форма
+kollektsiya-premialnaya-kuhnya;Коллекция - Премиальная кухня;Поварская форма
+navolochki;Наволочки;Постельное белье
+pododeyalniki;Пододеяльники;Постельное белье
+prostyni;Простыни;Постельное белье
+odeyala;Одеяла;Постельные принадлежности
+podushki;Подушки;Постельные принадлежности
+vspomogatelnoe-oborudovanie;Вспомогательное оборудование;Прачечное оборудование
+gladilnoe-oborudovanie;Гладильное оборудование;Прачечное оборудование
+komplekty-prachechnogo-oborudovaniya;Комплекты прачечного оборудования;Прачечное оборудование
+prachechnoe-oborudovanie-v-nalichii;Прачечное оборудование в наличии;Прачечное оборудование
+stiralnye-mashiny;Стиральные машины;Прачечное оборудование
+sushilnoe-oborudovanie;Сушильное оборудование;Прачечное оборудование
+upakovochnoe-oborudovanie;Упаковочное оборудование;Прачечное оборудование
+finishnoe-oborudovanie;Финишное оборудование;Прачечное оборудование
+dlya-otelya-nomernoj-fond;Для отеля (номерной фонд);Профессиональный текстиль
+dlya-fitnesa-amp-spa;Для фитнеса & SPA;Профессиональный текстиль
+matrasy;Матрасы;Профессиональный текстиль
+polotentsa;Махровые изделия;Профессиональный текстиль
+postelnoe-bele;Постельное белье;Профессиональный текстиль
+postelnye-prinadlezhnosti;Постельные принадлежности;Профессиональный текстиль
+setevye-oteli-brend-buk;Сетевые отели (бренд-бук);Профессиональный текстиль
+tkani;Ткани;Профессиональный текстиль
+forma-dlya-personala;Форма для персонала;Профессиональный текстиль
+zhidkie-moyushhie-i-usiliteli;Жидкие моющие и усилители;Средства для стирки
+konditsionery;Кондиционеры;Средства для стирки
+otbelivateli;Отбеливатели/Дезинфектанты;Средства для стирки
+stiralnye-poroshki-bez-otbelivatelya;Стиральные порошки без отбеливателя;Средства для стирки
+stiralnye-poroshki-s-otbelivatelem;Стиральные порошки с отбеливателем;Средства для стирки
+shhelochnye-usiliteli;Щелочные усилители;Средства для стирки
+dlya-rastvoritelya-phe;Для растворителя ПХЭ;Средства для химчистки
+dlya-rastvoriteleya-uglevodorod;Для растворителя углеводород;Средства для химчистки
+finishnaya-obrabotka;Финишная обработка;Средства для химчистки
+barernye-stiralnye-mashiny;Барьерные стиральные машины;Стиральные машины
+vysokoskorostnye-stiralnye-mashiny;Высокоскоростные стиральные машины;Стиральные машины
+mashiny-himchistki;Машины химчистки;Стиральные машины
+nizko-i-sredneskorostnye-stiralnye-mashiny;Низко- и среднескоростные стиральные машины;Стиральные машины
+promyshlennye-stiralnye-mashiny;Промышленные стиральные машины;Стиральные машины
+stiralno-otzhimnye-mashiny;Стирально-отжимные машины;Стиральные машины
+stiralno-sushilnye-mashiny;Стирально-сушильные машины;Стиральные машины
+tandem-stiralnaya-i-sushilnaya-mashina-v-kolonnu;Тандем (стиральная и сушильная машина, в колонну);Стиральные машины
+tunnelnye-stiralnye-mashiny;Туннельные стиральные машины;Стиральные машины
+sushilnye-kabinety;Сушильные кабинеты;Сушильное оборудование
+sushilnye-mashiny;Сушильные машины;Сушильное оборудование
+sushilnye-mashiny-s-funktsiej-akvachistki;Сушильные машины с функцией «Аквачистки»;Сушильное оборудование
+tsentrifugi;Центрифуги;Сушильное оборудование
+varochnye-poverhnosti;Варочные поверхности;Тепловое оборудование
+gazovye-plity;Газовые плиты;Тепловое оборудование
+induktsionnye-grili;Грили;Тепловое оборудование
+zharochnye-poverhnosti;Жарочные поверхности;Тепловое оборудование
+induktsionnye-plity;Индукционные плиты;Тепловое оборудование
+frityurnitsiy;Фритюрницы;Тепловое оборудование
+elektricheskie-plity;Электрические плиты;Тепловое оборудование
+elektroskovorody;Электросковороды;Тепловое оборудование
+gladilnye-pressy;Гладильные прессы;Финишное оборудование
+gladilnye-stoly;Гладильные столы;Финишное оборудование
+obrabotka-fasonnyh-izdelij;Обработка фасонных изделий;Финишное оборудование
+parogeneratory;Парогенераторы;Финишное оборудование
+paromanekeny;Пароманекены и парокабинеты;Финишное оборудование
+podayushhie-ustrojstva;Подающие машины;Финишное оборудование
+professionalnye-skladyvateli;Профессиональные складыватели;Финишное оборудование
+pyatnovyvodnye-stoly;Пятновыводные столы и кабины;Финишное оборудование
+aksessuary-dlya-ofitsiantov;Аксессуары для официантов;Форма для официантов
+fartuki-zhilety;Фартуки, жилеты;Форма для официантов
+povarskaya-forma;Поварская форма;Форма для персонала
+rubashki-bluzy;Рубашки, блузы;Форма для персонала
+forma-dlya-administratorov-gostinitsy-i-restorana;Форма для администраторов;Форма для персонала
+forma-dlya-ofitsiantov;Форма для официантов;Форма для персонала
+sredstva-dlya-akvachistki;Средства для аквачистки;Химия профессиональная
+sredstva-dlya-vyvedeniya-pyaten;Средства для выведения пятен;Химия профессиональная
+sredstva-dlya-stirki;Средства для стирки;Химия профессиональная
+sredstva-dlya-himchistki;Средства для химчистки;Химия профессиональная
+holodilnye-i-morozilnye-stoly;Холодильные и морозильные столы;Холодильное оборудование
+holodilnye-shkafy;Холодильные шкафы;Холодильное оборудование
+shkafy-shokovoj-zamorozki;Шкафы шоковой заморозки;Холодильное оборудование

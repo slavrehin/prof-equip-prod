@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Тапочки" date="2026-03-11 13:16:35" total="5" id="91" code="tapochki"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/tapochki-odnorazovye-dlya-spa-015r-rossiya/"/>
+    <product id="2" url="https://prof-equip.ru/product/tapochki-iz-spandbonda-dlya-otelya-odnorazovye-015r-rossiya/"/>
+    <product id="3" url="https://prof-equip.ru/product/tapochki-flisovye-dlya-otelya-odnorazovye-015r-rossiya/"/>
+    <product id="4" url="https://prof-equip.ru/product/tapochki-velyurovye-dlya-otelya-odnorazovye-015r-rossiya/"/>
+    <product id="5" url="https://prof-equip.ru/product/tapochki-mahrovye-dlya-otelya-odnorazovye-015r-rossiya/"/>
+  </products>
+</import>

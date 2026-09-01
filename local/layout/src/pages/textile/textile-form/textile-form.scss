@@ -1,0 +1,38 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.textile-form {
+	position: relative;
+	padding: rem(45) 0 rem(35);
+	margin-bottom: rem(45);
+	.textile-form__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.textile-form__inner {
+		position: relative;
+		z-index: 2;
+		.textile-form__title {
+			color: #fff;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(28);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(10);
+			@media (max-width: $tab-sm) {
+				margin-bottom: rem(45);
+			}
+		}
+		.calculate-project {
+			margin-bottom: 0;
+		}
+	}
+}

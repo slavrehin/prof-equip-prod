@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Сушильные машины с функцией «Аквачистки»" date="2026-03-11 13:08:10" total="11" id="64" code="sushilnye-mashiny-s-funktsiej-akvachistki"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-girbau-ed1250-zagruzka-50-kg-62-5-kg/"/>
+    <product id="2" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-girbau-ed900-zagruzka-36-kg-45-kg/"/>
+    <product id="3" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-girbau-ed660-zagruzka-26-4-kg-33-kg/"/>
+    <product id="4" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-girbau-ed460-zagruzka-18-4-kg-23-kg/"/>
+    <product id="5" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-girbau-ed340-zagruzka-13-6-kg-17-kg/"/>
+    <product id="6" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-girbau-ed260-zagruzka-10-4-kg-13-kg/"/>
+    <product id="7" url="https://prof-equip.ru/product/sushilnyj-baraban-dlya-akvachistki-electrolux-lagoon-advanced-care-td6-20-lac-zagruzka-20-kg-16-4-kg/"/>
+    <product id="8" url="https://prof-equip.ru/product/sushilnyj-baraban-dlya-akvachistki-electrolux-lagoon-advanced-care-td6-7-lac-zagruzka-7-kg/"/>
+    <product id="9" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-imesa-es-10-r-e-aqua-s-tehnologiej-akva-chistki-zagruzka-11-kg/"/>
+    <product id="10" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-electrolux-t5130-lagoon-s-tehnologiej-akva-chistki-zagruzka-6-kg/"/>
+    <product id="11" url="https://prof-equip.ru/product/professionalnaya-sushilnaya-mashina-electrolux-t5350-lagoon-s-tehnologiej-akva-chistki-zagruzka-19-4-kg/"/>
+  </products>
+</import>

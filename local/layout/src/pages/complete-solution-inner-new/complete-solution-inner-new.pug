@@ -1,0 +1,17 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +complete-solution-inner-content()
+        +calculate-project({hasBg: true})
+        +navigation-links({
+            title1: 'Система таблет питания',
+            title2: 'Как наладить контакт между кухней и залом в ресторане',
+        })
+        +related-articles()
+block footer 
+    +footer()

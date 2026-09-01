@@ -1,0 +1,13 @@
+mixin accordion-item({title, hasIcon = true, iconHtml } ={})
+    .accordion__item 
+        button.btn.accordion__title 
+            span.accordion__title__text !{title}
+            if hasIcon
+                if iconHtml
+                    != iconHtml
+                else
+                    span.accordion__icon 
+                        +svg('accordion-arrow')
+        .accordion__content 
+            if block('text')
+                block text

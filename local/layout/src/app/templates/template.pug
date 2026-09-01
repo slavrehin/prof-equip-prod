@@ -1,0 +1,15 @@
+doctype html
+html(lang='ru')
+  include ./mixins.pug
+  block head
+  body
+    block header
+    block content-inner
+    block content
+    block footer
+    +sale-banner()
+    .modals
+      block modals
+    script(src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js")
+    script(src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js")
+    script(src="https://api-maps.yandex.ru/2.1/?apikey=43191fbc-c80b-4bf4-98ef-b14487ccd9d8&lang=ru_RU" defer)

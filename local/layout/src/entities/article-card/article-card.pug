@@ -1,0 +1,13 @@
+mixin article-card({src, src2x, title} = {})
+    .article-card
+        a(href='#').image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'article'
+            })
+        .article-card__content 
+            p.title 
+                a(href='#') #{title}
+            a(href='#').btn.cost__btn
+                span Подробнее

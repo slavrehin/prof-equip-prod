@@ -1,0 +1,26 @@
+import './arrow-swiper-left.svg';
+import './arrow-swiper-right.svg';
+
+import './accordion-arrow2.svg';
+import './accordion-arrow.svg';
+import './arrow-down.svg';
+import './arrow-right-fill.svg';
+import './arrow-top.svg';
+import './burger.svg';
+import './close.svg';
+import './columns.svg';
+import './divider.svg';
+import './eye.svg';
+import './filter.svg';
+import './lines.svg';
+import './logo.svg';
+import './mail.svg';
+import './pagination-arrow.svg';
+import './phone-fill.svg';
+import './phone.svg';
+import './pin.svg';
+import './plus.svg';
+import './search.svg';
+import './serch2.svg';
+import './share.svg';
+import './tg.svg';

@@ -1,0 +1,99 @@
+mixin articles-swiper()
+    section.articles-swiper-wrapper 
+        .articles-swiper-wrapper__inner.container
+            h2.articles-swiper__title СТАТЬИ ДЛЯ ОТЕЛЬЕРОВ 
+            .articles-swiper
+                .swiper-wrapper 
+                    a(href="#").swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/articles-swiper/1.jpg',
+                                src2x: 'assets/img/articles-swiper/1@2x.jpg',
+                                alt: 'article'
+                            })
+                        .article-card__content 
+                            p.article__title Организация линии раздачи в отеле: проектирование, оснащение и запуск
+                            p.article__link Подробнее
+                                +svg('arrow-right-fill')
+                    a(href="#").swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/articles-swiper/2.jpg',
+                                src2x: 'assets/img/articles-swiper/2@2x.jpg',
+                                alt: 'article'
+                            })
+                        .article-card__content 
+                            p.article__title Прачечная в отеле с нуля: планирование, оснащение, запуск
+                            p.article__link Подробнее
+                                +svg('arrow-right-fill')
+                    a(href="#").swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/articles-swiper/3.jpg',
+                                src2x: 'assets/img/articles-swiper/3@2x.jpg',
+                                alt: 'article'
+                            })
+                        .article-card__content 
+                            p.article__title Как открыть ресторан при отеле: практические рекомендации
+                            p.article__link Подробнее
+                                +svg('arrow-right-fill')
+                    a(href="#").swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/articles-swiper/4.jpg',
+                                src2x: 'assets/img/articles-swiper/4@2x.jpg',
+                                alt: 'article'
+                            })
+                        .article-card__content 
+                            p.article__title Постельное белье и текстиль для гостиниц
+                            p.article__link Подробнее
+                                +svg('arrow-right-fill')
+                    a(href="#").swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/articles-swiper/1.jpg',
+                                src2x: 'assets/img/articles-swiper/1@2x.jpg',
+                                alt: 'article'
+                            })
+                        .article-card__content 
+                            p.article__title Организация линии раздачи в отеле: проектирование, оснащение и запуск
+                            p.article__link Подробнее
+                                +svg('arrow-right-fill')
+                    a(href="#").swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/articles-swiper/2.jpg',
+                                src2x: 'assets/img/articles-swiper/2@2x.jpg',
+                                alt: 'article'
+                            })
+                        .article-card__content 
+                            p.article__title Прачечная в отеле с нуля: планирование, оснащение, запуск
+                            p.article__link Подробнее
+                                +svg('arrow-right-fill')
+                    a(href="#").swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/articles-swiper/3.jpg',
+                                src2x: 'assets/img/articles-swiper/3@2x.jpg',
+                                alt: 'article'
+                            })
+                        .article-card__content 
+                            p.article__title Как открыть ресторан при отеле: практические рекомендации
+                            p.article__link Подробнее
+                                +svg('arrow-right-fill')
+                    a(href="#").swiper-slide 
+                        .image-wrapper 
+                            +img({
+                                src: 'assets/img/articles-swiper/4.jpg',
+                                src2x: 'assets/img/articles-swiper/4@2x.jpg',
+                                alt: 'article'
+                            })
+                        .article-card__content 
+                            p.article__title Постельное белье и текстиль для гостиниц
+                            p.article__link Подробнее
+                                +svg('arrow-right-fill')
+                .navigation 
+                    +button().articles__prev
+                        +svg('arrow-swiper-left')
+                    +button().articles__next
+                        +svg('arrow-swiper-right')

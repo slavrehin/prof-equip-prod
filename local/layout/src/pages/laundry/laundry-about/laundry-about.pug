@@ -1,0 +1,43 @@
+mixin laundry-about()
+    section.direction-about
+        .direction-about__inner.container 
+            .direction-about__text
+                h1 Оборудование для прачечных и химчисток, комплексное оснащение
+                strong ПРОФЭКВИП – официальный дилер оборудования JENSEN и TOLON в России и СНГ.
+                p В 2003 году команда ПРОФЭКВИП запустила первую туннельную прачечную с использованием профессионального технологического оборудования 
+                    a(href="#") JENSEN
+                    | (Енсен). За 15 лет мы оснастили сотни прачечных самообслуживания, прачечных на предприятиях, аквачисток, химчисток и индустриальных прачечных.
+                ul 
+                    li Проектирование химчистки и прачечной «с нуля»
+                    li Поставка профессионального оборудования для прачечных и химчисток ведущих брендов – 
+                        a(href="#") JENSEN
+                        |,  
+                        a(href="#") TOLON
+                        |, 
+                        a(href="#") MACPI
+                        |, 
+                        a(href="#") IMESA
+                        |, 
+                        a(href="#") PONY
+                        |, 
+                        a(href="#") Electrolux
+                        |, 
+                        a(href="#") HAWO
+                        |, 
+                        a(href="#") Girbau
+                        |, 
+                        a(href="#") Fermest
+                    li Запуск и настройка оборудования, обучение персонала
+                    li Сервисное и гарантийное обслуживание прачечных и химчисток
+                p Сотрудничество с ПРОФЭКВИП – это выгодно и удобно!
+                +button({
+                    text: 'КАТАЛОГ',
+                    isLink: true
+                }).gradient-hover
+            .direction-about__image 
+                .image-wrapper 
+                    +img({
+                        src: 'assets/img/laundry-about/1.png',
+                        src2x: 'assets/img/laundry-about/1@2x.png',
+                        alt: 'laundry about'
+                    })

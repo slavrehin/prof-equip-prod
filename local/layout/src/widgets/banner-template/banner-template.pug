@@ -1,0 +1,26 @@
+mixin banner-template()
+    .banner-template
+        .swiper-wrapper 
+            .swiper-slide 
+                +img({
+                    src: 'assets/img/banner-template/img.jpg',
+                    src2x: 'assets/img/banner-template/img@2x.jpg',
+                    mobSrc: 'assets/img/banner-template/img-mob.jpg',
+                    mobSrc2x: 'assets/img/banner-template/img-mob@2x.jpg',
+                    alt: 'banner'
+                })
+                button.btn.slide__btn Рассчитать проект
+            //- .swiper-slide 
+            //-     video(src="assets/files/video.mp4" muted preload='auto' playsinline) 
+                
+            //-     button.btn.slide__btn Рассчитать проект
+            //- .swiper-slide 
+            //-     +img({
+            //-         src: 'assets/img/banner-template/img.jpg',
+            //-         src2x: 'assets/img/banner-template/img@2x.jpg',
+            //-         mobSrc: 'assets/img/banner-template/img-mob.jpg',
+            //-         mobSrc2x: 'assets/img/banner-template/img@2x-mob.jpg',
+            //-         alt: 'banner'
+            //-     }) 
+            //-     button.btn.slide__btn Рассчитать проект
+        .banner-pagination.pagination

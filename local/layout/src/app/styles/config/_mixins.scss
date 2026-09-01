@@ -1,0 +1,17 @@
+@use './functions' as *;
+@use './variables' as *;
+
+@mixin h2 {
+	color: #000;
+	font-family: 'Manrope', sans-serif;
+	font-size: rem(64);
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	@media (max-width: $laptop) {
+		font-size: rem(40);
+	}
+	@media (max-width: $tab-sm) {
+		font-size: rem(36);
+	}
+}

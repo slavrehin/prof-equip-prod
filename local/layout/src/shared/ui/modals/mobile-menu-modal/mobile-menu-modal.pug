@@ -1,0 +1,31 @@
+extends @/app/templates/template-modal.pug
+
+block content
+    +modal('mobile-menu-modal')
+        .menu__navigation.accordion
+            a(href="#").menu__link Главная 
+            a(href="#").menu__link О нас
+            +accordion-item({title: 'Направления'})
+                a(href="#").menu__link Кухня 
+                a(href="#").menu__link Прачечная
+                a(href="#").menu__link Текстиль
+                a(href="#").menu__link Химия
+                a(href="#").menu__link Мебель
+            +accordion-item({title: 'Услуги'})
+                a(href="#").menu__link Консалтинг
+                a(href="#").menu__link Комплексное оснащение отелей и гостиниц
+                a(href="#").menu__link Технологическое проектирование
+                a(href="#").menu__link Продажа оборудования
+                a(href="#").menu__link Монтажные и пусконаладочные работы
+                a(href="#").menu__link Поставка аксессуаров и запасных частей
+                a(href="#").menu__link Сервисное обслуживание
+            +accordion-item({title: 'Каталог'})
+                a(href="#").menu__link Прачечное оборудование
+                a(href="#").menu__link Химия профессиональная
+                a(href="#").menu__link Профессиональный текстиль
+                a(href="#").menu__link Оборудование профессиональной кухни
+                a(href="#").menu__link Запасные части
+            a(href="#").menu__link Бренды
+            a(href="#").menu__link Проекты
+            a(href="#").menu__link Готовые решения
+            a(href="#").menu__link Контакты

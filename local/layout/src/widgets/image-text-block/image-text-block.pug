@@ -1,0 +1,18 @@
+mixin image-text-block({title, src, src2x, breadcrumbs} = {})
+    section.image-text-block 
+        .image-text-block__inner.container
+            +title-block({
+                title,
+                breadcrumbs
+            })
+            .image-text-block__content 
+                .image-wrapper-container
+                    .image-wrapper 
+                        +img({
+                            src,
+                            src2x,
+                            alt: 'image'
+                        })
+                .text
+                    if block 
+                        block

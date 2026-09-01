@@ -1,0 +1,64 @@
+mixin contacts-content()
+    .contacts-content
+        .contacts-content__inner.container
+            +title-block({
+                title: 'Контакты',
+                breadcrumbs: [
+                    {
+                        href: 'home.html',
+                        title: 'Главная'
+                    },
+                    {
+                        href: 'contacts.html',
+                        title: 'Контакты'
+                    }
+                ]
+            })
+            .contacts-content__info 
+                .contacts-content__text 
+                    .contacts__row 
+                        p.title Главный офис
+                        .contacts__items 
+                            .contacts__item 
+                                img(src="assets/img/contacts/1.png", alt="contacts icon")
+                                .contacts__item__links
+                                    p 127106, Россия, г. Москва, 
+                                        a(href="#") ул. Гостиничная, дом 4, корпус 9
+                            .contacts__item 
+                                img(src="assets/img/contacts/2.png", alt="contacts icon")
+                                .contacts__item__links
+                                    a(href="tel:84993023762") 8 (499) 302-37-62 
+                                    a(href="mailto:info@prof-equip.ru") info@prof-equip.ru 
+                    .contacts__row 
+                        p.title Отдел запчастей и сервисного обслуживания:
+                        .contacts__items 
+                            .contacts__item 
+                                img(src="assets/img/contacts/3.png", alt="contacts icon")
+                                .contacts__item__links
+                                    a(href="tel:74994502915") 7 (499) 450-29-15
+                    .contacts__row 
+                        p.title Представительство в Сочи:
+                        .contacts__items 
+                            .contacts__item 
+                                img(src="assets/img/contacts/1.png", alt="contacts icon")
+                                .contacts__item__links
+                                    p Краснодарский край, федеральная территория Сириус, пгт. Сириус, мкр-н Нижнеимеретинская Бухта, Цимлянская ул., 12/13  2 этаж офис 9
+                            .contacts__item 
+                                img(src="assets/img/contacts/2.png", alt="contacts icon")
+                                .contacts__item__links
+                                    a(href="tel:79384575079") +7 938 457 5079
+                                    a(href="mailto:info.sochi@prof-equip.ru") info.sochi@prof-equip.ru
+                    .contacts__row 
+                        p.title Представительство в Симферополе:
+                        .contacts__items 
+                            .contacts__item 
+                                img(src="assets/img/contacts/1.png", alt="contacts icon")
+                                .contacts__item__links
+                                    p Республика Крым, город Симферополь, ул.Георгия Морозова, 14, офис 3.
+                            .contacts__item 
+                                img(src="assets/img/contacts/2.png", alt="contacts icon")
+                                .contacts__item__links
+                                    a(href="tel:79384575079") +7 938 457 5079
+                                    a(href="mailto:info@prof-equip.ru") info@prof-equip.ru
+                +feedback-form() 
+            +map({center: '55.843525,37.580948', zoom: '14'})

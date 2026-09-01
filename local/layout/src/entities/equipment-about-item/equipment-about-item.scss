@@ -1,0 +1,73 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.equipment-about__item {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: rem(30);
+	@media (max-width: $tab-sm) {
+		grid-template-columns: 1fr;
+	}
+	&.text-right {
+		.image-wrapper {
+			order: 0;
+		}
+		.equipment-about__text {
+			order: 1;
+		}
+	}
+	&.text-left {
+		.image-wrapper {
+			order: 1;
+			@media (max-width: $tab-sm) {
+				order: 0;
+			}
+		}
+		.equipment-about__text {
+			order: 0;
+			@media (max-width: $tab-sm) {
+				order: 1;
+			}
+		}
+	}
+	.image-wrapper {
+		position: relative;
+		padding-bottom: 68%;
+		img {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			object-fit: cover;
+		}
+	}
+	.equipment-about__text {
+		.equipment__title {
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(28);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(35);
+			@media (max-width: $tab-sm) {
+				font-size: rem(24);
+			}
+		}
+		.equipment__descr {
+			color: #000;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(24);
+			margin-bottom: rem(35);
+		}
+		.btn {
+			height: rem(38);
+			padding: 0 rem(10);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: fit-content;
+		}
+	}
+}

@@ -1,0 +1,137 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +banner-template()
+        +breadcrumbs([
+            {
+                href: 'home.html',
+                title: 'Главная'
+            },
+            {
+                href: 'brands.html',
+                title: 'Направления'
+            },
+            {
+                href: 'brand3.html',
+                title: 'Прачечная'
+            }
+        ])
+        +laundry-about()
+        +calculate-project({hasBg: true})
+        +catalog-links-list()
+        +manufacturers()
+        +steps()
+        +portfolio({title: 'ПОРТФОЛИО'})
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/1.jpg',
+                    src2x: 'assets/img/portfolio/1@2x.jpg',
+                    title: 'Санаторий “Бирюза”, Сочи'
+                })
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/2.jpg',
+                    src2x: 'assets/img/portfolio/2@2x.jpg',
+                    title: 'Ресторан «Москва», Holiday Inn Moscow Sokolniki, Москва'
+                })
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/3.jpg',
+                    src2x: 'assets/img/portfolio/3@2x.jpg',
+                    title: 'Кафе «Атриум», Holiday Inn Moscow Sokolniki, Москва'
+                })
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/4.jpg',
+                    src2x: 'assets/img/portfolio/4@2x.jpg',
+                    title: 'Завод по производству сыров «Сыры Кубани», Краснодарский край, ст. Выселки'
+                })
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/1.jpg',
+                    src2x: 'assets/img/portfolio/1@2x.jpg',
+                    title: 'Санаторий “Бирюза”, Сочи'
+                })
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/2.jpg',
+                    src2x: 'assets/img/portfolio/2@2x.jpg',
+                    title: 'Ресторан «Москва», Holiday Inn Moscow Sokolniki, Москва'
+                })
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/3.jpg',
+                    src2x: 'assets/img/portfolio/3@2x.jpg',
+                    title: 'Кафе «Атриум», Holiday Inn Moscow Sokolniki, Москва'
+                })
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/4.jpg',
+                    src2x: 'assets/img/portfolio/4@2x.jpg',
+                    title: 'Завод по производству сыров «Сыры Кубани», Краснодарский край, ст. Выселки'
+                })
+        +portfolio({title: 'ГОТОВЫЕ РЕШЕНИЯ'})
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/5.jpg',
+                    src2x: 'assets/img/portfolio/5@2x.jpg',
+                    title: 'Барная стойка',
+                    descr: 'Сегодня барная стойка является одной из визитных карточек заведения, будь то ресторан, кафе или др.…'
+                }).image-sm
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/6.jpg',
+                    src2x: 'assets/img/portfolio/6@2x.jpg',
+                    title: 'Кухня на заправочной станции (АЗС)',
+                    descr: 'Закусочная с горячими хот-догами, гамбургерами, пирожками и бодрящим кофе – неотъемлемая часть современной заправочной станции.…'
+                }).image-sm
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/7.jpg',
+                    src2x: 'assets/img/portfolio/7@2x.jpg',
+                    title: 'Кухня в гостинице',
+                    descr: 'Основной ресторан в гостинице проектируется как отдельное полноценное помещение. В нем же, чаще всего, размещают…'
+                }).image-sm
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/8.jpg',
+                    src2x: 'assets/img/portfolio/8@2x.jpg',
+                    title: 'Открытая кухня',
+                    descr: 'Вынесение кухни ресторанов и кафе на всеобщее обозрение является сейчас заметной тенденцией работы ресторанов. Открытая…'
+                }).image-sm
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/5.jpg',
+                    src2x: 'assets/img/portfolio/5@2x.jpg',
+                    title: 'Барная стойка',
+                    descr: 'Сегодня барная стойка является одной из визитных карточек заведения, будь то ресторан, кафе или др.…'
+                }).image-sm
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/6.jpg',
+                    src2x: 'assets/img/portfolio/6@2x.jpg',
+                    title: 'Кухня на заправочной станции (АЗС)',
+                    descr: 'Закусочная с горячими хот-догами, гамбургерами, пирожками и бодрящим кофе – неотъемлемая часть современной заправочной станции.…'
+                }).image-sm
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/7.jpg',
+                    src2x: 'assets/img/portfolio/7@2x.jpg',
+                    title: 'Кухня в гостинице',
+                    descr: 'Основной ресторан в гостинице проектируется как отдельное полноценное помещение. В нем же, чаще всего, размещают…'
+                }).image-sm
+            .swiper-slide 
+                +portfolio-card({
+                    src: 'assets/img/portfolio/8.jpg',
+                    src2x: 'assets/img/portfolio/8@2x.jpg',
+                    title: 'Открытая кухня',
+                    descr: 'Вынесение кухни ресторанов и кафе на всеобщее обозрение является сейчас заметной тенденцией работы ресторанов. Открытая…'
+                }).image-sm
+        +reviews()
+block footer 
+    +footer()

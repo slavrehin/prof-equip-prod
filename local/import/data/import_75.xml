@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Рубашки, блузы" date="2026-03-11 13:29:17" total="22" id="75" code="rubashki-bluzy"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/bluzka-zhenskaya-klassicheskij-kroj-siluet-regular-fit-st6577-greiff/"/>
+    <product id="2" url="https://prof-equip.ru/product/bluzka-zhenskaya-klassicheskij-kroj-siluet-regular-fit-st6576-greiff/"/>
+    <product id="3" url="https://prof-equip.ru/product/rubashka-muzhskaya-pryamoj-kroj-siluet-comfort-fit-st320-greiff-kopirovat/"/>
+    <product id="4" url="https://prof-equip.ru/product/rubashka-muzhskaya-pryamoj-kroj-siluet-comfort-fit-st320-greiff/"/>
+    <product id="5" url="https://prof-equip.ru/product/bluzka-zhenskaya-pryamoj-kroj-siluet-korotkij-rukav-comfort-fit-st323-greiff/"/>
+    <product id="6" url="https://prof-equip.ru/product/bluzka-zhenskaya-pryamoj-kroj-siluet-rukav-3-4-comfort-fit-st6514-greiff/"/>
+    <product id="7" url="https://prof-equip.ru/product/bluzka-zhenskaya-pryamoj-kroj-siluet-comfort-fit-st322-greiff/"/>
+    <product id="8" url="https://prof-equip.ru/product/rubashka-bluzka-zhenskaya-klassicheskij-kroj-siluet-regular-fit-st6861-greiff/"/>
+    <product id="9" url="https://prof-equip.ru/product/kofta-zhenskaya-klassicheskij-kroj-siluet-rukav-3-4-regular-fit-st6680-greiff/"/>
+    <product id="10" url="https://prof-equip.ru/product/rubashka-polo-muzhskaya-klassicheskij-kroj-siluet-regular-fit-st6627-greiff/"/>
+    <product id="11" url="https://prof-equip.ru/product/rubashka-polo-zhenskaya-klassicheskij-kroj-siluet-regular-fit-st6681-greiff/"/>
+    <product id="12" url="https://prof-equip.ru/product/rubashka-muzhskaya-pryamoj-kroj-siluet-korotkij-rukav-s-karmanom-comfort-fit-st6601-greiff/"/>
+    <product id="13" url="https://prof-equip.ru/product/rubashka-muzhskaya-pryamoj-kroj-siluet-s-karmanom-comfort-fit-st6600-greiff/"/>
+    <product id="14" url="https://prof-equip.ru/product/rubashka-muzhskaya-klassicheskij-kroj-siluet-korotkij-rukav-s-karmanom-regular-fit-st6666-greiff/"/>
+    <product id="15" url="https://prof-equip.ru/product/rubashka-muzhskaya-klassicheskij-kroj-siluet-s-karmanom-regular-fit-st6665-greiff/"/>
+    <product id="16" url="https://prof-equip.ru/product/bluzka-zhenskaya-pryamoj-kroj-siluet-korotkij-rukav-s-karmanom-comfort-fit-st6651-greiff/"/>
+    <product id="17" url="https://prof-equip.ru/product/bluzka-zhenskaya-pryamoj-kroj-siluet-s-karmanom-comfort-fit-st6650-greiff/"/>
+    <product id="18" url="https://prof-equip.ru/product/bluzka-zhenskaya-klassicheskij-kroj-siluet-melkaya-kletka-regular-fit-st6521-greiff/"/>
+    <product id="19" url="https://prof-equip.ru/product/bluzka-zhenskaya-klassicheskij-kroj-siluet-vorotnik-s-otvorotom-i-latskanom-regular-fit-st6506-greiff/"/>
+    <product id="20" url="https://prof-equip.ru/product/bluzka-zhenskaya-klassicheskij-kroj-siluet-rukav-3-4-regular-fit-st6517-greiff/"/>
+    <product id="21" url="https://prof-equip.ru/product/bluzka-zhenskaya-klassicheskij-kroj-siluet-korotkij-rukav-regular-fit-st6516-greiff/"/>
+    <product id="22" url="https://prof-equip.ru/product/bluzka-zhenskaya-klassicheskij-kroj-siluet-regular-fit-st6515-greiff/"/>
+  </products>
+</import>

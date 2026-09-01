@@ -1,0 +1,11 @@
+mixin advantage-card({title, text, src, src2x})
+    .advantage-card
+        .advantage-card__content
+            p.title !{title}
+            p.text !{text}
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'advantage'
+            })

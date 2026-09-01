@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Для отеля (номерной фонд)" date="2026-03-11 13:13:17" total="19" id="25" code="dlya-otelya-nomernoj-fond"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/marriott-postelnye-prinadlezhnosti-hanse-dlya-otelej/"/>
+    <product id="2" url="https://prof-equip.ru/product/renaissance-postelnye-prinadlezhnosti-hanse-dlya-otelej/"/>
+    <product id="3" url="https://prof-equip.ru/product/halat-dlya-otelej-seti-four-points-by-sheraton-velyur-strajp-400-g-m2-100-hlopok-belyj/"/>
+    <product id="4" url="https://prof-equip.ru/product/polotentse-dlya-nog-mahrovoe-beloe-s-zhakkardovymi-polosami-50-70-sm/"/>
+    <product id="5" url="https://prof-equip.ru/product/polotentse-mahrovoe-odnopetelnoe-beloe-s-zhakkardovymi-polosami-po-dlinnoj-storone-70-145-sm/"/>
+    <product id="6" url="https://prof-equip.ru/product/polotentse-mahrovoe-beloe-s-zhakkardovymi-polosami-50-90-sm/"/>
+    <product id="7" url="https://prof-equip.ru/product/halat-mahrovyj-belyj-s-poyasom-plotnost-ne-menee-380-gr-m-kv/"/>
+    <product id="8" url="https://prof-equip.ru/product/polotentse-dlya-nog-mahrovoe-beloe-50-75-sm-plotnost-750-g-m2/"/>
+    <product id="9" url="https://prof-equip.ru/product/polotentse-mahrovoe-beloe-70-140-sm-plotnost-570-g-m-kv/"/>
+    <product id="10" url="https://prof-equip.ru/product/polotentse-mahrovoe-beloe-50-100-sm-plotnost-570-g-m-kv/"/>
+    <product id="11" url="https://prof-equip.ru/product/tapochki-odnorazovye-dlya-spa-015r-rossiya/"/>
+    <product id="12" url="https://prof-equip.ru/product/tapochki-iz-spandbonda-dlya-otelya-odnorazovye-015r-rossiya/"/>
+    <product id="13" url="https://prof-equip.ru/product/tapochki-flisovye-dlya-otelya-odnorazovye-015r-rossiya/"/>
+    <product id="14" url="https://prof-equip.ru/product/tapochki-velyurovye-dlya-otelya-odnorazovye-015r-rossiya/"/>
+    <product id="15" url="https://prof-equip.ru/product/tapochki-mahrovye-dlya-otelya-odnorazovye-015r-rossiya/"/>
+    <product id="16" url="https://prof-equip.ru/product/polotentse-mahrovoe-fitness-510-510-g-m-kv-100-hb-glad-013r-rossiya/"/>
+    <product id="17" url="https://prof-equip.ru/product/polotentse-mahrovoe-fitness-420-420-g-m-kv-100-hb-glad-013r-rossiya/"/>
+    <product id="18" url="https://prof-equip.ru/product/polotentse-mahrovoe-fitness-350-350-g-m-kv-100-hb-glad-013r-rossiya/"/>
+    <product id="19" url="https://prof-equip.ru/product/polotentse-mahrovoe-dlya-nog-kovrik-650-g-m-kv-100-hb-nozhki-013r-rossiya/"/>
+  </products>
+</import>

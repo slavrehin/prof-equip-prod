@@ -1,0 +1,15 @@
+mixin news-card({src, src2x, date, title} = {})
+    .news-card
+        .image-wrapper
+            +img({
+                src,
+                src2x,
+                alt: 'news'
+            })
+        .news-card__content 
+            p.date #{date}
+            p.title #{title}
+            +button().link__btn
+                span.btn__text Читать полностью
+                span.arrow__icon
+                    +svg('arrow-top')

@@ -1,0 +1,26 @@
+mixin header-catalog()
+    .header-catalog
+        .header-catalog__inner.container
+            +header-catalog-card({
+                src: 'assets/img/header-catalog/1.png',
+                title: 'Прачечное оборудование'
+            })
+            +header-catalog-card({
+                src: 'assets/img/header-catalog/2.png',
+                title: 'Текстиль',
+                hasBadge: true
+            })
+            +header-catalog-card({
+                src: 'assets/img/header-catalog/3.png',
+                title: 'Запасные части',
+            })
+            +header-catalog-card({
+                src: 'assets/img/header-catalog/4.png',
+                title: 'Химия',
+                hasBadge: true
+            })
+            +header-catalog-card({
+                src: 'assets/img/header-catalog/5.png',
+                title: 'Кухонное оборудование',
+                hasBadge: true
+            })

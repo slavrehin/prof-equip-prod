@@ -1,0 +1,82 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.faq {
+	margin-top: rem(50);
+	margin-bottom: rem(50);
+	@media (max-width: $tab-sm) {
+		margin-top: rem(64);
+	}
+	.faq__inner {
+		.faq__title {
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(19);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(45);
+			text-align: center;
+		}
+		.faq__list {
+			.faq__item {
+				border-top: 1px solid #e6e7e9;
+				&:last-child {
+					border-bottom: 1px solid #e6e7e9;
+				}
+				.accordion__title {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					padding: rem(20) 0;
+					gap: rem(20);
+					&:hover {
+						.filter__title {
+							color: #008ca9;
+						}
+						.filter__icon {
+							svg {
+								color: #008ca9;
+							}
+						}
+					}
+					.filter__title {
+						color: #1b2154;
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(16);
+						font-style: normal;
+						font-weight: 700;
+						line-height: normal;
+						text-align: left;
+						transition: var(--trs-300);
+					}
+					.filter__icon {
+						width: rem(18);
+						height: rem(18);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						svg {
+							width: rem(18);
+							height: rem(12);
+							color: #1b2154;
+							transition: var(--trs-300);
+						}
+					}
+				}
+				.accordion__content {
+					padding-bottom: rem(36);
+					p {
+						color: #1b2154;
+
+						font-family: 'Montserrat', sans-serif;
+
+						font-size: rem(15);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(24);
+					}
+				}
+			}
+		}
+	}
+}

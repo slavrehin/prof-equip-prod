@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Подающие машины" date="2026-03-11 13:10:48" total="13" id="56" code="podayushhie-ustrojstva"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/mashina-dlya-polnostyu-avtomaticheskogo-razdeleniya-i-podachi-polotenets-jensen-evolution-spider/"/>
+    <product id="2" url="https://prof-equip.ru/product/universalnaya-podayushhaya-mashina-jensen-kliq-feeder/"/>
+    <product id="3" url="https://prof-equip.ru/product/ctantsiya-zagruzki-dlya-raboty-s-odezhdoj-jensen-metriq/"/>
+    <product id="4" url="https://prof-equip.ru/product/servisnyj-paket-jensen-futurial/"/>
+    <product id="5" url="https://prof-equip.ru/product/avtomatizirovannye-sistemy-transportirovki-belya-jensen/"/>
+    <product id="6" url="https://prof-equip.ru/product/podayushhaya-mashina-jensen-express-plus/"/>
+    <product id="7" url="https://prof-equip.ru/product/poluavtomaticheskaya-mashina-jensen-jenfeed-basic-plus-dlya-ruchnoj-podachi-melkih-srednih-i-krupnyh-izdelij/"/>
+    <product id="8" url="https://prof-equip.ru/product/podayushhaya-mashina-jensen-jenfeed-quick-dlya-bezuglovoj-podachi-krupnyh-izdelij/"/>
+    <product id="9" url="https://prof-equip.ru/product/mnogofunktsionalnaya-raspryamlyayushhaya-mashina-podachi-jensen-jenfeed-logic-s/"/>
+    <product id="10" url="https://prof-equip.ru/product/podayushhaya-mashina-dlya-prostynej-i-podstilok-jensen-jenfeed-express/"/>
+    <product id="11" url="https://prof-equip.ru/product/mnogofunktsionalnaya-raspryamlyayushhaya-mashina-podachi-jensen-jenfeed-logic-plus/"/>
+    <product id="12" url="https://prof-equip.ru/product/podayushhaya-mashina-jensen-jenfeed-logic-2000-dlya-obrabotki-krupnyh-izdelij/"/>
+    <product id="13" url="https://prof-equip.ru/product/skorostnaya-universalnaya-podayushhaya-mashina-jensen-jenfeed-variant-2000/"/>
+  </products>
+</import>

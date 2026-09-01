@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Электросковороды" date="2026-03-11 13:04:03" total="12" id="115" code="elektroskovorody"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/jipa-jump-251/"/>
+    <product id="2" url="https://prof-equip.ru/product/jipa-jump-201-f/"/>
+    <product id="3" url="https://prof-equip.ru/product/jipa-jump-201/"/>
+    <product id="4" url="https://prof-equip.ru/product/jipa-jump-151-p/"/>
+    <product id="5" url="https://prof-equip.ru/product/jipa-jump-151-f/"/>
+    <product id="6" url="https://prof-equip.ru/product/jipa-jump-151/"/>
+    <product id="7" url="https://prof-equip.ru/product/jipa-jump-101-r/"/>
+    <product id="8" url="https://prof-equip.ru/product/jipa-jump-101-f/"/>
+    <product id="9" url="https://prof-equip.ru/product/jipa-jump-101/"/>
+    <product id="10" url="https://prof-equip.ru/product/jipa-jump-101-dl/"/>
+    <product id="11" url="https://prof-equip.ru/product/jipa-jump-101-dm/"/>
+    <product id="12" url="https://prof-equip.ru/product/jipa-jump-101-ds/"/>
+  </products>
+</import>

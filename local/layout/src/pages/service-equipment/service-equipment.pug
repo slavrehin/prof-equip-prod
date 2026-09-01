@@ -1,0 +1,17 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +banner-template()
+        +equipment-about()
+        +equipment-portfolio-swiper()
+        +equipment-clients()
+        +reviews()
+        +calculate-project({hasBg: true})
+        +articles-swiper()
+block footer 
+    +footer()

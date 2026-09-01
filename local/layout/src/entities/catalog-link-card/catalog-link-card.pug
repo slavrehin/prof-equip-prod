@@ -1,0 +1,10 @@
+mixin catalog-link-card({src, src2x, title} = {})
+    a(href="#").catalog-link-card
+        +img({
+            src,
+            src2x,
+            alt: 'catalog'
+        })
+        .catalog-link-card__content 
+            p.title !{title}
+            p.link Подробнее

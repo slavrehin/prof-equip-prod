@@ -1,0 +1,59 @@
+mixin another-objects()
+    section.another-objects
+        .another-objects__inner.container 
+            h3.another-objects__title Другие объекты
+            .another-objects__swiper 
+                .swiper-wrapper 
+                    +another-object-card({
+                        src: 'assets/img/another-objects/1.png',
+                        src2x: 'assets/img/another-objects/1@2x.png',
+                        title: 'Отель RUMA',
+                        date: '24.03.2025'
+                    })
+                    +another-object-card({
+                        src: 'assets/img/another-objects/2.png',
+                        src2x: 'assets/img/another-objects/2@2x.png',
+                        title: 'VLADIVOSTOK Grand Hotel & SPA',
+                        date: '24.03.2025'
+                    })
+                    +another-object-card({
+                        src: 'assets/img/another-objects/3.png',
+                        src2x: 'assets/img/another-objects/3@2x.png',
+                        title: 'Riviera Wellness Resort',
+                        date: '24.03.2025'
+                    })
+                    +another-object-card({
+                        src: 'assets/img/another-objects/4.png',
+                        src2x: 'assets/img/another-objects/4@2x.png',
+                        title: 'MANTERA Supreme Seaside 5*',
+                        date: '24.03.2025'
+                    })
+                    +another-object-card({
+                        src: 'assets/img/another-objects/1.png',
+                        src2x: 'assets/img/another-objects/1@2x.png',
+                        title: 'Отель RUMA',
+                        date: '24.03.2025'
+                    })
+                    +another-object-card({
+                        src: 'assets/img/another-objects/2.png',
+                        src2x: 'assets/img/another-objects/2@2x.png',
+                        title: 'VLADIVOSTOK Grand Hotel & SPA',
+                        date: '24.03.2025'
+                    })
+                    +another-object-card({
+                        src: 'assets/img/another-objects/3.png',
+                        src2x: 'assets/img/another-objects/3@2x.png',
+                        title: 'Riviera Wellness Resort',
+                        date: '24.03.2025'
+                    })
+                    +another-object-card({
+                        src: 'assets/img/another-objects/4.png',
+                        src2x: 'assets/img/another-objects/4@2x.png',
+                        title: 'MANTERA Supreme Seaside 5*',
+                        date: '24.03.2025'
+                    })
+                .navigation 
+                    +button().another-objects__prev
+                        +svg('arrow-swiper-left')
+                    +button().another-objects__next
+                        +svg('arrow-swiper-right')

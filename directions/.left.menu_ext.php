@@ -1,0 +1,46 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Кухня", 
+		"/kuhnya/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Прачечная", 
+		"/prachechnaya/", 
+		Array(), 
+		Array(), 
+		""
+	),
+	Array(
+		"Текстиль", 
+		"/tekstil/", 
+		Array(), 
+		Array(), 
+		""
+	),
+	Array(
+		"Химия", 
+		"/himiya/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Мебель", 
+		"/mebel/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Комплексное оснащение", 
+		"/kompleksnoe-osnashhenie-otelej/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

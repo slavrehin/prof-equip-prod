@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Низко- и среднескоростные стиральные машины" date="2026-03-11 13:07:16" total="11" id="69" code="nizko-i-sredneskorostnye-stiralnye-mashiny"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-85-zagruzka-85-kg/"/>
+    <product id="2" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-70-zagruzka-70-kg/"/>
+    <product id="3" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-55-zagruzka-55-kg/"/>
+    <product id="4" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-40-zagruzka-40-kg/"/>
+    <product id="5" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-30-zagruzka-30-kg/"/>
+    <product id="6" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-23-zagruzka-23-kg/"/>
+    <product id="7" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-18-zagruzka-18-kg/"/>
+    <product id="8" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-14-zagruzka-14-kg/"/>
+    <product id="9" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-11-zagruzka-11-kg/"/>
+    <product id="10" url="https://prof-equip.ru/product/nizkoskorostnaya-professionalnaya-stiralnaya-mashina-imesa-rc-8-zagruzka-8-kg/"/>
+    <product id="11" url="https://prof-equip.ru/product/stiralnaya-mashina-electrolux-w575n-s-zagruzka-8-kg/"/>
+  </products>
+</import>

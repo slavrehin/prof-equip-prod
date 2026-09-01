@@ -1,0 +1,23 @@
+mixin brands-content()
+    section.brands-content
+        .brands-content__inner.container
+            +title-block({
+                title: 'Бренды',
+                breadcrumbs: [
+                    {
+                        href: 'home.html',
+                        title: 'Главная'
+                    },
+                    {
+                        href: 'brands.html',
+                        title: 'Бренды'
+                    }
+                ]
+            })
+            .brands-content__list 
+                +brand-row({title: 'ПРОИЗВОДИТЕЛИ ОБОРУДОВАНИЯ ДЛЯ ПРАЧЕЧНЫХ'})
+                +brand-row({title: 'ПРОИЗВОДИТЕЛИ ПРОФЕССИОНАЛЬНОГО ТЕКСТИЛЯ'})
+                +brand-row({title: 'ПРОИЗВОДИТЕЛИ ПРОФЕССИОНАЛЬНОЙ ХИМИИ'})
+                +brand-row({title: 'АКСЕССУАРЫ'})
+                +brand-row({title: 'ПРОИЗВОДИТЕЛИ ОБОРУДОВАНИЯ ДЛЯ ОБЪЕКТОВ ПИТАНИЯ'})
+                    

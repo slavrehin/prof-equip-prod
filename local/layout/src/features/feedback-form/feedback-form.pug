@@ -1,0 +1,51 @@
+mixin feedback-form()
+    form.feedback-form.form(novalidate="novalidate")
+        .form__title-wrapper 
+            h2.title Обратная связь
+            a(href="tel:+74993023762").phone
+                img(src="assets/img/icons/phone.svg", alt="phone")
+                | +7 (499) 302-37-62 
+            p.alert Или позвоните нам по телефону, мы всегда на связи!
+        .inputs
+            +input({
+                placeholder: 'Имя',
+                required: true,
+                inputAttrs: {
+                    class: 'input__valid-name'
+                },
+                rowAttrs: {
+                    class: 'outline'
+                }
+            })
+            +input({
+                placeholder: 'Телефон',
+                required: true,
+                inputAttrs: {
+                    class: 'input__valid-phone'
+                },
+                rowAttrs: {
+                    class: 'outline'
+                }
+            })
+            +input({
+                placeholder: 'E-mail',
+                rowAttrs: {
+                    class: 'outline'
+                }
+            })
+            +input({
+                placeholder: 'Комментарий',
+                rowAttrs: {
+                    class: 'outline'
+                }
+            })
+        .hint-wrapper
+            p.hint 
+                span * 
+                | - обязательные поля
+            p.alert Нажимая на кнопку, вы соглашаетесь с 
+                a(href="#" target='_blank') политикой обработки персональных данных
+        +button({
+            type: 'submit',
+            text: 'Рассчитать'
+        }).gradient 

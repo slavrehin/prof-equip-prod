@@ -1,0 +1,131 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.hero {
+	min-height: 100vh;
+	min-height: 100svh;
+	position: relative;
+	border-radius: 0 0 rem(40) rem(40);
+	overflow: hidden;
+	margin-bottom: rem(60);
+	@media (max-width: $tab-sm) {
+		margin-bottom: rem(40);
+	}
+	.hero__swiper {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		.swiper-slide {
+			width: 100%;
+			height: 100%;
+			opacity: 0 !important;
+			&.swiper-slide-visible {
+				opacity: 1 !important;
+			}
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+	.hero__inner {
+		position: relative;
+		z-index: 2;
+		padding-top: rem(102);
+		padding-bottom: rem(148);
+		@media (max-width: $laptop) {
+			padding-top: rem(173);
+			padding-bottom: rem(142);
+		}
+		@media (max-width: $tab-sm) {
+			padding-top: rem(133);
+			padding-bottom: rem(286);
+		}
+		.hero__title {
+			color: var(--white-color);
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(96);
+			font-weight: 500;
+			line-height: normal;
+			margin-bottom: rem(40);
+			@media (max-width: $laptop) {
+				font-size: rem(64);
+				margin-bottom: rem(20);
+			}
+			@media (max-width: $tab-sm) {
+				font-size: rem(48);
+				margin-bottom: rem(15);
+			}
+		}
+		.hero__bullets {
+			display: flex;
+			flex-direction: column;
+			gap: rem(30);
+			align-items: flex-start;
+			margin-bottom: rem(75);
+			@media (max-width: $laptop) {
+				margin-bottom: rem(35);
+				gap: rem(15);
+			}
+			.hero__bullet {
+				opacity: 0.4;
+				transition: var(--trs-300);
+
+				svg {
+					display: none;
+					width: rem(60);
+					height: rem(2);
+					@media (max-width: $laptop) {
+						width: rem(30);
+					}
+				}
+				.btn__text {
+					color: var(--white-color);
+					font-family: 'Manrope', sans-serif;
+					font-size: rem(40);
+					font-weight: 500;
+					line-height: normal;
+					transition: var(--trs-300);
+					@media (max-width: $laptop) {
+						font-size: rem(20);
+					}
+				}
+				&.active {
+					opacity: 1;
+					display: flex;
+					align-items: center;
+					gap: rem(30);
+					@media (max-width: $laptop) {
+						gap: rem(20);
+					}
+					svg {
+						display: block;
+					}
+				}
+			}
+		}
+		.hero__features {
+			width: rem(357);
+			display: flex;
+			flex-direction: column;
+			gap: rem(20);
+			@media (max-width: $laptop) {
+				width: rem(306);
+			}
+			.btn {
+				width: 100%;
+			}
+			.projects__btn {
+				.eye__icon {
+					margin-right: rem(17);
+					@media (max-width: $laptop) {
+						margin-right: rem(12);
+					}
+				}
+				.arrow__icon {
+					margin-left: auto;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Стиральные порошки без отбеливателя" date="2026-03-11 13:24:49" total="6" id="102" code="stiralnye-poroshki-bez-otbelivatelya"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/novosti/profekvip-na-hotel-business-days-v-sankt-peterburge-2-3-marta-2026-goda/"/>
+    <product id="2" url="https://prof-equip.ru/novosti/vstrechaemsya-na-vystavke-forume-krym-sezon-2026/"/>
+    <product id="3" url="https://prof-equip.ru/novosti/kak-proshel-ruviera-hotel-business-week-2025/"/>
+    <product id="4" url="https://prof-equip.ru/blog/pochemu-zakryvayutsya-restorany-i-kafe-na-starte/"/>
+    <product id="5" url="https://prof-equip.ru/blog/samye-ozhidaemye-gornolyzhnye-kurorty-rossii/"/>
+    <product id="6" url="https://prof-equip.ru/blog/defrostery-chto-eto-vidy-kak-vybrat/"/>
+  </products>
+</import>

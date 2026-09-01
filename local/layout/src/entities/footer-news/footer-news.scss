@@ -1,0 +1,64 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.footer-news {
+	display: flex;
+	align-items: flex-start;
+	gap: rem(15);
+	@media (max-width: $desktop-lg) {
+		flex-direction: column;
+	}
+	@media (max-width: $desktop) {
+		flex-direction: row;
+	}
+	&:hover {
+		.image-wrapper {
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+	.image-wrapper {
+		min-width: rem(80);
+		min-height: rem(80);
+		max-width: rem(80);
+		max-height: rem(80);
+		border-radius: 999px;
+		overflow: hidden;
+		position: relative;
+		&:before {
+			content: '';
+			background: rgba(0, 122, 61, 0.6);
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			opacity: 0;
+			transition: var(--trs-300);
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.footer-news__content {
+		display: flex;
+		flex-direction: column;
+		gap: rem(5);
+		.title {
+			color: #e2fff7;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(15);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(24);
+		}
+		.date {
+			color: #e2fff7;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(13);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(24);
+		}
+	}
+}

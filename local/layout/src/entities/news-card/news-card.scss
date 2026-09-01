@@ -1,0 +1,60 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.news-card {
+	padding: rem(30);
+	border-radius: rem(4);
+	background: #e2fff7;
+	box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.05);
+	display: flex;
+	flex-direction: column;
+	@media (max-width: $laptop) {
+		padding: rem(10);
+	}
+	.image-wrapper {
+		position: relative;
+		padding-bottom: 64%;
+		margin-bottom: rem(20);
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+		}
+	}
+	.news-card__content {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		.date {
+			margin-bottom: rem(10);
+			color: #000;
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(14);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(14);
+			@media (max-width: $tab-sm) {
+				margin-bottom: rem(30);
+			}
+		}
+		.title {
+			color: #000;
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(32);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(32);
+			margin-bottom: rem(45);
+			@media (max-width: $desktop-lg) {
+				font-size: rem(24);
+				line-height: rem(24);
+			}
+			@media (max-width: $tab-sm) {
+				margin-bottom: rem(20);
+			}
+		}
+		.btn {
+			margin-top: auto;
+		}
+	}
+}

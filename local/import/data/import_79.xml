@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Фартуки, жилеты" date="2026-03-11 13:28:18" total="33" id="79" code="fartuki-zhilety"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/fartuk-ofitsianta-ukorochennyj-90-50-sm-ch-b-poloska-st194-greiff/"/>
+    <product id="2" url="https://prof-equip.ru/product/fartuk-ofitsianta-100-80-sm-ch-b-poloska-st192-greiff/"/>
+    <product id="3" url="https://prof-equip.ru/product/fartuk-ofitsianta-udlinennyj-100-100-sm-ch-b-poloska-st191-greiff/"/>
+    <product id="4" url="https://prof-equip.ru/product/fartuk-ofitsianta-s-nagrudnikom-77-110-sm-ch-b-poloska-st4400-greiff/"/>
+    <product id="5" url="https://prof-equip.ru/product/zhenskij-dzhinsovyj-fartuk-ofitsianta-s-detalyami-iz-kozhzamenitelya-70-65-sm-chernyj-st40425-greiff/"/>
+    <product id="6" url="https://prof-equip.ru/product/zhenskij-dzhinsovyj-fartuk-ofitsianta-s-detalyami-iz-kozhzamenitelya-70-65-sm-sinij-st40424-greiff/"/>
+    <product id="7" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-detalyami-iz-kozhzamenitelya-77-100-sm-chernyj-st40415-greiff/"/>
+    <product id="8" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-detalyami-iz-kozhzamenitelya-77-100-sm-sinij-st40414-greiff/"/>
+    <product id="9" url="https://prof-equip.ru/product/fartuk-ofitsianta-s-nagrudnikom-iz-kozhzamenitelya-77-100-sm-chernyj-gorchichnyj-st44123-greiff/"/>
+    <product id="10" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-detyalyami-iz-kozhzamenitelya-ukorochennyj-77-40-sm-chernyj-st41415-greiff/"/>
+    <product id="11" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-detyalyami-iz-kozhzamenitelya-ukorochennyj-77-40-sm-sinij-st41414-greiff/"/>
+    <product id="12" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-karmanami-ukorochennyj-77-40-sm-chernyj-st41412-greiff/"/>
+    <product id="13" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-karmanami-ukorochennyj-77-40-sm-sinij-st41411-greiff/"/>
+    <product id="14" url="https://prof-equip.ru/product/fartuk-ofitsianta-s-karmanami-ukorochennyj-77-40-sm-chernyj-st4141-greiff/"/>
+    <product id="15" url="https://prof-equip.ru/product/fartuk-ofitsianta-iz-kozhzamenitelya-s-razrezom-100-80-sm-chernyj-gorchichnyj-st41283-greiff/"/>
+    <product id="16" url="https://prof-equip.ru/product/fartuk-ofitsianta-s-karmanom-s-razrezom-100-80-sm-chernyj-st4128-greiff/"/>
+    <product id="17" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-karmanom-100-80-sm-chernyj-st41262-greiff/"/>
+    <product id="18" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-karmanom-100-80-sm-sinij-st41261-greiff/"/>
+    <product id="19" url="https://prof-equip.ru/product/fartuk-ofitsianta-s-karmanom-100-80-sm-chernyj-st4126-greiff/"/>
+    <product id="20" url="https://prof-equip.ru/product/zhenskij-zhilet-ofitsiantki-9-tsvetov-st1712-greiff/"/>
+    <product id="21" url="https://prof-equip.ru/product/muzhskoj-zhilet-ofitsianta-9-tsvetov-st1612-greiff/"/>
+    <product id="22" url="https://prof-equip.ru/product/zhenskij-dzhinsovyj-fartuk-ofitsianta-s-nagrudnikom-i-karmanami-77-65-sm-chernyj-st44112-greiff/"/>
+    <product id="23" url="https://prof-equip.ru/product/zhenskij-dzhinsovyj-fartuk-ofitsianta-s-nagrudnikom-i-karmanami-77-65-sm-sinij-st44111-greiff/"/>
+    <product id="24" url="https://prof-equip.ru/product/zhenskij-fartuk-ofitsiantki-s-nagrudnikom-i-karmanami-70-65-sm-chernyj-st4411-greiff/"/>
+    <product id="25" url="https://prof-equip.ru/product/fartuk-ofitsianta-s-bokovym-razrezom-udlinennyj-100-100-sm-chernyj-st4015-greiff/"/>
+    <product id="26" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-nagrudnikom-i-karmanom-77-100-sm-chernyj-st44122-greiff/"/>
+    <product id="27" url="https://prof-equip.ru/product/dzhinsovyj-fartuk-ofitsianta-s-nagrudnikom-i-karmanom-77-100-sm-sinij-st44121-greiff/"/>
+    <product id="28" url="https://prof-equip.ru/product/fartuk-ofitsianta-s-nagrudnikom-s-karmanom-77-100-sm-chernyj-st4412-greiff/"/>
+    <product id="29" url="https://prof-equip.ru/product/fartuk-somele-s-nagrudnikom-77-100-sm-chernyj-st4409-greiff/"/>
+    <product id="30" url="https://prof-equip.ru/product/fartuk-ofitsianta-ukorochennyj-90-50-sm-14-tsvetov-st4194-greiff/"/>
+    <product id="31" url="https://prof-equip.ru/product/fartuk-ofitsianta-s-nagrudnikom-77-110-sm-14-tsvetov-st4044-greiff/"/>
+    <product id="32" url="https://prof-equip.ru/product/fartuk-ofitsianta-100-80-sm-14-tsvetov-st4192-greiff/"/>
+    <product id="33" url="https://prof-equip.ru/product/fartuk-ofitsianta-udlinennyj-100-100-sm-14-tsvetov-st4191-greiff/"/>
+  </products>
+</import>

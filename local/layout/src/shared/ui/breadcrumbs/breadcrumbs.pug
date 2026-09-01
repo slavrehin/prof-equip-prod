@@ -1,0 +1,5 @@
+mixin breadcrumbs(links)
+    .breadcrumbs 
+        .breadcrumbs__inner.container
+            each link, index in links
+                a(href=link.href).breadcrumb__link  #{index !== 0 ? ' / ' : ''} #{link.title} 

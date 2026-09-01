@@ -1,0 +1,29 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.interesting-products {
+	margin-top: rem(50);
+	margin-bottom: rem(24);
+	.interesting-products__inner {
+		.interesting-products__title {
+			color: #1b2154;
+			font-family: 'Roboto', sans-serif;
+			font-size: rem(30);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(32);
+			margin-bottom: rem(50);
+		}
+		.interesting-products__list {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			column-gap: rem(50);
+			row-gap: rem(25);
+			@media (max-width: $laptop) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+}

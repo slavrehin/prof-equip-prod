@@ -1,0 +1,39 @@
+mixin projects()
+    section.projects
+        .projects__inner.container 
+            .projects__title-wrapper 
+                h2.projects__title Наши проекты
+                +button({isLink: true}).link__btn.fill
+                    span.btn__text Все проекты
+                    span.arrow__icon
+                        +svg('arrow-top')
+            .projects__list 
+                +project-card({
+                    hasPin: true,
+                    src: 'assets/img/projects/1.jpg',
+                    src2x: 'assets/img/projects/1@2x.jpg',
+                    title: 'Гостиница “marriott imperial plaza”',
+                    text: 'Группа компаний ПРОФЭКВИП полностью осуществила поставку текстиля согласно требованиям стандартов, для пятизвездочный отель Moscow Marriott Imperial Plaza. В рамках этого проекта был поставлен текстиль для номерного фонда: постельное белье, махровые полотенца и халаты, пуховые подушки и одеяла, а также наперники и наматрасники. На проекте представлены два аккредитованных производителя: De Witte Lietaer, Standard Textile'
+                })
+                +project-card({
+                    src: 'assets/img/projects/2.jpg',
+                    src2x: 'assets/img/projects/2@2x.jpg',
+                    title: 'ООО “РТК” Москва',
+                    text: 'ООР “РТК” – ведущая сервисная компания, специализирующаяся на комплексном обслуживании пассажирского комплекса ОАО “РЖД”. Компания предоставляет широкий спектр услуг: от клининга и стирки белья до технического обслуживания зданий и сооружений.'
+                })
+                +project-card({
+                    src: 'assets/img/projects/3.jpg',
+                    src2x: 'assets/img/projects/3@2x.jpg',
+                    title: 'Ресторан “Кофемания”',
+                    text: 'Летом 2020 года команда ПРОФЭКВИП выполнила проект “Кофемания” на территории ТРК “Павлово Подворье” в д. Новинки Истринского района Московской области. Каждый ресторан сети “Кофемания” уникален. К разработке проекта нового заведения привлекают прогрессивных зарубежных и…'
+                })
+                +project-card({
+                    src: 'assets/img/projects/4.jpg',
+                    src2x: 'assets/img/projects/4@2x.jpg',
+                    title: 'Гостиница MANTERA Supreme 5*',
+                    text: 'ПРОФЭКВИП обеспечил полную комплектацию номерного фонда MANTERA Supreme Seaside 5* эксклюзивным постельным бельем премиального бренда Frette. MANTERA Supreme Seaside 5* — отель класса люкс, расположенный в Сочи на первой береговой линии Чёрного моря.'
+                })
+            +button({isLink: true}).link__btn.fill.black.btn_mob
+                span.btn__text Смотреть все проекты
+                span.arrow__icon
+                    +svg('arrow-top')

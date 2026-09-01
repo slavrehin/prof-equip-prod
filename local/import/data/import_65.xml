@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Центрифуги" date="2026-03-11 13:08:33" total="10" id="65" code="tsentrifugi"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/tsentrifuga-jensen-senking-universal/"/>
+    <product id="2" url="https://prof-equip.ru/product/promyshlennye-tsentrifugi-jensen-centrifuge-z1200plus-z1300plus-z1400/"/>
+    <product id="3" url="https://prof-equip.ru/product/jensen-cakebreaker-dlya-otdeleniya-belya/"/>
+    <product id="4" url="https://prof-equip.ru/product/press-dlya-izvlecheniya-vlagi-jensen-sepplus/"/>
+    <product id="5" url="https://prof-equip.ru/product/vysokoproizvoditelnye-tsentrifugi-z1200plus-z1300plus-z1400/"/>
+    <product id="6" url="https://prof-equip.ru/product/professionalnaya-tsentrifuga-dlya-prachechnoj-imesa-zp-900-zagruzka-60-kg/"/>
+    <product id="7" url="https://prof-equip.ru/product/professionalnaya-tsentrifuga-dlya-prachechnoj-imesa-zp-730-zagruzka-30-kg/"/>
+    <product id="8" url="https://prof-equip.ru/product/professionalnaya-tsentrifuga-dlya-prachechnoj-imesa-zp-635-zagruzka-20-kg/"/>
+    <product id="9" url="https://prof-equip.ru/product/professionalnaya-tsentrifuga-dlya-prachechnoj-imesa-zp-450-zagruzka-12-kg/"/>
+    <product id="10" url="https://prof-equip.ru/product/professionalnaya-tsentrifuga-dlya-prachechnoj-imesa-zp-400-zagruzka-8-kg/"/>
+  </products>
+</import>

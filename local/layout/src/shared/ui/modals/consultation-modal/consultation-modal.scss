@@ -1,0 +1,93 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.modal--consultation-modal {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.modal-content {
+		width: rem(600);
+		padding: rem(18);
+		border-radius: rem(3);
+		background: #fff;
+		box-shadow: 0px 0px 30px 0px rgba(2, 2, 2, 1);
+		position: relative;
+		@media (max-width: $tab-sm) {
+			width: rem(300);
+		}
+		.close-modal {
+			position: absolute;
+			top: rem(4);
+			right: rem(4);
+			width: rem(30);
+			height: rem(30);
+			font-size: rem(26);
+			line-height: rem(20);
+		}
+		.modal__title {
+			font-size: rem(32);
+			line-height: rem(36);
+			margin-bottom: rem(10);
+		}
+		.consultation__form {
+			display: flex;
+			flex-direction: column;
+			gap: rem(20);
+			.inputs {
+				display: flex;
+				flex-direction: column;
+				gap: rem(15);
+				textarea {
+					height: rem(120);
+					border: 1px solid rgba(0, 0, 0, 0.25);
+					border-radius: rem(3);
+					padding: rem(14);
+					font-size: rem(16);
+					width: 100%;
+					resize: none;
+					&::placeholder,
+					&:placeholder-shown {
+						color: rgba(0, 0, 0, 0.7);
+						font-family: 'Manrope', sans-serif;
+						font-size: rem(16);
+						font-style: normal;
+						font-weight: 500;
+						line-height: normal;
+					}
+				}
+				.input__row {
+					border-bottom: none;
+					padding-bottom: 0;
+					input {
+						height: rem(43);
+						border: 1px solid rgba(0, 0, 0, 0.25);
+						border-radius: rem(3);
+						padding: 0 rem(14);
+						font-size: rem(16);
+						width: 100%;
+					}
+
+					.input__error {
+						margin-top: rem(10);
+					}
+					.req-star {
+						display: none;
+					}
+				}
+			}
+			.submit__btn {
+				background: #006aab;
+				width: 100%;
+				height: rem(41);
+				font-size: rem(17);
+				line-height: 100%;
+				color: #fff;
+				border-radius: rem(3);
+				transition: var(--trs-300);
+				&:hover {
+					background: #035589;
+				}
+			}
+		}
+	}
+}

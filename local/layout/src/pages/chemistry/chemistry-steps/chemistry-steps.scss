@@ -1,0 +1,101 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.chemistry-steps {
+	margin-bottom: rem(58);
+	.chemistry-steps__inner {
+		.chemistry-steps__title {
+			margin-bottom: rem(32);
+			color: #1b2154;
+			text-align: center;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(25);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+		}
+		.chemistry-steps__list {
+			display: flex;
+			flex-direction: column;
+			gap: rem(58);
+			@media (max-width: $laptop) {
+				gap: rem(47);
+			}
+			.row {
+				display: flex;
+				justify-content: center;
+				flex-wrap: nowrap;
+				@media (max-width: $laptop) {
+					flex-direction: column;
+					gap: rem(47);
+				}
+				.chemistry-step__item {
+					position: relative;
+					width: auto;
+					&:last-child {
+						&:before {
+							display: none;
+						}
+					}
+					&:before {
+						content: '';
+						width: rem(320);
+						right: rem(-160);
+						height: 1px;
+						border-top: 1px dashed #0087fc;
+						top: rem(96);
+						position: absolute;
+						z-index: -1;
+						@media (max-width: $laptop) {
+							display: none;
+						}
+					}
+					.image-wrapper {
+						border-radius: 999px;
+						border: rem(2) solid #0087fc;
+						background: #fff;
+						overflow: hidden;
+						margin: 0 auto rem(17);
+						width: rem(190);
+						height: rem(190);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						picture {
+							width: 100%;
+							height: 100%;
+						}
+						img {
+							width: 100%;
+							height: 100%;
+							object-fit: contain;
+						}
+					}
+					.chemistry-step__content {
+						max-width: rem(240);
+						@media (max-width: $laptop) {
+							margin: auto;
+						}
+						.title {
+							color: #1b2154;
+							text-align: center;
+							font-family: 'Montserrat', sans-serif;
+							font-size: rem(20);
+							font-style: normal;
+							font-weight: 500;
+							line-height: rem(34);
+						}
+						.descr {
+							color: #000;
+							text-align: center;
+							font-family: 'Montserrat', sans-serif;
+							font-size: rem(14);
+							font-style: normal;
+							font-weight: 500;
+							line-height: rem(23);
+						}
+					}
+				}
+			}
+		}
+	}
+}

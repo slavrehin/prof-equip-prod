@@ -1,0 +1,78 @@
+mixin calculate-project-form({hasBg = false} = {})
+    if hasBg
+        form.calculate-project-form.form.filled(novalidate="novalidate")
+            +input({
+                placeholder: 'Имя',
+                required: true,
+                inputAttrs: {
+                    class: 'input__valid-name'
+                },
+                rowAttrs: {
+                    class: 'outline'
+                }
+            })
+            +input({
+                placeholder: 'Телефон',
+                required: true,
+                inputAttrs: {
+                    class: 'input__valid-phone'
+                },
+                rowAttrs: {
+                    class: 'outline'
+                }
+            })
+            +input({
+                placeholder: 'E-mail',
+                rowAttrs: {
+                    class: 'outline'
+                }
+            })
+            +input({
+                placeholder: 'Комментарий',
+                rowAttrs: {
+                    class: 'outline'
+                }
+            })
+            .hint-wrapper
+                p.hint 
+                    span * 
+                    | - обязательные поля
+                p.alert Нажимая на кнопку, вы соглашаетесь с 
+                    a(href="policy.html" target='_blank') политикой обработки персональных данных
+            +button({
+                type: 'submit',
+                text: 'Рассчитать'
+            }).gradient 
+    else
+        form.calculate-project-form.form(novalidate="novalidate")
+            .inputs 
+                +input({
+                    placeholder: 'Имя',
+                    required: true,
+                    inputAttrs: {
+                        class: 'input__valid-name'
+                    }
+                })
+                +input({
+                    placeholder: 'Телефон',
+                    required: true,
+                    inputAttrs: {
+                        class: 'input__valid-phone',
+                        id: 'phone'
+                    }
+                })
+                +input({
+                    placeholder: 'Компания'
+                })
+                +input({
+                    placeholder: 'E-mail'
+                })
+            p.hint 
+                span * 
+                | - обязательные поля
+            +button({
+                type: 'submit',
+                text: 'Рассчитать'
+            }).gradient 
+            p.alert Нажимая на кнопку, вы соглашаетесь с 
+                a(href="policy.html" target='_blank') политикой обработки персональных данных

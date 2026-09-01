@@ -1,0 +1,29 @@
+:root {
+	--white-color: #fff;
+	--black-color: #151515;
+	--gray-color: #ccc;
+	--accent-color: rgba(17, 134, 163, 1);
+	--lines-color: rgba(255, 255, 255, 0.2);
+
+	--trs-300: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+	--screensize: 1920;
+	@media (max-width: 1660px) {
+		--screensize: 1660;
+	}
+	@media (max-width: 1400px) {
+		--screensize: 1275;
+	}
+	@media (max-width: 1279px) {
+		--screensize: 1045;
+	}
+	@media (max-width: 1023px) {
+		--screensize: 1024;
+	}
+	@media (max-width: 992px) {
+		--screensize: 992;
+	}
+	@media (max-width: 767px) {
+		--screensize: 360;
+	}
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Салфетки (осибори)" date="2026-03-11 13:14:56" total="6" id="90" code="salfetki-osibori"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/salfetka-mahrovaya-550-g-m-kv-100-hb-glad-standard-textile/"/>
+    <product id="2" url="https://prof-equip.ru/product/salfetka-mahrovaya-400-g-m-kv-100-hb-glad-standard-textile/"/>
+    <product id="3" url="https://prof-equip.ru/product/salfetka-mahrovaya-450-g-m-kv-100-hb-glad-standard-textile/"/>
+    <product id="4" url="https://prof-equip.ru/product/salfetka-mahrovaya-marriott-430-g-m-kv-100-hb-standard-textile/"/>
+    <product id="5" url="https://prof-equip.ru/product/salfetka-mahrovaya-accor-570-g-m-kv-100-hb-glad-standard-textile/"/>
+    <product id="6" url="https://prof-equip.ru/product/salfetka-mahrovaya-accor-450-g-m-kv-100-hb-glad-standard-textile/"/>
+  </products>
+</import>

@@ -1,0 +1,121 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.calculate-project-form {
+	border-radius: rem(4);
+	background: var(--white-color);
+	box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.05);
+	padding: rem(40);
+	@media (max-width: $tab-sm) {
+		padding: 0;
+		box-shadow: none;
+	}
+	.inputs {
+		display: flex;
+		flex-direction: column;
+		gap: rem(36);
+		margin-bottom: rem(26);
+		@media (max-width: $tab-sm) {
+			gap: rem(26);
+		}
+	}
+	.hint {
+		color: #ababab;
+
+		font-family: 'Manrope', sans-serif;
+		font-size: rem(20);
+		font-style: normal;
+		font-weight: 500;
+		line-height: rem(30);
+		margin-bottom: rem(22);
+		@media (max-width: $laptop) {
+			font-size: rem(16);
+			line-height: rem(24);
+		}
+		span {
+			color: #ff0026;
+		}
+	}
+	.btn {
+		width: 100%;
+		border-radius: rem(29) 0 rem(29) 0;
+		height: rem(48);
+		margin-bottom: rem(22);
+	}
+	.alert {
+		max-width: rem(590);
+		text-align: center;
+		text-align: center;
+		color: #ababab;
+
+		font-family: 'Manrope', sans-serif;
+		font-size: rem(20);
+		font-style: normal;
+		font-weight: 500;
+		line-height: rem(30);
+		@media (max-width: $laptop) {
+			font-size: rem(16);
+			line-height: reM924;
+		}
+		a {
+			text-decoration: underline;
+			color: #ababab;
+		}
+	}
+	&.filled {
+		background: none;
+		box-shadow: none;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(30);
+		max-width: rem(871);
+		margin-bottom: rem(35);
+		@media (max-width: $desktop-lg) {
+			grid-template-columns: 1fr;
+			max-width: rem(420);
+		}
+		@media (max-width: $tab-sm) {
+			margin-bottom: 0;
+		}
+		.hint-wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: rem(17);
+			.hint {
+				color: #ababab;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(16);
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				margin-bottom: 0;
+				span {
+					color: #ff0026;
+				}
+			}
+			.alert {
+				color: #ababab;
+				font-family: 'Montserrat', sans-serif;
+				font-size: rem(16);
+				font-style: normal;
+				font-weight: 500;
+				line-height: normal;
+				text-align: left;
+				a {
+					text-decoration: underline;
+					color: #ababab;
+				}
+			}
+		}
+		.btn {
+			height: rem(60);
+			@media (max-width: $tab-sm) {
+				margin-bottom: 0;
+			}
+			.btn__text {
+				font-size: rem(16);
+				line-height: rem(16);
+			}
+		}
+	}
+}

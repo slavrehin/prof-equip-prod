@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Prof Equip</title>
+    <meta name="description" content="template">
+    <meta name="keywords" content="template">
+    <meta name="robots" content="index, follow">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="./assets/static/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/static/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="./assets/static/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/static/apple-touch-icon.png">
+    <link rel="manifest" href="./assets/static/site.webmanifest.json">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/css/intlTelInput.css">
+    <link href="./assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header black">
+        <div class="header__inner container"><a class="logo" href="home.html">
+                <div class="white-logo">
+                    <picture>
+                        <source srcset="assets/img/icons/logo.webp, assets/img/icons/logo@2x.webp 2x" type="image/webp"><img src="assets/img/icons/logo.png" srcset="assets/img/icons/logo.png, assets/img/icons/logo@2x.png 2x" alt="logo">
+                    </picture>
+                </div>
+                <div class="color-logo">
+                    <picture>
+                        <source srcset="assets/img/icons/logo-filled.webp" type="image/webp"><img src="assets/img/icons/logo-filled.png" srcset="assets/img/icons/logo-filled.png" alt="logo">
+                    </picture>
+                </div>
+            </a><button class="btn primary s burger__btn" type="button"><span class="burger__icon"><span></span><span></span><span></span></span><span class="btn__text">Каталог</span></button>
+            <nav class="header__navigation"><button class="btn nav__link direction__btn" type="button">Направления</button><a class="nav__link" href="#">Проекты</a><a class="nav__link" href="#">Бренды</a><button class="btn nav__link services__btn" type="button">Услуги</button><a class="nav__link" href="about.html">О компании</a></nav>
+            <div class="header__features">
+                <div class="header__contacts"><a href="tel:+74993023762"><svg>
+                            <use xlink:href="assets/img/sprite.svg#phone"></use>
+                        </svg>+7 (499) 302-37-62 </a><a href="mailto:INFO@PROF-EQUIP.RU"><svg>
+                            <use xlink:href="assets/img/sprite.svg#mail"></use>
+                        </svg>INFO@PROF-EQUIP.RU</a></div><button class="btn phone__btn" type="button" aria-label="Телефон"><svg>
+                        <use xlink:href="assets/img/sprite.svg#phone-fill"></use>
+                    </svg></button>
+                <div class="search-btns"><button class="btn search__btn" type="button" aria-label="Поиск"><svg>
+                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                        </svg></button><button class="btn close-search__btn hidden" type="button" aria-label="закрыть поиск"><svg>
+                            <use xlink:href="assets/img/sprite.svg#close"></use>
+                        </svg></button></div><button class="btn burger__btn" type="button" aria-label="Меню" data-modal-load="./modals/mobile-menu-modal.html"><svg>
+                        <use xlink:href="assets/img/sprite.svg#burger"></use>
+                    </svg></button>
+            </div>
+        </div>
+        <div class="direction-catalog">
+            <div class="direction-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">кухня</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Прачечная</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Текстиль</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Химия</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Мебель</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="services-catalog">
+            <div class="services-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Консалтинг</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Монтажные и пусконаладочные работы</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Комплексное оснащение отелей и гостиниц</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Поставка аксессуаров и запасных частей</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Продажа оборудования</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Сервисное обслуживание</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Технологическое проектирование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="header-catalog">
+            <div class="header-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Прачечное оборудование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Текстиль</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Запасные части</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Химия</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Кухонное оборудование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="search-block">
+            <form class="search-block__inner container">
+                <div class="input-wrapper">
+                    <div class="input__row">
+                        <div class="input-wrapper"><input class="input input__valid-name" placeholder="Поиск" value="" name=""></div>
+                    </div><button class="btn submit-search__btn"><svg>
+                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                        </svg></button>
+                </div>
+            </form>
+        </div>
+    </header>
+    <main>
+        <section class="blog-inner-content">
+            <div class="blog-inner-content__inner container">
+                <div class="title-block">
+                    <h1 class="title-block__title">Терминология технических характеристик ткани</h1>
+                    <div class="breadcrumbs">
+                        <div class="breadcrumbs__inner container"><a class="breadcrumb__link" href="home.html">Главная </a><a class="breadcrumb__link" href="articles.html">/ Блог </a><a class="breadcrumb__link" href="blog-inner.html">/ Терминология технических характеристик ткани</a></div>
+                    </div>
+                </div>
+                <div class="blog-inner-content__text">
+                    <h2>Технические характеристики тканей. Терминология</h2>
+                    <p>В данной статье мы рассмотрим основные термины и понятия, которые могу пригодятся при выборе качественной ткани для Вашего объекта гостеприимства.</p>
+                    <ol>
+                        <li><a href="#">Конструкция ткани</a></li>
+                        <li><a href="">Типы плетения</a></li>
+                        <li><a href="">Виды тканей</a></li>
+                        <li><a href="">Плотность тканей</a></li>
+                        <li><a href="">Крашение ткани и виды красителей</a></li>
+                        <li><a href="">Дополнительная обработка тканей</a></li>
+                    </ol>
+                    <h2>1. Конструкция ткани</h2>
+                    <p>Ткань представляет собой текстильное полотно, изготовленное путём переплетения взаимно перпендикулярных систем нитей. Две переплетающихся системы нитей расположены взаимно перпендикулярно. Систему нитей, идущих вдоль ткани, называют основой, а систему нитей, расположенных поперек ткани, — утком.</p>
+                    <p>Число нитей основы, после которого начинают повторяться в прежнем порядке все предыдущие переплетения основных нитей, называется основным раппортом. Аналогично определённый раппорт для уточных нитей называется уточным раппортом. Законченная часть рисунка переплетения ткани, при повторении которой получается непрерывный рисунок называется раппортом переплетения. Раппорт, при всех равных ТХ ткани, влияет на внешний вид ткани. Поэтому очень важно обращать внимание на данную характеристику при выборе тканей.</p>
+                    <h2>2. Типы плетения</h2>
+                    <p>Ткань представляет собой пространственную сетку из прямоугольных или квадратных ячеек, образуемых двумя взаимно перпендикулярными системами нитей – основными, расположенными вдоль ткани, и уточными, лежащими поперек.</p>
+                    <p>В зависимости от способа взаимных переплетений нитей основы и утка, выделяют четыре основных класса главных переплетений: полотняное, саржевое, атласное и сатиновое.</p>
+                    <div class="info">
+                        <div class="info__item">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/blog-inner/1.webp, assets/img/blog-inner/1@2x.webp 2x" type="image/webp"><img src="assets/img/blog-inner/1.png" srcset="assets/img/blog-inner/1.png, assets/img/blog-inner/1@2x.png 2x" alt="info img">
+                                </picture>
+                            </div>
+                            <div class="info__text">
+                                <p><u>Полотняное переплетение. </u>Самый простой вид. Нити основы и утка перекрывают друг друга в каждых двух последовательных перекрытиях (с наименьшим возможным раппортом). Таким образом, раппорт основы равен раппорту утка.  Лицевая сторона и изнанка ткани получаются одинаковыми. Полотняным переплетением вырабатывают ткани: бязь, тиси, перкаль, поплин.</p>
+                            </div>
+                        </div>
+                        <div class="info__item">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/blog-inner/2.webp, assets/img/blog-inner/2@2x.webp 2x" type="image/webp"><img src="assets/img/blog-inner/2.png" srcset="assets/img/blog-inner/2.png, assets/img/blog-inner/2@2x.png 2x" alt="info img">
+                                </picture>
+                            </div>
+                            <div class="info__text">
+                                <p><u>Сатиновое переплетение </u>получают путем перекрытия одной нитью утка четырех нитей основы. Может быть вариант 2/5.</p>
+                            </div>
+                        </div>
+                        <div class="info__item">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/blog-inner/3.webp, assets/img/blog-inner/3@2x.webp 2x" type="image/webp"><img src="assets/img/blog-inner/3.png" srcset="assets/img/blog-inner/3.png, assets/img/blog-inner/3@2x.png 2x" alt="info img">
+                                </picture>
+                            </div>
+                            <div class="info__text">
+                                <p><u>Саржевое переплетение. </u>Образует на поверхности ткани видимый диагональный рубчик. Основные и уточные переплетения располагаются со сдвигом в одну сторону на одну нить. Характеризуется наличием на ткани диагоналевых полос, идущих снизу-вверх направо. Ткань саржевого переплетения более плотная и растяжимая. Ткани саржевого переплетения по прочности уступают тканям полотняного переплетения, но превосходят их по мягкости.</p>
+                            </div>
+                        </div>
+                        <div class="info__item">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/blog-inner/4.webp, assets/img/blog-inner/4@2x.webp 2x" type="image/webp"><img src="assets/img/blog-inner/4.png" srcset="assets/img/blog-inner/4.png, assets/img/blog-inner/4@2x.png 2x" alt="info img">
+                                </picture>
+                            </div>
+                            <div class="info__text">
+                                <p><u>Атласное переплетение.</u>Переплетения получают путем перекрытия одной нитью основы четырех нитей утка. Лицевой застил образован нитями основы. Отличительная особенность – лицевая сторона ткани приобретает гладкость и повышенный блеск.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Все остальные типы переплетений — это разновидности и компиляции главных видов.</p>
+                    <h2>3. Виды тканей</h2>
+                    <p><a href="#">Сатин.</a> Плотная хлопчатобумажная ткань. Изготавливается путем двойного переплетения хлопковых натуральных нитей. Полотно довольно плотное, имеет шелковистую структуру и глянцевый блеск. Сатиновая ткань гигроскопична, прочная, обладает хорошей износостойкостью, не вызывает аллергии. Ткань устойчива к стирке: не теряет форму и не линяет. Сатин в основном применяют для изготовления постельного белья. Из сатина также шьют мужские рубашки, платья, применяют как ткань для подкладки. Сатин выдерживает стирку до 95°C. Если на изделии из сатина есть окрашенные элементы, рекомендуется стирать при температуре не выше 60°C, а сатин экстра-класса при температуре до 40°C. Средства, используемые при стирке, не должны содержать отбеливатели.</p>
+                    <p>Помимо сатина из 100% хлопка, существует и активно используется в сфере гостеприимства смесовый сатин. Наиболее популярные соотношения хлопок/пэ: 80/20, 70/30, 60/40, 50/50. Благодаря инновационным технологиям, смесовый сатин сохраняет свойства хлопковой ткани, имея при этом более высокие показатели износостойкости. Такие ткани активно используют мировые сетевые отели. Например, Marriott используют смесовый сатин 50/50, а отели сети Hilton в зависимости от бренда: 100% х/б, 80/20, 60/40 (хб/пэ соответственно).</p>
+                    <p><a href="#">Перкаль. </a> Хлопчатобумажная ткань. Изготавливается из тонких и средних, предварительно обработанных шлихтой, некрученых нитей хлопка. Обработка делает ткани более износостойкими, повышаются антистатические свойства, устраняются шероховатости – ткань приобретает дополнительную мягкость и эластичность. При производстве могут добавляться волокна льна и полиэстера. Ткань гигроскопична, гипоаллергенна, обладает хорошей износостойкостью и не утрачивает первоначальной привлекательности после множества стирок, не линяет, не деформируется. Перкаль чаще всего используется для изготовления простыней, пододеяльников, наволочек, легких одеял и покрывал. Стирка рекомендуется при температуре не выше 60°C. Помимо перкали из 100% хлопока, существует и активно используется в сфере гостеприимства смесовая перкаль, сеть отелей Azimut закупают для постельного белья в номерной форд смесовую перкаль – 50/50. Премиальный сетевой отель Sofitel, сети Accor, использует пекраль 100% хб.</p>
+                    <p><a href="#">Тиси.</a> Смесовая ткань. Обычно содержит 65 % полиэстера и 35 % хлопка. Иногда добавляется вискоза. Состав (пропорции) варьируются. Содержание синтетической составляющей может достигать 80%. Благодаря натуральной составляющей у ткани есть все те гигиенические качества, которые необходимы для комфорта. Синтетические волокна придают ей прочность, лишают способности мяться, обеспечивают долговечность. Обычно используется для пошива корпоративной и рабочей одежды. Изделия рекомендуется стирать при температуре до 40 °C, если использована цветная отделка – без отбеливателя. Возможна стирка при 60 °C. Ткань Тиси, как правило, используется в медицине для пошива одежды сотрудников сферы здравоохранения.</p>
+                    <p><a href="#">Бязь. </a>Хлопчатобумажная ткань.  Допускается добавление полиэфирной нити – не более 50%. Характеризуется перекрестным переплетением нитей. Особый способ переплетения обеспечивает хорошую плотность ткани и делает ее устойчивой к износу. Сохраняет прекрасный внешний вид на протяжении долгого времени. Материал характеризуется однородной матовой поверхностью. Изнанка и лицевая сторона бязи имеют одинаковую структуру. Ткань используется для пошива постельного белья: она гипоаллергенна, гигроскопична, воздухопроницаема, не электризуется, выдерживает большое количество стирок без утраты цвета, имеет предсказуемые показатели по усадке. Стирать рекомендуется без отбеливателей при температуре до 40 °C. Возможна стирка при 60 °C и даже выше. Ткань бязь, как правило, используется в медицине для пошива постельного белья, халатов, костюмов и прочего.</p>
+                    <p>Бязь российского производства как правило по составу 100% хлопок, а вот бязь производства Китай и Пакистан встречается в различных смесовых вариантах до 50/50.</p>
+                    <p><a href="#">Euroval. </a>Смесовая ткань. Запатентованная конструкция плетения. Состоит из хлопчатобумажной нити в основе и полиамидной по утку. Полиамидное волокно – микрофиламент отличается высокой прочностью при растяжении, а также стойкостью к истиранию и многократному использованию. Плетение осуществляется таким образом, что после первых нескольких циклов стирки волокна хлопка полностью покрывают нити полиамида. На ощупь такая ткань ничем не будет отличаться от 100% хлопчатобумажной. Не боится стирки при высоких температурах. Стирать рекомендуется при температуре до 70 °C. Рекомендуем для использования в отелях 3*. Отели сети Accor – Ibis, Mercure, Novotel работают на ткани Euroval.</p>
+                    <p><a href="#">Поплин.</a> Хлопчатобумажная ткань. Характеризуется перекрестным переплетением. Особенность – разная толщина нитей. Ткань изготавливают путём попеременного пересечения толстых продольных нитей основы и тонких вертикальных нитей уток. Ткань используется для пошива постельного белья. Она гипоаллергенна, гигроскопична, воздухопроницаема, не электризуется, выдерживает большое количество стирок без утраты цвета и заметной усадки. Допускается добавление полиэфирной нити – не более 15%. Поплин, состоящий из хлопка на 100%, не боится стирки при высоких температурах, отжима на больших скоростях. Стирать рекомендуется при температуре до 60°C.</p>
+                    <p><a href="#">Фланель.</a>  Хлопчатобумажная ткань.  Производят по технологии саржевого плетения. Чтобы повысить теплозащитные свойства фланели, на её поверхности формируют начес. Отличается минимальной сминаемостью, что достигается обработкой ткани специальными составами. Ткань используется для пошива мужской и женской одежды, в том числе для детей, спецодежды. Фланель хорошо сохраняет тепло, воздухопроницаемая, прочная, сохраняет стойкость цвета. Стирать рекомендуется при температуре до 60°C.</p>
+                    <p><a href="#">Тенсел. </a>Искусственная ткань натурального происхождения. Изготавливается из древесной целлюлозы эвкалипта. Из этой массы путем продавливания через фильеры в кислотный состав, формируются нити. Волокно хорошо поддаётся окрашиванию, ткань не линяет при стирке и не выцветает при воздействии солнечных лучей. Чистое волокно Тенсел дорогое, поэтому его часто смешивают с хлопковым, бамбуковым волокном, шерстью или вискозой. Ткань используется в бытовых, медицинских и технических целях. Плюсы материала: экологичность, высокая прочность, эластичность, антистатичность, воздухопроницаемость, хорошая терморегуляция и гигроскопичность. Стирать ткань рекомендуется при щадящем температурном режиме до 30°C.</p>
+                    <p><a href="#">Модал. </a>Полусинтетическое вискозное волокно. Модал можно назвать модернизированной вискозой. Волокно получают путем специального процесса, который называют «вискозным». Из древесной стружки происходит извлечение целлюлозы, затем осуществляется особая химическая обработка. Материал обладает всеми характеристиками натурального хлопка, при этом имеет более высокую плотность, хорошую воздухопроницаемость, вещи из модала необычайно мягкие и легкие. Ткань после стирки не теряет свои качества: не садится, сохраняет форму, не теряет цвет и не линяет, остается мягкой, бархатистой и нежной. Полотно необычайно прочное на износ и разрыв, практически не мнется и не электризуется.</p>
+                    <h2>4. Плотность тканей</h2>
+                    <p><u>Плотность ткани </u>— это число нитей основы и нитей утка, приходящихся на 10 квадратных сантиметров ткани.</p>
+                    <p><u>Линейная плотность – </u>это фактическое число нитей в одном квадратном дециметре ткани. В зависимости от типа сырья, фактическая плотность отрезка ткани одного размера и веса различна. Например, у грубых льняных тканей она в пределах пятидесяти нитей, у шелковых может доходить до тысячи.</p>
+                    <p><u>Поверхностная плотность ткани — </u>это показатель, характеризующий массу одного квадратного метра ткани в граммах, г/м2 (в граммах на один квадратный метр). Важный показатель прочности ткани и зависит от линейной плотности, вида, структуры и способа крутки нитей в полотне. Регламентируется ГОСТом.</p>
+                    <p>Чаше всего на бирках текстильных изделий указывается именно тип ткани и поверхностная плотность, либо тип ткани и линейная плотность, например, сатин, ТС250 (сумма нитей основы и утка на 10 см.кв.). Например – сатин, 130 г/м2. Это означает, что один квадратный метр такой ткани будет весить 130 грамм. Зная значение поверхностной плотности можно оценить вес будущего изделия ещё на стадии покупки ткани.</p>
+                    <p>Линейная и поверхностная плотность – самые важные показатели качества ткани. Чем выше эти показатели, тем выше качество полотна, его износостойкость и прочность.</p>
+                    <p>Однако премиальные ткани могут иметь линейную плотность – 300, а поверхностную 115 г/м.кв. Это говорит о том, что ткань будет прочная и тонкая, что позволяет получить износостойкую ткань и сократить операционные расходы на стирку.</p>
+                    <h2>5. Крашение ткани и виды красителей</h2>
+                    <p><u>Крашение ткани – </u>это химическое соединение красителя с тканью или прочное физическое соединение красителя с волокнами тканей. Процесс покраски тканей состоит из нескольких фаз: адсорбции, диффузии, фиксации красителя на волокне.</p><strong>Группы красителей</strong>
+                    <ul>
+                        <li><u>Прямые (субстантивные). </u>Растворимы в воде. Окрашивают целлюлозные, белковые и полиамидные волокна.</li>
+                        <li><u>Кубовые. </u>Нерастворимы в воде.  Их переводят в лейкосоединение, хорошо растворяющееся в щелочах. После этого они легко усваиваются волокнистыми материалами. Окрашивают главным образом целлюлозные волокна. Рекомендуемая температура стирки окрашенных тканей до 90 °C.</li>
+                        <li><u>Сернистые. </u>Нерастворимы в воде. При восстановлении легко растворяются в щелочах. Окрашивают целлюлозные волокна. Рекомендуемая температура стирки окрашенных тканей до 40 °C.</li>
+                    </ul>
+                    <h2>6. Дополнительная обработка тканей</h2>
+                    <p><u>Санфоризация. </u>Технология противоусадочной отделки хлопковой или другой ткани, которая, по сути, является процессом предварительной усадки ткани.</p>
+                    <p><u>Аппретирование. </u>Пропитка ткани специальным составом, в основе которого содержится крахмал, синтетическая смола, декстрина. Ткани после такой обработки становятся более жесткими, плотными, тяжело сминаются.</p>
+                    <p><u>Декатировка. </u>Обработка шерстяных тканей горячей водой или паром. Позволяет избежать усадки тканей при дальнейшем использовании.</p>
+                    <p><u>Карбонизация.</u> Обработка шерстяных тканей слабым раствором серной кислоты для удаления растительных примесей.</p>
+                    <p><u>Мерсеризация.  </u>Обработка хлопковых тканей концентрированными щелочами в натянутом состоянии. Процесс отделки придает большую прочность, блеск и шелковистость.</p>
+                    <p><u>Оживка.  </u>Пропуск через кислотную ванну шёлковых тканей для придания полотну более благородного вида и улучшения интенсивности цвета и его оттенка.</p>
+                    <p><u>Отбеливание. </u>Обработка при помощи отбеливающих растворов для удаления природной окраски волокон ткани, предания белого цвета, подготовки к последующему окрашиванию.</p>
+                    <p><u>Печатание. </u>Нанесения красочного рисунка, который может состоять из одного или нескольких различных цветов. Получение различных узоров на ткани. Процесс печатания иногда называют набивкой, а обработанные таким методом ткани именуются печатными или набивными.</p>
+                    <p><u>Огнеупорная пропитка ткани. </u>Поверхностная огнезащита тканей, основанная на образовании на изделии труднорастворимых соединений. Уменьшение пожарной опасности тканей производится с помощью поверхностной или объемной обработки ткани антипиренами — огнезащитными средствами на основе ингибиторов.</p>
+                    <p><u>Масло-водоотталкивающая отделка. </u>Снижает способность волокнистых материалов поглощать грязь в виде жидких масел, а также в виде водных растворов суспензий и эмульсий различных веществ.</p>
+                    <p><u>Водо- и грязеотталкивающая пропитка.</u> Обеспечивает повышенную защиту ткани от воды и грязи, при этом, как правило, сохраняется хорошая воздухопроницаемость.</p>
+                    <p><u>Кислотозащитная обработка.   </u>Применяется для тканей технического и специального назначения. Обработка производится фторсодержащими органическими соединениями. Ткань считают кислотозащитной, если 30 капель 20% (50%, 80%) кислоты, нанесённые на пробы, оставались на поверхности ткани, не впитываясь в неё в течении 6 часов.</p>
+                    <p><u>Антистатическая отделка. </u>Применяется для тканей из полиэфирных волокон, которые способны накапливать на своей поверхности заряды статического электричества.   Ткань пропитывают раствором антистатического препарата, отжимают и высушивают.</p>
+                    <p>Ознакомьтесь с широким ассортиментом профессиональных текстильных изделий в каталоге ПРОФЭКВИП.</p>
+                </div>
+            </div>
+        </section>
+        <section class="calculate-project filled-bg">
+            <div class="calculate-project__inner container">
+                <div class="calculate-project__text">
+                    <div class="calculate-project__text_top">
+                        <h2 class="calculate-project__title">Рассчитать проект</h2>
+                    </div>
+                    <div class="calculate-project__text_bottom"><a class="calculate-project__phone" href="tel:+74993023762"><img src="assets/img/icons/phone.svg" alt="phone">+7 (499) 302-37-62</a>
+                        <p class="calculate-project__alert">Или позвоните нам по телефону, мы всегда на связи!</p>
+                    </div>
+                </div>
+                <form class="calculate-project-form form filled" novalidate="novalidate">
+                    <div class="input__row outline">
+                        <div class="input-wrapper"><input class="input input__valid-name" placeholder="Имя" value="" name="" required><span class="req-star">*</span></div>
+                    </div>
+                    <div class="input__row outline">
+                        <div class="input-wrapper"><input class="input input__valid-phone" placeholder="Телефон" value="" name="" required><span class="req-star">*</span></div>
+                    </div>
+                    <div class="input__row outline">
+                        <div class="input-wrapper"><input class="input" placeholder="E-mail" value="" name=""></div>
+                    </div>
+                    <div class="input__row outline">
+                        <div class="input-wrapper"><input class="input" placeholder="Комментарий" value="" name=""></div>
+                    </div>
+                    <div class="hint-wrapper">
+                        <p class="hint"><span>* </span>- обязательные поля</p>
+                        <p class="alert">Нажимая на кнопку, вы соглашаетесь с <a href="policy.html" target="_blank">политикой обработки персональных данных</a></p>
+                    </div><button class="btn gradient" type="submit"><span class="btn__text">Рассчитать</span></button>
+                </form>
+            </div>
+        </section>
+        <div class="navigation-links">
+            <div class="navigation-links__inner container"><a class="navigation__link" href="#"><svg>
+                        <use xlink:href="assets/img/sprite.svg#arrow-swiper-left"></use>
+                    </svg>
+                    <div class="navigation__link-text">
+                        <p class="hint">Предыдущая</p>
+                        <p class="title">Символы по уходу за текстильными изделиями</p>
+                    </div>
+                </a><a class="navigation__link" href="#">
+                    <div class="navigation__link-text">
+                        <p class="hint">Следующая</p>
+                        <p class="title">Как выбрать качественную ткань для отеля?</p>
+                    </div><svg>
+                        <use xlink:href="assets/img/sprite.svg#arrow-swiper-right"></use>
+                    </svg>
+                </a></div>
+        </div>
+        <section class="related-articles">
+            <div class="related-articles__inner container">
+                <h3 class="related-articles__title">Похожие статьи</h3>
+                <div class="related-articles__list"><a class="related-article-item" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/related-articles/1.webp, assets/img/related-articles/1@2x.webp 2x" type="image/webp"><img src="assets/img/related-articles/1.jpg" srcset="assets/img/related-articles/1.jpg, assets/img/related-articles/1@2x.jpg 2x" alt="related">
+                            </picture>
+                        </div>
+                        <div class="related-article__content">
+                            <p class="title">Как прошел RUVIERA Hotel Business Week 2025?</p>
+                            <p class="date">16.12.2025</p>
+                        </div>
+                    </a><a class="related-article-item" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/related-articles/2.webp, assets/img/related-articles/2@2x.webp 2x" type="image/webp"><img src="assets/img/related-articles/2.jpg" srcset="assets/img/related-articles/2.jpg, assets/img/related-articles/2@2x.jpg 2x" alt="related">
+                            </picture>
+                        </div>
+                        <div class="related-article__content">
+                            <p class="title">ПРОФЭКВИП на PIR-Expo 2025: внимание к бренду FRESCO MAGGIORE и новые деловые контакты</p>
+                            <p class="date">28.11.2025</p>
+                        </div>
+                    </a><a class="related-article-item" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/related-articles/3.webp, assets/img/related-articles/3@2x.webp 2x" type="image/webp"><img src="assets/img/related-articles/3.jpg" srcset="assets/img/related-articles/3.jpg, assets/img/related-articles/3@2x.jpg 2x" alt="related">
+                            </picture>
+                        </div>
+                        <div class="related-article__content">
+                            <p class="title">Как прошла выставка CleanExpo Moscow 2025</p>
+                            <p class="date">28.11.2025</p>
+                        </div>
+                    </a><a class="related-article-item" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/related-articles/4.webp, assets/img/related-articles/4@2x.webp 2x" type="image/webp"><img src="assets/img/related-articles/4.jpg" srcset="assets/img/related-articles/4.jpg, assets/img/related-articles/4@2x.jpg 2x" alt="related">
+                            </picture>
+                        </div>
+                        <div class="related-article__content">
+                            <p class="title">ПРОФЭКВИП на CleanExpo Moscow 2025</p>
+                            <p class="date">03.10.2025</p>
+                        </div>
+                    </a><a class="related-article-item" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/related-articles/5.webp, assets/img/related-articles/5@2x.webp 2x" type="image/webp"><img src="assets/img/related-articles/5.jpg" srcset="assets/img/related-articles/5.jpg, assets/img/related-articles/5@2x.jpg 2x" alt="related">
+                            </picture>
+                        </div>
+                        <div class="related-article__content">
+                            <p class="title">ПРОФЭКВИП на Texcare Asia &amp; China Laundry Expo 2025: в центре мировых трендов индустрии</p>
+                            <p class="date">03.10.2025</p>
+                        </div>
+                    </a><a class="related-article-item" href="#">
+                        <div class="image-wrapper">
+                            <picture>
+                                <source srcset="assets/img/related-articles/6.webp, assets/img/related-articles/6@2x.webp 2x" type="image/webp"><img src="assets/img/related-articles/6.jpg" srcset="assets/img/related-articles/6.jpg, assets/img/related-articles/6@2x.jpg 2x" alt="related">
+                            </picture>
+                        </div>
+                        <div class="related-article__content">
+                            <p class="title">ПРОФЭКВИП на PIR-Expo 2025: Презентация новинок и комплексных решений</p>
+                            <p class="date">01.10.2025</p>
+                        </div>
+                    </a></div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner container">
+            <div class="footer__content_top row">
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Новости</p>
+                    <div class="footer__news-list"><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/1.webp, assets/img/footer/1@2x.webp 2x" type="image/webp"><img src="assets/img/footer/1.png" srcset="assets/img/footer/1.png, assets/img/footer/1@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Как прошел RUVIERA Hotel<br>Business Week 2025?</p>
+                                <p class="date">16.12.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/2.webp, assets/img/footer/2@2x.webp 2x" type="image/webp"><img src="assets/img/footer/2.png" srcset="assets/img/footer/2.png, assets/img/footer/2@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">ПРОФЭКВИП на PIR-Expo 2025: внимание к бренду FRESCO MAGGIORE и новые деловые контакты</p>
+                                <p class="date">28.11.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/3.webp, assets/img/footer/3@2x.webp 2x" type="image/webp"><img src="assets/img/footer/3.png" srcset="assets/img/footer/3.png, assets/img/footer/3@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Как прошла выставка CleanExpo Moscow 2025</p>
+                                <p class="date">28.11.2025</p>
+                            </div>
+                        </a></div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Статьи</p>
+                    <div class="footer__news-list"><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/4.webp, assets/img/footer/4@2x.webp 2x" type="image/webp"><img src="assets/img/footer/4.png" srcset="assets/img/footer/4.png, assets/img/footer/4@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Самые ожидаемые<br>горнолыжные курорты России</p>
+                                <p class="date">15.01.2026</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/5.webp, assets/img/footer/5@2x.webp 2x" type="image/webp"><img src="assets/img/footer/5.png" srcset="assets/img/footer/5.png, assets/img/footer/5@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Дефростеры: что это, виды, как выбрать</p>
+                                <p class="date">12.12.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/6.webp, assets/img/footer/6@2x.webp 2x" type="image/webp"><img src="assets/img/footer/6.png" srcset="assets/img/footer/6.png, assets/img/footer/6@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Одеяла в отеле: как выбрать</p>
+                                <p class="date">01.12.2025</p>
+                            </div>
+                        </a></div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Компания</p>
+                    <div class="footer__navigation accordion"><a class="footer__link" href="#">О нас</a>
+                        <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Направления</span><span class="accordion__icon"> <svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow"></use>
+                                    </svg></span></button>
+                            <div class="accordion__content"><a class="footer__link" href="#">Кухня </a><a class="footer__link" href="#">Прачечная </a><a class="footer__link" href="#">Текстиль </a><a class="footer__link" href="#">Химия</a></div>
+                        </div>
+                        <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Услуги</span><span class="accordion__icon"> <svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow"></use>
+                                    </svg></span></button>
+                            <div class="accordion__content"><a class="footer__link" href="#">Консалтинг </a><a class="footer__link" href="#">Технологическое проектирование </a><a class="footer__link" href="#">Продажа оборудования </a><a class="footer__link" href="#">Монтажные и пусконаладочные работы </a><a class="footer__link" href="#">Поставка аксессуаров и запасных частей </a><a class="footer__link" href="#">Сервисное обслуживание</a></div>
+                        </div><a class="footer__link" href="#">Наши проекты</a><a class="footer__link" href="#">Готовые решения</a><a class="footer__link" href="#">Бренды</a><a class="footer__link" href="#">Новости</a><a class="footer__link" href="#">Политика конфиденциальности</a><a class="footer__link" href="#">Партнерам</a><a class="footer__link" href="#">Контакты</a>
+                    </div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Контакты</p>
+                    <div class="footer__contacts"><a class="contact__link" href="tel:84993023762">8 (499) 302-37-62</a><a class="contact__link" href="mailto:info@prof-equip.ru">info@prof-equip.ru</a>
+                        <p class="address">127106, Россия, г. Москва, ул. Гостиничная 3</p>
+                        <div class="social">
+                            <p class="social__title">Найдите нас:</p><a class="social__link" href="#" target="_blank"><svg>
+                                    <use xlink:href="assets/img/sprite.svg#tg"></use>
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__content_bottom row">
+                <p class="copy">© 2026 Prof-Equip Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+    <div class="sale-banner">
+        <div class="sale-banner__content"><button class="btn sale-banner__close" type="button" aria-label="Закрыть"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.90159 8.00004L15.6062 2.29544C16.1313 1.77033 16.1313 0.918951 15.6062 0.393911C15.0811 -0.131204 14.2298 -0.131204 13.7047 0.393911L7.99998 6.09858L2.29531 0.393836C1.7702 -0.131279 0.918895 -0.131279 0.39378 0.393836C-0.13126 0.918951 -0.13126 1.77033 0.39378 2.29537L6.09845 7.99996L0.39378 13.7046C-0.13126 14.2297 -0.13126 15.0811 0.39378 15.6062C0.918895 16.1313 1.7702 16.1313 2.29531 15.6062L7.99998 9.90149L13.7047 15.6062C14.2297 16.1313 15.0811 16.1313 15.6062 15.6062C16.1313 15.081 16.1313 14.2297 15.6062 13.7046L9.90159 8.00004Z" fill="white"></path>
+                </svg></button><a class="sale-banner__link" href="https://prof-equip.ru/novosti/rasprodazha-oborudovaniya-dlya-prachechnykh-skladskoy-zapas-po-spetstsenam/" target="_blank" rel="noopener"><img src="assets/img/sale-promo/promo.png" alt="Складской запас по спецценам"></a></div>
+    </div>
+    <div class="modals"></div>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=43191fbc-c80b-4bf4-98ef-b14487ccd9d8&amp;lang=ru_RU" defer="defer"></script>
+    <script defer="defer" src="./assets/js/main.js"></script>
+</body>
+
+</html>

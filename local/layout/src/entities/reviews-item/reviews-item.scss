@@ -1,0 +1,65 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.reviews-item {
+	display: flex;
+	gap: rem(68);
+	@media (max-width: $desktop-lg) {
+		gap: rem(30);
+	}
+	@media (max-width: $tab-sm) {
+		flex-direction: column;
+		gap: rem(35);
+	}
+	.image-wrapper {
+		min-width: rem(300);
+		min-height: rem(225);
+		max-width: rem(300);
+		max-height: rem(225);
+		@media (max-width: $desktop-lg) {
+			min-width: rem(257);
+			min-height: rem(193);
+			max-width: rem(257);
+			max-height: rem(193);
+		}
+		@media (max-width: $laptop) {
+			min-width: rem(203);
+			min-height: rem(152);
+			max-width: rem(203);
+			max-height: rem(152);
+		}
+		@media (max-width: $tab-sm) {
+			min-width: rem(300);
+			min-height: rem(225);
+			max-width: rem(300);
+			max-height: rem(225);
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+	.review__text {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: rem(20);
+		.text {
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(18);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(30);
+		}
+		.author {
+			color: #1b2154;
+			font-family: 'Montserrat', sans-serif;
+			text-align: center;
+			font-size: rem(24);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(34);
+		}
+	}
+}

@@ -1,0 +1,32 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +banner-template()
+        +breadcrumbs([
+            {
+                href: 'home.html',
+                title: 'Главная'
+            },
+            {
+                href: 'brands.html',
+                title: 'Направления'
+            },
+            {
+                href: 'brand3.html',
+                title: 'Химия'
+            }
+        ])
+        +chemistry-info()
+        +chemistry-features()
+        +chemistry-steps()
+        +chemistry-catalog()
+        +chemistry-form()
+        +reviews()
+
+block footer 
+    +footer()

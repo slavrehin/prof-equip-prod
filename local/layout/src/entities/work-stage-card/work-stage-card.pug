@@ -1,0 +1,13 @@
+mixin work-stage-card({src, src2x, title, text, number})
+    .work-stage-card
+        .work-stage-card_top 
+            .image-wrapper 
+                +img({
+                    src,
+                    src2x,
+                    alt: 'work stage'
+                })
+            p.number #{number}
+        .work-stage-card__content 
+            p.title #{title}
+            p.text #{text}

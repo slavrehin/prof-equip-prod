@@ -1,0 +1,13 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.about-features {
+	margin-bottom: rem(95);
+	.about-features__inner {
+		display: flex;
+		justify-content: space-between;
+		gap: rem(50);
+		@media (max-width: $tab-sm) {
+			flex-direction: column;
+		}
+	}
+}

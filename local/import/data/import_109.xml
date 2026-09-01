@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Газовые плиты" date="2026-03-11 13:15:46" total="4" id="109" code="gazovye-plity"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/gazovaya-plita-mkn-gn-2-1-s-4-konforkami-i-gazovym-shkafom/"/>
+    <product id="2" url="https://prof-equip.ru/product/gazovaya-plita-mkn-gn-2-1-s-4-konforkami-i-elektricheskim-shkafom/"/>
+    <product id="3" url="https://prof-equip.ru/product/gazovaya-plita-mkn-s-4-konforkami/"/>
+    <product id="4" url="https://prof-equip.ru/product/gazovaya-plita-mkn-s-2-konforkami/"/>
+  </products>
+</import>

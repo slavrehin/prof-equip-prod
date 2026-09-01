@@ -1,0 +1,109 @@
+@use '@/app/styles/config/index.scss' as *;
+
+html {
+	font-size: 16px;
+	@media (min-width: 1921px) {
+		font-size: clamp(4.2px, 0.835vw, 25px);
+	}
+	@media (max-width: $tab) {
+		font-size: clamp(4.2px, 1.55vw, 25px);
+	}
+	@media (max-width: $tab-sm) {
+		font-size: clamp(4.2px, 4.4vw, 25px);
+	}
+}
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Manrope', sans-serif;
+	min-height: 100vh;
+}
+main {
+	flex: 1;
+}
+a {
+	text-decoration: none;
+	color: var(--black-color);
+}
+h1 {
+	font-size: rem(45);
+}
+// img {
+// 	background: linear-gradient(274deg, #ffffff, #e6e6e6);
+// 	background-size: 400% 400%;
+// 	animation: skeleton 5s ease infinite;
+// }
+.container {
+	width: 100%;
+
+	@media (min-width: $mob) {
+		max-width: rem(540);
+	}
+
+	@media (min-width: $tab-sm) {
+		max-width: rem(928);
+	}
+
+	@media (min-width: $tab) {
+		max-width: rem(928);
+	}
+
+	@media (min-width: $laptop) {
+		max-width: rem(1110);
+	}
+
+	@media (min-width: $desktop) {
+		max-width: rem(1120);
+	}
+	@media (min-width: $desktop-lg) {
+		max-width: rem(1620);
+	}
+
+	@media (max-width: $tab-sm) {
+		padding-right: rem(15);
+		padding-left: rem(15);
+	}
+}
+
+.hidden {
+	display: none !important;
+}
+
+.tabs {
+	position: relative;
+	.toggler {
+		height: rem(1);
+		background: #000;
+		position: absolute;
+		bottom: 0;
+		transition: var(--trs-300);
+	}
+}
+
+.pagination {
+	margin-top: rem(40);
+	display: flex;
+	justify-content: center;
+	gap: rem(14);
+	.swiper-pagination-bullet {
+		opacity: 1;
+		width: rem(12);
+		height: rem(12);
+		background: rgba(0, 0, 0, 0);
+		border-radius: 999px;
+		box-shadow: 0 0 0 rem(2) rgba(51, 51, 51, 0.25) inset;
+		transition: var(--trs-300);
+		margin: 0 !important;
+		&.swiper-pagination-bullet-active {
+			box-shadow: 0 0 0 rem(20) rgba(51, 51, 51, 0.35) inset;
+		}
+	}
+}
+
+.brand {
+	margin-top: rem(106);
+	margin-bottom: rem(50);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+}

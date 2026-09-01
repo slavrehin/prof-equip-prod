@@ -1,0 +1,58 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.sale-banner {
+	position: fixed;
+	inset: 0;
+	z-index: 130;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(25, 25, 25, 0.89);
+	opacity: 0;
+	pointer-events: none;
+	transition: var(--trs-300);
+
+	&.active {
+		opacity: 1;
+		pointer-events: all;
+	}
+
+	&__content {
+		position: relative;
+		width: rem(950);
+		max-width: calc(100% - #{rem(32)});
+	}
+
+	&__close {
+		position: absolute;
+		top: rem(-44);
+		right: 0;
+		width: rem(16);
+		height: rem(16);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+		svg {
+			width: rem(16);
+			height: rem(16);
+		}
+	}
+
+	&__link {
+		display: block;
+		border-radius: rem(16);
+		overflow: hidden;
+		transition: var(--trs-300);
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+
+		&:hover {
+			transform: scale(1.03);
+		}
+	}
+}

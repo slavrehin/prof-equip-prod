@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Фритюрницы" date="2026-03-11 13:15:04" total="2" id="113" code="frityurnitsiy"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/elektricheskaya-frityurnitsa-mkn-london-2-ecocontrol/"/>
+    <product id="2" url="https://prof-equip.ru/product/elektricheskaya-frityurnitsa-mkn-london-1/"/>
+  </products>
+</import>

@@ -1,0 +1,13 @@
+extends @/app/templates/template.pug
+block head 
+  +head()
+
+block header 
+    +header().black
+block content
+    main
+        +catalog-product-hero()
+        +catalog-product-info()
+        +interesting-products()
+block footer 
+    +footer()

@@ -1,0 +1,19 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.brands-content {
+	margin-top: rem(106);
+	margin-bottom: rem(50);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	.title-block {
+		@media (max-width: $tab-sm) {
+			margin-bottom: rem(30);
+		}
+	}
+	.brands-content__list {
+		display: flex;
+		flex-direction: column;
+		gap: rem(33);
+	}
+}

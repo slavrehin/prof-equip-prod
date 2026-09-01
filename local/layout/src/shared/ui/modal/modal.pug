@@ -1,0 +1,5 @@
+mixin modal(name, hasCloseBtn = false)
+    .modal(class=`modal--${name}` data-modal=name)&attributes(attributes) 
+        .modal-content 
+            if block 
+                block

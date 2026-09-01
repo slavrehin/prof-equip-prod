@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Prof Equip</title>
+    <meta name="description" content="template">
+    <meta name="keywords" content="template">
+    <meta name="robots" content="index, follow">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="icon" href="./assets/static/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="./assets/static/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="./assets/static/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/static/apple-touch-icon.png">
+    <link rel="manifest" href="./assets/static/site.webmanifest.json">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/css/intlTelInput.css">
+    <link href="./assets/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header black">
+        <div class="header__inner container"><a class="logo" href="home.html">
+                <div class="white-logo">
+                    <picture>
+                        <source srcset="assets/img/icons/logo.webp, assets/img/icons/logo@2x.webp 2x" type="image/webp"><img src="assets/img/icons/logo.png" srcset="assets/img/icons/logo.png, assets/img/icons/logo@2x.png 2x" alt="logo">
+                    </picture>
+                </div>
+                <div class="color-logo">
+                    <picture>
+                        <source srcset="assets/img/icons/logo-filled.webp" type="image/webp"><img src="assets/img/icons/logo-filled.png" srcset="assets/img/icons/logo-filled.png" alt="logo">
+                    </picture>
+                </div>
+            </a><button class="btn primary s burger__btn" type="button"><span class="burger__icon"><span></span><span></span><span></span></span><span class="btn__text">Каталог</span></button>
+            <nav class="header__navigation"><button class="btn nav__link direction__btn" type="button">Направления</button><a class="nav__link" href="#">Проекты</a><a class="nav__link" href="#">Бренды</a><button class="btn nav__link services__btn" type="button">Услуги</button><a class="nav__link" href="about.html">О компании</a></nav>
+            <div class="header__features">
+                <div class="header__contacts"><a href="tel:+74993023762"><svg>
+                            <use xlink:href="assets/img/sprite.svg#phone"></use>
+                        </svg>+7 (499) 302-37-62 </a><a href="mailto:INFO@PROF-EQUIP.RU"><svg>
+                            <use xlink:href="assets/img/sprite.svg#mail"></use>
+                        </svg>INFO@PROF-EQUIP.RU</a></div><button class="btn phone__btn" type="button" aria-label="Телефон"><svg>
+                        <use xlink:href="assets/img/sprite.svg#phone-fill"></use>
+                    </svg></button>
+                <div class="search-btns"><button class="btn search__btn" type="button" aria-label="Поиск"><svg>
+                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                        </svg></button><button class="btn close-search__btn hidden" type="button" aria-label="закрыть поиск"><svg>
+                            <use xlink:href="assets/img/sprite.svg#close"></use>
+                        </svg></button></div><button class="btn burger__btn" type="button" aria-label="Меню" data-modal-load="./modals/mobile-menu-modal.html"><svg>
+                        <use xlink:href="assets/img/sprite.svg#burger"></use>
+                    </svg></button>
+            </div>
+        </div>
+        <div class="direction-catalog">
+            <div class="direction-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">кухня</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Прачечная</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Текстиль</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Химия</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Мебель</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="services-catalog">
+            <div class="services-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Консалтинг</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Монтажные и пусконаладочные работы</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Комплексное оснащение отелей и гостиниц</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Поставка аксессуаров и запасных частей</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Продажа оборудования</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Сервисное обслуживание</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Технологическое проектирование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="header-catalog">
+            <div class="header-catalog__inner container"><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/1.webp" type="image/webp"><img src="assets/img/header-catalog/1.png" srcset="assets/img/header-catalog/1.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Прачечное оборудование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/2.webp" type="image/webp"><img src="assets/img/header-catalog/2.png" srcset="assets/img/header-catalog/2.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Текстиль</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/3.webp" type="image/webp"><img src="assets/img/header-catalog/3.png" srcset="assets/img/header-catalog/3.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="title">Запасные части</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/4.webp" type="image/webp"><img src="assets/img/header-catalog/4.png" srcset="assets/img/header-catalog/4.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Химия</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a><a class="header-catalog-card" href="#">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/header-catalog/5.webp" type="image/webp"><img src="assets/img/header-catalog/5.png" srcset="assets/img/header-catalog/5.png" alt="catalog image">
+                        </picture>
+                        <div class="eye__icon"><svg>
+                                <use xlink:href="assets/img/sprite.svg#eye"></use>
+                            </svg></div>
+                    </div>
+                    <div class="catalog-card__content"><span class="badge">professional</span>
+                        <p class="title">Кухонное оборудование</p>
+                        <p class="link">Подробнее</p>
+                    </div>
+                </a></div>
+        </div>
+        <div class="search-block">
+            <form class="search-block__inner container">
+                <div class="input-wrapper">
+                    <div class="input__row">
+                        <div class="input-wrapper"><input class="input input__valid-name" placeholder="Поиск" value="" name=""></div>
+                    </div><button class="btn submit-search__btn"><svg>
+                            <use xlink:href="assets/img/sprite.svg#search"></use>
+                        </svg></button>
+                </div>
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="banner-template">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <picture>
+                        <source media="(max-width: 767px)" srcset="assets/img/banner-template/img-mob.webp, assets/img/banner-template/img-mob@2x.webp 2x" type="image/webp">
+                        <source media="(max-width: 767px)" srcset="assets/img/banner-template/img-mob.jpg, assets/img/banner-template/img-mob@2x.jpg 2x">
+                        <source srcset="assets/img/banner-template/img.webp, assets/img/banner-template/img@2x.webp 2x" type="image/webp"><img src="assets/img/banner-template/img.jpg" srcset="assets/img/banner-template/img.jpg, assets/img/banner-template/img@2x.jpg 2x" alt="banner">
+                    </picture><button class="btn slide__btn">Рассчитать проект</button>
+                </div>
+            </div>
+            <div class="banner-pagination pagination"></div>
+        </div>
+        <div class="breadcrumbs">
+            <div class="breadcrumbs__inner container"><a class="breadcrumb__link" href="home.html">Главная </a><a class="breadcrumb__link" href="brands.html">/ Направления </a><a class="breadcrumb__link" href="brand3.html">/ Текстиль</a></div>
+        </div>
+        <section class="textile-info">
+            <div class="textile-info__inner container">
+                <h1 class="textile-info__title">Профессиона&shy;льный текстиль для гостиниц, отелей и ресторанов</h1>
+                <div class="textile-info__text-container">
+                    <div class="textile-info__text">
+                        <p>Качество и надежность изделий, которые мы поставляем в Россию, проверена опытом многолетнего использования этой продукции в мировых гостиничных и ресторанных сетях.</p>
+                        <p>Мы предлагаем профессиональный текстиль для гостиниц, ресторанов, Spa, фитнеса и здравоохранения. Профессиональный текстиль отличается высокой износостойкостью и экономичностью расходов на стирку.</p>
+                    </div>
+                    <div class="textile-info__text">
+                        <p>Штат высокопрофессиональных менеджеров и технологов ПРОФЭКВИП поможет Вам подобрать любые изделия из тканей по индивидуальному запросу, учитывая такие параметры как звездность, загрузка, условия эксплуатации, особенности стирального оборудования и т.д.</p>
+                        <p>Мы работаем напрямую с фабриками, которые производят профессиональные текстильные изделия в США, Германии, Франции, Италии, Испании, Португалии, Пакистане, Турции, России и др.</p>
+                    </div>
+                </div><a class="btn cost__btn" href="#"><span>В КАТАЛОГ</span></a>
+            </div>
+            <div class="textile-info__items">
+                <div class="textile-info__item">
+                    <div class="textile-info__item__inner container">
+                        <div class="image-wrapper-container">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-info/1.webp, assets/img/textile-info/1@2x.webp 2x" type="image/webp"><img src="assets/img/textile-info/1.jpg" srcset="assets/img/textile-info/1.jpg, assets/img/textile-info/1@2x.jpg 2x" alt="textile">
+                                </picture>
+                            </div><a class="btn cost__btn" href="#"><span>В КАТАЛОГ</span></a>
+                        </div>
+                        <div class="textile-info__item-text">
+                            <p class="title">ТЕКСТИЛЬ ДЛЯ НОМЕРНОГО ФОНДА</p>
+                            <ul>
+                                <li>Работа на прямую с заводами производителями</li>
+                                <li>Механизированное производство по раскрою ткани</li>
+                                <li>Брендирование готовых изделий – ярлыки, вышивка, печать, вытканный логотип в текстуре ткани</li>
+                                <li>Эксклюзивный каталог итальянских тканей</li>
+                                <li>Все ткани сертифицированы и соответствуют стандартам качества</li>
+                                <li>Изготовление и поставка готовых изделий за 3 дня</li>
+                                <li>Оснащение объектов по бренд-буку</li>
+                                <li>Отшив изделий нестандартных размеров</li>
+                                <li>Большие ширины – до 330 см</li>
+                                <li>100% лен и хлопок – премиальный класс</li>
+                                <li>Негорючие ткани</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="textile-info__item">
+                    <div class="textile-info__item__inner container">
+                        <div class="image-wrapper-container">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-info/2.webp, assets/img/textile-info/2@2x.webp 2x" type="image/webp"><img src="assets/img/textile-info/2.jpg" srcset="assets/img/textile-info/2.jpg, assets/img/textile-info/2@2x.jpg 2x" alt="textile">
+                                </picture>
+                            </div>
+                            <p class="image-title">Проект VLADIVOSTOK Grand Hotel & SPA</p>
+                        </div>
+                        <div class="textile-info__item-text">
+                            <p class="title">ДЕКОРАТИВНЫЙ И СТОЛОВЫЙ ТЕКСТИЛЬ</p>
+                            <ul>
+                                <li>Работа на прямую с заводами производителями</li>
+                                <li>Механизированное производство по раскрою ткани</li>
+                                <li>Брендирование готовых изделий – ярлыки, вышивка, печать, вытканный логотип в текстуре ткани</li>
+                                <li>Эксклюзивный каталог итальянских тканей</li>
+                                <li>Все ткани сертифицированы и соответствуют стандартам качества</li>
+                                <li>Изготовление и поставка готовых изделий за 3 дня</li>
+                                <li>Оснащение объектов по бренд-буку</li>
+                                <li>Отшив изделий нестандартных размеров</li>
+                                <li>Большие ширины – до 330 см</li>
+                                <li>100% лен и хлопок – премиальный класс</li>
+                                <li>Негорючие ткани</li>
+                            </ul><a class="btn cost__btn" href="#"><span>В КАТАЛОГ</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="textile-info__item">
+                    <div class="textile-info__item__inner container">
+                        <div class="image-wrapper-container">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-info/3.webp, assets/img/textile-info/3@2x.webp 2x" type="image/webp"><img src="assets/img/textile-info/3.jpg" srcset="assets/img/textile-info/3.jpg, assets/img/textile-info/3@2x.jpg 2x" alt="textile">
+                                </picture>
+                            </div>
+                            <p class="image-title">Проект Double Tree by Hilton, г. Тюмень</p>
+                        </div>
+                        <div class="textile-info__item-text">
+                            <p class="title">ФОРМА ДЛЯ ПЕРСОНАЛА</p>
+                            <ul>
+                                <li><strong>Форма для персонала, администраторов гостиницы и ресторана, корпоративная одежда</strong>– мужские и женские костюмы, пиджаки, брюки, юбки, рубашки, блузки, платья, жилеты, рубашки-поло и др.</li>
+                                <li><a href="#">Форма для поваров</a> и <a href="#">официантов</a> – поварские кители, штаны для поваров, фартуки и жилеты для официантов, аксессуары</li>
+                                <li>Форма для клининговой службы – костюмы, туники, брюки, фартуки</li>
+                                <li>Форма для медицинских работников – хирургические костюмы, халаты хирургические, костюмы для медработников, бахилы, головные уборы</li>
+                                <li>Работа на прямую с заводами производителями – Германия, Россия</li>
+                                <li>Изготавливается из лучших тканей с применением последних разработок в сфере производства профессионального текстиля</li>
+                                <li>Любые размеры, отшив изделий нестандартных размеров</li>
+                                <li>Пошив по моделям заказчика</li>
+                                <li>Все ткани сертифицированы и соответствуют стандартам качества,</li>
+                                <li><a href="#">Форма Greiff</a> – рекомендованный бренд одежды для персонала в отелях сети Accor – Ibis, Mercure, Adajio, Novotel, Swissotel и др.</li>
+                                <li>Коллекции различных стилей: классика, модерн, кэжуал, трикотаж и верхняя одежда</li>
+                                <li>Возможность комбинировать изделия из разных коллекций</li>
+                                <li>Уникальные лекала формы для медицинских работников, разработанные и протестированные совместно с сотрудниками медицины</li>
+                                <li>Функциональная и эргономичная форма для клинингового персонала отеля и ресторана</li>
+                                <li>Форма для медицинских работников в аренду, партнерские контракты с промышленными прачечными</li>
+                                <li>Шоу-рум формы Greiff в Москве</li>
+                                <li>Изготовление и поставка готовых изделий за 14 дней</li>
+                            </ul><a class="btn cost__btn" href="#"><span>В КАТАЛОГ</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="textile-form">
+            <div class="textile-form__bg">
+                <picture>
+                    <source srcset="assets/img/textile-form/bg.webp, assets/img/textile-form/bg@2x.webp 2x" type="image/webp"><img src="assets/img/textile-form/bg.jpg" srcset="assets/img/textile-form/bg.jpg, assets/img/textile-form/bg@2x.jpg 2x" alt="bg">
+                </picture>
+            </div>
+            <div class="textile-form__inner container">
+                <h2 class="textile-form__title">ПРОФЕССИОНА&shy;ЛЬНЫЙ ТЕКСТИЛЬ<br>ДЛЯ ОТЕЛЕЙ & РЕСТОРАНОВ</h2>
+                <section class="calculate-project filled-bg">
+                    <div class="calculate-project__inner container">
+                        <div class="calculate-project__text">
+                            <div class="calculate-project__text_top">
+                                <h2 class="calculate-project__title">Рассчитать проект</h2>
+                            </div>
+                            <div class="calculate-project__text_bottom"><a class="calculate-project__phone" href="tel:+74993023762"><img src="assets/img/icons/phone.svg" alt="phone">+7 (499) 302-37-62</a>
+                                <p class="calculate-project__alert">Или позвоните нам по телефону, мы всегда на связи!</p>
+                            </div>
+                        </div>
+                        <form class="calculate-project-form form filled" novalidate="novalidate">
+                            <div class="input__row outline">
+                                <div class="input-wrapper"><input class="input input__valid-name" placeholder="Имя" value="" name="" required><span class="req-star">*</span></div>
+                            </div>
+                            <div class="input__row outline">
+                                <div class="input-wrapper"><input class="input input__valid-phone" placeholder="Телефон" value="" name="" required><span class="req-star">*</span></div>
+                            </div>
+                            <div class="input__row outline">
+                                <div class="input-wrapper"><input class="input" placeholder="E-mail" value="" name=""></div>
+                            </div>
+                            <div class="input__row outline">
+                                <div class="input-wrapper"><input class="input" placeholder="Комментарий" value="" name=""></div>
+                            </div>
+                            <div class="hint-wrapper">
+                                <p class="hint"><span>* </span>- обязательные поля</p>
+                                <p class="alert">Нажимая на кнопку, вы соглашаетесь с <a href="policy.html" target="_blank">политикой обработки персональных данных</a></p>
+                            </div><button class="btn gradient" type="submit"><span class="btn__text">Рассчитать</span></button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section class="textile-faq">
+            <div class="textile-faq__inner container">
+                <h2 class="textile-faq__title">СТАНДАРТЫ МИРОВЫХ ОТЕЛЕЙ</h2>
+                <div class="textile-faq__content">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="assets/img/textile-faq/img.webp, assets/img/textile-faq/img@2x.webp 2x" type="image/webp"><img src="assets/img/textile-faq/img.jpg" srcset="assets/img/textile-faq/img.jpg, assets/img/textile-faq/img@2x.jpg 2x" alt="faq img">
+                        </picture>
+                    </div>
+                    <div class="textile-faq__accordion-wrapper">
+                        <p>В каталоге представлен широкий ассортимент профессионального текстиля для сетевых отелей: простыни, наволочки, пододеяльники, полотенца. Постельное белье и махровые изделия для отелей на 100% соответствуют требованиям, прописанным в бренд-буке ведущих отельных сетей. Многие позиции — на складе ПРОФЭКВИП в Москве. Высокое качество и износостойкость профессионального текстиля для номерного фонда подтверждена нашими клиентами. Ознакомьтесь с реализованными проектами направления “Текстиль” в разделе “Портфолио”.</p>
+                        <div class="textile-faq__accordion accordion">
+                            <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">InterContinental Hotel Group</span><span class="plus-icon"><span></span><span></span></span></button>
+                                <div class="accordion__content">
+                                    <p>Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.</p>
+                                    <p>Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.</p>
+                                </div>
+                            </div>
+                            <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Accor</span><span class="plus-icon"><span></span><span></span></span></button>
+                                <div class="accordion__content">
+                                    <p>Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.</p>
+                                    <p>Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.</p>
+                                </div>
+                            </div>
+                            <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Marriott International</span><span class="plus-icon"><span></span><span></span></span></button>
+                                <div class="accordion__content">
+                                    <p>Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.</p>
+                                    <p>Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.</p>
+                                </div>
+                            </div>
+                            <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Radisson Hotel Group</span><span class="plus-icon"><span></span><span></span></span></button>
+                                <div class="accordion__content">
+                                    <p>Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.</p>
+                                    <p>Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.</p>
+                                </div>
+                            </div>
+                            <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Starwood Hotels and Resorts Worldwide</span><span class="plus-icon"><span></span><span></span></span></button>
+                                <div class="accordion__content">
+                                    <p>Управляет более 4,6 гостиницами, с номерным фондом 540 тыс.</p>
+                                    <p>Бренды под управлением – InterContinental, Crowne Plaza, Hotel Indigo, Holiday Inn, Holiday Inn Express, Staybridge Suites, Candlewood Suites.</p>
+                                </div>
+                            </div>
+                        </div><a class="btn cost__btn" href="#"><span>В КАТАЛОГ</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="textile-library">
+            <div class="textile-library__inner container">
+                <h2 class="textile-library__title">БИБЛИОТЕКА ТЕКСТИЛЯ</h2>
+                <div class="textile-library-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/1.webp, assets/img/textile-library/1@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/1.jpg" srcset="assets/img/textile-library/1.jpg, assets/img/textile-library/1@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/2.webp, assets/img/textile-library/2@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/2.jpg" srcset="assets/img/textile-library/2.jpg, assets/img/textile-library/2@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/3.webp, assets/img/textile-library/3@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/3.jpg" srcset="assets/img/textile-library/3.jpg, assets/img/textile-library/3@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/4.webp, assets/img/textile-library/4@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/4.jpg" srcset="assets/img/textile-library/4.jpg, assets/img/textile-library/4@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/5.webp, assets/img/textile-library/5@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/5.jpg" srcset="assets/img/textile-library/5.jpg, assets/img/textile-library/5@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/6.webp, assets/img/textile-library/6@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/6.jpg" srcset="assets/img/textile-library/6.jpg, assets/img/textile-library/6@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/1.webp, assets/img/textile-library/1@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/1.jpg" srcset="assets/img/textile-library/1.jpg, assets/img/textile-library/1@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/2.webp, assets/img/textile-library/2@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/2.jpg" srcset="assets/img/textile-library/2.jpg, assets/img/textile-library/2@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/3.webp, assets/img/textile-library/3@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/3.jpg" srcset="assets/img/textile-library/3.jpg, assets/img/textile-library/3@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/4.webp, assets/img/textile-library/4@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/4.jpg" srcset="assets/img/textile-library/4.jpg, assets/img/textile-library/4@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/5.webp, assets/img/textile-library/5@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/5.jpg" srcset="assets/img/textile-library/5.jpg, assets/img/textile-library/5@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-library/6.webp, assets/img/textile-library/6@2x.webp 2x" type="image/webp"><img src="assets/img/textile-library/6.jpg" srcset="assets/img/textile-library/6.jpg, assets/img/textile-library/6@2x.jpg 2x" alt="library">
+                                </picture>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation"><button class="btn textile-library__prev" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-left"></use>
+                            </svg></button><button class="btn textile-library__next" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-right"></use>
+                            </svg></button></div>
+                </div>
+            </div>
+        </section>
+        <section class="textile-about">
+            <div class="textile-about__inner container">
+                <div class="textile-about-container">
+                    <h2 class="textile-about__title">ТЕКСТИЛЬ ДЛЯ АРЕНДЫ</h2>
+                    <div class="textile-about__text-container">
+                        <div class="textile-about__text">
+                            <h3>Аренда текстиля – взаимовыгодное сотрудничество поставщика текстиля, прачечной гостиницы, отеля или ресторана, позволяет каждой стороне данного соглашения получить свою выгоду.</h3>
+                            <p>Аренда текстиля подразумевает, что всё бельё закупается и находится на балансе прачечной. Она же несет ответственность за его обслуживание, текущее состояние, доставку и забор белья, учет, возобновление и утилизацию. Отелю остается принять необходимое для вашей компании в данный момент количество чистого белья и передать загрязнённый текстиль в стирку.</p>
+                            <p>Компания ПРОФЭКВИП выступает связующим звеном в данной цепочке. Мы поставляем износостойкий профессиональный текстиль, который идеально подходит для услуги «Аренда текстиля» по своим характеристикам и сопутствует тех.заданиям отеля/ресторана.</p>
+                        </div>
+                        <div class="textile-about__features">
+                            <div class="feature__item">
+                                <p class="feature__title">Выгода прачечной</p>
+                                <p class="feature__descr">Заключенный контракт обеспечивает прачечную определенным объем стирки на срок контракта, не менее 3х лет.</p>
+                            </div>
+                            <div class="feature__item">
+                                <p class="feature__title">Выгода для отеля/ресторана</p>
+                                <p class="feature__descr">Экономия денежных средств на закупке, отсутствует необходимость организации прачечной на объекте, содержание персонала прачечной, склада хранения белья, списаний и утилизации текстиля.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="textile-trusted">
+            <div class="textile-trusted__inner container">
+                <h2 class="textile-trusted__title">НАМ ДОВЕРЯЮТ</h2>
+                <div class="textile-trusted-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-trusted/1.webp, assets/img/textile-trusted/1@2x.webp 2x" type="image/webp"><img src="assets/img/textile-trusted/1.jpg" srcset="assets/img/textile-trusted/1.jpg, assets/img/textile-trusted/1@2x.jpg 2x" alt="trusted">
+                                </picture>
+                            </div>
+                            <div class="trusted__content">
+                                <p class="title">Отель RUMA</p>
+                                <p class="link">Подробнее<svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-right-fill"></use>
+                                    </svg></p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-trusted/2.webp, assets/img/textile-trusted/2@2x.webp 2x" type="image/webp"><img src="assets/img/textile-trusted/2.jpg" srcset="assets/img/textile-trusted/2.jpg, assets/img/textile-trusted/2@2x.jpg 2x" alt="trusted">
+                                </picture>
+                            </div>
+                            <div class="trusted__content">
+                                <p class="title">VLADIVOSTOK Grand Hotel & SPA</p>
+                                <p class="link">Подробнее<svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-right-fill"></use>
+                                    </svg></p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-trusted/3.webp, assets/img/textile-trusted/3@2x.webp 2x" type="image/webp"><img src="assets/img/textile-trusted/3.jpg" srcset="assets/img/textile-trusted/3.jpg, assets/img/textile-trusted/3@2x.jpg 2x" alt="trusted">
+                                </picture>
+                            </div>
+                            <div class="trusted__content">
+                                <p class="title">Riviera Wellness Resort</p>
+                                <p class="link">Подробнее<svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-right-fill"></use>
+                                    </svg></p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-trusted/4.webp, assets/img/textile-trusted/4@2x.webp 2x" type="image/webp"><img src="assets/img/textile-trusted/4.jpg" srcset="assets/img/textile-trusted/4.jpg, assets/img/textile-trusted/4@2x.jpg 2x" alt="trusted">
+                                </picture>
+                            </div>
+                            <div class="trusted__content">
+                                <p class="title">MANTERA Supreme Seaside 5*</p>
+                                <p class="link">Подробнее<svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-right-fill"></use>
+                                    </svg></p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-trusted/1.webp, assets/img/textile-trusted/1@2x.webp 2x" type="image/webp"><img src="assets/img/textile-trusted/1.jpg" srcset="assets/img/textile-trusted/1.jpg, assets/img/textile-trusted/1@2x.jpg 2x" alt="trusted">
+                                </picture>
+                            </div>
+                            <div class="trusted__content">
+                                <p class="title">Отель RUMA</p>
+                                <p class="link">Подробнее<svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-right-fill"></use>
+                                    </svg></p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-trusted/2.webp, assets/img/textile-trusted/2@2x.webp 2x" type="image/webp"><img src="assets/img/textile-trusted/2.jpg" srcset="assets/img/textile-trusted/2.jpg, assets/img/textile-trusted/2@2x.jpg 2x" alt="trusted">
+                                </picture>
+                            </div>
+                            <div class="trusted__content">
+                                <p class="title">VLADIVOSTOK Grand Hotel & SPA</p>
+                                <p class="link">Подробнее<svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-right-fill"></use>
+                                    </svg></p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-trusted/3.webp, assets/img/textile-trusted/3@2x.webp 2x" type="image/webp"><img src="assets/img/textile-trusted/3.jpg" srcset="assets/img/textile-trusted/3.jpg, assets/img/textile-trusted/3@2x.jpg 2x" alt="trusted">
+                                </picture>
+                            </div>
+                            <div class="trusted__content">
+                                <p class="title">Riviera Wellness Resort</p>
+                                <p class="link">Подробнее<svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-right-fill"></use>
+                                    </svg></p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/textile-trusted/4.webp, assets/img/textile-trusted/4@2x.webp 2x" type="image/webp"><img src="assets/img/textile-trusted/4.jpg" srcset="assets/img/textile-trusted/4.jpg, assets/img/textile-trusted/4@2x.jpg 2x" alt="trusted">
+                                </picture>
+                            </div>
+                            <div class="trusted__content">
+                                <p class="title">MANTERA Supreme Seaside 5*</p>
+                                <p class="link">Подробнее<svg>
+                                        <use xlink:href="assets/img/sprite.svg#arrow-right-fill"></use>
+                                    </svg></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation"><button class="btn textile-trusted__prev" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-left"></use>
+                            </svg></button><button class="btn textile-trusted__next" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-right"></use>
+                            </svg></button></div>
+                </div>
+            </div>
+        </section>
+        <section class="textile-manufacturers">
+            <div class="textile-manufacturers__inner container">
+                <h2 class="textile-manufacturers__title">ПРОИЗВОДИТЕЛИ</h2>
+                <div class="textile-manufacturers-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/1.webp, assets/img/manufacturers/1@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/1.png" srcset="assets/img/manufacturers/1.png, assets/img/manufacturers/1@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/2.webp, assets/img/manufacturers/2@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/2.png" srcset="assets/img/manufacturers/2.png, assets/img/manufacturers/2@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/3.webp, assets/img/manufacturers/3@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/3.png" srcset="assets/img/manufacturers/3.png, assets/img/manufacturers/3@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/4.webp, assets/img/manufacturers/4@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/4.png" srcset="assets/img/manufacturers/4.png, assets/img/manufacturers/4@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/5.webp, assets/img/manufacturers/5@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/5.png" srcset="assets/img/manufacturers/5.png, assets/img/manufacturers/5@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/1.webp, assets/img/manufacturers/1@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/1.png" srcset="assets/img/manufacturers/1.png, assets/img/manufacturers/1@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/2.webp, assets/img/manufacturers/2@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/2.png" srcset="assets/img/manufacturers/2.png, assets/img/manufacturers/2@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/3.webp, assets/img/manufacturers/3@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/3.png" srcset="assets/img/manufacturers/3.png, assets/img/manufacturers/3@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/4.webp, assets/img/manufacturers/4@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/4.png" srcset="assets/img/manufacturers/4.png, assets/img/manufacturers/4@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                        <div class="swiper-slide"><a class="client-card link-card" href="#">
+                                <picture>
+                                    <source srcset="assets/img/manufacturers/5.webp, assets/img/manufacturers/5@2x.webp 2x" type="image/webp"><img src="assets/img/manufacturers/5.png" srcset="assets/img/manufacturers/5.png, assets/img/manufacturers/5@2x.png 2x" alt="client">
+                                </picture>
+                            </a></div>
+                    </div>
+                    <div class="navigation"><button class="btn textile-manufacturers__prev" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-left"></use>
+                            </svg></button><button class="btn textile-manufacturers__next" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-right"></use>
+                            </svg></button></div>
+                </div>
+            </div>
+        </section>
+        <section class="reviews">
+            <div class="reviews__inner container">
+                <h2 class="reviews__title">ОТЗЫВЫ</h2>
+                <div class="reviews-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="reviews-item">
+                                <div class="image-wrapper">
+                                    <picture>
+                                        <source srcset="assets/img/reviews/1.webp, assets/img/reviews/1@2x.webp 2x" type="image/webp"><img src="assets/img/reviews/1.png" srcset="assets/img/reviews/1.png, assets/img/reviews/1@2x.png 2x" alt="review">
+                                    </picture>
+                                </div>
+                                <div class="review__text">
+                                    <p class="text">ЗАО «Гостиница «Сокольники» благодарит Вас за профессионально выполненные работы по проектированию, поставке и монтажу оборудования для прачечной.</p>
+                                    <p class="author">Ген.директор, Карелов А.Б.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="reviews-item">
+                                <div class="image-wrapper">
+                                    <picture>
+                                        <source srcset="assets/img/reviews/1.webp, assets/img/reviews/1@2x.webp 2x" type="image/webp"><img src="assets/img/reviews/1.png" srcset="assets/img/reviews/1.png, assets/img/reviews/1@2x.png 2x" alt="review">
+                                    </picture>
+                                </div>
+                                <div class="review__text">
+                                    <p class="text">ЗАО «Гостиница «Сокольники» благодарит Вас за профессионально выполненные работы по проектированию, поставке и монтажу оборудования для прачечной.</p>
+                                    <p class="author">Ген.директор, Карелов А.Б.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation"><button class="btn reviews__prev" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-left"></use>
+                            </svg></button><button class="btn reviews__next" type="button"><svg>
+                                <use xlink:href="assets/img/sprite.svg#arrow-swiper-right"></use>
+                            </svg></button></div>
+                    <div class="pagination"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__inner container">
+            <div class="footer__content_top row">
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Новости</p>
+                    <div class="footer__news-list"><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/1.webp, assets/img/footer/1@2x.webp 2x" type="image/webp"><img src="assets/img/footer/1.png" srcset="assets/img/footer/1.png, assets/img/footer/1@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Как прошел RUVIERA Hotel<br>Business Week 2025?</p>
+                                <p class="date">16.12.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/2.webp, assets/img/footer/2@2x.webp 2x" type="image/webp"><img src="assets/img/footer/2.png" srcset="assets/img/footer/2.png, assets/img/footer/2@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">ПРОФЭКВИП на PIR-Expo 2025: внимание к бренду FRESCO MAGGIORE и новые деловые контакты</p>
+                                <p class="date">28.11.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/3.webp, assets/img/footer/3@2x.webp 2x" type="image/webp"><img src="assets/img/footer/3.png" srcset="assets/img/footer/3.png, assets/img/footer/3@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Как прошла выставка CleanExpo Moscow 2025</p>
+                                <p class="date">28.11.2025</p>
+                            </div>
+                        </a></div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Статьи</p>
+                    <div class="footer__news-list"><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/4.webp, assets/img/footer/4@2x.webp 2x" type="image/webp"><img src="assets/img/footer/4.png" srcset="assets/img/footer/4.png, assets/img/footer/4@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Самые ожидаемые<br>горнолыжные курорты России</p>
+                                <p class="date">15.01.2026</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/5.webp, assets/img/footer/5@2x.webp 2x" type="image/webp"><img src="assets/img/footer/5.png" srcset="assets/img/footer/5.png, assets/img/footer/5@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Дефростеры: что это, виды, как выбрать</p>
+                                <p class="date">12.12.2025</p>
+                            </div>
+                        </a><a class="footer-news" href="#">
+                            <div class="image-wrapper">
+                                <picture>
+                                    <source srcset="assets/img/footer/6.webp, assets/img/footer/6@2x.webp 2x" type="image/webp"><img src="assets/img/footer/6.png" srcset="assets/img/footer/6.png, assets/img/footer/6@2x.png 2x" alt="footer news">
+                                </picture>
+                            </div>
+                            <div class="footer-news__content">
+                                <p class="title">Одеяла в отеле: как выбрать</p>
+                                <p class="date">01.12.2025</p>
+                            </div>
+                        </a></div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Компания</p>
+                    <div class="footer__navigation accordion"><a class="footer__link" href="#">О нас</a>
+                        <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Направления</span><span class="accordion__icon"> <svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow"></use>
+                                    </svg></span></button>
+                            <div class="accordion__content"><a class="footer__link" href="#">Кухня </a><a class="footer__link" href="#">Прачечная </a><a class="footer__link" href="#">Текстиль </a><a class="footer__link" href="#">Химия</a></div>
+                        </div>
+                        <div class="accordion__item"><button class="btn accordion__title"><span class="accordion__title__text">Услуги</span><span class="accordion__icon"> <svg>
+                                        <use xlink:href="assets/img/sprite.svg#accordion-arrow"></use>
+                                    </svg></span></button>
+                            <div class="accordion__content"><a class="footer__link" href="#">Консалтинг </a><a class="footer__link" href="#">Технологическое проектирование </a><a class="footer__link" href="#">Продажа оборудования </a><a class="footer__link" href="#">Монтажные и пусконаладочные работы </a><a class="footer__link" href="#">Поставка аксессуаров и запасных частей </a><a class="footer__link" href="#">Сервисное обслуживание</a></div>
+                        </div><a class="footer__link" href="#">Наши проекты</a><a class="footer__link" href="#">Готовые решения</a><a class="footer__link" href="#">Бренды</a><a class="footer__link" href="#">Новости</a><a class="footer__link" href="#">Политика конфиденциальности</a><a class="footer__link" href="#">Партнерам</a><a class="footer__link" href="#">Контакты</a>
+                    </div>
+                </div>
+                <div class="footer__col col-12 col-lg-6 col-xxl-3">
+                    <p class="col__title">Контакты</p>
+                    <div class="footer__contacts"><a class="contact__link" href="tel:84993023762">8 (499) 302-37-62</a><a class="contact__link" href="mailto:info@prof-equip.ru">info@prof-equip.ru</a>
+                        <p class="address">127106, Россия, г. Москва, ул. Гостиничная 3</p>
+                        <div class="social">
+                            <p class="social__title">Найдите нас:</p><a class="social__link" href="#" target="_blank"><svg>
+                                    <use xlink:href="assets/img/sprite.svg#tg"></use>
+                                </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__content_bottom row">
+                <p class="copy">© 2026 Prof-Equip Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+    <div class="sale-banner">
+        <div class="sale-banner__content"><button class="btn sale-banner__close" type="button" aria-label="Закрыть"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.90159 8.00004L15.6062 2.29544C16.1313 1.77033 16.1313 0.918951 15.6062 0.393911C15.0811 -0.131204 14.2298 -0.131204 13.7047 0.393911L7.99998 6.09858L2.29531 0.393836C1.7702 -0.131279 0.918895 -0.131279 0.39378 0.393836C-0.13126 0.918951 -0.13126 1.77033 0.39378 2.29537L6.09845 7.99996L0.39378 13.7046C-0.13126 14.2297 -0.13126 15.0811 0.39378 15.6062C0.918895 16.1313 1.7702 16.1313 2.29531 15.6062L7.99998 9.90149L13.7047 15.6062C14.2297 16.1313 15.0811 16.1313 15.6062 15.6062C16.1313 15.081 16.1313 14.2297 15.6062 13.7046L9.90159 8.00004Z" fill="white"></path>
+                </svg></button><a class="sale-banner__link" href="https://prof-equip.ru/novosti/rasprodazha-oborudovaniya-dlya-prachechnykh-skladskoy-zapas-po-spetstsenam/" target="_blank" rel="noopener"><img src="assets/img/sale-promo/promo.png" alt="Складской запас по спецценам"></a></div>
+    </div>
+    <div class="modals"></div>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=43191fbc-c80b-4bf4-98ef-b14487ccd9d8&amp;lang=ru_RU" defer="defer"></script>
+    <script defer="defer" src="./assets/js/main.js"></script>
+</body>
+
+</html>

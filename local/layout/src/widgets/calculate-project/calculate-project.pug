@@ -1,0 +1,26 @@
+mixin calculate-project({hasBg = false} = {})
+    if hasBg
+        section.calculate-project.filled-bg
+            .calculate-project__inner.container
+                .calculate-project__text 
+                    .calculate-project__text_top
+                        h2.calculate-project__title Рассчитать проект
+                    .calculate-project__text_bottom
+                        a(href="tel:+74993023762").calculate-project__phone
+                            img(src="assets/img/icons/phone.svg", alt="phone")
+                            | +7 (499) 302-37-62 
+                        p.calculate-project__alert Или позвоните нам по телефону, мы всегда на связи!
+                +calculate-project-form({hasBg: true})
+    else
+        section.calculate-project
+            .calculate-project__inner.container
+                .calculate-project__text 
+                    .calculate-project__text_top
+                        h2.calculate-project__title Рассчитать проект
+                        p.calculate-project__descr Оставьте заявку и получите консультацию и расчеты по вашему проекту
+                    .calculate-project__text_bottom
+                        p.calculate-project__alert Или позвоните нам по телефону, мы всегда на связи!
+                        a(href="tel:+74993023762").calculate-project__phone
+                            img(src="assets/img/icons/phone.svg", alt="phone")
+                            | +7 (499) 302-37-62 
+                +calculate-project-form()

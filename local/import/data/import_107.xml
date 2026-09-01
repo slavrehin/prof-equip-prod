@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<import>
+  <section name="Шкафы шоковой заморозки" date="2026-03-11 13:03:36" total="3" id="107" code="shkafy-shokovoj-zamorozki"/>
+  <products>
+    <product id="1" url="https://prof-equip.ru/product/shkafy-shokovoj-zamorozki-coldline-vision-industry-u-f-nuvo/"/>
+    <product id="2" url="https://prof-equip.ru/product/multifunktsionalnyj-shkaf-shokovoj-zamorozki-coldline-modi-up-modi-active/"/>
+    <product id="3" url="https://prof-equip.ru/product/shkaf-shokovoj-zamorozki-coldline-vision-f-nuvo/"/>
+  </products>
+</import>

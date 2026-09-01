@@ -1,0 +1,86 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.contacts-content {
+	margin-top: rem(105);
+	margin-bottom: rem(57);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	.contacts-content__inner {
+		.title-block {
+			@media (max-width: $tab-sm) {
+				margin-bottom: rem(30);
+			}
+		}
+		.contacts-content__info {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: rem(30);
+			@media (max-width: $tab-sm) {
+				grid-template-columns: 1fr;
+			}
+			.contacts-content__text {
+				display: flex;
+				flex-direction: column;
+				gap: rem(30);
+				.contacts__row {
+					padding-bottom: rem(30);
+					border-bottom: rem(2) dashed #ebebeb;
+					.title {
+						color: #1b2154;
+						font-family: 'Montserrat', sans-serif;
+						font-size: rem(20);
+						font-style: normal;
+						font-weight: 500;
+						line-height: rem(32);
+						margin-bottom: rem(10);
+					}
+					.contacts__items {
+						display: grid;
+						grid-template-columns: repeat(2, 1fr);
+						gap: rem(35);
+						@media (max-width: $laptop) {
+							grid-template-columns: 1fr;
+						}
+						.contacts__item {
+							display: flex;
+							gap: rem(15);
+							img {
+								width: rem(36);
+								height: rem(36);
+								object-fit: contain;
+							}
+							.contacts__item__links {
+								display: flex;
+								flex-direction: column;
+								gap: rem(10);
+								p {
+									color: #000;
+									font-family: 'Montserrat', sans-serif;
+									font-size: rem(16);
+									font-style: normal;
+									font-weight: 500;
+									line-height: normal;
+								}
+								a {
+									color: #1b2154;
+									font-family: 'Montserrat', sans-serif;
+									font-size: rem(16);
+									font-style: normal;
+									font-weight: 500;
+									line-height: normal;
+									text-decoration-line: underline;
+									text-decoration-style: solid;
+									text-decoration-skip-ink: auto;
+									text-decoration-thickness: auto;
+									text-underline-offset: auto;
+									text-underline-position: from-font;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,7 @@
+mixin steps-item({src, title, text} = {})
+    .steps-item
+        .steps__icon 
+            img(src=src, alt="steps icon")
+        .steps__content 
+            p.title !{title}
+            p.text !{text}

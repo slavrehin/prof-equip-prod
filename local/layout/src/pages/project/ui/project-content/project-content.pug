@@ -1,0 +1,214 @@
+mixin project-content()
+    section.project-content
+        .project-content__inner.container
+            .project-content__wrapper
+                +title-block({
+                    title: 'MANTERA Supreme Seaside 5*',
+                    breadcrumbs: [
+                        {
+                            href: 'home.html',
+                            title: 'Главная'
+                        },
+                        {
+                            href: 'brands.html',
+                            title: 'Готовые решения'
+                        },
+                        {
+                            href: 'brand4.html',
+                            title: 'Коммерческая прачечная'
+                        }
+                    ]
+                })
+                .project-content__swiper-wrapper 
+                    .project-content__swiper
+                        .swiper-wrapper
+                            .swiper-slide 
+                                a(href="assets/img/project-content/1@2x.png" data-fancybox="project").image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/1.png',
+                                        src2x: 'assets/img/project-content/1@2x.png',
+                                        alt: 'image'
+                                    })
+                            .swiper-slide 
+                                a(href="assets/img/project-content/2@2x.png" data-fancybox="project").image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/2.png',
+                                        src2x: 'assets/img/project-content/2@2x.png',
+                                        alt: 'image'
+                                    })
+                            .swiper-slide 
+                                a(href="assets/img/project-content/3@2x.png" data-fancybox="project").image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/3.png',
+                                        src2x: 'assets/img/project-content/3@2x.png',
+                                        alt: 'image'
+                                    })
+                            .swiper-slide 
+                                a(href="assets/img/project-content/4@2x.png" data-fancybox="project").image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/4.png',
+                                        src2x: 'assets/img/project-content/4@2x.png',
+                                        alt: 'image'
+                                    })
+                            .swiper-slide 
+                                a(href="assets/img/project-content/5@2x.png" data-fancybox="project").image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/5.png',
+                                        src2x: 'assets/img/project-content/5@2x.png',
+                                        alt: 'image'
+                                    })
+                        .navigation 
+                            button.btn.swiper-prev
+                                +svg('arrow-swiper-left')
+                            button.btn.swiper-next
+                                +svg('arrow-swiper-right')
+                    .project-content__swiper-thumbs
+                        .swiper-wrapper
+                            .swiper-slide 
+                                .image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/1.png',
+                                        src2x: 'assets/img/project-content/1@2x.png',
+                                        alt: 'image'
+                                    })
+                            .swiper-slide 
+                                .image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/2.png',
+                                        src2x: 'assets/img/project-content/2@2x.png',
+                                        alt: 'image'
+                                    })
+                            .swiper-slide 
+                                .image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/3.png',
+                                        src2x: 'assets/img/project-content/3@2x.png',
+                                        alt: 'image'
+                                    })
+                            .swiper-slide 
+                                .image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/4.png',
+                                        src2x: 'assets/img/project-content/4@2x.png',
+                                        alt: 'image'
+                                    })
+                            .swiper-slide 
+                                .image-wrapper 
+                                    +img({
+                                        src: 'assets/img/project-content/5.png',
+                                        src2x: 'assets/img/project-content/5@2x.png',
+                                        alt: 'image'
+                                    })
+                .project-content__info
+                    h3.info__title Оснащение прачечного комплекса премиального курорта
+                    .info__list 
+                        .info__item 
+                            p.label Объект: 
+                            p.value MANTERA Supreme Seaside 5*
+                        .info__item 
+                            p.label Локация: 
+                            p.value Сочи, первая береговая линия
+                        .info__item 
+                            p.label Направление: 
+                            p.value Профессиональная прачечная, аквачистка, химическая чистка, финишная обработка
+                        .info__item 
+                            p.label Начало сотрудничества: 
+                            p.value 2024 год
+                        .info__item 
+                            p.label Формат объекта: 
+                            p.value Премиальный курорт с номерным фондом, ресторанами, барами, бассейнами и термальным комплексом. По данным страницы проекта, инфраструктура включает 400 дизайнерских номеров, 11 бассейнов, термальный комплекс, 5 ресторанов и 6 баров.
+                .project-content__text.accordion
+                    .accordion__item.active
+                        button.btn.accordion__title
+                            h2 Задача проекта
+                            .accordion__icon 
+                                +svg('accordion-arrow2')
+                        .accordion__content
+                            p Перед ПРОФЭКВИП стояла задача подобрать и поставить профессиональное оборудование для прачечного комплекса курортного объекта уровня 5*, где ежедневно обрабатывается большой объём гостиничного текстиля.
+                            p Важно было предусмотреть не только базовую стирку и сушку, но и полный цикл обработки: аквачистку, химическую чистку, глажение, финишную обработку, пятновыведение и упаковку изделий.
+                            strong Ключевые задачи:
+                            ul 
+                                li обеспечить стабильную обработку больших объёмов белья;
+                                li подобрать оборудование для разных типов текстиля и изделий;
+                                li предусмотреть решения для деликатной обработки и химической чистки;
+                                li сформировать технологический комплекс, соответствующий уровню премиального курорта;
+                                li обеспечить объект профессиональным оборудованием для ежедневной интенсивной эксплуатации.
+                    .accordion__item
+                        button.btn.accordion__title
+                            h2 Особенности проекта
+                            .accordion__icon 
+                                +svg('accordion-arrow2')
+                        .accordion__content
+                            p MANTERA Supreme Seaside — объект с высокой нагрузкой на прачечную службу. Большой номерной фонд, развитая SPA- и ресторанная инфраструктура, бассейны и термальный комплекс формируют постоянный поток белья, полотенец, халатов, униформы и других текстильных изделий.
+                            p Поэтому в проекте был сделан акцент на комплексность. В состав поставки вошли стиральные и сушильные машины, оборудование для аквачистки и химической чистки, гладильные каландры, пароманекены, гладильный стол, пятновыводной стол, упаковочная машина и вспомогательное оборудование.
+                            p Такой подход позволяет закрыть основные этапы обработки текстиля внутри объекта и поддерживать стабильное качество, необходимое для гостиницы премиального уровня.
+                    .accordion__item
+                        button.btn.accordion__title
+                            h2 Выполненные работы
+                            .accordion__icon 
+                                +svg('accordion-arrow2')
+                        .accordion__content
+                            p В рамках проекта ПРОФЭКВИП обеспечил подбор и поставку профессионального прачечного оборудования под задачи объекта.
+                            ul 
+                                li анализ задач прачечного комплекса;
+                                li подбор оборудования под загрузку и типы текстиля;
+                                li поставка профессионального оборудования;
+                                li комплектация участков стирки, сушки, химической чистки, глажения и финишной обработки;
+                                li формирование решения для полного цикла обработки изделий.
+                .project-content__products-swiper-wrapper.accordion
+                    .accordion__item 
+                        button.btn.accordion__title
+                            h3 Осуществлена поставка и монтаж оборудования:
+                            .accordion__icon 
+                                +svg('accordion-arrow2')
+                        .accordion__content
+                            .project-content__products-swiper 
+                                .swiper-wrapper
+                                    +catalog-card({title: 'Электрическая керамическая варочная поверхность MKN VITRO 2'}).swiper-slide
+                                    +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и газовым шкафом'}).swiper-slide
+                                    +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и электрическим шкафом'}).swiper-slide
+                                    +catalog-card({title: 'Газовая плита MKN с 4 конфорками'}).swiper-slide
+                                    +catalog-card({title: 'Электрическая керамическая варочная поверхность MKN VITRO 2'}).swiper-slide
+                                    +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и газовым шкафом'}).swiper-slide
+                                    +catalog-card({title: 'Газовая плита MKN GN 2/1 с 4 конфорками и электрическим шкафом'}).swiper-slide
+                                    +catalog-card({title: 'Газовая плита MKN с 4 конфорками'}).swiper-slide
+                                .navigation 
+                                    button.btn.swiper-prev
+                                        +svg('arrow-swiper-left')
+                                    button.btn.swiper-next
+                                        +svg('arrow-swiper-right')
+                                .pagination
+        .project-content__brands
+            h3.container Бренды, задействованные в проекте:
+            .project-content__brands-list
+                .project-content__brands-track
+                    .image-wrapper
+                        +img({
+                            src: 'assets/img/project-brands/1.png',
+                            src2x: 'assets/img/project-brands/1@2x.png',
+                            alt: 'brand'
+                        })
+                    //- .image-wrapper
+                    //-     +img({
+                    //-         src: 'assets/img/project-brands/2.png',
+                    //-         src2x: 'assets/img/project-brands/2@2x.png',
+                    //-         alt: 'brand'
+                    //-     })
+                    //- .image-wrapper
+                    //-     +img({
+                    //-         src: 'assets/img/project-brands/3.png',
+                    //-         src2x: 'assets/img/project-brands/3@2x.png',
+                    //-         alt: 'brand'
+                    //-     })
+                    //- .image-wrapper
+                    //-     +img({
+                    //-         src: 'assets/img/project-brands/4.png',
+                    //-         src2x: 'assets/img/project-brands/4@2x.png',
+                    //-         alt: 'brand'
+                    //-     })
+                    //- .image-wrapper
+                    //-     +img({
+                    //-         src: 'assets/img/project-brands/5.png',
+                    //-         src2x: 'assets/img/project-brands/5@2x.png',
+                    //-         alt: 'brand'
+                    //-     })

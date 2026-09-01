@@ -1,0 +1,39 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.another-object-card {
+	.image-wapper {
+		position: relative;
+		padding-bottom: 100%;
+		margin-bottom: rem(25);
+		img {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			object-fit: cover;
+		}
+	}
+	.another-object-card__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: rem(8);
+		.title {
+			color: #1b2154;
+			text-align: center;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(19);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+		}
+		.date {
+			color: #6b6b6b;
+			text-align: center;
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(13);
+			font-style: normal;
+			font-weight: 500;
+			line-height: rem(20);
+		}
+	}
+}

@@ -1,0 +1,13 @@
+mixin news-item({src, src2x, title, date, month})
+    a(href="#").news-item  
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'news'
+            })
+            .news__date 
+                p.month #{month}
+                p.date #{date}
+        .news-item__content 
+            p.news-item__title !{title}

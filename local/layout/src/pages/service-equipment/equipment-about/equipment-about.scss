@@ -1,0 +1,14 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.equipment-about {
+	margin-top: rem(105);
+	margin-bottom: rem(64);
+	@media (max-width: $laptop) {
+		margin-top: rem(145);
+	}
+	.equipment-about__inner {
+		display: flex;
+		flex-direction: column;
+		gap: rem(64);
+	}
+}

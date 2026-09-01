@@ -1,0 +1,13 @@
+mixin button({text = '', type = 'button', isLink = false} ={})
+    if isLink
+        a.btn(href='#')&attributes(attributes) 
+            if text
+                span.btn__text #{text}
+            if block 
+                block
+    else
+        button.btn(type=type)&attributes(attributes) 
+            if text
+                span.btn__text #{text}
+            if block 
+                block

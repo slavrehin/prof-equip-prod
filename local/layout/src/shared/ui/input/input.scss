@@ -1,0 +1,78 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.input__row {
+	border-bottom: 1px solid rgba(16, 16, 16, 0.29);
+	padding-bottom: rem(10);
+	width: 100%;
+
+	.iti {
+		width: 100%;
+	}
+	.input-wrapper {
+		position: relative;
+		.req-star {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: rem(14);
+			margin: auto;
+			color: #ff0026;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			/* prof-equip.ru/Montserrat/Medium */
+			font-family: 'Montserrat', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+		}
+	}
+	.input {
+		border: none;
+		outline: none;
+		width: rem(408);
+		height: rem(22);
+		font-family: 'Manrope', sans-serif;
+		font-size: rem(16);
+		font-style: normal;
+		font-weight: 500;
+		line-height: normal;
+		@media (max-width: $laptop) {
+			width: 100%;
+		}
+		&::placeholder,
+		&:placeholder-shown {
+			color: rgba(0, 0, 0, 0.7);
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(16);
+			font-style: normal;
+			font-weight: 500;
+			line-height: normal;
+		}
+	}
+	.input__error {
+		font-family: 'Manrope', sans-serif;
+
+		margin-top: rem(15);
+		font-size: rem(14);
+		color: #d63637;
+	}
+	&.outline {
+		border-bottom: none;
+		padding-bottom: 0;
+		.input {
+			border-radius: rem(25) rem(3);
+			border: 1px solid rgba(255, 255, 255, 0.29);
+			padding: rem(19) rem(14) rem(19) rem(25);
+			height: rem(60);
+			background: none;
+			color: #fff;
+			width: 100%;
+			&::placeholder,
+			&:placeholder-shown {
+				color: #fff;
+			}
+		}
+	}
+}

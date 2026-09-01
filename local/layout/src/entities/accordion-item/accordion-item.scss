@@ -1,0 +1,14 @@
+@use '@/app/styles/config/index.scss' as *;
+
+.accordion__item {
+	overflow: hidden;
+	transition: var(--trs-300);
+	.accordion__title {
+		padding: 0;
+		width: 100%;
+		.accordion__title__text,
+		.accordion__icon {
+			pointer-events: none;
+		}
+	}
+}

@@ -1,0 +1,11 @@
+mixin related-article-item({src, src2x, title, date} = {})
+    a(href='#').related-article-item
+        .image-wrapper 
+            +img({
+                src,
+                src2x,
+                alt: 'related'
+            })
+        .related-article__content 
+            p.title #{title}
+            p.date #{date}
