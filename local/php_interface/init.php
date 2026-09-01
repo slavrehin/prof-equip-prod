@@ -62,7 +62,12 @@ function sendFormToBitrix24($RESULT_ID, $arFields) {
             'title' => 'Заявка с формы Консультация'
         ]
     ];
-    
+
+    // На тестовой копии не отправляем лиды в боевой Bitrix24 — иначе тестовые заявки попадут в реальную CRM
+    if ($_SERVER['HTTP_HOST'] === 'test3.prof-equip.ru') {
+        return;
+    }
+
     // Подключаем модуль веб-форм
     if (!CModule::IncludeModule('form')) {
         return;
