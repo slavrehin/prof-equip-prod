@@ -13,6 +13,15 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true){die();}
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 $idBrand = GetIDByCode($arResult["VARIABLES"]["ELEMENT_CODE"],$arParams["IBLOCK_ID"]);
+
+// SEO умного фильтра брендов: в отличие от /product-category/ (см.
+// components/bitrix/catalog/catalog/section.php), для страниц бренда нет
+// размеченных посадочных комбинаций фильтра — любой URL вида
+// /brends/#ELEMENT_CODE#/f/свойство-is-значение/ технический, поэтому
+// закрываем от индексации и обхода полностью, для всех значений всех свойств.
+if (trim((string)($_REQUEST["SMART_FILTER_PATH"] ?? '')) !== '') {
+    $APPLICATION->SetPageProperty("robots", "noindex, nofollow");
+}
 ?>
 
 <section class="brand">
