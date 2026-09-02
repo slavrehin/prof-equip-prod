@@ -52,6 +52,30 @@
 выяснена. Поэтому бэкап и восстановление БД (`local/deploy/db_dump.php`,
 `rollback.sh`) сделаны напрямую через `mysqli`, не через `mysqldump`.
 
+## PHP CLI не бутстрапил ядро Bitrix — исправлено (short_open_tag)
+
+Сайт обслуживается Apache + `libapache2-mod-php8.4` (не php-fpm — `apache2 -k
+start` в процессах, php-fpm не установлен). У Apache и CLI **разные php.ini**
+(`/etc/php/8.4/apache2/` и `/etc/php/8.4/cli/`). У Apache `short_open_tag =
+On`, у CLI по умолчанию был `Off`. Ядро Bitrix написано с короткими тегами
+`<?` — при `Off` PHP CLI не парсил `bitrix/modules/main/include.php` и
+подобные файлы как код, выводил их как текст, из-за чего падало
+`Class "Bitrix\Main\HttpApplication" not found` при любом запуске CLI-скрипта,
+подключающего `prolog_before.php` (обнаружено на Этапе 7 при первом реальном
+запуске `local/migrations/run.php` на проде — до этого ни разу не
+проверялось на живом сервере).
+
+Исправлено системно (вне git, это конфиг сервера, не сайта):
+
+```
+/etc/php/8.4/cli/conf.d/99-bitrix-short-open-tag.ini
+short_open_tag = On
+```
+
+Если на новом окружении (например, при переносе на другой сервер) CLI-скрипты
+Bitrix (`local/migrations/run.php`, `local/modules/profequip.import/cli/*`)
+падают с похожей ошибкой сразу на прологе — проверить эту настройку первой.
+
 ## Известные грабли Bitrix (см. `local/migrations/README.md` подробнее)
 
 - PHP 8.4: `CIBlockProperty/Element/Section::Add/Update` только через `new`.

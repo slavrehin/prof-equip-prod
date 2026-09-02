@@ -20,7 +20,11 @@ if (PHP_SAPI !== 'cli') {
 
 // DOCUMENT_ROOT вычисляется из расположения файла — работает одинаково
 // на проде (/var/www/wordpress) и в контейнере test3 (/var/www/html).
+// SERVER_NAME/REQUEST_METHOD — как в profequip.import/cli/run_import.php,
+// для единообразия (сама причина падения CLI была не в этом — см. ниже).
 $_SERVER['DOCUMENT_ROOT'] = ($_SERVER['DOCUMENT_ROOT'] ?? '') ?: dirname(__DIR__, 2);
+$_SERVER['SERVER_NAME'] = ($_SERVER['SERVER_NAME'] ?? '') ?: 'prof-equip.ru';
+$_SERVER['REQUEST_METHOD'] = ($_SERVER['REQUEST_METHOD'] ?? '') ?: 'GET';
 define('NO_KEEP_STATISTIC', true);
 define('NOT_CHECK_PERMISSIONS', true);
 require $_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php';
