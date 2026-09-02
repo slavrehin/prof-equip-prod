@@ -32,13 +32,6 @@ if (!$seoIblockId) {
     throw new \RuntimeException('Инфоблок seofilterrules не найден — сначала примени миграцию 2026-09-02-seofilterrules-iblock.php');
 }
 
-// ID свойств расходятся между окружениями (test3/прод) — колонку TITLE_TEMPLATE
-// в таблице значений (b_iblock_element_prop_sN) находим по CODE, не хардкодим.
-$titlePropRow = \CIBlockProperty::GetList([], ['IBLOCK_ID' => $seoIblockId, 'CODE' => 'TITLE_TEMPLATE'])->Fetch();
-if (!$titlePropRow) {
-    throw new \RuntimeException('Свойство TITLE_TEMPLATE не найдено в инфоблоке seofilterrules');
-}
-$titlePropColumn = 'PROPERTY_' . (int)$titlePropRow['ID'];
 
 // CODE правила = "<код раздела>__<код свойства в нижнем регистре>".
 $rules = [
@@ -119,8 +112,15 @@ foreach ($rules as $rule) {
     }
 
     // Проверка результата запросом к базе, а не доверие коду возврата API.
-    $check = $DB->Query('SELECT ' . $titlePropColumn . ' AS TITLE_VALUE FROM b_iblock_element_prop_s' . $seoIblockId . ' WHERE IBLOCK_ELEMENT_ID = ' . (int)$elementId)->Fetch();
-    if (!$check || $check['TITLE_VALUE'] !== $rule['TITLE']) {
+    // Через CIBlockElement::GetProperty(), а не сырым SELECT из b_iblock_element_prop_sN —
+    // это имя таблицы "быстрых" свойств не гарантированно существует для каждого
+    // инфоблока (на проде для только что созданного seofilterrules её не было).
+    $savedTitle = null;
+    $rsProp = \CIBlockElement::GetProperty($seoIblockId, $elementId, [], ['CODE' => 'TITLE_TEMPLATE']);
+    if ($propRow = $rsProp->Fetch()) {
+        $savedTitle = $propRow['VALUE'];
+    }
+    if ($savedTitle !== $rule['TITLE']) {
         throw new \RuntimeException('Свойства правила ' . $rule['CODE'] . ' не сохранились как ожидалось (ID=' . $elementId . ')');
     }
 }
