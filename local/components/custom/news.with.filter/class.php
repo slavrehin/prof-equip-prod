@@ -99,7 +99,12 @@ protected function getPage()
             return false;
         }
     }
-    return 'news';
+
+    // 2+ сегментов без '/f/' не соответствуют ни одному реальному шаблону
+    // страницы (news/detail/detail_with_filter) — раньше здесь по ошибке
+    // возвращался 'news', и любой такой URL молча показывал список брендов
+    // вместо 404.
+    return false;
 }
 
 
@@ -126,19 +131,50 @@ protected function getPage()
 
     protected function handle404()
     {
+        // Страница уже открыта через /brends/index.php, которое подключает
+        // bitrix/header.php ДО вызова компонента. Раньше здесь включали
+        // /404.php целиком (он сам ещё раз подключает header.php и footer.php)
+        // и сразу die() — вложенный второй header.php внутри уже открытой
+        // страницы ломал буфер вывода и обрезал ответ ДО того, как
+        // CHTTP::SetStatus фактически применялся: клиент получал пустое тело
+        // со статусом 200 вместо страницы 404. Вместо этого рендерим тот же
+        // блок, что и /404.php, прямо здесь и даём странице договорить до
+        // /bitrix/footer.php как обычно — так же, как это делают штатные
+        // компоненты (bitrix:news.detail и т.п.) при SET_STATUS_404.
         if ($this->arParams['SET_STATUS_404'] === 'Y') {
             \CHTTP::SetStatus("404 Not Found");
         }
 
-        if ($this->arParams['SHOW_404'] === 'Y') {
-            if (!empty($this->arParams['FILE_404'])) {
-                include $_SERVER['DOCUMENT_ROOT'] . $this->arParams['FILE_404'];
-            } else {
-                include $_SERVER['DOCUMENT_ROOT'] . '/404.php';
-            }
-        }
+        define('ERROR_404', 'Y');
 
-        define('ERROR_404', true);
-        die(); // Останавливаем выполнение
+        if ($this->arParams['SHOW_404'] === 'Y') {
+            global $APPLICATION;
+            $APPLICATION->SetTitle('404 Not Found');
+            ?>
+            <section class="not-found-content">
+                <div class="not-found-content__inner container">
+                    <div class="title-block">
+                        <h1 class="title-block__title">Страница не найдена</h1>
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:breadcrumb",
+                            "",
+                            array(
+                                "START_FROM" => "0",
+                                "PATH" => "",
+                                "SITE_ID" => "s1"
+                            )
+                        ); ?>
+                    </div>
+                    <form class="not-found-content__form" action="/search/">
+                        <h4 class="form__title">Ой! Эта страница не найдена.</h4>
+                        <p class="form__descr">It looks like nothing was found at this location. Try using the search box below:</p>
+                        <div class="input-wrapper"><input name="search" placeholder="Для поиска нажмите Enter …" name="s"><button class="btn search__btn"><svg>
+                                    <use xlink:href="<?=LAYOUT_DIR?>assets/img/sprite.svg#serch2"></use>
+                                </svg></button></div>
+                    </form>
+                </div>
+            </section>
+            <?
+        }
     }
 }
