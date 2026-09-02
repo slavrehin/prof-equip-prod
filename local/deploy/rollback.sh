@@ -65,6 +65,21 @@ $c = $settings["connections"]["value"]["default"];
 $link = mysqli_connect($c["host"], $c["login"], $c["password"], $c["database"]);
 if (!$link) { fwrite(STDERR, "connect failed: " . mysqli_connect_error() . "\n"); exit(1); }
 mysqli_report(MYSQLI_REPORT_OFF);
+
+// Дроп ВСЕХ текущих таблиц перед restore: таблицы, созданные после снятия
+// бэкапа (например, при первом запуске миграций b_profequip_migrations),
+// иначе переживают откат и рассинхронизируются с реально восстановленными
+// данными — раннер миграций посчитает такую миграцию уже применённой.
+mysqli_query($link, "SET FOREIGN_KEY_CHECKS=0");
+$existingTables = [];
+$tr = mysqli_query($link, "SHOW TABLES");
+while ($row = mysqli_fetch_row($tr)) {
+    $existingTables[] = $row[0];
+}
+foreach ($existingTables as $t) {
+    mysqli_query($link, "DROP TABLE IF EXISTS `" . str_replace("`", "``", $t) . "`");
+}
+
 $sql = "";
 $fh = popen("gzip -dc " . escapeshellarg($argv[2]), "r");
 while (!feof($fh)) {
