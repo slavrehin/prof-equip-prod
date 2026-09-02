@@ -1,10 +1,16 @@
 <?
 if (preg_match('#^/product-category/([^/]+)/#', $_SERVER['REQUEST_URI'], $sectionUrlMatch)) {
     CModule::IncludeModule("iblock");
+    // GLOBAL_ACTIVE, а не только ACTIVE: раздел может быть активен сам по
+    // себе, но с деактивированным родителем выше по дереву — Bitrix считает
+    // такой раздел недостижимым (GLOBAL_ACTIVE=N), и bitrix:catalog.section
+    // ниже по шаблону тоже откажется его резолвить ("Раздел не найден"), но
+    // без этой проверки здесь страница всё равно отдавалась бы 200.
     $rsRequestedSection = CIBlockSection::GetList([], [
         "IBLOCK_ID" => GetIBlockIDByCode("catalog"),
         "CODE" => $sectionUrlMatch[1],
         "ACTIVE" => "Y",
+        "GLOBAL_ACTIVE" => "Y",
     ], false, ["ID"]);
     if (!$rsRequestedSection->GetNext()) {
         include($_SERVER["DOCUMENT_ROOT"]."/404.php");
