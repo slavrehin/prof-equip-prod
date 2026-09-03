@@ -12,6 +12,36 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 use App\ProductArticleHelper;
+
+// SEO-значимые значения фильтра — те свойства раздела, для которых в
+// инфоблоке "seofilterrules" заведено правило (см. подробный комментарий
+// "===== SEO умного фильтра =====" в .../catalog/catalog/section.php: CODE
+// правила = "<код раздела>__<код свойства в нижнем регистре>"). Для их
+// значений ниже добавляем настоящую <a href> на посадочную страницу
+// /f/свойство-is-значение/, чтобы поисковый бот мог дойти до неё и без JS —
+// сам чекбокс по-прежнему работает через AJAX как раньше.
+$seoFilterSectionCode = null;
+if (preg_match('#^/product-category/([^/]+)/#', (string)($_SERVER['REQUEST_URI'] ?? ''), $seoFilterSectionMatch)) {
+    $seoFilterSectionCode = $seoFilterSectionMatch[1];
+}
+
+$seoSignificantProperties = [];
+if ($seoFilterSectionCode !== null) {
+    $seoFilterRulesIblockId = GetIBlockIDByCode('seofilterrules');
+    if ($seoFilterRulesIblockId) {
+        $rsSeoFilterRule = CIBlockElement::GetList([], [
+            'IBLOCK_ID' => $seoFilterRulesIblockId,
+            'ACTIVE' => 'Y',
+            '?CODE' => $seoFilterSectionCode . '__%',
+        ], false, false, ['ID', 'CODE']);
+        while ($arSeoFilterRule = $rsSeoFilterRule->Fetch()) {
+            $seoRulePropCode = substr($arSeoFilterRule['CODE'], strlen($seoFilterSectionCode) + 2);
+            if ($seoRulePropCode !== '') {
+                $seoSignificantProperties[] = $seoRulePropCode; // уже в нижнем регистре
+            }
+        }
+    }
+}
 ?>
 
 <div class="catalog-sidebar-filters">
@@ -33,6 +63,8 @@ use App\ProductArticleHelper;
             $key = $arItem["ENCODED_ID"];
             $isExpanded = ($arItem["DISPLAY_EXPANDED"] == "Y") ? "active" : "";
             $isColorProperty = ($arItem["CODE"] == "TSVET" || $arItem["CODE"] == "COLOR" || $arItem["CODE"] == "CVET");
+            $isSeoSignificant = $seoFilterSectionCode !== null
+                && in_array(mb_strtolower($arItem["CODE"]), $seoSignificantProperties, true);
             ?>
 
             <?if(isset($arItem["PRICE"]) || !empty($arItem["VALUES"])):?>
@@ -128,48 +160,48 @@ use App\ProductArticleHelper;
                             <?endif;?>
                             
                             <?foreach($arItem["VALUES"] as $val => $ar):?>
+                                <?php
+                                $seoValueHref = ($isSeoSignificant && !empty($ar["URL_ID"]))
+                                    ? '/product-category/' . $seoFilterSectionCode . '/f/' . mb_strtolower($arItem["CODE"]) . '-is-' . $ar["URL_ID"] . '/'
+                                    : null;
+                                ?>
                                 <?if($arItem["DISPLAY_TYPE"] == "K"):?>
                                     <!-- Радиокнопки -->
                                     <label class="filter-label" data-role="label_<?=$ar["CONTROL_ID"]?>">
-                                        <input 
-                                            type="radio" 
-                                            value="<?=$ar["HTML_VALUE_ALT"]?>" 
-                                            name="<?=$ar["CONTROL_NAME_ALT"]?>" 
+                                        <input
+                                            type="radio"
+                                            value="<?=$ar["HTML_VALUE_ALT"]?>"
+                                            name="<?=$ar["CONTROL_NAME_ALT"]?>"
                                             id="<?=$ar["CONTROL_ID"]?>"
                                             class="js-filter-control js-filter-radio"
                                             <?=$ar["CHECKED"] ? 'checked="checked"' : ''?>
                                             <?=$ar["DISABLED"] ? 'disabled="disabled"' : ''?>
                                         />
                                         <span>
-                                            <?=htmlspecialcharsbx($ar["VALUE"])?>
+                                            <?if($seoValueHref):?><a class="js-filter-seo-link" href="<?=htmlspecialcharsbx($seoValueHref)?>"><?=htmlspecialcharsbx($ar["VALUE"])?></a><?else:?><?=htmlspecialcharsbx($ar["VALUE"])?><?endif;?>
                                             <?if($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):?>
                                                 <span data-role="count_<?=$ar["CONTROL_ID"]?>">(<?=$ar["ELEMENT_COUNT"]?>)</span>
                                             <?endif;?>
                                         </span>
                                     </label>
-                                    
+
                                 <?elseif($arItem["DISPLAY_TYPE"] == "R"):?>
                                     <!-- Цвета с метками (радиокнопки) -->
-                                    <label class="filter-label filter__color" 
-                                           data-balloon="<?=htmlspecialcharsbx($ar["VALUE"])?>" 
+                                    <label class="filter-label filter__color"
+                                           data-balloon="<?=htmlspecialcharsbx($ar["VALUE"])?>"
                                            data-balloon-pos="top"
                                            data-role="label_<?=$ar["CONTROL_ID"]?>">
-                                        <input 
-                                            type="radio" 
-                                            value="<?=$ar["HTML_VALUE_ALT"]?>" 
-                                            name="<?=$ar["CONTROL_NAME_ALT"]?>" 
+                                        <input
+                                            type="radio"
+                                            value="<?=$ar["HTML_VALUE_ALT"]?>"
+                                            name="<?=$ar["CONTROL_NAME_ALT"]?>"
                                             id="<?=$ar["CONTROL_ID"]?>"
                                             class="js-filter-control js-filter-radio"
                                             <?=$ar["CHECKED"] ? 'checked="checked"' : ''?>
                                             <?=$ar["DISABLED"] ? 'disabled="disabled"' : ''?>
                                         />
-                                        <span style="
-                                            <?if(isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])):?>
-                                                background: url('<?=$ar["FILE"]["SRC"]?>') center/cover;
-                                            <?elseif($isColorProperty && isset($ar["COLOR_CODE"])):?>
-                                                background: <?=$ar["COLOR_CODE"]?>;
-                                            <?endif;?>
-                                        "></span>
+                                        <?php $colorSwatchStyle = ((isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])) ? "background: url('".$ar["FILE"]["SRC"]."') center/cover;" : (($isColorProperty && isset($ar["COLOR_CODE"])) ? "background: ".$ar["COLOR_CODE"].";" : "")); ?>
+                                        <?if($seoValueHref):?><a class="js-filter-seo-link" href="<?=htmlspecialcharsbx($seoValueHref)?>" style="<?=$colorSwatchStyle?>"></a><?else:?><span style="<?=$colorSwatchStyle?>"></span><?endif;?>
                                     </label>
                                 <?endif;?>
                             <?endforeach;?>
@@ -193,39 +225,42 @@ use App\ProductArticleHelper;
                                 } elseif(isset($ar["FILE"]["SRC"])) {
                                     $colorStyle = "background: url('" . $ar["FILE"]["SRC"] . "') center/cover;";
                                 }
+                                $seoValueHref = ($isSeoSignificant && !empty($ar["URL_ID"]))
+                                    ? '/product-category/' . $seoFilterSectionCode . '/f/' . mb_strtolower($arItem["CODE"]) . '-is-' . $ar["URL_ID"] . '/'
+                                    : null;
                                 ?>
-                                
+
                                 <?if($isColor):?>
                                     <!-- Цвета как квадратики -->
-                                    <label class="filter-label filter__color <?=$isColor ? 'js-filter-color-label' : ''?>" 
-                                           data-balloon="<?=htmlspecialcharsbx($ar["VALUE"])?>" 
+                                    <label class="filter-label filter__color <?=$isColor ? 'js-filter-color-label' : ''?>"
+                                           data-balloon="<?=htmlspecialcharsbx($ar["VALUE"])?>"
                                            data-balloon-pos="top"
                                            data-role="label_<?=$ar["CONTROL_ID"]?>">
-                                        <input 
-                                            type="checkbox" 
-                                            value="<?=$ar["HTML_VALUE"]?>" 
-                                            name="<?=$ar["CONTROL_NAME"]?>" 
+                                        <input
+                                            type="checkbox"
+                                            value="<?=$ar["HTML_VALUE"]?>"
+                                            name="<?=$ar["CONTROL_NAME"]?>"
                                             id="<?=$ar["CONTROL_ID"]?>"
                                             class="js-filter-control js-filter-checkbox"
                                             <?=$ar["CHECKED"] ? 'checked="checked"' : ''?>
                                             <?=$ar["DISABLED"] ? 'disabled="disabled"' : ''?>
                                         />
-                                        <span style="<?=$colorStyle?>"></span>
+                                        <?if($seoValueHref):?><a class="js-filter-seo-link" href="<?=htmlspecialcharsbx($seoValueHref)?>" style="<?=$colorStyle?>"></a><?else:?><span style="<?=$colorStyle?>"></span><?endif;?>
                                     </label>
                                 <?else:?>
                                     <!-- Стандартные чекбоксы -->
                                     <label class="filter-label" data-role="label_<?=$ar["CONTROL_ID"]?>">
-                                        <input 
-                                            type="checkbox" 
-                                            value="<?=$ar["HTML_VALUE"]?>" 
-                                            name="<?=$ar["CONTROL_NAME"]?>" 
+                                        <input
+                                            type="checkbox"
+                                            value="<?=$ar["HTML_VALUE"]?>"
+                                            name="<?=$ar["CONTROL_NAME"]?>"
                                             id="<?=$ar["CONTROL_ID"]?>"
                                             class="js-filter-control js-filter-checkbox"
                                             <?=$ar["CHECKED"] ? 'checked="checked"' : ''?>
                                             <?=$ar["DISABLED"] ? 'disabled="disabled"' : ''?>
                                         />
                                         <span>
-                                            <?=htmlspecialcharsbx($ar["VALUE"])?>
+                                            <?if($seoValueHref):?><a class="js-filter-seo-link" href="<?=htmlspecialcharsbx($seoValueHref)?>"><?=htmlspecialcharsbx($ar["VALUE"])?></a><?else:?><?=htmlspecialcharsbx($ar["VALUE"])?><?endif;?>
                                             <?if($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):?>
                                                 <span data-role="count_<?=$ar["CONTROL_ID"]?>">(<?=$ar["ELEMENT_COUNT"]?>)</span>
                                             <?endif;?>

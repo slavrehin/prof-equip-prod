@@ -169,10 +169,31 @@
             this.form.addEventListener('change', function(e) {
                 var target = e.target;
                 console.log('Change event on:', target); // Для отладки
-                
+
                 if (target.type === 'checkbox' || target.type === 'radio' || target.type === 'range') {
                     self.scheduleFilter();
                 }
+            });
+
+            // SEO-ссылки на значения фильтра (js-filter-seo-link) — реальные <a href>
+            // для ботов без JS. При наличии JS переключаем связанный чекбокс/радио
+            // через AJAX как обычно, вместо полной перезагрузки страницы по ссылке.
+            this.form.addEventListener('click', function(e) {
+                var link = e.target.closest ? e.target.closest('.js-filter-seo-link') : null;
+                if (!link) return;
+
+                var label = link.closest('.filter-label');
+                var input = label ? label.querySelector('input') : null;
+                if (!input) return;
+
+                e.preventDefault();
+
+                if (input.type === 'checkbox') {
+                    input.checked = !input.checked;
+                } else {
+                    input.checked = true;
+                }
+                input.dispatchEvent(new Event('change', { bubbles: true }));
             });
             
             // Для range слайдеров - при отпускании мыши

@@ -189,6 +189,19 @@ if ($sectionCode !== '') {
 
                 $APPLICATION->SetPageProperty("robots", "index, follow");
                 $seoFilterRuleFound = true;
+
+                // Хлебная крошка для посадочной страницы фильтра — некликабельный
+                // последний пункт с текстом H1 ("Прачечное оборудование Electrolux"),
+                // без ссылки. Само добавление в цепочку (AddChainItem) отложено до
+                // ПОСЛЕ вызова bitrix:catalog.section ниже по шаблону: bitrix:breadcrumb
+                // строит цепочку лениво при выводе буфера (см. комментарий в его
+                // template.php), то есть важен порядок ВЫЗОВОВ AddChainItem за всё
+                // время рендера страницы, а не место, где сам bitrix:breadcrumb
+                // вызван в HTML. bitrix:catalog.section (ADD_SECTIONS_CHAIN) добавляет
+                // свой пункт "Прачечное оборудование" в момент своего исполнения —
+                # если вызвать AddChainItem здесь, наш пункт окажется ПЕРЕД разделом.
+                $seoFilterBreadcrumbTitle = $seoFilterTitleOverride["H1"]
+                    ?? ($arResult["CURRENT_SECTION_DATA"]["NAME"] . " " . $valueText);
             }
         }
 
@@ -359,6 +372,14 @@ if ($sectionCode !== '') {
                             if ($seoFilterTitleOverride["DESCRIPTION"] !== null) {
                                 $APPLICATION->SetPageProperty("description", $seoFilterTitleOverride["DESCRIPTION"]);
                             }
+                        }
+                        // Хлебная крошка посадочной страницы фильтра — добавляем ТОЛЬКО
+                        // сейчас, после bitrix:catalog.section выше: он сам кладёт в цепочку
+                        // пункт раздела ("Прачечное оборудование") через ADD_SECTIONS_CHAIN,
+                        // и наш пункт должен идти ПОСЛЕ него (см. комментарий у
+                        // $seoFilterBreadcrumbTitle выше, где объясняется, почему тут, а не там).
+                        if (!empty($seoFilterBreadcrumbTitle)) {
+                            $APPLICATION->AddChainItem($seoFilterBreadcrumbTitle, false);
                         }
                         ?>
                     </div>
