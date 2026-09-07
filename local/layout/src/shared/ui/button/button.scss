@@ -245,4 +245,61 @@
 			}
 		}
 	}
+
+	&.re-primary {
+		background: var(--re-accent);
+		border-radius: 4px;
+		height: rem(50);
+		padding: 0 rem(32);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: var(--trs-300);
+		&:hover { background: #B45309; }
+		.btn__text {
+			color: #fff;
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(16);
+			font-weight: 600;
+			line-height: 100%;
+		}
+	}
+
+	&.re-secondary {
+		border-radius: 4px;
+		height: rem(50);
+		padding: 0 rem(32);
+		border: 2px solid var(--re-primary);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: var(--trs-300);
+		&:hover { background: var(--re-primary); .btn__text { color: #fff; } }
+		.btn__text {
+			color: var(--re-primary);
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(16);
+			font-weight: 600;
+			line-height: 100%;
+		}
+	}
+
+	&.re-ghost {
+		border-radius: 4px;
+		height: rem(50);
+		padding: 0 rem(32);
+		border: 2px solid rgba(255,255,255,0.5);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: var(--trs-300);
+		&:hover { border-color: #fff; }
+		.btn__text {
+			color: #fff;
+			font-family: 'Manrope', sans-serif;
+			font-size: rem(16);
+			font-weight: 600;
+			line-height: 100%;
+		}
+	}
 }
