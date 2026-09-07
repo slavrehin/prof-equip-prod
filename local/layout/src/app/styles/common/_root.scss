@@ -26,4 +26,16 @@
 	@media (max-width: 767px) {
 		--screensize: 360;
 	}
+
+	/* ── Редизайн 2026 ── */
+	--re-primary:      #1A2B4E;
+	--re-secondary:    #2563A8;
+	--re-accent:       #D97706;
+	--re-surface:      #F3F4F6;
+	--re-text:         #111827;
+	--re-text-muted:   #6B7280;
+	--re-border:       #CBD5E1;
+	--re-radius-card:  8px;
+	--re-shadow-card:  0 2px 12px rgba(0,0,0,0.08);
+	--re-max-width:    1280px;
 }
