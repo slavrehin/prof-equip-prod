@@ -1,5 +1,112 @@
 <?php
 
+/**
+ * Достаёт из $arResult/$item компонентов bitrix:catalog(.section/.element)
+ * уже переведённую в рубли цену товара (BASE_PRICE, CONVERT_CURRENCY=Y,
+ * CURRENCY_ID=RUB — см. catalog/index.php и section.php) и форматирует её
+ * для вывода на витрине: "2 850 000 ₽", без копеек. NULL/0 — цена не задана
+ * (плейсхолдер PRICE=0 у части товаров, см. memory/spare_parts_import) —
+ * в этом случае вызывающий код должен показать кнопку запроса цены вместо неё.
+ */
+function profequip_GetCatalogItemPrice(array $arResult): ?float
+{
+    $selected = $arResult['ITEM_PRICE_SELECTED'] ?? null;
+    if ($selected === null || !isset($arResult['ITEM_PRICES'][$selected]['PRICE'])) {
+        return null;
+    }
+
+    $price = (float)$arResult['ITEM_PRICES'][$selected]['PRICE'];
+
+    return $price > 0 ? $price : null;
+}
+
+function profequip_FormatPriceRub(float $price): string
+{
+    return number_format($price, 0, ',', ' ') . ' ₽';
+}
+
+/**
+ * Наценка сверх курса ЦБ РФ при конвертации иностранной валюты в рубли для
+ * витрины (курс поставщика/риски конвертации) — 5%. Заложена прямо в курс,
+ * который хранится в модуле currency (b_catalog_currency.AMOUNT), поэтому
+ * применяется автоматически везде, где Bitrix конвертирует цену через
+ * CCurrencyRates::ConvertCurrency (CONVERT_CURRENCY=Y у bitrix:catalog(.section
+ * /.element), см. catalog/index.php и .../catalog/catalog/section.php) — без
+ * отдельной правки в шаблонах вывода цены.
+ */
+const PROFEQUIP_CURRENCY_MARKUP = 1.05;
+
+/**
+ * Обновляет курсы валют (EUR, USD) в модуле "currency" данными ЦБ РФ,
+ * с наценкой PROFEQUIP_CURRENCY_MARKUP поверх официального курса. От этого
+ * зависит конвертер цен каталога (CCurrencyRates::ConvertCurrency,
+ * используется через параметры CONVERT_CURRENCY/CURRENCY_ID компонентов
+ * bitrix:catalog(.section/.element)) — товары, у которых базовая цена
+ * заведена в EUR, всегда показываются на витрине в рублях по этому курсу.
+ * Зарегистрирована как ежедневный агент, см. local/migrations.
+ */
+function profequip_UpdateCurrencyRatesFromCBR()
+{
+    $agentName = '\profequip_UpdateCurrencyRatesFromCBR();';
+
+    if (!\Bitrix\Main\Loader::includeModule('currency')) {
+        return $agentName;
+    }
+
+    $trackedCurrencies = ['EUR', 'USD'];
+
+    try {
+        $http = new \Bitrix\Main\Web\HttpClient();
+        $http->setTimeout(10);
+        $http->setRedirect(true);
+        $xml = $http->get('https://www.cbr.ru/scripts/XML_daily.asp');
+    } catch (\Throwable $e) {
+        $xml = false;
+    }
+
+    if (empty($xml)) {
+        return $agentName;
+    }
+
+    $xml = \Bitrix\Main\Text\Encoding::convertEncoding($xml, 'windows-1251', 'UTF-8');
+    $xml = preg_replace('#<!DOCTYPE[^>]+?>#i', '', $xml);
+    $xml = preg_replace('#<\?XML[^>]+?\?>#i', '', $xml);
+
+    $doc = new CDataXML();
+    if (!$doc->LoadString($xml)) {
+        return $agentName;
+    }
+
+    $arData = $doc->GetArray();
+    $valuteList = $arData['ValCurs']['#']['Valute'] ?? [];
+
+    $rubPerUnit = [];
+    foreach ($valuteList as $valute) {
+        $charCode = $valute['#']['CharCode'][0]['#'] ?? '';
+        if (!in_array($charCode, $trackedCurrencies, true)) {
+            continue;
+        }
+        $nominal = (float)($valute['#']['Nominal'][0]['#'] ?? 1);
+        $value = (float)str_replace(',', '.', $valute['#']['Value'][0]['#'] ?? 0);
+        if ($nominal > 0 && $value > 0) {
+            $rubPerUnit[$charCode] = ($value / $nominal) * PROFEQUIP_CURRENCY_MARKUP;
+        }
+    }
+
+    foreach ($rubPerUnit as $currency => $rate) {
+        \Bitrix\Currency\CurrencyTable::update($currency, [
+            'AMOUNT' => $rate,
+            'AMOUNT_CNT' => 1,
+        ]);
+    }
+
+    if (!empty($rubPerUnit)) {
+        \Bitrix\Currency\CurrencyManager::updateBaseRates();
+    }
+
+    return $agentName;
+}
+
 function pr($arr)
 {
     echo "<pre>";

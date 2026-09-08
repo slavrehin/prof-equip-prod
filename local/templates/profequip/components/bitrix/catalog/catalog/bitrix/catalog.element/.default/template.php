@@ -140,10 +140,24 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
                         <p class="status"><?=($item)?></p>
                     <?endforeach;?>    
                 <?endif;?>
-                
-                <button class="btn cost__btn" data-modal-load="/local/ajax/form/?WEB_FORM_ID=1&template_form=order&name_product=<?=$arResult['NAME']?>">
+
+                <?php $productPrice = profequip_GetCatalogItemPrice($arResult); ?>
+                <?php if ($productPrice !== null): ?>
+                <div class="product-price-row">
+                    <div class="product-price">
+                        <span class="product-price__value"><?= profequip_FormatPriceRub($productPrice) ?></span>
+                        <span class="product-price__note">с НДС</span>
+                    </div>
+                    <button class="btn cost__btn cta-btn" data-modal-load="/local/ajax/form/?WEB_FORM_ID=1&template_form=order&name_product=<?=$arResult['NAME']?>&cta_label=<?=rawurlencode('ПОЛУЧИТЬ КП')?>">
+                        <svg class="cta-btn-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 1.5h5.5L11 4v8a.5.5 0 0 1-.5.5h-7A.5.5 0 0 1 3 12V1.5Z" stroke="#fff" stroke-width="1" stroke-linejoin="round"/><path d="M8 1.5V4h3M5 7h4M5 9.2h4" stroke="#fff" stroke-width="1" stroke-linecap="round"/></svg>
+                        <span>ПОЛУЧИТЬ КП</span>
+                    </button>
+                </div>
+                <?php else: ?>
+                <button class="btn cost__btn cta-btn" data-modal-load="/local/ajax/form/?WEB_FORM_ID=1&template_form=order&name_product=<?=$arResult['NAME']?>&cta_label=<?=rawurlencode('Запросить')?>">
                     <span>ЗАПРОСИТЬ СТОИМОСТЬ</span>
                 </button>
+                <?php endif; ?>
             </div>
         </div>
     </div>

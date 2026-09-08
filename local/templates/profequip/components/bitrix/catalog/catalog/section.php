@@ -335,10 +335,13 @@ if ($sectionCode !== '') {
                                 'PAGE_ELEMENT_COUNT' => '20',
                                 "PAGER_TEMPLATE" => "arrows_custom",
                                 
-                                'PRICE_CODE' => ['BASE'],
+                                'PRICE_CODE' => ['BASE_PRICE'],
                                 'USE_PRICE_COUNT' => 'N',
                                 'SHOW_PRICE_COUNT' => '1',
-                                
+                                'CONVERT_CURRENCY' => 'Y',
+                                'CURRENCY_ID' => 'RUB',
+                                'PRICE_VAT_INCLUDE' => 'Y',
+
                                 'CACHE_TYPE' => 'A',
                                 'CACHE_TIME' => '3600',
                                 'CACHE_GROUPS' => 'Y',

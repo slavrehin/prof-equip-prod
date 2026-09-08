@@ -35,10 +35,11 @@ $response = new \Bitrix\Main\HttpResponse(\Bitrix\Main\Application::getInstance(
                     <div class="input-wrapper"><input class="input" type="text" placeholder="E-mail" value="" name="<?=$arResult["QUESTION_NAME"]["order_email"];?>" required></div>
                 </div><textarea placeholder="Комментарий"  name="<?=$arResult["QUESTION_NAME"]["order_message"];?>"></textarea>
             </div>
-            <p class="policy">Нажимая кнопку «Запросить» я даю свое согласие на использование и обработку моих персональных данных в соответствии с ч. 1 ст. 9 ФЗ от 27.07.2006 г. № 152 <a href="/politika-konfidentsialnosti/" target="_blank">«О персональных данных»</a></p>
+            <?$ctaLabel = $arParams["CTA_LABEL"] ?: "Запросить";?>
+            <p class="policy">Нажимая кнопку «<?=htmlspecialcharsbx($ctaLabel);?>» я даю свое согласие на использование и обработку моих персональных данных в соответствии с ч. 1 ст. 9 ФЗ от 27.07.2006 г. № 152 <a href="/politika-konfidentsialnosti/" target="_blank">«О персональных данных»</a></p>
             <input type="hidden" name="web_form_submit" value="<?=$arResult["arForm"]["BUTTON"];?>">
                     <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["order_url"];?>" class="js-url" value="<?=$APPLICATION->GetCurDir();?>">
-            <button class="btn submit__btn" type="submit">Запросить</button>
+            <button class="btn submit__btn" type="submit"><?=htmlspecialcharsbx($ctaLabel);?></button>
         </form>
     </div>
 </div>
