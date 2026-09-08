@@ -255,3 +255,82 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
     </div>
 </div>
 
+<?php
+// Блок "Другие товары" — случайная подборка из ТОЙ ЖЕ категории верхнего
+// уровня, что и текущий товар (не микс всех пяти). Допустимые категории
+// верхнего уровня инфоблока каталога (IBLOCK_ID=11): Прачечное оборудование
+// (1), Текстиль (2), Химия (4), Кухня (8), Мебель (120) — товары из прочих
+// разделов (напр. "Запасные части") в блок не попадают.
+$otherProductsAllowedTopSections = [1, 2, 4, 8, 120];
+$otherProductsCount = 6;
+$otherProducts = [];
+
+$otherProductsTopSectionId = null;
+if (!empty($arResult['SECTION']['PATH'])) {
+    $otherProductsTopSection = reset($arResult['SECTION']['PATH']);
+    $otherProductsTopSectionId = (int)$otherProductsTopSection['ID'];
+}
+
+if (
+    $otherProductsTopSectionId
+    && in_array($otherProductsTopSectionId, $otherProductsAllowedTopSections, true)
+    && \Bitrix\Main\Loader::includeModule('iblock')
+) {
+    $otherProductsRes = CIBlockElement::GetList(
+        ['RAND' => 'ASC'],
+        [
+            'IBLOCK_ID' => $arParams['IBLOCK_ID'],
+            'SECTION_ID' => $otherProductsTopSectionId,
+            'INCLUDE_SUBSECTIONS' => 'Y',
+            'ACTIVE' => 'Y',
+            '!ID' => $arResult['ID'],
+        ],
+        false,
+        ['nTopCount' => $otherProductsCount],
+        ['ID', 'NAME', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE', 'DETAIL_PICTURE']
+    );
+    while ($otherProductItem = $otherProductsRes->GetNext()) {
+        $otherProducts[] = $otherProductItem;
+    }
+}
+?>
+<?php if (!empty($otherProducts)): ?>
+<section class="interesting-products">
+    <div class="interesting-products__inner container">
+        <h3 class="interesting-products__title">Другие товары</h3>
+        <div class="interesting-products__list">
+            <?php foreach ($otherProducts as $otherProduct): ?>
+                <?php
+                $otherProductPictureId = $otherProduct['PREVIEW_PICTURE'] ?: $otherProduct['DETAIL_PICTURE'];
+                $otherProductImage = CFile::ResizeImageGet(
+                    $otherProductPictureId,
+                    ['width' => 600, 'height' => 600],
+                    BX_RESIZE_IMAGE_PROPORTIONAL,
+                    true
+                );
+                $otherProductImageX2 = CFile::ResizeImageGet(
+                    $otherProductPictureId,
+                    ['width' => 1200, 'height' => 1200],
+                    BX_RESIZE_IMAGE_PROPORTIONAL,
+                    true
+                );
+                $otherProductImageSrc = $otherProductImage['src'] ?? '';
+                $otherProductImageSrcX2 = $otherProductImageX2['src'] ?? '';
+                ?>
+                <a class="catalog-card" href="<?= $otherProduct['DETAIL_PAGE_URL'] ?>">
+                    <div class="image-wrapper">
+                        <picture>
+                            <source srcset="<?= $otherProductImageSrc ?>, <?= $otherProductImageSrcX2 ?> 2x" type="image/webp">
+                            <img src="<?= $otherProductImageSrc ?>" srcset="<?= $otherProductImageSrc ?>, <?= $otherProductImageSrcX2 ?> 2x" alt="<?= htmlspecialcharsbx($otherProduct['NAME']) ?>">
+                        </picture>
+                    </div>
+                    <div class="catalog-card__content">
+                        <p class="catalog-card__title"><?= htmlspecialcharsbx($otherProduct['NAME']) ?></p>
+                    </div>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
