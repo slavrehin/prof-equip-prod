@@ -262,7 +262,7 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
 // (1), Текстиль (2), Химия (4), Кухня (8), Мебель (120) — товары из прочих
 // разделов (напр. "Запасные части") в блок не попадают.
 $otherProductsAllowedTopSections = [1, 2, 4, 8, 120];
-$otherProductsCount = 8; // 4 в ряд на десктопе, остальное — прокруткой вбок
+$otherProductsCount = 5; // один ряд, без переноса и прокрутки (проверено: помещается по ширине карточки листинга)
 $otherProducts = [];
 
 $otherProductsTopSectionId = null;
