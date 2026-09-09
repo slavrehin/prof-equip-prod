@@ -1,0 +1,39 @@
+/* Блок "Другие товары" (карточка товара, catalog.element/.default/template.php).
+ * Отдельный файл, не часть сборки local/layout (webpack/scss) — переживает
+ * пересборку дизайн-макетов, см. тот же приём в catalog-price.css.
+ *
+ * main.css задаёт .interesting-products__list как обычный grid (3 колонки,
+ * с переносом строк) — карточки получаются на всю ширину раздела и слишком
+ * крупными. Переопределяем в горизонтальный скролл: ровно 4 карточки в ряд
+ * на десктопе, остальные — прокруткой вбок, без переноса строк. */
+
+.interesting-products__list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    column-gap: 1.25rem;
+    row-gap: 0;
+    padding-bottom: 0.625rem;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+}
+
+.interesting-products__list .catalog-card {
+    flex: 0 0 calc((100% - 3 * 1.25rem) / 4);
+    max-width: calc((100% - 3 * 1.25rem) / 4);
+    scroll-snap-align: start;
+}
+
+@media (max-width: 1200px) {
+    .interesting-products__list .catalog-card {
+        flex-basis: calc((100% - 2 * 1.25rem) / 3);
+        max-width: calc((100% - 2 * 1.25rem) / 3);
+    }
+}
+
+@media (max-width: 768px) {
+    .interesting-products__list .catalog-card {
+        flex-basis: calc((100% - 1.25rem) / 2);
+        max-width: calc((100% - 1.25rem) / 2);
+    }
+}
