@@ -5,11 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <title><?php $APPLICATION->ShowTitle() ?></title>
+    <?php // ShowHead() сам выводит <meta robots> из SetPageProperty(), выставленной телом
+    // страницы (умный фильтр и т.п.). Раньше здесь был ещё один такой тег, читавший
+    // GetProperty() ДО того, как компонент её устанавливал, — всегда откатывался к
+    // "index, follow" и на noindex-страницах создавал второй, противоречащий тег
+    // (Яндекс индексировал такие URL, см. /f/potreblenie_para_kg_chas-is-10-15/). ?>
     <?php $APPLICATION->ShowHead() ?>
     <?php if ($_SERVER['HTTP_HOST'] === 'test3.prof-equip.ru'): ?>
     <meta name="robots" content="noindex, nofollow">
-    <?php else: ?>
-    <meta name="robots" content="<?=htmlspecialcharsbx($APPLICATION->GetProperty("robots") ?: "index, follow")?>">
     <?php endif; ?>
     <meta name="format-detection" content="telephone=no">
     <link rel="icon" href="/favicon.webp">
