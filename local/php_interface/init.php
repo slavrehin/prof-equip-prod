@@ -189,9 +189,15 @@ function sendFormToBitrix24($RESULT_ID, $arFields) {
     }
 
     // Client ID Метрики и UTM-метки — для сквозной аналитики и матчинга
-    // лида со стадиями в CRM (используются те же поля, что в стандартной
-    // интеграции CRM<->Метрика: UF_CRM_YA_CID/UF_CRM_YA_COUNTER_ID + нативные UTM_*)
+    // лида со стадиями в CRM. UF_CRM_1771401080 — поле с символьным названием
+    // "metrika_client_id", которое читает расширение b242ya (это НЕ то же
+    // самое, что UF_CRM_YA_CID/UF_CRM_YA_COUNTER_ID — те подписаны "...B242YA"
+    // и, похоже, заполняются самим расширением только для нативных форм/
+    // виджетов Битрикс24; для своих форм читается именно metrika_client_id).
+    // Проверено через crm.lead.fields на самой CRM — оба поля существуют,
+    // но с разными кодами и разным назначением.
     if (!empty($clientId)) {
+        $leadData['fields']['UF_CRM_1771401080'] = $clientId; // metrika_client_id
         $leadData['fields']['UF_CRM_YA_CID'] = $clientId;
         $leadData['fields']['UF_CRM_YA_COUNTER_ID'] = (string)YANDEX_METRIKA_COUNTER_ID;
     }
