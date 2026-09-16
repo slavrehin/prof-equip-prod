@@ -18,7 +18,8 @@
     <link rel="icon" href="/favicon.webp">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/css/intlTelInput.css">
     <link href="<?=SITE_TEMPLATE_PATH?>/design-system/tokens.css" rel="stylesheet">
-    <link href="<?=LAYOUT_DIR?>assets/css/main.css" rel="stylesheet">
+    <?php $mainCssPath = $_SERVER['DOCUMENT_ROOT'] . LAYOUT_DIR . 'assets/css/main.css'; ?>
+    <link href="<?=LAYOUT_DIR?>assets/css/main.css?v=<?=file_exists($mainCssPath) ? filemtime($mainCssPath) : time()?>" rel="stylesheet">
     <?php $catalogPriceCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/catalog-price.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-price.css?v=<?=file_exists($catalogPriceCssPath) ? filemtime($catalogPriceCssPath) : time()?>" rel="stylesheet">
     <?php $otherProductsCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/other-products.css'; ?>

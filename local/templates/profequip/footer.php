@@ -230,7 +230,8 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=43191fbc-c80b-4bf4-98ef-b14487ccd9d8&amp;lang=ru_RU" defer="defer"></script>
     <script src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction" defer></script>
     <script src="<?=SITE_TEMPLATE_PATH;?>/js/captcha.js"></script>
-    <script defer="defer" src="<?=LAYOUT_DIR?>assets/js/main.js"></script>
+    <?php $mainJsPath = $_SERVER['DOCUMENT_ROOT'] . LAYOUT_DIR . 'assets/js/main.js'; ?>
+    <script defer="defer" src="<?=LAYOUT_DIR?>assets/js/main.js?v=<?=file_exists($mainJsPath) ? filemtime($mainJsPath) : time()?>"></script>
     <script src="<?= SITE_TEMPLATE_PATH; ?>/js/dev.js"></script>
 	
 	<script>

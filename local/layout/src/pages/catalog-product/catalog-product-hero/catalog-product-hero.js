@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Thumbs } from 'swiper/modules';
+import { Navigation, Thumbs } from 'swiper/modules';
 
 document.querySelectorAll('.zoom-wrapper').forEach(wrapper => {
 	const img = wrapper.querySelector('picture img') || wrapper.querySelector('img');
@@ -39,8 +39,13 @@ if (catalogProductHeroSwiperWrapper) {
 			watchSlidesProgress: true
 		});
 		const swiper = new Swiper(catalogProductHeroSwiper, {
-			modules: [Thumbs],
+			modules: [Navigation, Thumbs],
 			spaceBetween: 10,
+
+			navigation: {
+				prevEl: '.catalog-product-hero__nav-prev',
+				nextEl: '.catalog-product-hero__nav-next'
+			},
 
 			thumbs: {
 				swiper: swiperThumbs
