@@ -32,18 +32,28 @@
 				line-height: rem(18);
 			}
 		}
+		// Раскладка на нативном CSS multi-column вместо Masonry.js: карточки —
+		// разной высоты (реальное соотношение сторон фото проекта), поэтому
+		// нужна была настоящая "кирпичная кладка". JS-библиотека сперва рисует
+		// карточки в обычном потоке, потом одним прыжком переставляет их
+		// абсолютным позиционированием — это гарантированный скачок вёрстки
+		// (CLS) при каждой загрузке страницы независимо от скорости сети.
+		// column-count делает то же самое расположение силами браузера, без
+		// пересчёта позиций через JS и без этого скачка.
 		.projects-list__content {
-		}
-		.grid-sizer,
-		.grid-item {
-			width: 50%;
+			column-count: 2;
+			column-gap: 0;
 			@media (max-width: $mob) {
-				width: 100%;
+				column-count: 1;
 			}
 		}
 		.project__item {
 			padding: rem(20);
 			position: relative;
+			display: block;
+			width: 100%;
+			break-inside: avoid;
+			-webkit-column-break-inside: avoid;
 			&:hover {
 				&:before {
 					opacity: 1;

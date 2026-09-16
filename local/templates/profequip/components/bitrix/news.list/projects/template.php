@@ -45,9 +45,7 @@ if (empty($arResult["ITEMS"])) return;
         </div>
 
         <div class="projects-list__content">
-            <div class="grid-sizer"></div>
-            
-            <? foreach ($arResult["ITEMS"] as $item): ?>
+            <? foreach ($arResult["ITEMS"] as $itemIndex => $item): ?>
                 <?
                 // Формируем data-filter атрибут с ID типов
                 $filterData = "0";
@@ -70,6 +68,8 @@ if (empty($arResult["ITEMS"])) return;
                     $pictureId = $item["DETAIL_PICTURE"]["ID"];
                 }
                 
+                $imgWidth = 0;
+                $imgHeight = 0;
                 if ($pictureId > 0) {
                     $arImage = CFile::ResizeImageGet(
                         $pictureId,
@@ -78,7 +78,9 @@ if (empty($arResult["ITEMS"])) return;
                         true
                     );
                     $imgSrc = $arImage['src'];
-                    
+                    $imgWidth = (int)$arImage['width'];
+                    $imgHeight = (int)$arImage['height'];
+
                     $arImage2x = CFile::ResizeImageGet(
                         $pictureId,
                         array('width' => 2000, 'height' => 2000),
@@ -87,19 +89,29 @@ if (empty($arResult["ITEMS"])) return;
                     );
                     $imgSrc2x = $arImage2x['src'];
 
-                    
+
                 }
-                
+
                 $itemName = htmlspecialchars($item["NAME"]);
+
+                // Первые карточки видны без скролла сразу после загрузки страницы —
+                // грузим их сразу (без loading="lazy"), первую ещё и с приоритетом,
+                // чтобы не откладывать LCP. Остальные остаются ленивыми.
+                $isAboveFold = $itemIndex < 4;
+                $imgLoadingAttr = $isAboveFold ? '' : ' loading="lazy"';
+                $imgFetchPriorityAttr = $itemIndex === 0 ? ' fetchpriority="high"' : '';
+                $imgDimsAttr = ($imgWidth > 0 && $imgHeight > 0)
+                    ? ' width="' . $imgWidth . '" height="' . $imgHeight . '"'
+                    : '';
                 ?>
-                
-                <a class="project__item grid-item" 
-                   href="<?=$detailUrl?>" 
+
+                <a class="project__item"
+                   href="<?=$detailUrl?>"
                    data-filter="<?=$filterData?>">
                     <picture>
                         <source srcset="<?=$imgSrc?> 1x, <?=$imgSrc2x?> 2x" type="image/webp">
-                        <img src="<?=$imgSrc?>"  loading="lazy"
-                             srcset="<?=$imgSrc?> 1x, <?=$imgSrc2x?> 2x" 
+                        <img src="<?=$imgSrc?>"<?=$imgDimsAttr?><?=$imgLoadingAttr?><?=$imgFetchPriorityAttr?>
+                             srcset="<?=$imgSrc?> 1x, <?=$imgSrc2x?> 2x"
                              alt="<?=$itemName?>"
                              >
                     </picture>

@@ -225,8 +225,11 @@
     </footer>
     <div class="captcha-container-footer"></div>
     <div class="modals"></div>
-    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <?php /* Раньше здесь безусловно грузились imagesloaded/masonry с unpkg.com на
+             КАЖДОЙ странице сайта ради одного списка проектов портфолио — грид
+             портфолио переведён на нативный CSS multi-column (см.
+             local/layout/src/widgets/projects-list), внешние библиотеки и
+             отдельный скрипт для их подключения больше не нужны. */ ?>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=43191fbc-c80b-4bf4-98ef-b14487ccd9d8&amp;lang=ru_RU" defer="defer"></script>
     <script src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction" defer></script>
     <script src="<?=SITE_TEMPLATE_PATH;?>/js/captcha.js"></script>
