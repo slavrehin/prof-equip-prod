@@ -25,6 +25,49 @@
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/other-products.css?v=<?=file_exists($otherProductsCssPath) ? filemtime($otherProductsCssPath) : time()?>" rel="stylesheet">
     <?php if ($_SERVER['HTTP_HOST'] !== 'test3.prof-equip.ru'): ?>
     <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');      ym(44219954, 'init', {webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/44219954" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+    <script>
+    (function() {
+        var YM_COUNTER_ID = 44219954;
+        var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+        var UTM_STORAGE_KEY = 'pe_utm_tags';
+
+        // UTM сохраняем в localStorage при заходе с рекламной ссылки, чтобы они
+        // дожили до отправки формы, даже если конверсия произойдёт на другой
+        // странице позже в этой же сессии браузера.
+        try {
+            var params = new URLSearchParams(window.location.search);
+            var hasUtm = UTM_KEYS.some(function(k) { return !!params.get(k); });
+            if (hasUtm) {
+                var utmData = {};
+                UTM_KEYS.forEach(function(k) { utmData[k] = params.get(k) || ''; });
+                localStorage.setItem(UTM_STORAGE_KEY, JSON.stringify(utmData));
+            }
+        } catch (e) {}
+
+        window.__peGetUtm = function() {
+            try {
+                return JSON.parse(localStorage.getItem(UTM_STORAGE_KEY) || '{}');
+            } catch (e) {
+                return {};
+            }
+        };
+
+        // Client ID Метрики — через ym('getClientID'), а не через куку _ym_uid:
+        // надёжнее (работает и если куки блокируются), см.
+        // https://yandex.ru/support/metrica/ru/objects/get-client-id
+        window.__peClientId = null;
+        var requestClientId = function() {
+            if (typeof ym !== 'function') {
+                setTimeout(requestClientId, 200);
+                return;
+            }
+            ym(YM_COUNTER_ID, 'getClientID', function(clientID) {
+                window.__peClientId = clientID;
+            });
+        };
+        requestClientId();
+    })();
+    </script>
     <?php endif; ?>
     <script async src="//widgets.mango-office.ru/site/26349"></script>
 	<?/*

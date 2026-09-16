@@ -24,7 +24,38 @@
         
         return formData;
     }
-    
+
+    // Client ID Яндекс.Метрики (из ym('getClientID'), см. header.php) и UTM-метки
+    // (сохранённые в localStorage при заходе с рекламы, см. header.php) —
+    // передаём в CRM вместе с лидом через те же скрытые поля форм, что и URL выше.
+    var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+    function addTrackingDataToForm(form, formData) {
+        var clientIdField = form.querySelector('.js-client-id');
+        if (clientIdField) {
+            var cid = window.__peClientId || '';
+            clientIdField.value = cid;
+            var cidName = clientIdField.getAttribute('name');
+            if (cidName) {
+                formData.set(cidName, cid);
+            }
+        }
+
+        var utm = (typeof window.__peGetUtm === 'function') ? window.__peGetUtm() : {};
+        UTM_KEYS.forEach(function(key) {
+            var field = form.querySelector('.js-' + key);
+            if (!field) return;
+            var val = utm[key] || '';
+            field.value = val;
+            var name = field.getAttribute('name');
+            if (name) {
+                formData.set(name, val);
+            }
+        });
+
+        return formData;
+    }
+
     // Функция отправки формы (вызывается после успешной капчи)
     function sendForm(form) {
         //console.log('Sending form after captcha success');
@@ -52,7 +83,10 @@
         
         // Добавляем URL текущей страницы
         formData = addPageUrlToForm(form, formData);
-        
+
+        // Добавляем Client ID Метрики и UTM-метки
+        formData = addTrackingDataToForm(form, formData);
+
         // Добавляем маркер AJAX-запроса
         formData.append('IS_AJAX', 'Y');
         

@@ -32,6 +32,12 @@ $response = new \Bitrix\Main\HttpResponse(\Bitrix\Main\Application::getInstance(
             </div>
 
         <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["calculate_url"];?>" class="js-url" value="<?=$APPLICATION->GetCurDir();?>">
+        <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["calculate_client_id"];?>" class="js-client-id" value="">
+        <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["calculate_utm_source"];?>" class="js-utm_source" value="">
+        <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["calculate_utm_medium"];?>" class="js-utm_medium" value="">
+        <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["calculate_utm_campaign"];?>" class="js-utm_campaign" value="">
+        <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["calculate_utm_content"];?>" class="js-utm_content" value="">
+        <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["calculate_utm_term"];?>" class="js-utm_term" value="">
         <input type="hidden" name="web_form_submit" value="<?=$arResult["arForm"]["BUTTON"];?>">
         <div class="hint-wrapper">
             <p class="hint"><span>* </span>- обязательные поля</p>
