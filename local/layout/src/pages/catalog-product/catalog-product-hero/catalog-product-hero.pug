@@ -72,8 +72,13 @@ mixin catalog-product-hero()
                                     src2x: 'assets/img/catalog-product/1@2x.png',
                                     alt: 'product'
                                 })
-                                .fancy__button 
+                                .fancy__button
                                     +svg('search')
+                        .navigation
+                            button.btn.catalog-product-hero__nav-prev
+                                +svg('arrow-swiper-left')
+                            button.btn.catalog-product-hero__nav-next
+                                +svg('arrow-swiper-right')
                     .catalog-product-hero__swiper-thumbs
                         .swiper-wrapper
                             .image-wrapper.swiper-slide

@@ -98,8 +98,22 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
                             </a>
                         <?php endforeach;?>
                     </div>
+                    <?php if(count($arAllImages) > 1):?>
+                    <div class="navigation">
+                        <button type="button" class="btn catalog-product-hero__nav-prev">
+                            <svg>
+                                <use xlink:href="<?=LAYOUT_DIR?>assets/img/sprite.svg#arrow-swiper-left"></use>
+                            </svg>
+                        </button>
+                        <button type="button" class="btn catalog-product-hero__nav-next">
+                            <svg>
+                                <use xlink:href="<?=LAYOUT_DIR?>assets/img/sprite.svg#arrow-swiper-right"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <?php endif;?>
                 </div>
-                
+
                 <!-- Миниатюры -->
                 <?php if(count($arAllImages) > 1):?>
                 <div class="catalog-product-hero__swiper-thumbs">
