@@ -41,6 +41,12 @@ function sendFormToBitrix24($RESULT_ID, $arFields) {
             'message_field' => 'order_message',
             'product_field' => 'order_product',
             'url_field' => 'order_url',
+            'client_id_field' => 'order_client_id',
+            'utm_source_field' => 'order_utm_source',
+            'utm_medium_field' => 'order_utm_medium',
+            'utm_campaign_field' => 'order_utm_campaign',
+            'utm_content_field' => 'order_utm_content',
+            'utm_term_field' => 'order_utm_term',
             'title' => 'Заявка с формы Запросить стоимость'
         ],
         'SIMPLE_FORM_2' => [
@@ -50,6 +56,12 @@ function sendFormToBitrix24($RESULT_ID, $arFields) {
             'message_field' => 'calculate_company',
             'product_field' => 'calculate_comment',
             'url_field' => 'calculate_url',
+            'client_id_field' => 'calculate_client_id',
+            'utm_source_field' => 'calculate_utm_source',
+            'utm_medium_field' => 'calculate_utm_medium',
+            'utm_campaign_field' => 'calculate_utm_campaign',
+            'utm_content_field' => 'calculate_utm_content',
+            'utm_term_field' => 'calculate_utm_term',
             'title' => 'Заявка с формы Рассчитать проект'
         ],
         'SIMPLE_FORM_3' => [
@@ -59,14 +71,15 @@ function sendFormToBitrix24($RESULT_ID, $arFields) {
             'message_field' => 'consultation_message',
             'product_field' => '',
             'url_field' => 'consultation_url',
+            'client_id_field' => 'consultation_client_id',
+            'utm_source_field' => 'consultation_utm_source',
+            'utm_medium_field' => 'consultation_utm_medium',
+            'utm_campaign_field' => 'consultation_utm_campaign',
+            'utm_content_field' => 'consultation_utm_content',
+            'utm_term_field' => 'consultation_utm_term',
             'title' => 'Заявка с формы Консультация'
         ]
     ];
-
-    // На тестовой копии не отправляем лиды в боевой Bitrix24 — иначе тестовые заявки попадут в реальную CRM
-    if ($_SERVER['HTTP_HOST'] === 'test3.prof-equip.ru') {
-        return;
-    }
 
     // Подключаем модуль веб-форм
     if (!CModule::IncludeModule('form')) {
@@ -130,7 +143,13 @@ function sendFormToBitrix24($RESULT_ID, $arFields) {
     $message = $formData[$mapping['message_field']] ?? '';
     $product = isset($mapping['product_field']) && $mapping['product_field'] ? ($formData[$mapping['product_field']] ?? '') : '';
     $url = $formData[$mapping['url_field']] ?? '';
-    
+    $clientId = $formData[$mapping['client_id_field']] ?? '';
+    $utmSource = $formData[$mapping['utm_source_field']] ?? '';
+    $utmMedium = $formData[$mapping['utm_medium_field']] ?? '';
+    $utmCampaign = $formData[$mapping['utm_campaign_field']] ?? '';
+    $utmContent = $formData[$mapping['utm_content_field']] ?? '';
+    $utmTerm = $formData[$mapping['utm_term_field']] ?? '';
+
     // Если телефон не указан, не отправляем лид
     if (empty($phone)) {
         return;
@@ -168,11 +187,41 @@ function sendFormToBitrix24($RESULT_ID, $arFields) {
     if (!empty($email)) {
         $leadData['fields']['EMAIL'] = [['VALUE' => $email, 'VALUE_TYPE' => 'WORK']];
     }
-    
+
+    // Client ID Метрики и UTM-метки — для сквозной аналитики и матчинга
+    // лида со стадиями в CRM (используются те же поля, что в стандартной
+    // интеграции CRM<->Метрика: UF_CRM_YA_CID/UF_CRM_YA_COUNTER_ID + нативные UTM_*)
+    if (!empty($clientId)) {
+        $leadData['fields']['UF_CRM_YA_CID'] = $clientId;
+        $leadData['fields']['UF_CRM_YA_COUNTER_ID'] = (string)YANDEX_METRIKA_COUNTER_ID;
+    }
+    if (!empty($utmSource)) {
+        $leadData['fields']['UTM_SOURCE'] = $utmSource;
+    }
+    if (!empty($utmMedium)) {
+        $leadData['fields']['UTM_MEDIUM'] = $utmMedium;
+    }
+    if (!empty($utmCampaign)) {
+        $leadData['fields']['UTM_CAMPAIGN'] = $utmCampaign;
+    }
+    if (!empty($utmContent)) {
+        $leadData['fields']['UTM_CONTENT'] = $utmContent;
+    }
+    if (!empty($utmTerm)) {
+        $leadData['fields']['UTM_TERM'] = $utmTerm;
+    }
+
+    // На тестовой копии не отправляем лиды в боевой Bitrix24 — иначе тестовые заявки
+    // попадут в реальную CRM. Собранный payload логируем, чтобы проверять маппинг полей.
+    if ($_SERVER['HTTP_HOST'] === 'test3.prof-equip.ru') {
+        error_log('[test3] sendFormToBitrix24 (не отправлено): ' . json_encode($leadData, JSON_UNESCAPED_UNICODE));
+        return;
+    }
+
     // Отправляем запрос в Битрикс24
     $queryUrl = $webhookUrl . 'crm.lead.add.json';
     $queryData = http_build_query($leadData);
-    
+
     $curl = curl_init();
     curl_setopt_array($curl, [
         CURLOPT_SSL_VERIFYPEER => 0,

@@ -39,6 +39,12 @@ $response = new \Bitrix\Main\HttpResponse(\Bitrix\Main\Application::getInstance(
             <p class="policy">Нажимая кнопку «<?=htmlspecialcharsbx($ctaLabel);?>» я даю свое согласие на использование и обработку моих персональных данных в соответствии с ч. 1 ст. 9 ФЗ от 27.07.2006 г. № 152 <a href="/politika-konfidentsialnosti/" target="_blank">«О персональных данных»</a></p>
             <input type="hidden" name="web_form_submit" value="<?=$arResult["arForm"]["BUTTON"];?>">
                     <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["order_url"];?>" class="js-url" value="<?=$APPLICATION->GetCurDir();?>">
+                    <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["order_client_id"];?>" class="js-client-id" value="">
+                    <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["order_utm_source"];?>" class="js-utm_source" value="">
+                    <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["order_utm_medium"];?>" class="js-utm_medium" value="">
+                    <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["order_utm_campaign"];?>" class="js-utm_campaign" value="">
+                    <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["order_utm_content"];?>" class="js-utm_content" value="">
+                    <input type="hidden" name="<?=$arResult["QUESTION_NAME"]["order_utm_term"];?>" class="js-utm_term" value="">
             <button class="btn submit__btn" type="submit"><?=htmlspecialcharsbx($ctaLabel);?></button>
         </form>
     </div>
