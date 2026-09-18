@@ -26,6 +26,38 @@ function profequip_FormatPriceRub(float $price): string
 }
 
 /**
+ * Шильдик "В наличии" на карточке товара — свойство STOCK_BADGE (список
+ * с одним значением-чекбоксом, см. local/migrations/2026-09-18-stock-badge-
+ * property.php), включается вручную в админке на конкретном товаре.
+ *
+ * Читается напрямую по ID товара, а не через PROPERTY_CODE вызывающего
+ * компонента: catalog.item/card используется из нескольких разных мест
+ * (листинг категории, блок "Другие товары" и т.д.), у части из них
+ * $item['PROPERTIES'] это свойство не содержит — единая точка чтения
+ * работает везде одинаково. Статический кэш — карточка одного товара
+ * в теории может отрендериться дважды за запрос (листинг + "Другие товары"
+ * на детальной странице другого товара той же категории).
+ */
+function profequip_HasStockBadge(int $productId): bool
+{
+    static $cache = [];
+
+    if (!array_key_exists($productId, $cache)) {
+        $iblockId = (int) GetIBlockIDByCode('catalog');
+        $property = $iblockId ? \CIBlockElement::GetProperty(
+            $iblockId,
+            $productId,
+            [],
+            ['CODE' => 'STOCK_BADGE']
+        )->Fetch() : false;
+
+        $cache[$productId] = !empty($property['VALUE']);
+    }
+
+    return $cache[$productId];
+}
+
+/**
  * Наценка сверх курса ЦБ РФ при конвертации иностранной валюты в рубли для
  * витрины (курс поставщика/риски конвертации) — 5%. Заложена прямо в курс,
  * который хранится в модуле currency (b_catalog_currency.AMOUNT), поэтому

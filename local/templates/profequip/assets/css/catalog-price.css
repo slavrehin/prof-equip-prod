@@ -34,6 +34,35 @@
     color: #6b6b6b;
 }
 
+/* ---- Шильдик "В наличии" на карточке (свойство STOCK_BADGE, см.
+ * profequip_HasStockBadge() в function.php и
+ * local/migrations/2026-09-18-stock-badge-property.php) ---- */
+
+/* main.css уже ставит position:relative на .catalog-card .image-wrapper —
+ * шильдик просто позиционируется внутри, без переопределений. */
+.catalog-card__badge {
+    position: absolute;
+    z-index: 2;
+    left: 0.75rem;
+    top: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4375rem;
+    padding: 0.4375rem 0.625rem 0.4375rem 0.5rem;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: inset 0 0 0 1px #b7e2ea;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1;
+    color: #1d214e;
+}
+
+.catalog-card__badge svg {
+    flex-shrink: 0;
+}
+
 /* ---- Листинг каталога: цена над кнопкой, кнопки прижаты к одной линии ---- */
 
 /* main.css задаёт правила с более высокой специфичностью (2-3 класса в
