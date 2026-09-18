@@ -15,6 +15,7 @@ $productId = $item['ID'];
 $productLink = $item['DETAIL_PAGE_URL'];
 
 $price = profequip_GetCatalogItemPrice($item);
+$hasStockBadge = profequip_HasStockBadge((int)$productId);
 
 $mainImageId = null;
 if (!empty($item['PREVIEW_PICTURE'])) {
@@ -45,6 +46,12 @@ $resizedImageX2 = CFile::ResizeImageGet(
 
 <a class="catalog-card" href="<?= $productLink ?>" id="<?= $arResult['AREA_ID'] ?>" >
     <div class="image-wrapper">
+        <?php if ($hasStockBadge): ?>
+        <span class="catalog-card__badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#0E86A3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>В наличии</span>
+        </span>
+        <?php endif; ?>
         <picture>
             <source srcset="<?=$resizedImage;?>, <?=$resizedImageX2;?> 2x" type="image/webp">
             <img src="<?=$resizedImage;?>" srcset="<?=$resizedImage;?>, <?=$resizedImageX2;?> 2x" alt="catalog product">
