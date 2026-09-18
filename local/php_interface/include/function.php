@@ -692,3 +692,55 @@ function processImageGroup($images) {
     // Одно изображение
     return $wrapped[0];
 }
+
+/**
+ * Выводит попап-баннер "Складской запас по спецценам" из HL-блока
+ * SaleBanner (создаётся миграцией
+ * local/migrations/2026-09-18-sale-banner-hlblock.php), администрируется
+ * в Контент → Highload-блоки → SaleBanner. Ничего не выводит, если баннер
+ * выключен (UF_ACTIVE=0) или не задана картинка — так что вызов безопасен
+ * даже до применения миграции. Разметка/классы/JS-обработчик (задержка
+ * показа, закрытие, sessionStorage) не менялись — это тот же
+ * local/layout/src/widgets/sale-banner, собранный в main.js/main.css.
+ */
+function profequip_RenderSaleBanner(): void
+{
+    if (!\Bitrix\Main\Loader::includeModule('highloadblock')) {
+        return;
+    }
+
+    $hlBlockRow = \Bitrix\Highloadblock\HighloadBlockTable::getList([
+        'filter' => ['NAME' => 'SaleBanner'],
+    ])->fetch();
+    if (!$hlBlockRow) {
+        return;
+    }
+
+    $dataClass = \Bitrix\Highloadblock\HighloadBlockTable::compileEntity($hlBlockRow)->getDataClass();
+    $row = $dataClass::getList([
+        'select' => ['UF_ACTIVE', 'UF_IMAGE', 'UF_LINK', 'UF_ALT'],
+        'limit' => 1,
+    ])->fetch();
+
+    if (!$row || (int)$row['UF_ACTIVE'] !== 1 || !$row['UF_IMAGE']) {
+        return;
+    }
+
+    $imagePath = \CFile::GetPath((int)$row['UF_IMAGE']);
+    if (!$imagePath) {
+        return;
+    }
+
+    $link = htmlspecialcharsbx($row['UF_LINK'] ?: '#');
+    $alt = htmlspecialcharsbx($row['UF_ALT'] ?: '');
+    ?>
+    <div class="sale-banner">
+        <div class="sale-banner__content"><button class="btn sale-banner__close" type="button" aria-label="Закрыть">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.90159 8.00004L15.6062 2.29544C16.1313 1.77033 16.1313 0.918951 15.6062 0.393911C15.0811 -0.131204 14.2298 -0.131204 13.7047 0.393911L7.99998 6.09858L2.29531 0.393836C1.7702 -0.131279 0.918895 -0.131279 0.39378 0.393836C-0.13126 0.918951 -0.13126 1.77033 0.39378 2.29537L6.09845 7.99996L0.39378 13.7046C-0.13126 14.2297 -0.13126 15.0811 0.39378 15.6062C0.918895 16.1313 1.7702 16.1313 2.29531 15.6062L7.99998 9.90149L13.7047 15.6062C14.2297 16.1313 15.0811 16.1313 15.6062 15.6062C16.1313 15.081 16.1313 14.2297 15.6062 13.7046L9.90159 8.00004Z" fill="white"></path>
+                </svg>
+        </button>
+                <a class="sale-banner__link" href="<?= $link ?>" target="_blank" rel="noopener"><img src="<?= $imagePath ?>" alt="<?= $alt ?>"></a></div>
+    </div>
+    <?php
+}
