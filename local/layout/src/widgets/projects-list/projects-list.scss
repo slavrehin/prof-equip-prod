@@ -30,6 +30,19 @@
 				font-style: normal;
 				font-weight: 500;
 				line-height: rem(18);
+				// Класс .active раньше ничего не стилизовал (висел в разметке на
+				// "Показать все", но JS его не переключал — мёртвый класс). Теперь
+				// фильтр переключает категории через AJAX, и какая кнопка выбрана —
+				// нужно реально показывать.
+				&.active {
+					font-weight: 700;
+					text-decoration: underline;
+					text-underline-offset: rem(4);
+				}
+				&:disabled {
+					opacity: 0.5;
+					cursor: not-allowed;
+				}
 			}
 		}
 		// Раскладка на нативном CSS multi-column вместо Masonry.js: карточки —
@@ -99,6 +112,26 @@
 				z-index: 3;
 				opacity: 0;
 				transition: var(--trs-300);
+			}
+			.projects-list__load-more {
+				display: block;
+				margin: rem(40) auto 0;
+				padding: rem(14) rem(32);
+				border: 1px solid #1b2154;
+				border-radius: 999px;
+				color: #1b2154;
+				font-family: 'Roboto', sans-serif;
+				font-size: rem(14);
+				font-weight: 500;
+				transition: var(--trs-300);
+				&:hover {
+					background: #1b2154;
+					color: var(--white-color);
+				}
+				&:disabled {
+					opacity: 0.5;
+					cursor: not-allowed;
+				}
 			}
 		}
 	}

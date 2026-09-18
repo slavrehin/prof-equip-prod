@@ -744,3 +744,200 @@ function profequip_RenderSaleBanner(): void
     </div>
     <?php
 }
+
+/**
+ * Конвертирует уже отрезайженный PNG/JPG из resize_cache в настоящий WebP
+ * (через GD, quality=82) и кэширует рядом, в отдельной upload/webp_cache/ —
+ * НЕ в самой resize_cache: та на test3 смонтирована read-only из прода,
+ * писать в неё нельзя (см. /var/www/prof-equip-test/docker-compose.yml).
+ *
+ * Источник обязан быть уже отрезайженным файлом из resize_cache. Если
+ * CFile::ResizeImageGet не смог создать нужный размер (например, нет прав на
+ * запись — так и есть на test3) и откатился на путь оригинала, $sourceRelUrl
+ * будет указывать прямо в /upload/iblock/. Писать .webp рядом с оригиналом в
+ * чужую папку — не только неправильно по месту хранения, но и гарантированно
+ * упадёт там же, где не пишет resize_cache, поэтому такие пути отсекаются
+ * сразу, без попытки декодирования.
+ */
+function profequip_GetWebpVariant(string $sourceRelUrl): ?string
+{
+    if (strpos($sourceRelUrl, '/resize_cache/') === false) {
+        return null;
+    }
+
+    $sourceAbsPath = $_SERVER['DOCUMENT_ROOT'] . $sourceRelUrl;
+    if (!is_file($sourceAbsPath)) {
+        return null;
+    }
+
+    $webpRelUrl = preg_replace('#/resize_cache/#', '/webp_cache/', $sourceRelUrl, 1);
+    $webpRelUrl = preg_replace('/\.(png|jpe?g)$/i', '.webp', $webpRelUrl);
+    if ($webpRelUrl === null || $webpRelUrl === $sourceRelUrl) {
+        return null;
+    }
+
+    $webpAbsPath = $_SERVER['DOCUMENT_ROOT'] . $webpRelUrl;
+
+    if (is_file($webpAbsPath)) {
+        return $webpRelUrl;
+    }
+
+    $webpDir = dirname($webpAbsPath);
+    if (!is_dir($webpDir) && !mkdir($webpDir, 0755, true) && !is_dir($webpDir)) {
+        return null;
+    }
+
+    $imageInfo = @getimagesize($sourceAbsPath);
+    if (!$imageInfo) {
+        return null;
+    }
+
+    switch ($imageInfo[2]) {
+        case IMAGETYPE_PNG:
+            $im = @imagecreatefrompng($sourceAbsPath);
+            break;
+        case IMAGETYPE_JPEG:
+            $im = @imagecreatefromjpeg($sourceAbsPath);
+            break;
+        default:
+            return null;
+    }
+
+    if (!$im) {
+        return null;
+    }
+
+    imagepalettetotruecolor($im);
+    imagealphablending($im, true);
+    imagesavealpha($im, true);
+
+    $ok = @imagewebp($im, $webpAbsPath, 82);
+    imagedestroy($im);
+
+    return $ok ? $webpRelUrl : null;
+}
+
+/**
+ * Рендерит одну карточку "Проекты" (/portfolio/) — общий код для первой,
+ * серверной, порции (news.list/projects/template.php) и для догрузки по
+ * "Показать ещё" (local/ajax/portfolio/load.php), чтобы разметка карточек
+ * не расходилась между двумя местами.
+ *
+ * $card: ['NAME' => string, 'DETAIL_PAGE_URL' => string, 'PICTURE_ID' => int]
+ * $itemIndex: позиция карточки на СТРАНИЦЕ (не в общем списке) — влияет на
+ *   loading/fetchpriority первых карточек первой порции.
+ * $forceLazy: карточки, догруженные по клику, всегда вне первого экрана —
+ *   грузим их лениво независимо от $itemIndex.
+ */
+function profequip_RenderProjectCard(array $card, int $itemIndex, bool $forceLazy = false): string
+{
+    $pictureId = (int)($card['PICTURE_ID'] ?? 0);
+    $itemName = htmlspecialchars($card['NAME'] ?? '');
+    $detailUrl = htmlspecialchars($card['DETAIL_PAGE_URL'] ?? '');
+
+    if ($pictureId <= 0) {
+        return '';
+    }
+
+    // Те же два размера, что были и раньше (1000/2000 — уже прогреты в
+    // resize_cache на большинстве карточек). Ширины вместо "1x"/"2x" +
+    // sizes ниже — retina-телефон с маленьким экраном не тянет 2000px
+    // картинку только из-за высокого DPR.
+    $srcsetSizes = [
+        ['width' => 1000, 'height' => 1000],
+        ['width' => 2000, 'height' => 2000],
+    ];
+
+    $imgWidth = 0;
+    $imgHeight = 0;
+    $imgSrc = '';
+    $rasterSrcsetParts = [];
+    $webpSrcsetParts = [];
+
+    foreach ($srcsetSizes as $i => $size) {
+        $arImage = CFile::ResizeImageGet($pictureId, $size, BX_RESIZE_IMAGE_PROPORTIONAL, true);
+        if (empty($arImage['src'])) {
+            continue;
+        }
+
+        $realWidth = (int)$arImage['width'];
+        $rasterSrcsetParts[] = $arImage['src'] . ' ' . $realWidth . 'w';
+
+        // Не все размеры обязаны сгенерироваться webp-версией — берём в
+        // <source> только то, что реально получилось, а не выбрасываем весь
+        // webp целиком из-за одного не собравшегося размера.
+        $webpUrl = profequip_GetWebpVariant($arImage['src']);
+        if ($webpUrl) {
+            $webpSrcsetParts[] = $webpUrl . ' ' . $realWidth . 'w';
+        }
+
+        if ($i === 0) {
+            $imgSrc = $arImage['src'];
+            $imgWidth = $realWidth;
+            $imgHeight = (int)$arImage['height'];
+        }
+    }
+
+    if ($imgSrc === '') {
+        return '';
+    }
+
+    $rasterSrcset = htmlspecialchars(implode(', ', $rasterSrcsetParts));
+    $webpSrcset = htmlspecialchars(implode(', ', $webpSrcsetParts));
+    $sizesAttr = ' sizes="(max-width: 576px) 100vw, 50vw"';
+
+    // Первые карточки первой (серверной) порции видны без скролла сразу —
+    // грузим их сразу (без loading="lazy"), первую ещё и с приоритетом,
+    // чтобы не откладывать LCP. Всё остальное, включая любые догруженные
+    // по клику карточки, остаётся ленивым.
+    $isAboveFold = !$forceLazy && $itemIndex < 4;
+    $loadingAttr = $isAboveFold ? '' : ' loading="lazy"';
+    $fetchPriorityAttr = ($isAboveFold && $itemIndex === 0) ? ' fetchpriority="high"' : '';
+    $dimsAttr = ($imgWidth > 0 && $imgHeight > 0) ? ' width="' . $imgWidth . '" height="' . $imgHeight . '"' : '';
+
+    $webpSourceHtml = '';
+    if ($webpSrcset !== '') {
+        $webpSourceHtml = '<source srcset="' . $webpSrcset . '"' . $sizesAttr . ' type="image/webp">';
+    }
+
+    return '<a class="project__item" href="' . $detailUrl . '">'
+        . '<picture>'
+        . $webpSourceHtml
+        . '<img src="' . htmlspecialchars($imgSrc) . '"' . $dimsAttr . $loadingAttr . $fetchPriorityAttr
+        . ' srcset="' . $rasterSrcset . '"' . $sizesAttr
+        . ' alt="' . $itemName . '">'
+        . '</picture>'
+        . '<p class="project__item__title">' . $itemName . '</p>'
+        . '</a>';
+}
+
+/**
+ * Список категорий для кнопок-фильтров над "Проекты" — значения свойства
+ * TYPE инфоблока (список, MULTIPLE=Y), напрямую из справочника свойства, а
+ * не выборкой по уже загруженным элементам: так кнопки не зависят от того,
+ * сколько карточек сейчас реально отрендерено на странице (см.
+ * PROFEQUIP_PORTFOLIO_BATCH_SIZE), и id сразу пригоден для фильтра в
+ * local/ajax/portfolio/load.php (CIBlockElement::GetList по PROPERTY_TYPE
+ * фильтрует по ID значения, не по тексту).
+ *
+ * @return array<int, array{id: int, name: string}>
+ */
+function profequip_GetProjectsTypeFilters(int $iblockId): array
+{
+    $propertyId = null;
+    $rsProperty = CIBlockProperty::GetList([], ['IBLOCK_ID' => $iblockId, 'CODE' => 'TYPE']);
+    if ($property = $rsProperty->Fetch()) {
+        $propertyId = (int)$property['ID'];
+    }
+    if (!$propertyId) {
+        return [];
+    }
+
+    $filters = [];
+    $rsEnum = CIBlockPropertyEnum::GetList(['SORT' => 'ASC'], ['PROPERTY_ID' => $propertyId]);
+    while ($enum = $rsEnum->Fetch()) {
+        $filters[] = ['id' => (int)$enum['ID'], 'name' => $enum['VALUE']];
+    }
+
+    return $filters;
+}
