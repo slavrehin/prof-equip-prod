@@ -4,6 +4,79 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
 
 if (empty($arResult["ITEMS"])) return;
+
+// Раньше <picture><source type="image/webp"> указывал на те же .png/.jpg-файлы,
+// что и обычный <img> — реального WebP не было (браузер декодировал PNG под
+// видом webp по сигнатуре файла, экономии в весе не было вообще). Здесь WebP
+// генерируется по-настоящему из уже отрезайженного PNG/JPG и кэшируется рядом
+// с resize_cache, в отдельной upload/webp_cache/ (resize_cache на test3
+// смонтирован read-only из прода, писать в него нельзя).
+if (!function_exists('profequipGetWebpVariant')) {
+    function profequipGetWebpVariant(string $sourceRelUrl): ?string
+    {
+        // Источник обязан быть уже отрезайженным файлом из resize_cache — если
+        // CFile::ResizeImageGet не смог создать нужный размер (например, у
+        // /upload/iblock/ нет прав на запись — так и есть на test3, где эта
+        // папка смонтирована read-only из прода) и откатился на оригинал,
+        // $sourceRelUrl будет указывать прямо в /upload/iblock/. Писать .webp
+        // рядом с оригиналом в чужую папку — не только неправильно по месту
+        // хранения, но и гарантированно упадёт там же, где не пишет resize_cache.
+        if (strpos($sourceRelUrl, '/resize_cache/') === false) {
+            return null;
+        }
+
+        $sourceAbsPath = $_SERVER['DOCUMENT_ROOT'] . $sourceRelUrl;
+        if (!is_file($sourceAbsPath)) {
+            return null;
+        }
+
+        $webpRelUrl = preg_replace('#/resize_cache/#', '/webp_cache/', $sourceRelUrl, 1);
+        $webpRelUrl = preg_replace('/\.(png|jpe?g)$/i', '.webp', $webpRelUrl);
+        if ($webpRelUrl === null || $webpRelUrl === $sourceRelUrl) {
+            return null;
+        }
+
+        $webpAbsPath = $_SERVER['DOCUMENT_ROOT'] . $webpRelUrl;
+
+        if (is_file($webpAbsPath)) {
+            return $webpRelUrl;
+        }
+
+        $webpDir = dirname($webpAbsPath);
+        if (!is_dir($webpDir) && !mkdir($webpDir, 0755, true) && !is_dir($webpDir)) {
+            return null;
+        }
+
+        $imageInfo = @getimagesize($sourceAbsPath);
+        if (!$imageInfo) {
+            return null;
+        }
+
+        switch ($imageInfo[2]) {
+            case IMAGETYPE_PNG:
+                $im = @imagecreatefrompng($sourceAbsPath);
+                break;
+            case IMAGETYPE_JPEG:
+                $im = @imagecreatefromjpeg($sourceAbsPath);
+                break;
+            default:
+                return null;
+        }
+
+        if (!$im) {
+            return null;
+        }
+
+        imagepalettetotruecolor($im);
+        imagealphablending($im, true);
+        imagesavealpha($im, true);
+
+        $ok = @imagewebp($im, $webpAbsPath, 82);
+        imagedestroy($im);
+
+        return $ok ? $webpRelUrl : null;
+    }
+}
 ?>
   
         <?
@@ -68,29 +141,62 @@ if (empty($arResult["ITEMS"])) return;
                     $pictureId = $item["DETAIL_PICTURE"]["ID"];
                 }
                 
+                // Те же два размера, что и раньше (1000/2000 — уже прогреты в
+                // resize_cache, новых размеров не добавляем: на 135 карточках
+                // холодная генерация новых пиксельных вариантов дала бы заметную
+                // просадку первого запроса после очистки кэша). Раньше это были
+                // "1x"/"2x"-дескрипторы — теперь ширины + sizes ниже, чтобы
+                // retina-телефон с маленьким экраном не тянул 2000px картинку
+                // только из-за высокого DPR.
+                $srcsetSizes = [
+                    array('width' => 1000, 'height' => 1000),
+                    array('width' => 2000, 'height' => 2000),
+                ];
+
                 $imgWidth = 0;
                 $imgHeight = 0;
+                $imgSrc = '';
+                $rasterSrcsetParts = [];
+                $webpSrcsetParts = [];
+
                 if ($pictureId > 0) {
-                    $arImage = CFile::ResizeImageGet(
-                        $pictureId,
-                        array('width' => 1000, 'height' => 1000),
-                        BX_RESIZE_IMAGE_PROPORTIONAL,
-                        true
-                    );
-                    $imgSrc = $arImage['src'];
-                    $imgWidth = (int)$arImage['width'];
-                    $imgHeight = (int)$arImage['height'];
+                    foreach ($srcsetSizes as $i => $size) {
+                        $arImage = CFile::ResizeImageGet(
+                            $pictureId,
+                            $size,
+                            BX_RESIZE_IMAGE_PROPORTIONAL,
+                            true
+                        );
+                        if (empty($arImage['src'])) {
+                            continue;
+                        }
 
-                    $arImage2x = CFile::ResizeImageGet(
-                        $pictureId,
-                        array('width' => 2000, 'height' => 2000),
-                        BX_RESIZE_IMAGE_PROPORTIONAL,
-                        true
-                    );
-                    $imgSrc2x = $arImage2x['src'];
+                        $realWidth = (int)$arImage['width'];
+                        $rasterSrcsetParts[] = $arImage['src'] . ' ' . $realWidth . 'w';
 
+                        // Не все размеры обязаны сгенерироваться webp-версией (см.
+                        // profequipGetWebpVariant) — берём в <source> только то, что
+                        // реально получилось, а не выбрасываем весь webp целиком
+                        // из-за одного не собравшегося размера.
+                        $webpUrl = profequipGetWebpVariant($arImage['src']);
+                        if ($webpUrl) {
+                            $webpSrcsetParts[] = $webpUrl . ' ' . $realWidth . 'w';
+                        }
 
+                        // Первый (меньший) размер — как src для браузеров без
+                        // поддержки srcset и как база для width/height (резервирует
+                        // место под фото).
+                        if ($i === 0) {
+                            $imgSrc = $arImage['src'];
+                            $imgWidth = $realWidth;
+                            $imgHeight = (int)$arImage['height'];
+                        }
+                    }
                 }
+
+                $rasterSrcset = implode(', ', $rasterSrcsetParts);
+                $webpSrcset = implode(', ', $webpSrcsetParts);
+                $imgSizesAttr = ' sizes="(max-width: 576px) 100vw, 50vw"';
 
                 $itemName = htmlspecialchars($item["NAME"]);
 
@@ -109,9 +215,11 @@ if (empty($arResult["ITEMS"])) return;
                    href="<?=$detailUrl?>"
                    data-filter="<?=$filterData?>">
                     <picture>
-                        <source srcset="<?=$imgSrc?> 1x, <?=$imgSrc2x?> 2x" type="image/webp">
+                        <? if ($webpSrcset !== ''): ?>
+                        <source srcset="<?=$webpSrcset?>"<?=$imgSizesAttr?> type="image/webp">
+                        <? endif; ?>
                         <img src="<?=$imgSrc?>"<?=$imgDimsAttr?><?=$imgLoadingAttr?><?=$imgFetchPriorityAttr?>
-                             srcset="<?=$imgSrc?> 1x, <?=$imgSrc2x?> 2x"
+                             srcset="<?=$rasterSrcset?>"<?=$imgSizesAttr?>
                              alt="<?=$itemName?>"
                              >
                     </picture>
