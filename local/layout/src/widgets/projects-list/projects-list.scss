@@ -5,6 +5,13 @@
 	@media (max-width: $laptop) {
 		margin-top: rem(145);
 	}
+	// Отступ до футера: раньше последняя карточка/кнопка "Показать ещё"
+	// упиралась в футер вплотную (кнопка скрывается, когда всё подгружено,
+	// поэтому отступ — у секции, а не у кнопки).
+	margin-bottom: rem(80);
+	@media (max-width: $mob) {
+		margin-bottom: rem(48);
+	}
 	.projects-list__inner {
 		.title-block__title {
 			@media (max-width: $tab-sm) {
