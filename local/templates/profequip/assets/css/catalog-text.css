@@ -1,0 +1,73 @@
+/* Оформление SEO-текста категории (.catalog__text — DESCRIPTION раздела каталога,
+ * см. components/bitrix/catalog/catalog/section.php). Отдельный файл, не часть
+ * сборки local/layout (webpack/scss), как и catalog-price.css.
+ * В сборке для .catalog__text заданы только p и ul: заголовки h2/h3 и strong
+ * визуально не отличались от абзацев, ссылки внутри текста были неотличимы от
+ * обычного текста. */
+
+.catalog__text h2,
+.catalog__text h3 {
+    font-family: "Montserrat", sans-serif;
+    color: #1d214e;
+    font-style: normal;
+    line-height: 1.3;
+}
+
+.catalog__text h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2rem 0 0.75rem;
+}
+
+.catalog__text h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.catalog__text > :first-child {
+    margin-top: 0;
+}
+
+.catalog__text strong,
+.catalog__text b {
+    font-weight: 700;
+}
+
+.catalog__text ol {
+    margin-left: 1.25rem;
+    margin-bottom: 0.625rem;
+    list-style: decimal;
+}
+
+.catalog__text ol li {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.catalog__text ul li + li,
+.catalog__text ol li + li {
+    margin-top: 0.25rem;
+}
+
+.catalog__text a {
+    color: var(--color-secondary, #2563a8);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.catalog__text a:hover {
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    .catalog__text h2 {
+        font-size: 1.25rem;
+    }
+
+    .catalog__text h3 {
+        font-size: 1.125rem;
+    }
+}

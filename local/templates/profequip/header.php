@@ -22,6 +22,8 @@
     <link href="<?=LAYOUT_DIR?>assets/css/main.css?v=<?=file_exists($mainCssPath) ? filemtime($mainCssPath) : time()?>" rel="stylesheet">
     <?php $catalogPriceCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/catalog-price.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-price.css?v=<?=file_exists($catalogPriceCssPath) ? filemtime($catalogPriceCssPath) : time()?>" rel="stylesheet">
+    <?php $catalogTextCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/catalog-text.css'; ?>
+    <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-text.css?v=<?=file_exists($catalogTextCssPath) ? filemtime($catalogTextCssPath) : time()?>" rel="stylesheet">
     <?php $otherProductsCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/other-products.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/other-products.css?v=<?=file_exists($otherProductsCssPath) ? filemtime($otherProductsCssPath) : time()?>" rel="stylesheet">
     <?php if ($_SERVER['HTTP_HOST'] !== 'test3.prof-equip.ru'): ?>

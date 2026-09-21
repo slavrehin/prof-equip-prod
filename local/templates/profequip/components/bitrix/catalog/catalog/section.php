@@ -82,9 +82,17 @@ if ($sectionCode !== '') {
         // вызов ниже, у него SET_TITLE/SET_BROWSER_TITLE=Y), иначе будет затёрто.
         // Гарантирует правильные title/H1 даже когда сам bitrix:catalog(.section)
         // не смог распознать раздел (см. комментарий выше про soft-404).
+        // <title> берём из SEO-шаблона раздела (админка → раздел → SEO, с учётом
+        // наследования от родителя), NAME — только запасной вариант. Раньше
+        // <title> принудительно был равен NAME, и заданные в админке SEO-заголовки
+        // игнорировались.
+        $sectionIProps = new \Bitrix\Iblock\InheritedProperty\SectionValues((int)$iblockId, (int)$arSection["ID"]);
+        $sectionIPropValues = $sectionIProps->getValues();
+        $sectionMetaTitle = trim((string)($sectionIPropValues["SECTION_META_TITLE"] ?? ''));
+
         $currentSectionTitleOverride = [
             "H1" => $arSection["NAME"],
-            "TITLE" => $arSection["NAME"],
+            "TITLE" => $sectionMetaTitle !== '' ? $sectionMetaTitle : $arSection["NAME"],
         ];
 
         // Раздел существует и достижим, но пока без единого товара (ни прямо
