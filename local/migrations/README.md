@@ -74,6 +74,11 @@ if (!$exists) {
 - В PHP 8.4 `CIBlockProperty/Element/Section::Add/Update` только через
   `new ClassName()`, не статически.
 - `CIBlockElement::GetProperty()` не принимает массив ID — вызывать в цикле.
+- Файл миграции подключается через `require` из `run.php` — переменные верхнего
+  уровня попадают в область видимости раннера. Не называйте их `$name`, `$file`,
+  `$DB`, `$applied`, `$pending`, иначе раннер запишет в `b_profequip_migrations`
+  чужое имя (случилось с `$name` в миграции лендинга). Безопасно — обернуть
+  тело в `call_user_func(static function () { ... });`.
 - SEO-значения при прямой записи в `b_iblock_iproperty` не подхватываются
   без сброса кэша страницы после миграции.
 

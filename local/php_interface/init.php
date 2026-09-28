@@ -9,6 +9,8 @@ Project includes
 */
 require_once(__DIR__ . '/include/constants.php');
 require_once(__DIR__ . '/include/function.php');
+require_once(__DIR__ . '/include/landing.php'); // лендинги направлений (компонент custom:direction.landing)
+require_once(__DIR__ . '/include/landing_editor.php'); // редактор содержимого лендинга в карточке направления
 // require_once(__DIR__ . '/events/events.php');
 //require_once __DIR__ . '/include/custom_fields.php';
 require_once(__DIR__ . '/include/smartcaptcha.php');
