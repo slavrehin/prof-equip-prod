@@ -82,13 +82,19 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
                         endif;
                         ?>
                         
+                        <?php
+                        // alt: описание файла (задаётся при импорте, напр. «<товар> — фото 2»), иначе название товара
+                        foreach($arAllImages as $i => $arImage):
+                            $arAllImages[$i]['IMG_ALT'] = htmlspecialcharsbx(trim((string)($arImage['DESCRIPTION'] ?? '')) ?: $arResult['~NAME']);
+                        endforeach;
+                        ?>
                         <?php foreach($arAllImages as $arImage):?>
-                            <a class="image-wrapper zoom-wrapper swiper-slide" 
-                            href="<?=$arImage['SRC']?>" 
+                            <a class="image-wrapper zoom-wrapper swiper-slide"
+                            href="<?=$arImage['SRC']?>"
                             data-fancybox="exterior">
                                 <picture>
                                     <source srcset="<?=$arImage['SRC']?>" type="image/webp">
-                                    <img src="<?=$arImage['SRC']?>" alt="<?=$arResult['NAME']?>">
+                                    <img src="<?=$arImage['SRC']?>" alt="<?=$arImage['IMG_ALT']?>">
                                 </picture>
                                 <div class="fancy__button">
                                     <svg>
@@ -130,7 +136,7 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
                             <div class="image-wrapper swiper-slide">
                                 <picture>
                                     <source srcset="<?=$arThumb['src']?>" type="image/webp">
-                                    <img src="<?=$arThumb['src']?>" alt="<?=$arResult['NAME']?>">
+                                    <img src="<?=$arThumb['src']?>" alt="<?=$arImage['IMG_ALT']?>">
                                 </picture>
                             </div>
                         <?php endforeach;?>
@@ -234,7 +240,9 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
                             $arProp['CODE'] != 'MORE_PHOTO' &&
                             $arProp['PROPERTY_TYPE'] != 'F' && // Пропускаем файлы
                             $arProp['PROPERTY_TYPE'] != 'E' && // Пропускаем привязку к элементам
-                            $arProp['CODE'] != 'NALICHIE' // Пропускаем статус наличия, он уже выведен
+                            $arProp['CODE'] != 'NALICHIE' && // Пропускаем статус наличия, он уже выведен
+                            $arProp['CODE'] != 'SPECS' && // Свободные пары «ключ: значение» — выводятся ниже, без ссылок на фильтр
+                            strpos((string)$arProp['CODE'], 'VENT_') !== 0 // Фасеты фильтра вентиляции — дублируют SPECS
                         ):?>
                             <tr>
                                 <th><?=htmlspecialcharsbx($arProp['NAME'])?>:</th>
@@ -262,6 +270,27 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
                             </tr>
                         <?endif;?>
                     <?endforeach;?>
+                    <?php
+                    // SPECS — множественное строковое свойство с описанием: DESCRIPTION = название
+                    // характеристики, VALUE = значение, порядок = порядок в источнике. Строка без
+                    // названия (напр. «Возможна интеграция системы M.A.R.V.E.L.») — на всю ширину.
+                    $specs = $arResult['PROPERTIES']['SPECS'] ?? null;
+                    if (!empty($specs['~VALUE']) && is_array($specs['~VALUE'])):
+                        foreach ($specs['~VALUE'] as $i => $specValue):
+                            $specName = trim((string)($specs['~DESCRIPTION'][$i] ?? ''));
+                    ?>
+                        <tr>
+                            <?if($specName !== ''):?>
+                                <th><?=htmlspecialcharsbx($specName)?>:</th>
+                                <td><?=htmlspecialcharsbx($specValue)?></td>
+                            <?else:?>
+                                <td colspan="2"><?=htmlspecialcharsbx($specValue)?></td>
+                            <?endif;?>
+                        </tr>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
                 </tbody>
             </table>
         </div>
