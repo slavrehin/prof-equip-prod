@@ -241,6 +241,7 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
                             $arProp['PROPERTY_TYPE'] != 'F' && // Пропускаем файлы
                             $arProp['PROPERTY_TYPE'] != 'E' && // Пропускаем привязку к элементам
                             $arProp['CODE'] != 'NALICHIE' && // Пропускаем статус наличия, он уже выведен
+                            $arProp['CODE'] != 'MODEL' && // «Модель» на сайте не показываем (решение владельца 2026-09-30)
                             $arProp['CODE'] != 'SPECS' && // Свободные пары «ключ: значение» — выводятся ниже, без ссылок на фильтр
                             strpos((string)$arProp['CODE'], 'VENT_') !== 0 // Фасеты фильтра вентиляции — дублируют SPECS
                         ):?>
