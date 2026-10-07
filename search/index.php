@@ -9,7 +9,7 @@ $APPLICATION->SetPageProperty("TITLE", "Результаты поиска");
 $APPLICATION->SetTitle("Результаты поиска");
 \Bitrix\Main\Loader::includeModule('iblock');
 $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
-$search_query = trim($request->get("s"));
+$search_query = trim((string)$request->get("s"));
 $search_template = $request->get("search_template")?:".default";
 
 global $arrFilter;
@@ -22,66 +22,14 @@ $arrFilter = array(
 );
 
 $countElements = 0;
-if ($search_query && strlen($search_query) >= 2) {
-    $search_query = htmlspecialcharsbx($search_query);
-    
-    // Включаем модуль поиска
-    \Bitrix\Main\Loader::includeModule('search');
-    
-    $search_words = explode(' ', $search_query);
-    $word_conditions = array();
-    
-    foreach ($search_words as $word) {
-        if (strlen($word) < 2) continue;
-        
-        // Начинаем с оригинального слова
-        $word_condition = array(
-            'LOGIC' => 'OR',
-            array('?NAME' => $word),
-            array('?DETAIL_TEXT' => $word),
-            // Для свойств типа "список" используем PROPERTY_ARTIKUL_ZAPCHASTI_VALUE
-            array('?PROPERTY_ARTIKUL_ZAPCHASTI_VALUE' => $word),
-            // Также пробуем через PROPERTY_ARTIKUL_ZAPCHASTI (для других типов свойств)
-            array('?PROPERTY_ARTIKUL_ZAPCHASTI' => $word)
-        );
-        
-        // Получаем основы слова через stemming
-        $stems = stemming($word);
-        
-        if (is_array($stems) && !empty($stems)) {
-            foreach ($stems as $stem => $frequency) {
-                if ($stem && $stem != $word && strlen($stem) >= 2) {
-                    $word_condition[] = array('?NAME' => $stem);
-                    $word_condition[] = array('?DETAIL_TEXT' => $stem);
-                    $word_condition[] = array('?PROPERTY_ARTIKUL_ZAPCHASTI_VALUE' => $stem);
-                    $word_condition[] = array('?PROPERTY_ARTIKUL_ZAPCHASTI' => $stem);
-                }
-            }
-        }
-        
-        $word_conditions[] = $word_condition;
-    }
-    
-    // Объединяем все слова через AND
-    if (!empty($word_conditions)) {
-        if (count($word_conditions) > 1) {
-            $arrFilter[] = array(
-                'LOGIC' => 'AND',
-                $word_conditions
-            );
-        } else {
-            $arrFilter[] = $word_conditions[0];
-        }
-    }
-    
-    // Получаем количество элементов
-    $countElements = CIBlockElement::GetList(
-        array(),
-        $arrFilter,
-        array(),
-        false
-    );
+$searchIds = [];
+if (mb_strlen($search_query) >= 2) {
+    // Свой ранжирующий поиск (local/php_interface/include/site_search.php):
+    // «TWE18» = «TWE 18», «Толон» = «Tolon», точное совпадение модели — первым
+    $searchIds = ProfEquipSearch::searchProductIds($search_query);
+    $countElements = count($searchIds);
 }
+$arrFilter['ID'] = $searchIds ?: [0];
 
 // Для отладки - можно вывести сформированный фильтр
 // echo '<pre>'; print_r($arrFilter); echo '</pre>';
@@ -151,6 +99,8 @@ if ($search_query && strlen($search_query) >= 2) {
                         'SECTION_ID' => "",
                         'SECTION_CODE' => '',
                         "FILTER_NAME" => "arrFilter",
+                        // порядок — по релевантности (ORDER BY FIELD(ID, ...))
+                        'CUSTOM_ELEMENT_SORT' => $searchIds ? ['ID' => $searchIds] : [],
                         'PROPERTYS_PREVIEW' => [
                             'SIZE',
                             'COLOR',     

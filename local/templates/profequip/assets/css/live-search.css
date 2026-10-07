@@ -1,0 +1,141 @@
+/* Живые подсказки поиска в шапке (assets/js/live-search.js).
+   Отдельный файл поверх main.css — переживает пересборку layout. */
+
+.search-block__inner,
+.search-block__inner > .input-wrapper { position: relative; }
+
+.live-search {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  display: none;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  background: var(--color-white, #fff);
+  color: var(--color-text, #111827);
+  border: 1px solid var(--color-border, #CBD5E1);
+  border-radius: var(--radius-card, 8px);
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.16);
+  max-height: calc(100vh - 170px);
+  overflow: hidden;
+  z-index: 110;
+  font-size: 15px;
+  line-height: 1.35;
+  text-align: left;
+}
+.live-search.is-open { display: grid; }
+
+.live-search__main,
+.live-search__side { overflow-y: auto; max-height: inherit; padding: 16px 0; }
+.live-search__side {
+  background: var(--color-surface, #F3F4F6);
+  border-left: 1px solid var(--color-border, #CBD5E1);
+}
+
+.live-search__heading {
+  margin: 0 0 8px;
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #6B7280);
+}
+.live-search__group + .live-search__group { margin-top: 14px; }
+
+/* категории — «чипы» */
+.live-search__chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 20px; }
+.live-search__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--color-border, #CBD5E1);
+  border-radius: 999px;
+  color: var(--color-primary, #1A2B4E);
+  text-decoration: none;
+  font-size: 14px;
+  transition: border-color .15s, background .15s;
+}
+.live-search__chip span { color: var(--color-text-muted, #6B7280); font-size: 12px; }
+.live-search__chip:hover,
+.live-search__chip.is-active { border-color: var(--color-secondary, #2563A8); background: rgba(37, 99, 168, .06); }
+
+/* товары */
+.live-search__product {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 8px 20px;
+  color: inherit;
+  text-decoration: none;
+  transition: background .15s;
+}
+.live-search__product:hover,
+.live-search__product.is-active { background: var(--color-surface, #F3F4F6); }
+.live-search__thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  object-fit: contain;
+  display: block;
+}
+.live-search__name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: var(--color-text, #111827);
+}
+.live-search__name mark { background: none; color: inherit; font-weight: 600; }
+.live-search__meta { margin-top: 2px; font-size: 13px; color: var(--color-text-muted, #6B7280); }
+
+.live-search__empty { padding: 4px 20px; color: var(--color-text-muted, #6B7280); }
+.live-search__empty a { color: var(--color-secondary, #2563A8); }
+
+.live-search__all {
+  display: block;
+  margin: 10px 20px 0;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--color-primary, #1A2B4E);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+}
+.live-search__all:hover,
+.live-search__all.is-active { background: var(--color-secondary, #2563A8); color: #fff; }
+
+/* услуги */
+.live-search__service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 20px;
+  color: var(--color-primary, #1A2B4E);
+  text-decoration: none;
+  transition: background .15s;
+}
+.live-search__service::after { content: "→"; color: var(--color-text-muted, #6B7280); flex: none; }
+.live-search__service:hover,
+.live-search__service.is-active { background: #fff; }
+.live-search__service.is-match { font-weight: 600; }
+.live-search__service.is-match::after { color: var(--color-accent, #D97706); }
+
+.live-search__loading { opacity: .55; transition: opacity .15s; }
+
+@media (max-width: 900px) {
+  .live-search { grid-template-columns: 1fr; overflow-y: auto; }
+  .live-search__main, .live-search__side { overflow: visible; max-height: none; }
+  .live-search__side { border-left: 0; border-top: 1px solid var(--color-border, #CBD5E1); }
+}
+@media (max-width: 480px) {
+  .live-search__product, .live-search__service { padding-left: 14px; padding-right: 14px; }
+  .live-search__heading, .live-search__chips { padding-left: 14px; padding-right: 14px; }
+  .live-search__all { margin-left: 14px; margin-right: 14px; }
+}

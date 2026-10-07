@@ -26,6 +26,10 @@
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-text.css?v=<?=file_exists($catalogTextCssPath) ? filemtime($catalogTextCssPath) : time()?>" rel="stylesheet">
     <?php $otherProductsCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/other-products.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/other-products.css?v=<?=file_exists($otherProductsCssPath) ? filemtime($otherProductsCssPath) : time()?>" rel="stylesheet">
+    <?php $liveSearchCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/live-search.css'; ?>
+    <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/live-search.css?v=<?=file_exists($liveSearchCssPath) ? filemtime($liveSearchCssPath) : time()?>" rel="stylesheet">
+    <?php $liveSearchJsPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/js/live-search.js'; ?>
+    <script defer src="<?=SITE_TEMPLATE_PATH?>/assets/js/live-search.js?v=<?=file_exists($liveSearchJsPath) ? filemtime($liveSearchJsPath) : time()?>"></script>
     <?php if ($_SERVER['HTTP_HOST'] !== 'test3.prof-equip.ru'): ?>
     <!-- Yandex.Metrika counter --> <script type="text/javascript">     (function(m,e,t,r,i,k,a){         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};         m[i].l=1*new Date();         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');      ym(44219954, 'init', {webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true}); </script> <noscript><div><img src="https://mc.yandex.ru/watch/44219954" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
     <script>
@@ -430,7 +434,7 @@
             <form class="search-block__inner container" action="/search/">
                 <div class="input-wrapper">
                     <div class="input__row">
-                        <div class="input-wrapper"><input class="input input__valid-name" placeholder="Поиск" value="" name="s"></div>
+                        <div class="input-wrapper"><input class="input input__valid-name" placeholder="Поиск по каталогу и услугам" value="<?=htmlspecialcharsbx((string)($_GET['s'] ?? ''))?>" name="s"></div>
                     </div><button class="btn submit-search__btn"><svg>
                             <use xlink:href="<?=LAYOUT_DIR?>assets/img/sprite.svg#search"></use>
                         </svg></button>
