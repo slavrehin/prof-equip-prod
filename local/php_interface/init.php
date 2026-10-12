@@ -15,6 +15,7 @@ require_once(__DIR__ . '/include/landing_editor.php'); // редактор со�
 //require_once __DIR__ . '/include/custom_fields.php';
 require_once(__DIR__ . '/include/smartcaptcha.php');
 require_once(__DIR__ . '/include/site_search.php'); // поиск по каталогу + подсказки в шапке
+require_once(__DIR__ . '/include/product_type.php'); // «Тип» товара (TIP_TOVARA) — фасет фильтра на страницах брендов
 
 /**** autoload ****/
 require_once($_SERVER['DOCUMENT_ROOT'] . '/local/vendor/autoload.php');

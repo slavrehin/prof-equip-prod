@@ -72,7 +72,10 @@ $idBrand = GetIDByCode($arResult["VARIABLES"]["ELEMENT_CODE"],$arParams["IBLOCK_
 								"FILTER_VIEW_MODE" => "VERTICAL",
 								"XML_EXPORT" => "Y",
 								"SECTION_TITLE" => "NAME",
-								"SECTION_DESCRIPTION" => "DESCRIPTION"
+								"SECTION_DESCRIPTION" => "DESCRIPTION",
+								// вместо «Тип аксессуара» и узких «Тип» разделов — сквозной «Тип» товара
+								"HIDE_PROPERTY_CODES" => ["TIP_AKSESSUARA", "TIP_ZAPCHASTI"],
+								"RENAME_PROPERTY_CODES" => ["TIP_POSUDOMOECHNOJ_MASHINY" => "Тип мойки"],
 							),
 							$component,
 							array('HIDE_ICONS' => 'Y')
@@ -89,10 +92,12 @@ $idBrand = GetIDByCode($arResult["VARIABLES"]["ELEMENT_CODE"],$arParams["IBLOCK_
 						"SECTION_CODE" => "",
 						"IS_FAVORITE" => "Y",
 						"SECTION_USER_FIELDS" => array(),
-						'ELEMENT_SORT_FIELD' => $sortField,
-						'ELEMENT_SORT_ORDER' => $sortOrder,
-						'ELEMENT_SORT_FIELD2' => $sortField2,
-						'ELEMENT_SORT_ORDER2' => $sortOrder2,
+						// по типу товара (SORT варианта TIP_TOVARA: пароконвектоматы → оборудование →
+						// аксессуары → запчасти), внутри типа — по сортировке товара
+						'ELEMENT_SORT_FIELD' => 'PROPERTYSORT_TIP_TOVARA',
+						'ELEMENT_SORT_ORDER' => 'asc,nulls',
+						'ELEMENT_SORT_FIELD2' => 'sort',
+						'ELEMENT_SORT_ORDER2' => 'asc',
 						"FILTER_NAME" => "arrFilter", 
 						"INCLUDE_SUBSECTIONS" => "Y",
 						"SHOW_ALL_WO_SECTION" => "Y",
