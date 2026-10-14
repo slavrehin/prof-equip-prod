@@ -34,6 +34,9 @@ function profequip_LandingSchema(): array
     $icons = [
         'shield' => 'Щит с галочкой', 'box' => 'Коробка (склад)', 'compass' => 'Циркуль (проектирование)',
         'wrench' => 'Гаечный ключ (сервис)', 'layers' => 'Слои', 'chat' => 'Чат', 'check' => 'Галочка',
+        'i-washer' => 'Стиральная машина (пиктограмма)', 'i-chem' => 'Канистра химии (пиктограмма)',
+        'i-textile' => 'Стопка текстиля (пиктограмма)',
+        'i-sofa' => 'Мебель (пиктограмма)', 'i-plan' => 'План помещения (пиктограмма)',
     ];
 
     $f = static fn(string $code, string $label, string $type = 'text', array $extra = []): array
@@ -43,7 +46,7 @@ function profequip_LandingSchema(): array
     $b = [
         'title' => static fn(array $o = []) => $o + $f('title', 'Заголовок блока (H2)'),
         'lead' => static fn(array $o = []) => $o + $f('lead', 'Вводный текст под заголовком', 'textarea', ['rows' => 3]),
-        'anchor' => static fn(array $o = []) => $o + $f('anchor', 'Пункт якорного меню', 'text', ['hint' => 'Подпись в липком меню под шапкой. Пусто — блока в меню нет.']),
+        'anchor' => static fn(array $o = []) => $o + $f('anchor', 'Пункт якорного меню', 'text', ['hint' => 'Подпись в липком меню под шапкой. Пусто — блока в меню нет. Не действует, если заполнен список «Пункты меню» в блоке «Якорное меню».']),
         'link_text' => static fn(array $o = []) => $o + $f('link_text', 'Ссылка в заголовке: текст', 'text', ['hint' => 'Например «Все проекты»']),
         'link_url' => static fn(array $o = []) => $o + $f('link_url', 'Ссылка в заголовке: адрес'),
         'btn' => static fn(array $o = []) => $o + $f('btn', 'Текст главной кнопки'),
@@ -58,17 +61,54 @@ function profequip_LandingSchema(): array
         'price_note' => static fn(array $o = []) => $o + $f('price_note', 'Подпись под ценой', 'text', ['hint' => 'Например «с НДС, склад в Москве»']),
         'items' => static fn(array $o = []) => $o + $f('items', 'Список', 'pairs', ['labels' => ['Текст', 'Подпись'], 'max' => 12]),
         'links' => static fn(array $o = []) => $o + $f('links', 'Дополнительные ссылки', 'pairs', ['labels' => ['Адрес', 'Подпись'], 'max' => 4]),
+        'kicker' => static fn(array $o = []) => $o + $f('kicker', 'Надзаголовок', 'text', ['hint' => 'Малая строка над заголовком']),
+        'note' => static fn(array $o = []) => $o + $f('note', 'Примечание под блоком', 'textarea', ['rows' => 2]),
+        'pic' => static fn(array $o = []) => $o + $f('pic', 'Фото', 'image'),
+    ];
+    // тёмная/светлая секция «текст + тезисы-галочки + кнопки + фото» (Кухня: поставка, сервис, партнёрам)
+    $split = static fn(string $btnHint) => [
+        $b['kicker'](), $b['title'](), $b['lead'](), $b['anchor'](),
+        $b['items'](['label' => 'Тезисы', 'labels' => ['Пояснение', 'Заголовок тезиса'], 'max' => 5]),
+        $b['btn'](['hint' => $btnHint]), $b['source'](),
+        $b['link_url'](['label' => 'Главная кнопка: адрес', 'hint' => 'Пусто — кнопка ведёт к финальной форме (с источником лида выше). Для скачивания — прямая ссылка на файл.']),
+        $b['btn2_text'](), $b['btn2_url'](), $b['pic'](),
     ];
 
     $groups = [
-        'anchors' => ['Якорное меню (кнопка справа)', [$b['btn'](['hint' => 'Кнопка в липком меню']), $b['source']()]],
-        'projects' => ['Реализованные проекты (сами проекты — в свойстве «Портфолио»)', [$b['title'](), $b['lead'](), $b['anchor'](), $b['link_text'](), $b['link_url']()]],
+        'anchors' => ['Якорное меню (пункты и кнопка справа)', [
+            $f('menu', 'Пункты меню', 'pairs', ['labels' => ['Подпись пункта', 'Куда ведёт: #блок или адрес'], 'max' => 14,
+                'hint' => 'Порядок пунктов — как в списке. Блоки: #projects Проекты, #cats Категории каталога, #stock Каталог/в наличии, #brands Бренды, #parts Запчасти, #solutions Решения, #tech Технологии, #design Проектирование, #reviews Отзывы, #guarantee Гарантия, #library Библиотека, #expert Статьи, #faq Вопросы, #final Контакты/финальная форма. Пункт на скрытый блок не показывается. Пустой список — пункты берутся из поля «Пункт якорного меню» у каждого блока.']),
+            $b['btn'](['hint' => 'Кнопка в липком меню']), $b['source'](),
+        ]],
+        'fork' => ['Первый экран: развилка сценариев и плашка-обещание', [
+            $f('note', 'Плашка под вступлением', 'text', ['hint' => 'Например «Спецификация и расстановка — за 5 рабочих дней после получения планировки». Жирным — часть до « — ».']),
+            $f('form_title', 'Подпись над вкладками', 'text', ['hint' => 'Например «С чего начнём?»']),
+            $b['items'](['label' => 'Сценарии (вкладки)', 'labels' => ['Текст под вкладкой', 'Название вкладки'], 'max' => 4]),
+        ]],
+        'trust' => ['Полоса доверия: цифры и клиенты', [
+            $b['items'](['label' => 'Цифры', 'labels' => ['Число (например 985+)', 'Подпись'], 'max' => 4]),
+            $f('clients_title', 'Заголовок над клиентами', 'text', ['hint' => 'Например «Наши клиенты». Сами клиенты — в свойстве «Клиенты».']),
+            $b['note'](['hint' => 'Например «Логотипы публикуются с согласия заказчиков»']),
+        ]],
+        'projects' => ['Реализованные проекты (сами проекты — в свойстве «Портфолио»)', [$b['title'](), $b['lead'](), $b['anchor'](), $b['link_text'](), $b['link_url'](),
+            $f('pool_type', 'Фильтр по типу объекта: дополнять проектами с «Типом»', 'text', ['only' => ['kuhnya'], 'hint' => 'Значение свойства проекта «Тип», например «Кухня». Над каруселью появятся чипы типов объекта (свойство проекта «Тип объекта»); при выборе типа к выбранным проектам добавляются остальные проекты этого «Типа» с тем же типом объекта. Пусто — фильтра нет.']),
+        ]],
+        'cats' => ['Категории каталога (карточки — в свойстве «Категории каталога»)', [
+            $b['title'](['hint' => 'Необязательно. Пусто — карточки идут сразу, без заголовка.']), $b['lead'](), $b['anchor'](), $b['link_text'](), $b['link_url'](),
+        ]],
+        'checklist' => ['Микроконверсия: чек-лист (формат объекта + почта)', [
+            $b['title'](), $b['lead'](), $b['btn'](), $b['ok'](), $b['source'](),
+            $b['items'](['label' => 'Форматы объекта (варианты списка)', 'labels' => ['Формат', '—'], 'max' => 8]),
+        ]],
         'consult' => ['Форма «Подберём решение» (под проектами)', [$b['title'](), $b['lead'](), $b['btn'](), $b['ok'](), $b['source']()]],
-        'task' => ['Форма «С какой задачей вы пришли» (вместо «Подберём решение» — с чипами задач, под проектами)', [
+        'task' => ['Форма «С какой задачей вы пришли» (с чипами задач, под проектами)', [
             $b['title'](), $b['lead'](), $b['anchor'](), $b['btn'](), $b['ok'](), $b['source'](),
             $f('tasks', 'Задачи (чипы в форме)', 'pairs', ['labels' => ['Название задачи', '—'], 'max' => 6]),
+            $f('objtypes', 'Типы объекта (чипы в форме)', 'pairs', ['only' => ['kuhnya'], 'labels' => ['Тип объекта', '—'], 'max' => 6, 'hint' => 'Пусто — стандартный список (отели, SPA, ресторан, частные дома)']),
         ]],
-        'stock' => ['Оборудование в наличии — вкладка «В наличии» (флажок «В наличии» ставится у товара)', [$b['title'](), $b['lead'](), $b['anchor'](), $b['link_text'](), $b['link_url'](), $b['btn'](), $b['section_code'](), $b['limit'](), $b['price_note']()]],
+        'stock' => ['Оборудование в наличии — вкладка «В наличии» (флажок «В наличии» ставится у товара)', [$b['title'](), $b['lead'](), $b['anchor'](), $b['link_text'](), $b['link_url'](), $b['btn'](), $b['section_code'](), $b['limit'](), $b['price_note'](),
+            $f('no_stock', 'Без вкладки «В наличии» (с ценами)', 'select', ['only' => ['kuhnya'], 'options' => ['y' => 'Не показывать — только выбранные позиции без цен'], 'hint' => 'Позиции — в свойстве «Каталог: новинки»']),
+        ]],
         'brands' => ['Наши бренды (сами бренды — в свойстве «Производители»)', [
             $b['title'](), $b['lead'](), $b['anchor'](), $b['link_text'](), $b['link_url'](),
             $f('featured_pic', 'Свой бренд: цветной логотип', 'image', ['hint' => 'Показывается справа от подзаголовка, отдельно от чёрно-белой ленты — логотип остаётся цветным.']),
@@ -102,16 +142,28 @@ function profequip_LandingSchema(): array
             $f('pic', 'Фото', 'image', ['hint' => 'Показывается за формой подбора запчасти. Без фото остаётся контурный рисунок.']),
         ]],
         'solutions' => ['Решения / зоны (вкладки — в свойстве «Решения (вкладки)»)', [$b['title'](), $b['lead'](), $b['anchor']()]],
+        'certs' => ['Официальное дилерство: сертификаты (сами сертификаты — в свойстве «Сертификаты»)', [$b['title'](), $b['lead']()]],
+        'compare' => ['Одна задача — три решения (колонки — в свойстве «Сравнение решений»)', [$b['title'](), $b['lead'](), $b['anchor'](), $b['note']()]],
+        'supply' => ['Поставка и склад (тёмная секция)', $split('Например «Уточнить срок по позиции»')],
+        'service' => ['Сервис и запчасти (светлая секция, фото слева)', $split('Например «Обсудить сервисный договор»')],
+        'partners' => ['Партнёрам: DWG, Revit, ТЗ (тёмная секция)', $split('Например «Скачать библиотеку блоков». Скачивание считается целью Метрики.')],
+        'sticky' => ['Мобильная панель снизу: «Позвонить» + кнопка', [$b['btn'](['hint' => 'Например «Получить расчёт» — ведёт к финальной форме']), $b['source']()]],
         'calc' => ['Форма «Не знаете, какое оборудование нужно?»', [$b['title'](), $b['lead'](), $b['btn'](), $b['ok'](), $b['source']()]],
         'tech' => ['Технологии (карточки — в свойстве «Технологии»)', [$b['title'](), $b['lead'](), $b['anchor']()]],
         'tech_form' => ['Небольшая форма после технологий', [$b['title'](), $b['lead'](), $b['btn'](), $b['ok'](), $b['source']()]],
-        'design' => ['Проектирование и комплексное оснащение (шаги — в свойстве «Этапы проектирования»)', [$b['title'](), $b['lead'](), $b['anchor']()]],
+        'design' => ['Проектирование и комплексное оснащение (шаги — в свойстве «Этапы проектирования»)', [$b['title'](), $b['lead'](), $b['anchor'](),
+            $f('steps_view', 'Вид этапов', 'select', ['only' => ['kuhnya'], 'options' => ['cards' => 'Карточки в ряд — всё видно сразу'], 'hint' => 'Пусто — степпер с панелью под кружками']),
+        ]],
         'tz' => ['Форма «Уже есть план или ТЗ?»', [
             $b['title'](), $b['lead'](), $b['btn'](), $b['ok'](), $b['source'](),
             $b['items'](['label' => 'Факты о компании', 'labels' => ['Число (например 985+)', 'Подпись'], 'max' => 2]),
         ]],
         'reviews' => ['Отзывы (сами отзывы — в свойстве «Отзывы»)', [$b['title'](), $b['lead'](), $b['anchor']()]],
-        'guarantee' => ['Круговая гарантия (кольцо — в свойстве «Круговая гарантия»)', [$b['title'](), $b['lead'](), $b['anchor']()]],
+        'guarantee' => ['Круговая гарантия (кольцо — в свойстве «Круговая гарантия»)', [$b['title'](), $b['lead'](), $b['anchor'](),
+            $f('form_title', 'Заголовок над ссылками на направления', 'text', ['only' => ['kuhnya']]),
+            $b['links'](['label' => 'Ссылки на другие направления', 'labels' => ['Адрес', 'Название | пояснение'], 'max' => 6, 'only' => ['kuhnya'], 'hint' => 'Подпись — «Мебель | Зал, лобби, летняя веранда»']),
+            $b['btn2_text'](['only' => ['kuhnya']]), $b['btn2_url'](['only' => ['kuhnya']]),
+        ]],
         'guarantee_form' => ['Краткая форма после гарантии (имя, телефон, компания)', [$b['title'](), $b['lead'](), $b['btn'](), $b['ok'](), $b['source']()]],
         'library' => ['Библиотека (фото — в свойстве «Библиотека: фото»)', [$b['title'](), $b['lead'](), $b['anchor']()]],
         'expert' => ['Экспертный центр (статьи и новости — в свойствах «Статьи блога» и «Новости»)', [
@@ -123,6 +175,9 @@ function profequip_LandingSchema(): array
             $b['title'](), $b['lead'](), $b['anchor'](['hint' => 'Подпись пункта меню, ведущего к финальной форме']), $b['btn'](), $b['ok'](), $b['source'](),
             $b['items'](['label' => 'Темы обращения', 'labels' => ['Название темы', 'Код (buy, calc, kp, project, service)'], 'max' => 8,
                 'hint' => 'Код kp выбирается кнопкой «Получить КП»']),
+            $f('company', 'Поле «Компания»', 'select', ['only' => ['kuhnya'], 'options' => ['y' => 'Показывать']]),
+            $f('file_hint', 'Подпись у вложения', 'text', ['only' => ['kuhnya'], 'hint' => 'Например «PDF, DWG, XLSX, JPG — до 20 МБ». Пусто — «до 25 МБ».']),
+            $f('file_max', 'Предел размера вложения, МБ', 'number', ['only' => ['kuhnya'], 'hint' => 'По умолчанию 25']),
         ]],
     ];
     $groupDefs = [];
@@ -155,7 +210,7 @@ function profequip_LandingSchema(): array
         ],
         'LAND_ADVANTAGES' => [
             'name' => 'Преимущества под слайдером', 'sort' => 820, 'mode' => 'list', 'item' => 'Преимущество', 'max' => 4, 'titleField' => 'title',
-            'fields' => [$f('title', 'Название'), $f('icon', 'Иконка', 'select', ['options' => $icons])],
+            'fields' => [$f('title', 'Название'), $f('text', 'Пояснение', 'text', ['only' => ['kuhnya']]), $f('icon', 'Иконка', 'select', ['options' => $icons])],
         ],
         'LAND_SOLUTIONS' => [
             'name' => 'Решения (вкладки)', 'sort' => 830, 'mode' => 'list', 'item' => 'Решение', 'max' => 8, 'titleField' => 'title',
@@ -167,14 +222,32 @@ function profequip_LandingSchema(): array
                 $f('link_text', 'Ссылка «Подробнее»: текст'),
                 $f('art', 'Контурный рисунок, пока нет фото', 'select', ['options' => $art]),
                 $f('pic', 'Фото', 'image'),
-                $f('objtypes', 'Показывать только для типа объекта', 'text', ['hint' => 'Коды через запятую (hotel34, hotel5, spa, restoran, private) — над вкладками появится переключатель типа объекта. Пусто — вкладка видна всегда.']),
+                $f('objtypes', 'Показывать только для типа объекта', 'text', ['only' => ['textile'], 'hint' => 'Коды через запятую (' . implode(', ', array_keys(profequip_LandingObjTypes())) . ') — над вкладками появится переключатель типа объекта. Пусто — вкладка видна всегда.']),
+                $f('text', 'Описание', 'textarea', ['rows' => 3, 'only' => ['textile', 'kuhnya'], 'hint' => 'Общее — показывается, если для выбранного типа объекта своё описание не заполнено.']),
+                $f('filter', 'Проекты этого формата: тип объекта', 'text', ['only' => ['kuhnya'], 'hint' => 'Код типа объекта проекта (restoran, hotel, canteen, coffee, private). В вкладке появится ссылка — прокрутка к проектам с включённым фильтром.']),
+                ...array_merge(...array_map(static fn(string $code, string $label) => [
+                    $f('text_' . $code, 'Описание', 'textarea', ['rows' => 3, 'only' => ['textile'], 'section' => 'Для типа объекта «' . $label . '»']),
+                    $f('pic_' . $code, 'Фото', 'image', ['only' => ['textile'], 'hint' => 'Пусто — общее фото и общее описание вкладки.']),
+                ], array_keys(profequip_LandingObjTypes()), profequip_LandingObjTypes())),
+            ],
+        ],
+        'LAND_CATS' => [
+            'name' => 'Категории каталога', 'sort' => 831, 'mode' => 'list', 'item' => 'Категория', 'max' => 12, 'titleField' => 'title',
+            'hint' => 'Карточки разделов каталога (блок после формы под проектами). Достаточно символьного кода раздела — название, ссылка и картинка берутся из раздела; заполненные поля важнее.',
+            'fields' => [
+                $f('section', 'Раздел каталога (символьный код)', 'text', ['hint' => 'Например stiralnye-mashiny']),
+                $f('title', 'Название', 'text', ['hint' => 'Пусто — название раздела']),
+                $f('url', 'Ссылка', 'text', ['hint' => 'Пусто — страница раздела']),
+                $f('pic', 'Картинка', 'image', ['hint' => 'Оборудование на белом или прозрачном фоне. Пусто — картинка раздела каталога.']),
             ],
         ],
         'LAND_NOVELTIES' => [
             'name' => 'Каталог: новинки', 'sort' => 832, 'mode' => 'list', 'item' => 'Новинка', 'max' => 12, 'titleField' => 'title',
             'hint' => 'Вкладка «Новинки» в блоке каталога. Вкладка «В наличии» — товары с флажком «В наличии» (свойство «Оборудование в наличии» выше).',
             'fields' => [
+                $f('product', 'Товар каталога (символьный код)', 'text', ['only' => ['kuhnya'], 'hint' => 'Название, фото, ссылка, страна и наличие берутся из карточки товара; поля ниже заполнять не обязательно (заполненные — важнее). Цена не выводится.']),
                 $f('title', 'Название'),
+                $f('cat', 'Категория над названием', 'text', ['only' => ['kuhnya'], 'hint' => 'Пусто — раздел каталога товара']),
                 $f('params', 'Параметры (2–3 строки)', 'pairs', ['labels' => ['Значение', 'Подпись'], 'max' => 3]),
                 $f('url', 'Ссылка «В каталог»'),
                 $f('pic', 'Фото', 'image'),
@@ -198,6 +271,10 @@ function profequip_LandingSchema(): array
                 $f('title', 'Название этапа'),
                 $f('text', 'Описание', 'textarea', ['rows' => 3]),
                 $f('result', 'Результат этапа', 'text', ['hint' => 'Например «Результат: техническое задание»']),
+                $f('time', 'Срок (плашка)', 'text', ['only' => ['kuhnya'], 'hint' => 'Например «1–2 дня»']),
+                $f('points', 'Что делаем (2 пункта)', 'pairs', ['only' => ['kuhnya'], 'labels' => ['Пункт', '—'], 'max' => 3]),
+                $f('output', 'На выходе', 'text', ['only' => ['kuhnya']]),
+                $f('need', 'Нужно от вас', 'text', ['only' => ['kuhnya']]),
                 $f('pic', 'Фото справа от текста', 'image', ['hint' => 'Необязательно. Без фото карточка этапа остаётся текстовой.']),
             ],
         ],
@@ -216,7 +293,11 @@ function profequip_LandingSchema(): array
         'LAND_LIBRARY' => [
             'name' => 'Библиотека: фото', 'sort' => 856, 'mode' => 'list', 'item' => 'Фото', 'max' => 5, 'titleField' => 'caption',
             'hint' => 'Ровно 5 фото: первое — крупное, слева, остальные четыре — плиткой 2×2 справа. Без фото — фактурная заглушка с подписью «Фото: …» (только свои фото или фото с купленной лицензией).',
-            'fields' => [$f('pic', 'Фото', 'image'), $f('caption', 'Подпись')],
+            'fields' => [
+                $f('pic', 'Фото', 'image'),
+                $f('caption', 'Подпись'),
+                $f('url', 'Ссылка', 'text', ['hint' => 'Необязательно. Куда ведёт клик по карточке, например /catalog/... или https://...']),
+            ],
         ],
         'LAND_REVIEWS' => [
             'name' => 'Отзывы', 'sort' => 848, 'mode' => 'list', 'item' => 'Отзыв', 'max' => 6, 'titleField' => 'name',
@@ -228,11 +309,78 @@ function profequip_LandingSchema(): array
                 $f('pic', 'Скан письма или фото', 'image'),
             ],
         ],
+        'LAND_COMPARE' => [
+            'name' => 'Сравнение решений', 'sort' => 846, 'mode' => 'list', 'item' => 'Колонка', 'max' => 3, 'titleField' => 'title',
+            'hint' => 'Три колонки «Одна задача — три решения». Значения — ориентир, их даёт проектное бюро.',
+            'fields' => [
+                $f('level', 'Уровень (например ПРЕМИУМ)'),
+                $f('title', 'Решение (например RATIONAL iCombi Pro)'),
+                $f('sub', 'Подпись (страна, наличие)'),
+                $f('rows', 'Строки сравнения', 'pairs', ['labels' => ['Значение', 'Параметр'], 'max' => 8]),
+                $f('featured', 'Выделить колонку', 'select', ['options' => ['y' => 'Да — рамкой']]),
+            ],
+        ],
+        'LAND_CLIENTS' => [
+            'name' => 'Клиенты', 'sort' => 822, 'mode' => 'list', 'item' => 'Клиент', 'max' => 12, 'titleField' => 'title',
+            'hint' => 'Полоса доверия: цветные логотипы. Без логотипа выводится название.',
+            'fields' => [$f('title', 'Название (alt логотипа)'), $f('pic', 'Логотип (цветной)', 'image'), $f('url', 'Ссылка (необязательно)')],
+        ],
+        'LAND_CERTS' => [
+            'name' => 'Сертификаты', 'sort' => 836, 'mode' => 'list', 'item' => 'Сертификат', 'max' => 10, 'titleField' => 'caption',
+            'hint' => 'Сканы дилерских сертификатов (вертикальные, 3:4). Открываются по клику. Без скана — заглушка с подписью.',
+            'fields' => [$f('caption', 'Подпись (бренд)'), $f('pic', 'Скан', 'image')],
+        ],
         'LAND_FAQ' => [
             'name' => 'Вопросы и ответы', 'sort' => 858, 'mode' => 'list', 'item' => 'Вопрос', 'max' => 12, 'titleField' => 'q',
             'fields' => [$f('q', 'Вопрос'), $f('a', 'Ответ', 'textarea', ['rows' => 3])],
         ],
     ];
+    return $schema;
+}
+
+/** Типы объекта в блоке «Зоны» (переключатель над вкладками и свои описание/фото у вкладки): код => подпись */
+function profequip_LandingObjTypes(): array
+{
+    return ['hotel34' => 'Отель 3–4★', 'hotel5' => 'Отель 5★', 'spa' => 'SPA', 'restoran' => 'Ресторан', 'private' => 'Частные дома'];
+}
+
+/**
+ * Какие блоки из LAND_BLOCKS есть у каждого направления (ключ — CODE инфоблока направления), в порядке схемы.
+ * В админке направление видит только свои блоки. Направления нет в списке — показываются все блоки.
+ * Поле с 'only' => [коды направлений] показывается только этим направлениям.
+ */
+function profequip_LandingDirectionBlocks(): array
+{
+    return [
+        'prachechnaya' => ['anchors', 'projects', 'consult', 'cats', 'stock', 'brands', 'parts', 'solutions', 'calc', 'design', 'tz', 'guarantee', 'expert', 'final'],
+        'textile' => ['anchors', 'projects', 'task', 'stock', 'brands', 'own', 'fm', 'brand_custom', 'solutions', 'tech', 'tech_form', 'design', 'reviews', 'guarantee', 'guarantee_form', 'library', 'faq', 'final'],
+        'kuhnya' => ['anchors', 'fork', 'trust', 'projects', 'task', 'checklist', 'stock', 'brands', 'certs', 'solutions', 'compare', 'supply', 'service', 'design', 'reviews', 'guarantee', 'partners', 'expert', 'faq', 'final', 'sticky'],
+    ];
+}
+
+/** Схема свойства для конкретного направления (инфоблока): только его блоки и поля. Для редактора в админке. */
+function profequip_LandingSchemaFor(string $propCode, int $iblockId): ?array
+{
+    $schema = profequip_LandingSchema()[$propCode] ?? null;
+    if (!$schema || $iblockId <= 0) {
+        return $schema;
+    }
+    $dir = (string)(\CIBlock::GetArrayByID($iblockId, 'CODE') ?: '');
+    $onlyOk = static fn(array $fields): array => array_values(array_filter(
+        $fields, static fn($f) => empty($f['only']) || in_array($dir, $f['only'], true)
+    ));
+    if ($schema['mode'] === 'groups') {
+        $allowed = profequip_LandingDirectionBlocks()[$dir] ?? null;
+        $groups = [];
+        foreach ($schema['groups'] as $key => $g) {
+            if ($allowed === null || in_array($key, $allowed, true)) {
+                $groups[$key] = ['fields' => $onlyOk($g['fields'])] + $g;
+            }
+        }
+        $schema['groups'] = $groups;
+    } else {
+        $schema['fields'] = $onlyOk($schema['fields']);
+    }
     return $schema;
 }
 
@@ -431,7 +579,7 @@ class ProfequipLandingCards
     public static function GetPropertyFieldHtml($arProperty, $value, $strHTMLControlName)
     {
         $code = (string)($arProperty['CODE'] ?? '');
-        $schema = profequip_LandingSchema()[$code] ?? null;
+        $schema = profequip_LandingSchemaFor($code, (int)($arProperty['IBLOCK_ID'] ?? 0));
         if (!$schema) {
             return '<i>Для свойства ' . htmlspecialcharsbx($code) . ' нет описания полей (profequip_LandingSchema)</i>';
         }
@@ -493,6 +641,7 @@ class ProfequipLandingCards
 .ple-pic img{max-height:56px;max-width:120px;border:1px solid #c4ced2}
 .ple-add{margin:4px 0 12px}
 .ple-empty{color:#748186;margin:6px 0}
+.ple-sec{grid-column:1/-1;margin-top:8px;padding-top:10px;border-top:1px solid #dfe5e8;font-weight:bold;color:#3f4b54}
 </style>
 CSS;
         $js = <<<'JS'
@@ -577,6 +726,7 @@ window.ProfLandingEd = window.ProfLandingEd || (function () {
 
   function buildFields(fields, data, files, sync, body) {
     var parts = fields.map(function (f) {
+      if (f.section) body.appendChild(el('div', 'ple-sec', f.section));
       var p = buildField(f, data ? data[f.code] : undefined, files, sync);
       body.appendChild(p.node);
       return p;

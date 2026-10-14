@@ -111,11 +111,23 @@
   $$('.dl-toggle:not(.dl-toggle--obj)').forEach(function (bar) {
     var section = bar.closest('section'), btns = $$('[data-switch-btn]', bar);
     if (!section || !btns.length) return;
-    btns.forEach(function (b) {
+    btns.forEach(function (b, i) {
       b.addEventListener('click', function () {
         var key = b.getAttribute('data-switch-btn');
-        btns.forEach(function (x) { var on = x === b; x.classList.toggle('is-on', on); x.setAttribute('aria-selected', on ? 'true' : 'false'); });
+        btns.forEach(function (x) {
+          var on = x === b;
+          x.classList.toggle('is-on', on);
+          x.setAttribute('aria-selected', on ? 'true' : 'false');
+          if (x.hasAttribute('tabindex')) x.setAttribute('tabindex', on ? '0' : '-1');
+        });
         $$('[data-switch-panel]', section).forEach(function (p) { p.hidden = p.getAttribute('data-switch-panel') !== key; });
+      });
+      // стрелки влево/вправо (и Home/End) — как у вкладок
+      b.addEventListener('keydown', function (e) {
+        var n = { ArrowRight: i + 1, ArrowDown: i + 1, ArrowLeft: i - 1, ArrowUp: i - 1, Home: 0, End: btns.length - 1 }[e.key];
+        if (n === undefined) return;
+        var t = btns[(n + btns.length) % btns.length];
+        t.focus(); t.click(); e.preventDefault();
       });
     });
   });
@@ -136,6 +148,13 @@
         if (show) any = true;
       });
       if (!any) items.forEach(function (li) { li.hidden = false; }); // без совпадений — показываем все, а не пустой список
+      // свои фото/описание вкладки под тип объекта: вариант [data-ov=тип] заменяет общий (соседний элемент того же класса без data-ov)
+      $$('.dl-sol__panel', scope).forEach(function (panel) {
+        ['.dl-ph', '.dl-sol__text'].forEach(function (sel) {
+          var all = $$(sel, panel), match = all.filter(function (e) { return e.getAttribute('data-ov') === type; })[0];
+          all.forEach(function (e) { e.hidden = match ? e !== match : e.hasAttribute('data-ov'); });
+        });
+      });
       var first = items.filter(function (li) { return !li.hidden; })[0];
       var btn = first && $('.dl-sol__btn', first);
       if (btn && btn.getAttribute('aria-selected') !== 'true') btn.click();
@@ -249,8 +268,10 @@
   (function () {
     var bar = $('#dl-anchors');
     if (!bar || !('IntersectionObserver' in window)) return;
-    var links = $$('.dl-anchors__scroll a', bar), scroller = $('.dl-anchors__scroll', bar);
-    var secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+    // подсвечиваются только якоря на этой странице (в админке пунктом может быть и обычная ссылка)
+    var links = $$('.dl-anchors__scroll a[href^="#"]', bar).filter(function (a) { return a.getAttribute('href').length > 1; });
+    var scroller = $('.dl-anchors__scroll', bar);
+    var secs = links.map(function (a) { try { return document.querySelector(a.getAttribute('href')); } catch (e) { return null; } }).filter(Boolean);
     var seen = {};
     var hdr = (document.querySelector('.header') || {}).offsetHeight || 80;
     var offset = hdr + bar.offsetHeight + 20;
@@ -395,6 +416,102 @@
     });
     // topic сбрасывается form.reset() на «первый по умолчанию» — отдельных действий не требуется
   });
+
+  /* ---------- Проекты: фильтр по типу объекта (AJAX, состояние — в параметре ?obj= адреса) ---------- */
+  (function () {
+    var bar = $('[data-projects-filter]'), wrap = $('.dl-track-wrap');
+    if (!bar || !wrap) return;
+    var chips = $$('[data-obj]', bar), base = bar.getAttribute('data-projects-filter'), req = 0;
+    function mark(code) { chips.forEach(function (c) { c.setAttribute('aria-pressed', c.getAttribute('data-obj') === code ? 'true' : 'false'); }); }
+    function load(code, push) {
+      var my = ++req, url = base + (code ? '?obj=' + encodeURIComponent(code) : '');
+      mark(code);
+      wrap.classList.add('is-loading');
+      fetch(url + (code ? '&' : '?') + 'dl_part=projects', { credentials: 'same-origin', headers: { 'X-Requested-With': 'XMLHttpRequest' } })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .then(function (html) {
+          if (my !== req) return;
+          wrap.innerHTML = html;
+          $$('.dl-ph img', wrap).forEach(function (im) { im.addEventListener('error', function () { im.style.display = 'none'; }); });
+          if (push) history.pushState({ dlObj: code }, '', url + '#projects');
+        })
+        .catch(function () { location.href = url + '#projects'; }) // без AJAX — обычный переход по ссылке
+        .then(function () { if (my === req) wrap.classList.remove('is-loading'); });
+    }
+    chips.forEach(function (c) {
+      c.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (c.getAttribute('aria-pressed') === 'true') return;
+        load(c.getAttribute('data-obj'), true);
+      });
+    });
+    window.addEventListener('popstate', function () {
+      var code = new URLSearchParams(location.search).get('obj') || '';
+      if (chips.some(function (c) { return c.getAttribute('data-obj') === code; })) load(code, false);
+    });
+    // «Проекты этого формата» из блока форматов: прокрутка к проектам + фильтр
+    $$('[data-obj-go]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var code = a.getAttribute('data-obj-go'), chip = chips.filter(function (c) { return c.getAttribute('data-obj') === code; })[0];
+        if (!chip) return;
+        e.preventDefault();
+        $('#projects').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        if (chip.getAttribute('aria-pressed') !== 'true') load(code, true);
+      });
+    });
+  })();
+
+  /* ---------- Цели Метрики направления (data-goals="kuhnya" → kuhnya_hero_cta, kuhnya_lead …) ---------- */
+  (function () {
+    var prefix = root.getAttribute('data-goals');
+    if (!prefix) return;
+    function goal(name, params) {
+      if (typeof window.ym !== 'function' || !metrikaId) return;
+      try { window.ym(metrikaId, 'reachGoal', prefix + '_' + name, params || undefined); } catch (x) { /* счётчик недоступен */ }
+    }
+    root.addEventListener('click', function (e) {
+      var el = e.target.closest('[data-dl-goal]');
+      if (el && root.contains(el)) goal(el.getAttribute('data-dl-goal'));
+    });
+    // звонок — по любой tel:-ссылке на странице (шапка, контакты, мобильная панель)
+    document.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('a[href^="tel:"]')) goal('tel');
+    });
+    $$('[data-fork] [data-switch-btn]').forEach(function (b) {
+      b.addEventListener('click', function () { goal('fork_select', { scenario: b.textContent.trim() }); });
+    });
+    var check = $('#checklist form');
+    if (check) check.addEventListener('form:success', function () { goal('checklist'); });
+    // форма «С какой задачей вы пришли?» — с выбранными задачей и типом объекта
+    var task = $('#task form');
+    if (task) {
+      task.addEventListener('submit', function () {
+        var r = $$('input[type=radio]:checked', task).map(function (i) { return i.value; });
+        task.setAttribute('data-goal-topic', r.join(' · '));
+      }, true);
+      task.addEventListener('form:success', function () { goal('task', { topic: task.getAttribute('data-goal-topic') || '' }); });
+    }
+    var lead = $('#final form');
+    if (lead) {
+      lead.addEventListener('submit', function () { // до отправки: form.reset() после успеха очищает поля
+        var topic = $('input[type=radio]:checked', lead), files = $$('.dl-fileslots input[type=file]', lead).some(function (f) { return f.files && f.files.length; });
+        lead.setAttribute('data-goal-topic', topic ? topic.value : '');
+        lead.setAttribute('data-goal-file', files ? '1' : '');
+      }, true);
+      lead.addEventListener('form:success', function () {
+        goal('lead', { topic: lead.getAttribute('data-goal-topic') || '' });
+        if (lead.getAttribute('data-goal-file')) goal('lead_file', { topic: lead.getAttribute('data-goal-topic') || '' });
+      });
+    }
+    // глубина прокрутки 50% / 75% — по одному разу за просмотр
+    var hit = {};
+    function depth() {
+      var d = document.documentElement, p = (window.scrollY + window.innerHeight) / Math.max(d.scrollHeight, 1) * 100;
+      [50, 75].forEach(function (m) { if (p >= m && !hit[m]) { hit[m] = 1; goal('scroll_' + m); } });
+      if (hit[50] && hit[75]) window.removeEventListener('scroll', depth);
+    }
+    window.addEventListener('scroll', depth, { passive: true });
+  })();
 
   /* UTM-метки и Client ID Метрики — в скрытые поля (уходят в CRM вместе с заявкой) */
   (function () {

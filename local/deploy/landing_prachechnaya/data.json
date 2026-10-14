@@ -1,9 +1,51 @@
 {
     "direction": "prachechnaya",
-    "exported": "2026-09-28T10:45:36+00:00",
+    "exported": "2026-10-14T13:53:02+00:00",
     "props": {
         "LAND_BLOCKS": {
             "anchors": {
+                "menu": [
+                    {
+                        "v": "Проекты",
+                        "d": "#projects"
+                    },
+                    {
+                        "v": "Оборудование",
+                        "d": "#cats"
+                    },
+                    {
+                        "v": "Бренды",
+                        "d": "#brands"
+                    },
+                    {
+                        "v": "В наличии",
+                        "d": "#stock"
+                    },
+                    {
+                        "v": "Запчасти",
+                        "d": "#parts"
+                    },
+                    {
+                        "v": "Решения",
+                        "d": "#solutions"
+                    },
+                    {
+                        "v": "Проектирование",
+                        "d": "#design"
+                    },
+                    {
+                        "v": "Гарантия",
+                        "d": "#guarantee"
+                    },
+                    {
+                        "v": "Статьи",
+                        "d": "#expert"
+                    },
+                    {
+                        "v": "Контакты",
+                        "d": "#final"
+                    }
+                ],
                 "btn": "Получить консультацию",
                 "source": "Якорное меню · консультация",
                 "active": 1
@@ -14,6 +56,15 @@
                 "anchor": "Проекты",
                 "link_text": "Все проекты",
                 "link_url": "/portfolio/",
+                "pool_type": "",
+                "active": 1
+            },
+            "cats": {
+                "title": "Наше оборудование",
+                "lead": "",
+                "anchor": "Оборудование",
+                "link_text": "",
+                "link_url": "",
                 "active": 1
             },
             "consult": {
@@ -34,17 +85,19 @@
                 "section_code": "prachechnoe-oborudovanie",
                 "limit": 6,
                 "price_note": "с НДС, склад в Москве",
+                "no_stock": "",
                 "active": 1
             },
             "brands": {
-                "title": "Наши бренды",
+                "title": "",
                 "lead": "Ведущие мировые бренды и собственные решения ПРОФЭКВИП.\nJENSEN, TOLON, DANUBE, IMESA, PONY, HAWO и другие. Официальные поставки, гарантия, сервис и оригинальные запчасти.",
                 "anchor": "Бренды",
                 "link_text": "Все бренды",
                 "link_url": "/brends/",
-                "featured_pic": 9943,
+                "featured_pic": 10022,
                 "featured_name": "FERMEST",
                 "featured_url": "/brends/fermest-equipment/",
+                "featured_label": "",
                 "active": 1
             },
             "parts": {
@@ -72,7 +125,7 @@
                         "d": "Поможем подобрать"
                     }
                 ],
-                "pic": 9931,
+                "pic": 10023,
                 "active": 1
             },
             "solutions": {
@@ -82,10 +135,10 @@
                 "active": 1
             },
             "calc": {
-                "title": "Не знаете, какое оборудование нужно?",
-                "lead": "Инженер уточнит объём белья, тип объекта и режим работы, рассчитает состав прачечной и сориентирует по бюджету. Консультация бесплатная.",
+                "title": "Требуется помощь?",
+                "lead": "Наша команда уточнит объём белья, тип объекта и режим работы, рассчитает состав прачечной и сориентирует по бюджету. Консультация бесплатная.",
                 "btn": "Получить консультацию",
-                "ok": "Заявка отправлена. Инженер направления свяжется с вами в рабочее время.",
+                "ok": "Заявка отправлена. Наша команда свяжется с вами в рабочее время.",
                 "source": "Решения · консультация по составу оборудования",
                 "active": 1
             },
@@ -93,6 +146,7 @@
                 "title": "Проектирование и комплексное оснащение",
                 "lead": "Собственное проектное бюро и сервисная служба ведут прачечную от первого расчёта до регулярного обслуживания.",
                 "anchor": "Проектирование",
+                "steps_view": "",
                 "active": 1
             },
             "tz": {
@@ -117,6 +171,10 @@
                 "title": "Комплексная гарантия ПРОФЭКВИП",
                 "lead": "Качество стирки складывается из четырёх составляющих. Мы отвечаем за все сразу — искать виноватого между подрядчиками не придётся.",
                 "anchor": "Гарантия",
+                "form_title": "",
+                "links": [],
+                "btn2_text": "",
+                "btn2_url": "",
                 "active": 1
             },
             "expert": {
@@ -164,6 +222,9 @@
                         "d": "service"
                     }
                 ],
+                "company": "",
+                "file_hint": "",
+                "file_max": "",
                 "active": 1
             }
         },
@@ -179,7 +240,7 @@
                 "btn2_text": "В каталог",
                 "btn2_target": "/product-category/prachechnoe-oborudovanie/",
                 "art": "tunnel",
-                "pic": 9926,
+                "pic": 10229,
                 "pic_mob": 0
             },
             {
@@ -193,7 +254,7 @@
                 "btn2_text": "Смотреть наличие",
                 "btn2_target": "#stock",
                 "art": "washer",
-                "pic": 9925,
+                "pic": 10230,
                 "pic_mob": 0
             },
             {
@@ -207,25 +268,29 @@
                 "btn2_text": "Подобрать запчасть",
                 "btn2_target": "#parts",
                 "art": "parts",
-                "pic": 9927,
+                "pic": 10231,
                 "pic_mob": 0
             }
         ],
         "LAND_ADVANTAGES": [
             {
                 "title": "Прямой импорт",
+                "text": "",
                 "icon": "shield"
             },
             {
                 "title": "Складской запас",
+                "text": "",
                 "icon": "box"
             },
             {
                 "title": "Проектное бюро",
+                "text": "",
                 "icon": "compass"
             },
             {
                 "title": "Сервисная служба",
+                "text": "",
                 "icon": "wrench"
             }
         ],
@@ -250,11 +315,24 @@
                 "url": "/gotovye-resheniya/prachechnaya-v-gostinitse/",
                 "link_text": "Подробнее о гостиничной прачечной",
                 "art": "ironer",
-                "pic": 9937
+                "pic": 10036,
+                "objtypes": "",
+                "text": "",
+                "filter": "",
+                "text_hotel34": "",
+                "pic_hotel34": 0,
+                "text_hotel5": "",
+                "pic_hotel5": 0,
+                "text_spa": "",
+                "pic_spa": 0,
+                "text_restoran": "",
+                "pic_restoran": 0,
+                "text_private": "",
+                "pic_private": 0
             },
             {
                 "title": "Коммерческая и промышленная",
-                "sub": "Фабрики-прачечные, сервис для нескольких объектов",
+                "sub": "Обслуживание населения и объектов гостеприимства",
                 "specs": [
                     {
                         "v": "от 1 т белья в смену",
@@ -272,7 +350,20 @@
                 "url": "/gotovye-resheniya/promyshlennaya-prachechnaya/",
                 "link_text": "Подробнее о промышленной прачечной",
                 "art": "tunnel",
-                "pic": 9938
+                "pic": 10037,
+                "objtypes": "",
+                "text": "",
+                "filter": "",
+                "text_hotel34": "",
+                "pic_hotel34": 0,
+                "text_hotel5": "",
+                "pic_hotel5": 0,
+                "text_spa": "",
+                "pic_spa": 0,
+                "text_restoran": "",
+                "pic_restoran": 0,
+                "text_private": "",
+                "pic_private": 0
             },
             {
                 "title": "Индустриальные прачечные",
@@ -294,7 +385,20 @@
                 "url": "/gotovye-resheniya/industrialnaya-prachechnaya-s-tunnelnoj-liniej/",
                 "link_text": "Подробнее об индустриальной прачечной",
                 "art": "tunnel",
-                "pic": 9942
+                "pic": 10232,
+                "objtypes": "",
+                "text": "",
+                "filter": "",
+                "text_hotel34": "",
+                "pic_hotel34": 0,
+                "text_hotel5": "",
+                "pic_hotel5": 0,
+                "text_spa": "",
+                "pic_spa": 0,
+                "text_restoran": "",
+                "pic_restoran": 0,
+                "text_private": "",
+                "pic_private": 0
             },
             {
                 "title": "Медицинские и санитарные объекты",
@@ -316,7 +420,20 @@
                 "url": "/gotovye-resheniya/prachechnaya-v-bolnitse/",
                 "link_text": "Подробнее о прачечной для медучреждения",
                 "art": "plan",
-                "pic": 9939
+                "pic": 10039,
+                "objtypes": "",
+                "text": "",
+                "filter": "",
+                "text_hotel34": "",
+                "pic_hotel34": 0,
+                "text_hotel5": "",
+                "pic_hotel5": 0,
+                "text_spa": "",
+                "pic_spa": 0,
+                "text_restoran": "",
+                "pic_restoran": 0,
+                "text_private": "",
+                "pic_private": 0
             },
             {
                 "title": "Прачечная предприятия",
@@ -338,11 +455,24 @@
                 "url": "/gotovye-resheniya/prachechnaya-na-predpriyatii/",
                 "link_text": "Подробнее о прачечной предприятия",
                 "art": "washer",
-                "pic": 9940
+                "pic": 10040,
+                "objtypes": "",
+                "text": "",
+                "filter": "",
+                "text_hotel34": "",
+                "pic_hotel34": 0,
+                "text_hotel5": "",
+                "pic_hotel5": 0,
+                "text_spa": "",
+                "pic_spa": 0,
+                "text_restoran": "",
+                "pic_restoran": 0,
+                "text_private": "",
+                "pic_private": 0
             },
             {
                 "title": "Химчистка и аквачистка",
-                "sub": "Сервис для частных клиентов и отелей",
+                "sub": "Работа с деликатными изделиями и сложными загрязнениями",
                 "specs": [
                     {
                         "v": "от точки приёма до цеха",
@@ -360,7 +490,20 @@
                 "url": "/gotovye-resheniya/akvachistka/",
                 "link_text": "Подробнее об аквачистке",
                 "art": "dryer",
-                "pic": 9941
+                "pic": 10233,
+                "objtypes": "",
+                "text": "",
+                "filter": "",
+                "text_hotel34": "",
+                "pic_hotel34": 0,
+                "text_hotel5": "",
+                "pic_hotel5": 0,
+                "text_spa": "",
+                "pic_spa": 0,
+                "text_restoran": "",
+                "pic_restoran": 0,
+                "text_private": "",
+                "pic_private": 0
             }
         ],
         "LAND_STEPS": [
@@ -368,42 +511,80 @@
                 "title": "Анализ задачи",
                 "text": "Объём и тип белья, режим работы, санитарные нормы и стандарты сети. На выходе — требуемая производительность и ориентир по бюджету.",
                 "result": "Результат: техническое задание",
+                "time": "",
+                "points": [],
+                "output": "",
+                "need": "",
                 "pic": 0
             },
             {
                 "title": "Проектирование",
                 "text": "Технологический проект собственного бюро: расстановка оборудования, чистая и грязная зоны, нагрузки на электричество, воду, вентиляцию и канализацию.",
                 "result": "Результат: проект и задания смежникам",
+                "time": "",
+                "points": [],
+                "output": "",
+                "need": "",
                 "pic": 0
             },
             {
                 "title": "Подбор оборудования",
                 "text": "Спецификация под задачу с вариантами по бюджету. Если позиция выходит за рамки сметы — предложим аналог из каталога и покажем разницу в стоимости владения.",
                 "result": "Результат: спецификация и КП",
+                "time": "",
+                "points": [],
+                "output": "",
+                "need": "",
                 "pic": 0
             },
             {
                 "title": "Поставка и монтаж",
                 "text": "Поставка оборудования с заводов производителей и с нашего склада, погрузка и разгрузка на объекте. Монтаж и пусконаладку выполняют сертифицированные инженеры собственной сервисной службы.",
                 "result": "Результат: смонтированное оборудование",
+                "time": "",
+                "points": [],
+                "output": "",
+                "need": "",
                 "pic": 0
             },
             {
                 "title": "Технология стирки и химия",
                 "text": "Разрабатываем программы стирки под тип белья и загрязнений, подбираем дозирующие системы и поставляем профессиональную химию, откалиброванную под параметры вашего оборудования.",
                 "result": "Результат: технологические карты и химия на объекте",
+                "time": "",
+                "points": [],
+                "output": "",
+                "need": "",
                 "pic": 0
             },
             {
                 "title": "Запуск и обучение",
                 "text": "Подключение к сетям 220/380 В, холодной и горячей воде, тестовые циклы и калибровка дозирования химии. Вводное обучение персонала работе с оборудованием и программами стирки.",
                 "result": "Результат: прачечная в работе",
+                "time": "",
+                "points": [],
+                "output": "",
+                "need": "",
                 "pic": 0
             },
             {
                 "title": "Сервис",
                 "text": "Гарантийное и постгарантийное обслуживание, плановые ТО по договору, оригинальные запчасти и профессиональная химия со склада.",
                 "result": "Результат: стабильная работа без простоев",
+                "time": "",
+                "points": [],
+                "output": "",
+                "need": "",
+                "pic": 0
+            },
+            {
+                "title": "Поставка расходников и химии",
+                "text": "Регулярно поставляем профессиональную химию для стирки и химчистки и расходные материалы: полотна и чехлы для гладильных катков, фильтры, ремни, уплотнители, мешки и сетки для белья. График поставок составляем под фактический расход прачечной, ходовые позиции держим на складе.",
+                "result": "Результат: химия и расходники без перебоев",
+                "time": "",
+                "points": [],
+                "output": "",
+                "need": "",
                 "pic": 0
             }
         ],
@@ -413,34 +594,92 @@
                 "text": "Стирка, сушка и финиш: от одной машины до туннельной линии",
                 "url": "/product-category/prachechnoe-oborudovanie/",
                 "label": "Каталог оборудования",
-                "icon": "washer",
-                "pic": 9921
+                "icon": "i-washer",
+                "pic": 0
             },
             {
                 "title": "Химия",
                 "text": "Средства и дозирующие системы, подобранные под программы ваших машин",
                 "url": "/himiya/",
                 "label": "Направление «Химия»",
-                "icon": "parts",
-                "pic": 9922
+                "icon": "i-chem",
+                "pic": 0
             },
             {
                 "title": "Текстиль",
                 "text": "Бельё, полотенца и халаты, рассчитанные на промышленную стирку",
                 "url": "/tekstil/",
                 "label": "Направление «Текстиль»",
-                "icon": "doc",
-                "pic": 9923
+                "icon": "i-textile",
+                "pic": 0
             },
             {
                 "title": "Сервис",
                 "text": "Плановое ТО, ремонт и оригинальные запчасти со склада",
-                "url": "/services/",
+                "url": "/servisnoe-obsluzhivanie/",
                 "label": "Сервисная служба",
                 "icon": "wrench",
                 "pic": 0
             }
-        ]
+        ],
+        "LAND_CATS": [
+            {
+                "section": "prachechnoe-oborudovanie-v-nalichii",
+                "title": "Прачечное оборудование в наличии",
+                "url": "/product-category/prachechnoe-oborudovanie-v-nalichii/",
+                "pic": 10257
+            },
+            {
+                "section": "stiralnye-mashiny",
+                "title": "Стиральные машины",
+                "url": "/product-category/stiralnye-mashiny/",
+                "pic": 10258
+            },
+            {
+                "section": "sushilnoe-oborudovanie",
+                "title": "Сушильное оборудование",
+                "url": "/product-category/sushilnoe-oborudovanie/",
+                "pic": 10259
+            },
+            {
+                "section": "gladilnoe-oborudovanie",
+                "title": "Гладильное оборудование",
+                "url": "/product-category/gladilnoe-oborudovanie/",
+                "pic": 10260
+            },
+            {
+                "section": "finishnoe-oborudovanie",
+                "title": "Финишное оборудование",
+                "url": "/product-category/finishnoe-oborudovanie/",
+                "pic": 10261
+            },
+            {
+                "section": "upakovochnoe-oborudovanie",
+                "title": "Упаковочное оборудование",
+                "url": "/product-category/upakovochnoe-oborudovanie/",
+                "pic": 10262
+            },
+            {
+                "section": "komplekty-prachechnogo-oborudovaniya",
+                "title": "Комплекты прачечного оборудования",
+                "url": "/product-category/komplekty-prachechnogo-oborudovaniya/",
+                "pic": 10240
+            },
+            {
+                "section": "vspomogatelnoe-oborudovanie",
+                "title": "Вспомогательное оборудование",
+                "url": "/product-category/vspomogatelnoe-oborudovanie/",
+                "pic": 10241
+            }
+        ],
+        "LAND_NOVELTIES": [],
+        "LAND_TECH": [],
+        "LAND_LIBRARY": [],
+        "LAND_REVIEWS": [],
+        "LAND_COMPARE": [],
+        "LAND_CLIENTS": [],
+        "LAND_CERTS": [],
+        "LAND_FAQ": []
     },
     "links": {
         "PROJECTS": [
@@ -652,7 +891,7 @@
         }
     },
     "files": {
-        "9943": {
+        "10022": {
             "MODULE_ID": "iblock",
             "HEIGHT": "0",
             "WIDTH": "0",
@@ -664,7 +903,7 @@
             "DESCRIPTION": "",
             "bundled": true
         },
-        "9931": {
+        "10023": {
             "MODULE_ID": "iblock",
             "HEIGHT": "1119",
             "WIDTH": "1280",
@@ -676,147 +915,207 @@
             "DESCRIPTION": "",
             "bundled": true
         },
-        "9926": {
+        "10229": {
             "MODULE_ID": "iblock",
-            "HEIGHT": "600",
-            "WIDTH": "1280",
-            "FILE_SIZE": "177291",
-            "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "landing/48d",
-            "FILE_NAME": "qtkbuzdujsz834tgkij2za9cysfwlgc0.jpg",
-            "ORIGINAL_NAME": "Слайдер 1.jpg",
-            "DESCRIPTION": "",
-            "bundled": true
-        },
-        "9925": {
-            "MODULE_ID": "iblock",
-            "HEIGHT": "600",
-            "WIDTH": "1280",
-            "FILE_SIZE": "186908",
-            "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "landing/b64",
-            "FILE_NAME": "c4t53gtwrmhyy32y7sang52tul1znwzb.jpg",
-            "ORIGINAL_NAME": "Слайдер 2.jpg",
-            "DESCRIPTION": "",
-            "bundled": true
-        },
-        "9927": {
-            "MODULE_ID": "iblock",
-            "HEIGHT": "600",
-            "WIDTH": "1280",
-            "FILE_SIZE": "187467",
-            "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "landing/abe",
-            "FILE_NAME": "kgeezrina36fxv54uqi34g7mzukxwra0.jpg",
-            "ORIGINAL_NAME": "Слайдер 3 (1).jpg",
-            "DESCRIPTION": "",
-            "bundled": true
-        },
-        "9937": {
-            "MODULE_ID": "iblock",
-            "HEIGHT": "400",
-            "WIDTH": "600",
-            "FILE_SIZE": "344195",
+            "HEIGHT": "941",
+            "WIDTH": "1672",
+            "FILE_SIZE": "1868777",
             "CONTENT_TYPE": "image/png",
-            "SUBDIR": "iblock/87f",
-            "FILE_NAME": "xz1u2r7m52cqsq3m0swt5t7plehw58wv.png",
-            "ORIGINAL_NAME": "Otel-The-Local-Groznyj.png",
+            "SUBDIR": "landing/023",
+            "FILE_NAME": "h0fq5ljy2lxswubnx8ya1z8qql6y8itr.png",
+            "ORIGINAL_NAME": "Слайдер 1 (1).png",
             "DESCRIPTION": "",
-            "bundled": false
+            "bundled": true
         },
-        "9938": {
+        "10230": {
             "MODULE_ID": "iblock",
-            "HEIGHT": "800",
-            "WIDTH": "1200",
-            "FILE_SIZE": "193633",
-            "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "iblock/89d",
-            "FILE_NAME": "o9c5dszktza1vdnhx2201dj6frzhfz85.jpg",
-            "ORIGINAL_NAME": "Industrial_laundry_Astum_Light_Moscow_laundry_2017-64.jpg",
+            "HEIGHT": "859",
+            "WIDTH": "1831",
+            "FILE_SIZE": "1994047",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/d23",
+            "FILE_NAME": "2cop1ap1cucphqncu1yty4szxpr0cgx1.png",
+            "ORIGINAL_NAME": "Слайдер 2 (1).png",
             "DESCRIPTION": "",
-            "bundled": false
+            "bundled": true
         },
-        "9942": {
+        "10231": {
             "MODULE_ID": "iblock",
-            "HEIGHT": "1280",
-            "WIDTH": "1920",
-            "FILE_SIZE": "518505",
-            "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "iblock/98c",
-            "FILE_NAME": "cnfa0ajibk9g3yiihtsi3habd5xxdt1v.jpg",
-            "ORIGINAL_NAME": "Hotel_Yalta-Intourist_laundry-2.jpg",
+            "HEIGHT": "793",
+            "WIDTH": "1983",
+            "FILE_SIZE": "1878429",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/b69",
+            "FILE_NAME": "cug6h3q6lb4wzqqd0k9d5i1kq3ld1v7x.png",
+            "ORIGINAL_NAME": "Слайдер 3 (1).png",
             "DESCRIPTION": "",
-            "bundled": false
+            "bundled": true
         },
-        "9939": {
+        "10036": {
             "MODULE_ID": "iblock",
-            "HEIGHT": "400",
-            "WIDTH": "600",
-            "FILE_SIZE": "77152",
-            "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "iblock/279",
-            "FILE_NAME": "cgd4bhkva32m85hykt3n4356tk6ffc0x.jpg",
-            "ORIGINAL_NAME": "Pervaya-gradskaya-bolnitsa-im.-N.I.-Pirogova.jpg",
+            "HEIGHT": "992",
+            "WIDTH": "1586",
+            "FILE_SIZE": "1896064",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/05e",
+            "FILE_NAME": "npu2nnxk2cqvmh13fjt6ovf69ij9aant.png",
+            "ORIGINAL_NAME": "Гостиничная прачечная.png",
             "DESCRIPTION": "",
-            "bundled": false
+            "bundled": true
         },
-        "9940": {
+        "10037": {
             "MODULE_ID": "iblock",
-            "HEIGHT": "370",
-            "WIDTH": "600",
-            "FILE_SIZE": "42192",
-            "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "iblock/cb5",
-            "FILE_NAME": "3lxt2km3x79cbga7qqftuoooxa0ni7jq.jpg",
-            "ORIGINAL_NAME": "Prachechnoe-predpriyatie-CHajkovskaya-spetsodezhda-1-e1757481230116.jpg",
+            "HEIGHT": "992",
+            "WIDTH": "1586",
+            "FILE_SIZE": "2215572",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/d9a",
+            "FILE_NAME": "wdw5ar5gc4pv7reptum35td2n6rxpf6c.png",
+            "ORIGINAL_NAME": "Коммерческая.png",
             "DESCRIPTION": "",
-            "bundled": false
+            "bundled": true
         },
-        "9941": {
+        "10232": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "1086",
+            "WIDTH": "1448",
+            "FILE_SIZE": "2358189",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/c06",
+            "FILE_NAME": "e9n2bolfxn068yib8aircfcnqz22v5ne.png",
+            "ORIGINAL_NAME": "Индустриальная прачечная (1).png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10039": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "992",
+            "WIDTH": "1586",
+            "FILE_SIZE": "1942245",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/12c",
+            "FILE_NAME": "6v26zmz3tj4ooa4glm6bmu9kdnxrsr05.png",
+            "ORIGINAL_NAME": "медицинские.png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10040": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "992",
+            "WIDTH": "1586",
+            "FILE_SIZE": "2183974",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/5a4",
+            "FILE_NAME": "ehf13g2tyqobfzgfxvle27atxtlclo32.png",
+            "ORIGINAL_NAME": "Прачечная предприятия.png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10233": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "941",
+            "WIDTH": "1672",
+            "FILE_SIZE": "2201415",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/510",
+            "FILE_NAME": "rb25434vmn3d2y9vysczvntpz65n7six.png",
+            "ORIGINAL_NAME": "Химчистка Аквачистка (1).png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10257": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "908",
+            "WIDTH": "896",
+            "FILE_SIZE": "509563",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/6b3",
+            "FILE_NAME": "u3m3duq2kkxwfrisj2f2sicvyww5eeje.png",
+            "ORIGINAL_NAME": "В наличии.png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10258": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "908",
+            "WIDTH": "896",
+            "FILE_SIZE": "434073",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/805",
+            "FILE_NAME": "znvj6hfp67adw085jhv29y82o85tyawn.png",
+            "ORIGINAL_NAME": "Стиральные.png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10259": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "908",
+            "WIDTH": "896",
+            "FILE_SIZE": "351655",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/956",
+            "FILE_NAME": "1ok4m51qp9070rm2nhs2t8m6falp31cv.png",
+            "ORIGINAL_NAME": "Сушильное.png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10260": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "908",
+            "WIDTH": "896",
+            "FILE_SIZE": "459133",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/f8a",
+            "FILE_NAME": "csjb83ij0bbiemac9j60ygiokd8k8olh.png",
+            "ORIGINAL_NAME": "Гладильное.png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10261": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "908",
+            "WIDTH": "896",
+            "FILE_SIZE": "375699",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/e74",
+            "FILE_NAME": "14ro9d7y31tthfokz6dwzm6s774exss9.png",
+            "ORIGINAL_NAME": "Финишное.png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10262": {
+            "MODULE_ID": "iblock",
+            "HEIGHT": "908",
+            "WIDTH": "896",
+            "FILE_SIZE": "627762",
+            "CONTENT_TYPE": "image/png",
+            "SUBDIR": "landing/65f",
+            "FILE_NAME": "ct38ihsmfyivtfijnyo3i3hom21q5q2l.png",
+            "ORIGINAL_NAME": "Упаковочное.png",
+            "DESCRIPTION": "",
+            "bundled": true
+        },
+        "10240": {
             "MODULE_ID": "iblock",
             "HEIGHT": "600",
-            "WIDTH": "900",
-            "FILE_SIZE": "154054",
+            "WIDTH": "600",
+            "FILE_SIZE": "62989",
             "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "iblock/de3",
-            "FILE_NAME": "hwze1mr3vcrctemgfh1649tt8hr12smq.jpg",
-            "ORIGINAL_NAME": "AquaCleaning_Kaliningrad-2.jpg",
+            "SUBDIR": "iblock/9c7",
+            "FILE_NAME": "ig0p6e0l56bly404ccmdskyn0s2234cq.jpg",
+            "ORIGINAL_NAME": "Komlekty-prachechnogo-oborudovaniya.jpg",
             "DESCRIPTION": "",
             "bundled": false
         },
-        "9921": {
+        "10241": {
             "MODULE_ID": "iblock",
-            "HEIGHT": "322",
-            "WIDTH": "369",
-            "FILE_SIZE": "19686",
+            "HEIGHT": "600",
+            "WIDTH": "600",
+            "FILE_SIZE": "47287",
             "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "iblock/81e",
-            "FILE_NAME": "dcdeermymqbe100q4j8d4upv7lvuoobb.jpg",
-            "ORIGINAL_NAME": "1.jpg",
-            "DESCRIPTION": "",
-            "bundled": false
-        },
-        "9922": {
-            "MODULE_ID": "iblock",
-            "HEIGHT": "322",
-            "WIDTH": "369",
-            "FILE_SIZE": "7349",
-            "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "iblock/b55",
-            "FILE_NAME": "56b3x7ojdkjwfvjeb59z3sdfv7ocf9b8.jpg",
-            "ORIGINAL_NAME": "4.jpg",
-            "DESCRIPTION": "",
-            "bundled": false
-        },
-        "9923": {
-            "MODULE_ID": "iblock",
-            "HEIGHT": "322",
-            "WIDTH": "369",
-            "FILE_SIZE": "12529",
-            "CONTENT_TYPE": "image/jpeg",
-            "SUBDIR": "iblock/042",
-            "FILE_NAME": "y421bw70ptmfltx0lg40i8svc0t5lk3r.jpg",
-            "ORIGINAL_NAME": "2.jpg",
+            "SUBDIR": "iblock/9e8",
+            "FILE_NAME": "xtp2f4z9dtr8js0mn8qwe0thp3oir3j8.jpg",
+            "ORIGINAL_NAME": "Vspomogatelnoe.jpg",
             "DESCRIPTION": "",
             "bundled": false
         }

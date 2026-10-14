@@ -85,7 +85,9 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
             'source' => $text($r, 'source'),
             'items' => $pairs($r, 'items'),
             'links' => $pairs($r, 'links'),
+            'menu' => $pairs($r, 'menu'),
             'tasks' => $pairs($r, 'tasks'),
+            'objTypes' => array_column($pairs($r, 'objtypes'), 'value'),
             'sectionCode' => $text($r, 'section_code'),
             'limit' => (int)($r['limit'] ?? 0),
             'priceNote' => $text($r, 'price_note'),
@@ -94,6 +96,15 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
             'featuredName' => $text($r, 'featured_name'),
             'featuredUrl' => $text($r, 'featured_url'),
             'featuredLabel' => $text($r, 'featured_label'),
+            'kicker' => $text($r, 'kicker'),
+            'note' => $text($r, 'note'),
+            'clientsTitle' => $text($r, 'clients_title'),
+            'poolType' => $text($r, 'pool_type'),
+            'company' => $text($r, 'company') === 'y',
+            'fileHint' => $text($r, 'file_hint'),
+            'fileMax' => (int)($r['file_max'] ?? 0),
+            'noStock' => $text($r, 'no_stock') === 'y',
+            'stepsView' => $text($r, 'steps_view'),
             'blogIds' => [],
             'newsIds' => [],
         ];
@@ -119,7 +130,7 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
 
     // --- преимущества -----------------------------------------------------
     $out['advantages'] = array_map(static fn(array $r) => [
-        'name' => $text($r, 'title'), 'icon' => $text($r, 'icon') ?: 'shield',
+        'name' => $text($r, 'title'), 'text' => $text($r, 'text'), 'icon' => $text($r, 'icon') ?: 'shield',
     ], $decode('LAND_ADVANTAGES'));
 
     // --- решения / зоны -------------------------------------------------------
@@ -132,12 +143,105 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
         'linkText' => $text($r, 'link_text'),
         'art' => $text($r, 'art') ?: 'washer',
         'objtypes' => array_values(array_filter(array_map('trim', explode(',', $text($r, 'objtypes'))))),
+        'filter' => $text($r, 'filter'),
+        'text' => $text($r, 'text'),
+        // свои описание/фото вкладки под тип объекта — только заполненные: [код => ['text' => ..., 'pic' => ...]]
+        'variants' => array_filter(array_map(
+            static fn(string $code) => array_filter(['text' => $text($r, 'text_' . $code), 'pic' => (int)($r['pic_' . $code] ?? 0)]),
+            array_combine(array_keys(profequip_LandingObjTypes()), array_keys(profequip_LandingObjTypes()))
+        )),
     ], $decode('LAND_SOLUTIONS'));
 
-    // --- каталог: новинки ------------------------------------------------------
-    $out['novelties'] = array_map(static fn(array $r) => [
-        'name' => $text($r, 'title'), 'params' => $pairs($r, 'params'), 'url' => $text($r, 'url'), 'pic' => (int)$r['pic'],
-    ], $decode('LAND_NOVELTIES'));
+    // --- каталог: новинки / выбранные позиции ------------------------------------
+    // Строка с символьным кодом товара дополняется данными из карточки товара (название, фото, ссылка,
+    // раздел, страна, флажок «В наличии»); заполненные в админке поля строки важнее. Цена не берётся.
+    $novRows = $decode('LAND_NOVELTIES');
+    $products = [];
+    $codes = array_values(array_filter(array_map(static fn($r) => $text($r, 'product'), $novRows)));
+    $catIblock = $codes ? $iblockId('catalog') : 0;
+    if ($codes && $catIblock) {
+        $rs = \CIBlockElement::GetList([], ['IBLOCK_ID' => $catIblock, 'CODE' => $codes, 'ACTIVE' => 'Y'], false, false,
+            ['ID', 'IBLOCK_ID', 'CODE', 'NAME', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE', 'DETAIL_PICTURE', 'IBLOCK_SECTION_ID']);
+        while ($ob = $rs->GetNextElement()) {
+            $f = $ob->GetFields();
+            $p = $ob->GetProperties();
+            $sec = $f['IBLOCK_SECTION_ID'] ? \CIBlockSection::GetList([], ['ID' => (int)$f['IBLOCK_SECTION_ID']], false, ['NAME'])->Fetch() : null;
+            // «Страна» (COUNTRY) — множественный список: VALUE приходит массивом; запасной вариант — строка STRANA
+            $first = static fn($v) => trim((string)(is_array($v) ? (reset($v) ?: '') : ($v ?? '')));
+            $country = $first($p['COUNTRY']['VALUE'] ?? '') ?: $first($p['STRANA']['VALUE'] ?? '');
+            $products[$f['CODE']] = [
+                'name' => (string)$f['~NAME'],
+                'url' => (string)$f['DETAIL_PAGE_URL'],
+                'pic' => (int)($f['PREVIEW_PICTURE'] ?: $f['DETAIL_PICTURE']),
+                'cat' => $sec ? (string)$sec['NAME'] : '',
+                'country' => $country,
+                'inStock' => !empty($p['STOCK_BADGE']['VALUE']),
+            ];
+        }
+    }
+    $out['novelties'] = [];
+    foreach ($novRows as $r) {
+        $prod = $products[$text($r, 'product')] ?? null;
+        if ($text($r, 'product') !== '' && !$prod) {
+            continue; // товар снят с публикации — карточку не показываем
+        }
+        $params = $pairs($r, 'params');
+        if ($prod && $prod['country'] !== '' && !in_array('Страна', array_column($params, 'desc'), true)) {
+            $params[] = ['value' => $prod['country'], 'desc' => 'Страна'];
+        }
+        $out['novelties'][] = [
+            'name' => $text($r, 'title') ?: ($prod['name'] ?? ''),
+            'params' => $params,
+            'url' => $text($r, 'url') ?: ($prod['url'] ?? ''),
+            'pic' => (int)$r['pic'] ?: ($prod['pic'] ?? 0),
+            'cat' => $text($r, 'cat') ?: ($prod['cat'] ?? ''),
+            'product' => $prod !== null,
+            'inStock' => $prod['inStock'] ?? false,
+        ];
+    }
+
+    // --- категории каталога ---------------------------------------------------
+    // По символьному коду раздела подтягиваются название, ссылка и картинка раздела; заполненные поля строки важнее
+    $catRows = $decode('LAND_CATS');
+    $catSections = [];
+    $catCodes = array_values(array_filter(array_map(static fn($r) => $text($r, 'section'), $catRows)));
+    $catIb = $catCodes ? $iblockId('catalog') : 0;
+    if ($catCodes && $catIb) {
+        $rs = \CIBlockSection::GetList([], ['IBLOCK_ID' => $catIb, '=CODE' => $catCodes, 'ACTIVE' => 'Y', 'GLOBAL_ACTIVE' => 'Y'], false,
+            ['ID', 'IBLOCK_ID', 'CODE', 'NAME', 'PICTURE', 'SECTION_PAGE_URL']);
+        while ($r = $rs->GetNext()) {
+            $catSections[$r['CODE']] = ['name' => (string)$r['~NAME'], 'url' => (string)$r['SECTION_PAGE_URL'], 'pic' => (int)$r['PICTURE']];
+        }
+    }
+    $out['cats'] = [];
+    foreach ($catRows as $r) {
+        $sec = $catSections[$text($r, 'section')] ?? null;
+        if ($text($r, 'section') !== '' && !$sec) {
+            continue; // раздел отключён или код с ошибкой — карточку не показываем
+        }
+        $name = $text($r, 'title') ?: ($sec['name'] ?? '');
+        $url = $text($r, 'url') ?: ($sec['url'] ?? '');
+        if ($name === '' || $url === '') {
+            continue;
+        }
+        $out['cats'][] = ['name' => $name, 'url' => $url, 'pic' => (int)$r['pic'] ?: ($sec['pic'] ?? 0)];
+    }
+
+    // --- сравнение решений ---------------------------------------------------
+    $out['compare'] = array_map(static fn(array $r) => [
+        'level' => $text($r, 'level'), 'name' => $text($r, 'title'), 'sub' => $text($r, 'sub'),
+        'rows' => $pairs($r, 'rows'), 'featured' => $text($r, 'featured') === 'y',
+    ], $decode('LAND_COMPARE'));
+
+    // --- клиенты (полоса доверия) ---------------------------------------------
+    $out['clients'] = array_map(static fn(array $r) => [
+        'name' => $text($r, 'title'), 'pic' => (int)$r['pic'], 'url' => $text($r, 'url'),
+    ], $decode('LAND_CLIENTS'));
+
+    // --- сертификаты -----------------------------------------------------------
+    $out['certs'] = array_map(static fn(array $r) => [
+        'caption' => $text($r, 'caption'), 'pic' => (int)$r['pic'],
+    ], $decode('LAND_CERTS'));
 
     // --- технологии --------------------------------------------------------
     $out['tech'] = array_map(static fn(array $r) => [
@@ -147,7 +251,7 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
 
     // --- библиотека ----------------------------------------------------------
     $out['library'] = array_map(static fn(array $r) => [
-        'pic' => (int)$r['pic'], 'caption' => $text($r, 'caption'),
+        'pic' => (int)$r['pic'], 'caption' => $text($r, 'caption'), 'url' => $text($r, 'url'),
     ], $decode('LAND_LIBRARY'));
 
     // --- вопросы и ответы -------------------------------------------------------
@@ -163,6 +267,8 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
     // --- этапы ----------------------------------------------------------------
     $out['steps'] = array_map(static fn(array $r) => [
         'name' => $text($r, 'title'), 'text' => $text($r, 'text'), 'result' => $text($r, 'result'), 'pic' => (int)$r['pic'],
+        'time' => $text($r, 'time'), 'points' => array_column($pairs($r, 'points'), 'value'),
+        'output' => $text($r, 'output'), 'need' => $text($r, 'need'),
     ], $decode('LAND_STEPS'));
 
     // --- круговая гарантия ---------------------------------------------------
@@ -192,8 +298,32 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
     $projects = [];
     $projIblock = $iblockId('projects');
     $projIds = $linked('PROJECTS');
-    if ($projIds && $projIblock) {
-        $rs = \CIBlockElement::GetList([], ['IBLOCK_ID' => $projIblock, 'ID' => $projIds, 'ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y']);
+    // Фильтр по типу объекта (Кухня): к выбранным редактором проектам добавляются остальные проекты
+    // с указанным «Типом» и заполненным «Типом объекта» — фильтру есть из чего выбирать
+    $poolType = $sections['projects']['poolType'] ?? '';
+    $objTypeLabels = [];
+    $extraIds = [];
+    if ($poolType !== '' && $projIblock) {
+        $rsE = \CIBlockPropertyEnum::GetList(['SORT' => 'ASC', 'ID' => 'ASC'], ['IBLOCK_ID' => $projIblock, 'CODE' => 'OBJ_TYPE']);
+        while ($en = $rsE->Fetch()) {
+            $objTypeLabels[$en['XML_ID']] = $en['VALUE'];
+        }
+        $typeEnum = \CIBlockPropertyEnum::GetList([], ['IBLOCK_ID' => $projIblock, 'CODE' => 'TYPE', 'VALUE' => $poolType])->Fetch();
+        if ($typeEnum && $objTypeLabels) {
+            $rsX = \CIBlockElement::GetList(['SORT' => 'ASC', 'ACTIVE_FROM' => 'DESC', 'ID' => 'DESC'],
+                ['IBLOCK_ID' => $projIblock, 'ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y', 'PROPERTY_TYPE' => (int)$typeEnum['ID'], '!PROPERTY_OBJ_TYPE' => false],
+                false, false, ['ID']);
+            while ($x = $rsX->Fetch()) {
+                if (!in_array((int)$x['ID'], $projIds, true) && !in_array((int)$x['ID'], $extraIds, true)) {
+                    $extraIds[] = (int)$x['ID'];
+                }
+            }
+        }
+    }
+    $out['objTypes'] = [];
+    $out['projectPool'] = [];
+    if (($projIds || $extraIds) && $projIblock) {
+        $rs = \CIBlockElement::GetList([], ['IBLOCK_ID' => $projIblock, 'ID' => array_merge($projIds, $extraIds), 'ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y']);
         $byId = [];
         while ($ob = $rs->GetNextElement()) {
             $f = $ob->GetFields();
@@ -216,13 +346,48 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
                 'pic' => (int)($f['PREVIEW_PICTURE'] ?: $f['DETAIL_PICTURE']),
                 'meta' => array_map('strval', array_slice($meta, 0, 3)),
                 'text' => (string)$lp($p, 'CARD_TEXT'),
+                'brandIds' => array_map('intval', $lp($p, 'BRANDS', true)),
                 'scope' => array_map('strval', $lp($p, 'CARD_SCOPE', true)),
+                'obj' => array_values(array_filter(array_map('strval', (array)($p['OBJ_TYPE']['VALUE_XML_ID'] ?? [])))),
             ];
         }
+        // теги карточки — бренды из карточки проекта (свойство BRANDS), не больше 4;
+        // у проекта без брендов — запасной вариант из CARD_SCOPE
+        $allBrandIds = array_values(array_unique(array_filter(array_merge([], ...array_column($byId, 'brandIds')))));
+        $brandNames = [];
+        if ($allBrandIds) {
+            $rsB = \CIBlockElement::GetList([], ['ID' => $allBrandIds, 'ACTIVE' => 'Y'], false, false, ['ID', 'NAME']);
+            while ($b = $rsB->Fetch()) {
+                $brandNames[(int)$b['ID']] = (string)$b['NAME'];
+            }
+        }
+        foreach ($byId as &$item) {
+            $tags = [];
+            foreach ($item['brandIds'] as $bid) {
+                if (isset($brandNames[$bid]) && !in_array($brandNames[$bid], $tags, true)) {
+                    $tags[] = $brandNames[$bid];
+                }
+            }
+            $item['scope'] = array_slice($tags ?: $item['scope'], 0, 4);
+            unset($item['brandIds']);
+        }
+        unset($item);
         foreach ($projIds as $id) { // порядок — как выбрал редактор
             if (isset($byId[$id])) {
                 $projects[] = $byId[$id];
             }
+        }
+        if ($objTypeLabels) {
+            $pool = $projects;
+            foreach ($extraIds as $id) {
+                if (isset($byId[$id])) {
+                    $pool[] = $byId[$id];
+                }
+            }
+            $used = array_unique(array_merge([], ...array_column($pool, 'obj')));
+            // чипы — только типы, для которых есть хотя бы один проект; порядок — сортировка значений свойства
+            $out['objTypes'] = array_filter($objTypeLabels, static fn($code) => in_array($code, $used, true), ARRAY_FILTER_USE_KEY);
+            $out['projectPool'] = $pool;
         }
     }
     $out['projects'] = $projects;
@@ -323,7 +488,7 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
 $cache = Cache::createInstance();
 $cachePath = '/profequip/direction_landing/' . $direction;
 $static = null;
-if ($ttl > 0 && $cache->initCache($ttl, 'v2_' . $direction, $cachePath)) {
+if ($ttl > 0 && $cache->initCache($ttl, 'v9_' . $direction, $cachePath)) {
     $static = $cache->getVars();
 } else {
     if ($ttl > 0) {
@@ -345,12 +510,28 @@ $arResult = $static;
 $arResult['DIRECTION_CODE'] = $direction;
 
 // ---------------------------------------------------------------------------
+// Фильтр проектов по типу объекта: ?obj=<код> — состояние в URL (ссылка на подборку работает),
+// ?dl_part=projects — AJAX-запрос: шаблон отдаёт только карусель. Фильтруется уже закэшированный
+// общий набор проектов, поэтому кэш не «запоминает» выбранный фильтр.
+// ---------------------------------------------------------------------------
+$request = Application::getInstance()->getContext()->getRequest();
+$obj = (string)$request->getQuery('obj');
+$arResult['objFilter'] = isset($arResult['objTypes'][$obj]) ? $obj : '';
+if ($arResult['objFilter'] !== '') {
+    $arResult['projects'] = array_slice(array_values(array_filter(
+        $arResult['projectPool'],
+        static fn($p) => in_array($arResult['objFilter'], $p['obj'], true)
+    )), 0, 12);
+}
+$arResult['AJAX_PART'] = $request->getQuery('dl_part') === 'projects' && $arResult['objTypes'] ? 'projects' : '';
+
+// ---------------------------------------------------------------------------
 // Товары «В наличии» — без кэша (цена зависит от курса валют)
 // ---------------------------------------------------------------------------
 
 $arResult['stock'] = [];
 $stockSec = $arResult['sections']['stock'] ?? null;
-if ($stockSec) {
+if ($stockSec && !$stockSec['noStock']) {
     $catIblock = (int)GetIBlockIDByCode('catalog');
     $filter = ['IBLOCK_ID' => $catIblock, 'ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y', '!PROPERTY_STOCK_BADGE' => false];
     if ($stockSec['sectionCode'] !== '') {
