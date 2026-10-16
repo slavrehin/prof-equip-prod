@@ -28,5 +28,10 @@
   <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 10h8M8 13h5"/></symbol>
   <symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 36 36"><rect x="4" y="5" width="21" height="26" rx="2"/><path d="M8.5 11h12M8.5 16h8M8.5 21h4"/><path d="m21 28.5 10-10-3.5-3.5-10 10-1.2 4.7 4.7-1.2Z"/><path d="m25 16.5 3.5 3.5"/></symbol>
+  <symbol id="i-swatch" viewBox="0 0 36 36"><rect x="4" y="8" width="10" height="24" rx="1.5"/><path d="M14 13.5 20 9l9 12-15 10"/><path d="M14 22.5 30 19l2 8-18 4"/><circle cx="9" cy="27" r="1.6"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 36 36"><path d="M3 32V17l8 5v-5l8 5v-5l8 5V5h6v27H3Z"/><path d="M8 27h3M15 27h3M22 27h3"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 36 36"><path d="M3 8h18v17H3z"/><path d="M21 13h6.5l5.5 6.5V25H21"/><circle cx="9" cy="27" r="3"/><circle cx="27" cy="27" r="3"/><path d="M12 27h12"/></symbol>
+  <symbol id="i-kitchen" viewBox="0 0 36 36"><path d="M7 16h22v10a5 5 0 0 1-5 5H12a5 5 0 0 1-5-5V16Z"/><path d="M3 18.5h4M29 18.5h4M5 16h26"/><path d="M13 11.5c0-2 2-2 2-4.5M18 11.5c0-2 2-2 2-4.5M23 11.5c0-2 2-2 2-4.5"/></symbol>
   <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></symbol>
 </svg>

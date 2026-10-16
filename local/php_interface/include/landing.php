@@ -113,6 +113,16 @@ function profequip_LandingProductSpecs(array $rows, int $limit = 3): array
         'DLINA_VALA_MM', 'DIAMETR_VALA_MM', 'SHIRINA_ZONY_GLAZHENIYA_MM', 'SKOROST_GLAZHENIYA_M_MIN',
         'UDALENIE_PYATEN', 'MOSHHNOST_KVT', 'RAZMER_RABOCHEJ_POVERHNOSTI', 'GABARITNYE_RAZMERY_SH_G_V_MM',
         'REVERS_BARABANA', 'VES_KG',
+        // текстиль (у оборудования этих свойств нет)
+        'TKAN', 'POVERHNOSTNAYA_PLOTNOST', 'LINEJNAYA_PLOTNOST', 'SOSTAV_TKANI_HLOPOK', 'SOSTAV_PETELNYH_NITEJ',
+        'TIP_MATRASA', 'ZHESTKOST', 'TSVET_TKANI',
+    ];
+    // короткие подписи вместо «Состав ткани: хлопок, %» → «Хлопок: 100 %»
+    static $labels = [
+        'SOSTAV_TKANI_HLOPOK' => ['Хлопок', '%'],
+        'SOSTAV_PETELNYH_NITEJ' => ['Хлопок в петле', '%'],
+        'LINEJNAYA_PLOTNOST' => ['Плотность нитей', ''],
+        'TSVET_TKANI' => ['Цвет', ''],
     ];
     $found = [];
     foreach ($rows as $p) {
@@ -131,7 +141,10 @@ function profequip_LandingProductSpecs(array $rows, int $limit = 3): array
             $unit = mb_strtolower($m[2]);
         }
         $label = mb_strtoupper(mb_substr($label, 0, 1)) . mb_strtolower(mb_substr($label, 1));
-        $found[$p['CODE']] = ['label' => $label, 'value' => $val . ($unit !== '' ? ' ' . $unit : '')];
+        if (isset($labels[$p['CODE']])) {
+            [$label, $unit] = $labels[$p['CODE']];
+        }
+        $found[$p['CODE']] = ['label' => $label, 'value' => $val . ($unit === '%' ? '%' : ($unit !== '' ? ' ' . $unit : ''))];
     }
     $out = [];
     foreach ($priority as $code) {

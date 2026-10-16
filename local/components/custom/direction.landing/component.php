@@ -104,6 +104,12 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
             'fileHint' => $text($r, 'file_hint'),
             'fileMax' => (int)($r['file_max'] ?? 0),
             'noStock' => $text($r, 'no_stock') === 'y',
+            'stockBy' => $text($r, 'stock_by'),
+            // вкладки блока «Зоны» (Текстиль): код типа объекта => заголовок и фото на фото-панели
+            'zoneGroups' => array_filter(array_map(
+                static fn(string $code) => array_filter(['hero' => $text($r, 'hero_' . $code), 'pic' => (int)($r['gpic_' . $code] ?? 0)]),
+                array_combine(array_keys(profequip_LandingObjTypes()), array_keys(profequip_LandingObjTypes()))
+            )),
             'stepsView' => $text($r, 'steps_view'),
             'blogIds' => [],
             'newsIds' => [],
@@ -175,7 +181,8 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
                 'pic' => (int)($f['PREVIEW_PICTURE'] ?: $f['DETAIL_PICTURE']),
                 'cat' => $sec ? (string)$sec['NAME'] : '',
                 'country' => $country,
-                'inStock' => !empty($p['STOCK_BADGE']['VALUE']),
+                'inStock' => !empty($p['STOCK_BADGE']['VALUE'])
+                    || in_array('sklad-moskva', (array)($p['NALICHIE']['VALUE_XML_ID'] ?? []), true),
             ];
         }
     }
@@ -268,7 +275,7 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
     $out['steps'] = array_map(static fn(array $r) => [
         'name' => $text($r, 'title'), 'text' => $text($r, 'text'), 'result' => $text($r, 'result'), 'pic' => (int)$r['pic'],
         'time' => $text($r, 'time'), 'points' => array_column($pairs($r, 'points'), 'value'),
-        'output' => $text($r, 'output'), 'need' => $text($r, 'need'),
+        'output' => $text($r, 'output'), 'need' => $text($r, 'need'), 'icon' => $text($r, 'icon'),
     ], $decode('LAND_STEPS'));
 
     // --- круговая гарантия ---------------------------------------------------
@@ -279,7 +286,7 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
         'url' => $text($r, 'url'),
         'label' => $text($r, 'label'),
         'icon' => $text($r, 'icon') ?: 'washer',
-    ], $decode('LAND_GUARANTEE')), 0, 4);
+    ], $decode('LAND_GUARANTEE')), 0, 6);
 
     $linked = static function (string $propCode) use ($dirFields, $dirIblock): array {
         $ids = [];
@@ -488,7 +495,7 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
 $cache = Cache::createInstance();
 $cachePath = '/profequip/direction_landing/' . $direction;
 $static = null;
-if ($ttl > 0 && $cache->initCache($ttl, 'v9_' . $direction, $cachePath)) {
+if ($ttl > 0 && $cache->initCache($ttl, 'v14_' . $direction, $cachePath)) {
     $static = $cache->getVars();
 } else {
     if ($ttl > 0) {
@@ -533,7 +540,14 @@ $arResult['stock'] = [];
 $stockSec = $arResult['sections']['stock'] ?? null;
 if ($stockSec && !$stockSec['noStock']) {
     $catIblock = (int)GetIBlockIDByCode('catalog');
-    $filter = ['IBLOCK_ID' => $catIblock, 'ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y', '!PROPERTY_STOCK_BADGE' => false];
+    // «В наличии» = флажок STOCK_BADGE (по умолчанию) или свойство «Наличие» = СКЛАД МОСКВА (Текстиль)
+    $byMoskva = $stockSec['stockBy'] === 'moskva';
+    $filter = ['IBLOCK_ID' => $catIblock, 'ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y'];
+    if ($byMoskva) {
+        $filter['PROPERTY_NALICHIE'] = (int)(\CIBlockPropertyEnum::GetList([], ['IBLOCK_ID' => $catIblock, 'CODE' => 'NALICHIE', 'XML_ID' => 'sklad-moskva'])->Fetch()['ID'] ?? -1);
+    } else {
+        $filter['!PROPERTY_STOCK_BADGE'] = false;
+    }
     if ($stockSec['sectionCode'] !== '') {
         $sec = \CIBlockSection::GetList([], ['IBLOCK_ID' => $catIblock, 'CODE' => $stockSec['sectionCode']], false, ['ID'])->Fetch();
         if ($sec) {
@@ -543,19 +557,69 @@ if ($stockSec && !$stockSec['noStock']) {
     }
     $limit = $stockSec['limit'] > 0 ? $stockSec['limit'] : 6;
     $rs = \CIBlockElement::GetList(
-        ['SORT' => 'ASC', 'ID' => 'ASC'],
+        $byMoskva ? ['ID' => 'DESC'] : ['SORT' => 'ASC', 'ID' => 'ASC'], // склад: сначала новые поступления в каталог
         $filter,
         false,
         false,
-        ['ID', 'IBLOCK_ID', 'NAME', 'CODE', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE', 'DETAIL_PICTURE']
+        array_merge(['ID', 'IBLOCK_ID', 'NAME', 'CODE', 'DETAIL_PAGE_URL', 'PREVIEW_PICTURE', 'DETAIL_PICTURE', 'IBLOCK_SECTION_ID'], $byMoskva ? ['PROPERTY_TIP_TOVARA'] : [])
     );
-    $brandCache = [];
+    $picked = [];
     $seen = [];
-    while ($el = $rs->GetNext()) {
-        if (isset($seen[$el['ID']])) { // товар может лежать в нескольких разделах
-            continue;
+    if ($byMoskva) {
+        // складских позиций много и подряд идут однотипные (полотенца, наволочки) — берём по одной
+        // каждого типа товара (свойство «Тип», нет — подраздел) по очереди, пока не наберётся $limit
+        $all = [];
+        while ($el = $rs->GetNext()) {
+            if (!isset($seen[$el['ID']])) {
+                $seen[$el['ID']] = true;
+                $all[] = $el;
+            }
         }
-        $seen[$el['ID']] = true;
+        // без фото и с заглушками каталога (картинки-иконки 363×467 «Фото скоро появится») — не показываем
+        $picIds = array_filter(array_map(static fn($el) => (int)($el['PREVIEW_PICTURE'] ?: $el['DETAIL_PICTURE']), $all));
+        $stubPics = [];
+        if ($picIds) {
+            $fr = \CFile::GetList([], ['@ID' => implode(',', $picIds)]);
+            while ($f = $fr->Fetch()) {
+                if (in_array($f['ORIGINAL_NAME'], ['Foto-skoro-poyavitsya.jpg', 'Polotentsa.png', '1-1.png'], true)
+                    && (int)$f['WIDTH'] === 363 && (int)$f['HEIGHT'] === 467) {
+                    $stubPics[(int)$f['ID']] = true;
+                }
+            }
+        }
+        $bySec = [];
+        foreach ($all as $el) {
+            $pic = (int)($el['PREVIEW_PICTURE'] ?: $el['DETAIL_PICTURE']);
+            if ($pic && !isset($stubPics[$pic])) {
+                $bySec[trim((string)$el['PROPERTY_TIP_TOVARA_VALUE']) ?: 's' . $el['IBLOCK_SECTION_ID']][] = $el;
+            }
+        }
+        while (count($picked) < $limit && $bySec) {
+            foreach ($bySec as $k => &$list) {
+                $picked[] = array_shift($list);
+                if (!$list) {
+                    unset($bySec[$k]);
+                }
+                if (count($picked) >= $limit) {
+                    break;
+                }
+            }
+            unset($list);
+        }
+    } else {
+        while ($el = $rs->GetNext()) {
+            if (isset($seen[$el['ID']])) { // товар может лежать в нескольких разделах
+                continue;
+            }
+            $seen[$el['ID']] = true;
+            $picked[] = $el;
+            if (count($picked) >= $limit) {
+                break;
+            }
+        }
+    }
+    $brandCache = [];
+    foreach ($picked as $el) {
 
         $rows = [];
         $pr = \CIBlockElement::GetProperty($catIblock, (int)$el['ID'], ['sort' => 'asc'], []);
@@ -588,15 +652,12 @@ if ($stockSec && !$stockSec['noStock']) {
             'name' => $title,
             'fullName' => (string)$el['NAME'],
             'brand' => $brand,
-            'type' => $get('TIP_OBORUDOVANIYA') ?: '',
+            'type' => $get('TIP_OBORUDOVANIYA') ?: $get('TIP_TOVARA'),
             'url' => (string)$el['DETAIL_PAGE_URL'],
             'pic' => (int)($el['PREVIEW_PICTURE'] ?: $el['DETAIL_PICTURE']),
             'specs' => profequip_LandingProductSpecs($rows),
             'price' => profequip_LandingProductPrice((int)$el['ID']),
         ];
-        if (count($arResult['stock']) >= $limit) {
-            break;
-        }
     }
 }
 

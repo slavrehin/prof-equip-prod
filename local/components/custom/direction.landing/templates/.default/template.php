@@ -85,7 +85,7 @@ $has = [
     'design' => !empty($S['design']) && $arResult['steps'],
     'tz' => !empty($S['tz']),
     'reviews' => !empty($S['reviews']) && $arResult['reviews'],
-    'guarantee' => !empty($S['guarantee']) && count($arResult['guarantee']) === 4,
+    'guarantee' => !empty($S['guarantee']) && count($arResult['guarantee']) >= 4,
     'guarantee_form' => !empty($S['guarantee_form']),
     'library' => !empty($S['library']) && $arResult['library'],
     'expert' => !empty($S['expert']) && $arResult['materials']['big'],
@@ -636,19 +636,20 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
     </div>
     <?php if ($showToggle): ?>
     <div class="dl-toggle" role="tablist" aria-label="Каталог">
-      <button class="dl-toggle__btn is-on" type="button" role="tab" aria-selected="true" data-switch-btn="novelties">Новинки</button>
-      <button class="dl-toggle__btn" type="button" role="tab" aria-selected="false" data-switch-btn="stock">В наличии на складе</button>
+      <button class="dl-toggle__btn is-on" type="button" role="tab" aria-selected="true" data-switch-btn="stock">В наличии</button>
+      <button class="dl-toggle__btn" type="button" role="tab" aria-selected="false" data-switch-btn="novelties">Новинки</button>
     </div>
     <?php endif; ?>
     <?php if ($has['novelties']): ?>
-    <div class="dl-stock__grid" data-switch-panel="novelties">
+    <div class="dl-stock__grid" data-switch-panel="novelties"<?= $showToggle ? ' hidden' : '' ?>>
       <?php foreach ($arResult['novelties'] as $p): ?>
       <article class="dl-pcard">
         <div class="dl-ph dl-ph--light">
           <?= profequip_LandingPicture($p['pic'], [480, 800], ['alt' => $p['name'], 'sizes' => '(max-width:860px) 78vw, 30vw']) ?>
           <?php if (!$p['product']): ?><span class="dl-badge dl-badge--new">Новинка</span>
           <?php elseif ($p['inStock']): ?><span class="dl-badge"><?= $ico('i-check') ?>В наличии</span>
-          <?php else: ?><span class="dl-badge dl-badge--order">Под заказ</span><?php endif; ?>
+          <?php elseif ($sec['noStock']): ?><span class="dl-badge dl-badge--order">Под заказ</span>
+          <?php else: ?><span class="dl-badge dl-badge--new">Новинка</span><?php endif; ?>
           <?= $art($p['product'] ? 'doc' : 'washer') ?>
         </div>
         <div class="dl-pcard__body">
@@ -667,7 +668,7 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
     </div>
     <?php endif; ?>
     <?php if ($has['stock']): ?>
-    <div class="dl-stock__grid" data-switch-panel="stock"<?= $showToggle ? ' hidden' : '' ?>>
+    <div class="dl-stock__grid" data-switch-panel="stock">
       <?php foreach ($arResult['stock'] as $p):
         $kpSrc = 'КП · ' . $p['name'] . ($p['specs'] ? ', ' . mb_strtolower($p['specs'][0]['label']) . ' ' . $p['specs'][0]['value'] : '');
       ?>
@@ -679,7 +680,7 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
         </div>
         <div class="dl-pcard__body">
           <?php if ($p['brand']): ?><span class="dl-pcard__brand"><?= $h($p['brand']) ?></span><?php endif; ?>
-          <h3><a href="<?= $h($p['url']) ?>"><?= $h($p['name']) ?></a></h3>
+          <h3 title="<?= $h($p['fullName']) ?>"><a href="<?= $h($p['url']) ?>"><?= $h($p['name']) ?></a></h3>
           <?php if ($p['type']): ?><span class="dl-pcard__type"><?= $h($p['type']) ?></span><?php endif; ?>
           <?php if ($p['specs']): ?>
           <dl><?php foreach ($p['specs'] as $sp): ?><dt><?= $h($sp['label']) ?></dt><dd><?= $h($sp['value']) ?></dd><?php endforeach; ?></dl>
@@ -864,6 +865,58 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
         <?php if ($sec['lead']): ?><p class="dl-lead"><?= $text($sec['lead']) ?></p><?php endif; ?>
       </div>
     </div>
+    <?php if ($sec['zoneGroups']):
+        // Зоны по группам (Текстиль): вкладки типа объекта → аккордеон зон слева, фото справа
+        // (фото раскрытой зоны, если есть, иначе фото вкладки). Тексты всех вкладок — в HTML сразу (для поиска).
+        $zgLabels = profequip_LandingObjTypes();
+        $zgItems = [];
+        foreach ($arResult['solutions'] as $s) {
+            $code = $s['objtypes'][0] ?? '';
+            if (isset($zgLabels[$code])) {
+                $zgItems[$code][] = $s;
+            }
+        }
+        $zgCodes = array_values(array_filter(array_keys($zgLabels), static fn($c) => !empty($zgItems[$c])));
+    ?>
+    <div class="dl-zg" data-zg>
+      <div class="dl-toggle dl-toggle--obj dl-zg__tabs" role="tablist" aria-label="Тип объекта">
+        <?php foreach ($zgCodes as $k => $code): ?>
+        <button class="dl-toggle__btn<?= $k === 0 ? ' is-on' : '' ?>" type="button" role="tab" id="dl-zgt-<?= $code ?>" aria-controls="dl-zgp-<?= $code ?>" aria-selected="<?= $k === 0 ? 'true' : 'false' ?>" tabindex="<?= $k === 0 ? '0' : '-1' ?>" data-zg-tab="<?= $code ?>"><?= $h($zgLabels[$code]) ?></button>
+        <?php endforeach; ?>
+      </div>
+      <div class="dl-zg__body">
+        <div class="dl-zg__lists">
+          <?php foreach ($zgCodes as $k => $code): ?>
+          <div class="dl-zg__list" role="tabpanel" id="dl-zgp-<?= $code ?>" aria-labelledby="dl-zgt-<?= $code ?>" data-zg-panel="<?= $code ?>"<?= $k ? ' hidden' : '' ?>>
+            <?php foreach ($zgItems[$code] as $j => $s): $did = 'dl-zgd-' . $code . '-' . $j; ?>
+            <article class="dl-zg__item<?= $j === 0 ? ' is-open' : '' ?>" data-zg-pic="<?= $s['pic'] ? $code . '-' . $j : '' ?>">
+              <h3 class="dl-zg__h"><button class="dl-zg__trigger" type="button" aria-expanded="<?= $j === 0 ? 'true' : 'false' ?>" aria-controls="<?= $did ?>"><span class="dl-zg__name"><?= $h($s['name']) ?></span><span class="dl-zg__sym" aria-hidden="true"></span></button></h3>
+              <div class="dl-zg__details" id="<?= $did ?>"<?= $j === 0 ? '' : ' hidden' ?>><?= $text($s['text']) ?></div>
+            </article>
+            <?php endforeach; ?>
+          </div>
+          <?php endforeach; ?>
+        </div>
+        <div class="dl-zg__visual" aria-hidden="true">
+          <?php foreach ($zgCodes as $k => $code): $g = $sec['zoneGroups'][$code] ?? []; ?>
+          <div class="dl-zg__fig<?= $k === 0 ? ' is-on' : '' ?>" data-zg-fig="<?= $code ?>">
+            <div class="dl-zg__ph is-on" data-zg-img="<?= $code ?>"><?= profequip_LandingPicture((int)($g['pic'] ?? 0), [720, 1100], ['alt' => '', 'sizes' => '(max-width:860px) 100vw, 52vw', 'loading' => $k ? 'lazy' : 'eager']) ?></div>
+            <?php foreach ($zgItems[$code] as $j => $s): if (!$s['pic']) continue; ?>
+            <div class="dl-zg__ph" data-zg-img="<?= $code . '-' . $j ?>"><?= profequip_LandingPicture($s['pic'], [720, 1100], ['alt' => '', 'sizes' => '(max-width:860px) 100vw, 52vw']) ?></div>
+            <?php endforeach; ?>
+            <div class="dl-zg__cap">
+              <?php if ($sec['kicker']): ?><span class="dl-zg__kicker"><?= $h($sec['kicker']) ?></span><?php endif; ?>
+              <span class="dl-zg__hero"><?= $h($g['hero'] ?? $zgLabels[$code]) ?></span>
+            </div>
+          </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+      <?php if ($sec['items']): ?>
+      <ul class="dl-zg__benefits"><?php foreach ($sec['items'] as $it): ?><li><?= $h($it['value']) ?></li><?php endforeach; ?></ul>
+      <?php endif; ?>
+    </div>
+    <?php else: ?>
     <?php
     $objTypeLabels = profequip_LandingObjTypes();
     $anyObjType = false;
@@ -873,7 +926,7 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
             break;
         }
     }
-    // переключатель — всегда полный список из пяти типов (тот же, что в форме «Задача»), чтобы оба места на странице совпадали
+    // переключатель — всегда полный список типов (тот же, что в форме «Задача»), чтобы оба места на странице совпадали
     $usedTypes = $anyObjType ? $objTypeLabels : [];
     ?>
     <?php if ($usedTypes): ?>
@@ -918,6 +971,7 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
         <?php endforeach; ?>
       </div>
     </div>
+    <?php endif; ?>
     <?php endif; ?>
 
     <?php if ($has['calc']): $sec = $S['calc']; ?>
@@ -994,8 +1048,12 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
     </div>
     <dialog class="dl-tech__dialog" id="dl-techDialog" aria-labelledby="dl-techTitle">
       <button type="button" class="dl-x" data-tech-close aria-label="Закрыть"><?= $ico('i-x') ?></button>
-      <b id="dl-techTitle"></b>
-      <p data-tech-body></p>
+      <div class="dl-tech__dpic" data-tech-pic></div>
+      <div class="dl-tech__dbody">
+        <span class="dl-tech__tag" data-tech-tag hidden></span>
+        <b id="dl-techTitle"></b>
+        <div class="dl-tech__dtext" data-tech-body></div>
+      </div>
     </dialog>
 
     <?php if ($has['tech_form']): $sec = $S['tech_form']; ?>
@@ -1022,7 +1080,30 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
         <?php if ($sec['lead']): ?><p class="dl-lead"><?= $text($sec['lead']) ?></p><?php endif; ?>
       </div>
     </div>
-    <?php if ($sec['stepsView'] === 'cards'):
+    <?php if ($sec['stepsView'] === 'timeline'):
+        // Лента: все этапы видны сразу — иконка на общей линии, номер, название, текст (≤1100px — вертикально)
+        $tlIcons = ['i-pen', 'i-swatch', 'i-washer', 'i-factory', 'i-truck', 'i-check', 'i-box', 'i-layers'];
+    ?>
+    <ol class="dl-tl" style="--dl-tl:<?= count($st) ?>">
+      <?php foreach ($st as $i => $s): $icon = $s['icon'] ?: $tlIcons[$i % count($tlIcons)]; ?>
+      <li class="dl-tl__step">
+        <span class="dl-tl__ico"><?= $ico(str_starts_with($icon, 'i-') ? $icon : 'i-' . $icon) ?></span>
+        <div class="dl-tl__body">
+          <span class="dl-tl__n">Этап <?= sprintf('%02d', $i + 1) ?></span>
+          <h3 class="dl-tl__t"><?= $h($s['name']) ?></h3>
+          <?php if ($s['text']): ?><p class="dl-tl__text"><?= $h($s['text']) ?></p><?php endif; ?>
+          <?php if ($s['result']): ?><span class="dl-tl__res"><?= $h($s['result']) ?></span><?php endif; ?>
+        </div>
+      </li>
+      <?php endforeach; ?>
+    </ol>
+    <?php if ($sec['btn']): ?>
+    <div class="dl-tl__cta">
+      <?php if ($sec['note']): ?><p><?= $text($sec['note']) ?></p><?php endif; ?>
+      <button class="dl-btn" type="button" data-goto="#final" data-src="<?= $h($sec['source'] ?: 'Как проходит заказ') ?>"><?= $h($sec['btn']) ?></button>
+    </div>
+    <?php endif; ?>
+    <?php elseif ($sec['stepsView'] === 'cards'):
         // Экспликация к чертежу: пять колонок делят общие строки сетки (subgrid), поэтому полосы
         // «Вы получаете» / «Нужно от вас» стоят на одной линии при любой длине текста выше.
         // В каждой колонке ровно шесть прямых потомков в потоке — лишняя обёртка сломает выравнивание.
@@ -1138,12 +1219,28 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
       <div class="dl-ring" id="dl-ring">
         <svg class="dl-ring__svg" viewBox="0 0 400 400" aria-hidden="true">
           <circle class="dl-ring__track" cx="200" cy="200" r="186"/>
-          <?php foreach ([-130, -40, 50, 140] as $i => $rot): ?>
-          <circle class="dl-ring__seg<?= $i === 0 ? ' is-on' : '' ?>" cx="200" cy="200" r="186" stroke-dasharray="258 910" transform="rotate(<?= $rot ?> 200 200)"/>
+          <?php
+          // узлы по кругу от верхней точки по часовой; у каждого — дуга-сектор, центрированная на узле
+          // (при 4 узлах — те же углы −130/−40/50/140 и штрих 258, что были зашиты раньше)
+          $gN = count($g);
+          $gLen = 2 * M_PI * 186;
+          $gArc = 360 / $gN - 10.5;
+          $gDash = round($gArc / 360 * $gLen);
+          foreach ($g as $i => $n):
+              $rot = round(-90 + $i * 360 / $gN - $gArc / 2, 2);
+          ?>
+          <circle class="dl-ring__seg<?= $i === 0 ? ' is-on' : '' ?>" cx="200" cy="200" r="186" stroke-dasharray="<?= $gDash ?> <?= round($gLen) - $gDash ?>" transform="rotate(<?= $rot ?> 200 200)"/>
           <?php endforeach; ?>
         </svg>
-        <?php foreach ($g as $i => $n): ?>
-        <button class="dl-node dl-node--<?= $i + 1 ?>" type="button" aria-selected="<?= $i === 0 ? 'true' : 'false' ?>" data-title="<?= $h($n['name']) ?>" data-text="<?= $h($n['text']) ?>" data-link="<?= $h($n['url']) ?>" data-label="<?= $h($n['label']) ?>">
+        <?php foreach ($g as $i => $n):
+            $ang = deg2rad(-90 + $i * 360 / $gN);
+            $cx = round(cos($ang), 4);
+            $cy = round(sin($ang), 4);
+            // подпись: у нижнего узла — над кружком, у боковых — прижата внутрь кольца, чтобы не вылезала за экран
+            $gCls = ($cy > 0.9 ? ' dl-node--up' : '') . ($cx < -0.5 ? ' dl-node--l' : ($cx > 0.5 ? ' dl-node--r' : ''));
+            $gPos = 'left:calc(50% - var(--n) / 2 + (50% - var(--n) / 2) * ' . $cx . ');top:calc(50% - var(--n) / 2 + (50% - var(--n) / 2) * ' . $cy . ')';
+        ?>
+        <button class="dl-node<?= $gCls ?>" style="<?= $gPos ?>" type="button" aria-selected="<?= $i === 0 ? 'true' : 'false' ?>" data-title="<?= $h($n['name']) ?>" data-text="<?= $h($n['text']) ?>" data-link="<?= $h($n['url']) ?>" data-label="<?= $h($n['label']) ?>">
           <span class="dl-node__img">
             <?php if ($n['pic']): ?><?= profequip_LandingPicture($n['pic'], [96, 192], ['alt' => '', 'sizes' => '96px']) ?><?php else: ?><?= strncmp($n['icon'], 'i-', 2) === 0 ? $ico($n['icon']) : (in_array($n['icon'], ['shield', 'box', 'compass', 'wrench', 'layers', 'chat', 'check'], true) ? $ico('i-' . $n['icon']) : $art($n['icon'])) ?><?php endif; ?>
           </span><b><?= $h($n['name']) ?></b>

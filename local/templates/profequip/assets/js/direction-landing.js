@@ -168,18 +168,107 @@
     if (btns[0]) apply(btns[0].getAttribute('data-objtype'));
   })();
 
+  /* ---------- Зоны по группам (Текстиль): вкладки типа объекта + аккордеон зон + фото справа ---------- */
+  (function () {
+    var root = $('[data-zg]');
+    if (!root) return;
+    var tabs = $$('[data-zg-tab]', root);
+    // фото: у раскрытой зоны своё (если есть), иначе фото вкладки
+    function showPic(code) {
+      var fig = $('[data-zg-fig="' + code + '"]', root), panel = $('[data-zg-panel="' + code + '"]', root);
+      if (!fig || !panel) return;
+      var open = $('.dl-zg__item.is-open', panel), key = (open && open.getAttribute('data-zg-pic')) || code;
+      if (!$('[data-zg-img="' + key + '"]', fig)) key = code;
+      $$('[data-zg-img]', fig).forEach(function (ph) { ph.classList.toggle('is-on', ph.getAttribute('data-zg-img') === key); });
+    }
+    function selectTab(btn, focus) {
+      var code = btn.getAttribute('data-zg-tab');
+      tabs.forEach(function (b) {
+        var on = b === btn;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+        b.tabIndex = on ? 0 : -1;
+      });
+      $$('[data-zg-panel]', root).forEach(function (p) { p.hidden = p.getAttribute('data-zg-panel') !== code; });
+      $$('[data-zg-fig]', root).forEach(function (f) { f.classList.toggle('is-on', f.getAttribute('data-zg-fig') === code); });
+      showPic(code);
+      if (focus) btn.focus();
+    }
+    tabs.forEach(function (b, i) {
+      b.addEventListener('click', function () { selectTab(b); });
+      b.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        e.preventDefault();
+        selectTab(tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length], true);
+      });
+    });
+    $$('.dl-zg__trigger', root).forEach(function (t) {
+      t.addEventListener('click', function () {
+        var item = t.closest('.dl-zg__item'), panel = t.closest('[data-zg-panel]'), wasOpen = item.classList.contains('is-open');
+        $$('.dl-zg__item', panel).forEach(function (it) {
+          var on = it === item && !wasOpen;
+          it.classList.toggle('is-open', on);
+          $('.dl-zg__trigger', it).setAttribute('aria-expanded', on ? 'true' : 'false');
+          $('.dl-zg__details', it).hidden = !on;
+        });
+        showPic(panel.getAttribute('data-zg-panel'));
+      });
+    });
+    if (tabs[0]) showPic(tabs[0].getAttribute('data-zg-tab'));
+  })();
+
   /* ---------- Технологии: карточка → модальное окно (нативный <dialog> — фокус-ловушка и Esc уже встроены) ---------- */
   (function () {
     var dialog = $('#dl-techDialog'), cards = $$('[data-tech-open]');
     if (!dialog || !cards.length || typeof dialog.showModal !== 'function') return;
-    var title = $('#dl-techTitle', dialog), body = $('[data-tech-body]', dialog), closeBtn = $('[data-tech-close]', dialog);
+    var title = $('#dl-techTitle', dialog), body = $('[data-tech-body]', dialog), closeBtn = $('[data-tech-close]', dialog),
+        picBox = $('[data-tech-pic]', dialog), tagBox = $('[data-tech-tag]', dialog), root = document.documentElement;
     cards.forEach(function (card) {
-      card.addEventListener('click', function () {
-        var tpl = $('[data-tech-detail]', card);
+      card.addEventListener('click', function (e) {
+        e.preventDefault();
+        var tpl = $('[data-tech-detail]', card), ph = $('.dl-ph', card), tag = $('.dl-tech__tag', card);
         title.textContent = tpl ? tpl.getAttribute('data-tech-title') : '';
-        body.textContent = tpl ? tpl.content.textContent.trim() : '';
+        // подробный текст: пустая строка — новый абзац, строки «— …» — список
+        body.innerHTML = '';
+        (tpl ? tpl.content.textContent.trim() : '').split(/\n\s*\n/).forEach(function (block) {
+          var lines = block.split('\n').map(function (l) { return l.trim(); }).filter(Boolean), ul = null, p = null;
+          lines.forEach(function (l) {
+            if (/^[—–•-]\s+/.test(l)) {
+              if (!ul) { ul = document.createElement('ul'); body.appendChild(ul); p = null; }
+              var li = document.createElement('li'); li.textContent = l.replace(/^[—–•-]\s+/, ''); ul.appendChild(li);
+            } else {
+              ul = null;
+              if (/:$/.test(l)) { // «Где применяется:» — подзаголовок перед списком
+                p = null;
+                var sub = document.createElement('b'); sub.className = 'dl-tech__dsub'; sub.textContent = l.replace(/:$/, ''); body.appendChild(sub);
+                return;
+              }
+              if (!p) { p = document.createElement('p'); body.appendChild(p); } else { p.appendChild(document.createElement('br')); }
+              p.appendChild(document.createTextNode(l));
+            }
+          });
+        });
+        picBox.innerHTML = ph ? ph.outerHTML : ''; // то же фото (или рисунок-заглушка), что и на карточке
+        picBox.hidden = !ph;
+        tagBox.textContent = tag ? tag.textContent : '';
+        tagBox.hidden = !tag;
+        var sbw = window.innerWidth - root.clientWidth; // ширина полосы прокрутки — чтобы страница не дёрнулась вбок
+        if (sbw > 0) document.body.style.paddingRight = sbw + 'px';
+        openY = window.scrollY;
+        root.classList.add('dl-modal-open'); // страница под окном не прокручивается
         dialog.showModal();
+        closeBtn.focus({ preventScroll: true });
       });
+    });
+    var openY = 0;
+    dialog.addEventListener('close', function () {
+      root.classList.remove('dl-modal-open');
+      document.body.style.paddingRight = '';
+      // браузер возвращает фокус на карточку и может подкрутить к ней страницу — оставляем там, где была
+      var keep = function () { if (Math.abs(window.scrollY - openY) > 1) window.scrollTo({ top: openY, behavior: 'instant' }); };
+      keep();
+      requestAnimationFrame(keep);
+      setTimeout(keep, 120);
     });
     closeBtn.addEventListener('click', function () { dialog.close(); });
     dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); }); // клик вне окна (по backdrop)
@@ -217,6 +306,7 @@
   (function () {
     var nodes = $$('.dl-node'), segs = $$('.dl-ring__seg'), rc = $('#dl-ringCenter');
     if (!nodes.length || !rc) return;
+    var canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
     function pick(i) {
       nodes.forEach(function (n, k) { n.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
       segs.forEach(function (g, k) { g.classList.toggle('is-on', k === i); });
@@ -231,8 +321,10 @@
       n.addEventListener('focus', function () { pick(i); });
       n.addEventListener('click', function () {
         pick(i);
+        // на сенсорных экранах наведения нет — касание только показывает содержимое в карточке
+        // (переход — по ссылке в ней); переход по клику на узел — только с мышью
         var link = n.getAttribute('data-link');
-        if (link) location.href = link;
+        if (link && canHover.matches) location.href = link;
       });
     });
   })();
