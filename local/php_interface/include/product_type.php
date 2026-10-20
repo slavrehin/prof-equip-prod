@@ -54,11 +54,16 @@ class ProductType
         $mainSectionId = (int)$element['IBLOCK_SECTION_ID'];
 
         $best = null;
-        $rs = \CIBlockElement::GetElementGroups($elementId, true, ['ID', 'CODE', 'NAME', 'DEPTH_LEVEL']);
+        $isTextile = false;
+        $rs = \CIBlockElement::GetElementGroups($elementId, true, ['ID', 'CODE', 'NAME', 'DEPTH_LEVEL', 'LEFT_MARGIN', 'RIGHT_MARGIN']);
         while ($section = $rs->Fetch()) {
             $code = (string)$section['CODE'];
             if (str_starts_with($code, 'zapasnye-chasti')) {
-                return 'Запасные части';
+                // Запчасти — по группе детали (Ремни и шкивы, Клапаны и краны…), см. CatalogStandard::PART_GROUPS
+                return self::partGroup($element['IBLOCK_ID'], $elementId)[0];
+            }
+            if (!$isTextile && self::isTextileSection((int)$element['IBLOCK_ID'], (int)$section['LEFT_MARGIN'])) {
+                $isTextile = true;
             }
             if ($code === 'aksessuary') {
                 $accessoryType = \CIBlockElement::GetProperty($element['IBLOCK_ID'], $elementId, [], ['CODE' => 'TIP_AKSESSUARA'])->Fetch();
@@ -76,7 +81,62 @@ class ProductType
         if ($best === null) {
             return null;
         }
+        if ($isTextile) {
+            // Текстиль — по виду изделия (Простыни, Брюки, Кители…), иначе по разделу
+            $type = self::textileType((int)$element['IBLOCK_ID'], $elementId);
+            if ($type !== null) {
+                return $type;
+            }
+        }
         return self::RENAME[$best['code']] ?? $best['name'];
+    }
+
+    /** [группа, SORT] запчасти по «Наименованию детали» (TIP_ZAPCHASTI) и названию товара. */
+    public static function partGroup(int $iblockId, int $elementId): array
+    {
+        $element = \CIBlockElement::GetList([], ['ID' => $elementId], false, false, ['ID', 'NAME'])->Fetch();
+        $detail = \CIBlockElement::GetProperty($iblockId, $elementId, [], ['CODE' => 'TIP_ZAPCHASTI'])->Fetch();
+        return \CatalogStandard::partGroup((string)($detail['VALUE_ENUM'] ?? ''), (string)($element['NAME'] ?? ''));
+    }
+
+    private static function textileType(int $iblockId, int $elementId): ?string
+    {
+        $element = \CIBlockElement::GetList([], ['ID' => $elementId], false, false, ['ID', 'NAME'])->Fetch();
+        $tip = \CIBlockElement::GetProperty($iblockId, $elementId, [], ['CODE' => 'TIP_IZDELIYA'])->Fetch();
+        return \CatalogStandard::textileType((string)($element['NAME'] ?? ''), (string)($tip['VALUE_ENUM'] ?? ''));
+    }
+
+    /** Раздел (по LEFT_MARGIN) лежит внутри «Профессионального текстиля». */
+    private static function isTextileSection(int $iblockId, int $leftMargin): bool
+    {
+        static $bounds = null;
+        if ($bounds === null) {
+            $root = \CIBlockSection::GetList([], ['IBLOCK_ID' => $iblockId, 'CODE' => 'professionalnyj-tekstil'], false, ['LEFT_MARGIN', 'RIGHT_MARGIN'])->Fetch();
+            $bounds = $root ? [(int)$root['LEFT_MARGIN'], (int)$root['RIGHT_MARGIN']] : [0, -1];
+        }
+        return $leftMargin >= $bounds[0] && $leftMargin <= $bounds[1];
+    }
+
+    /** SORT нового варианта «Типа»: группы запчастей 901+, текстиль 600, прочее — по таблице. */
+    private static function sortFor(string $value): int
+    {
+        if (isset(self::SORT[$value])) {
+            return self::SORT[$value];
+        }
+        foreach (\CatalogStandard::PART_GROUPS as [$group, $sort]) {
+            if ($group === $value) {
+                return $sort;
+            }
+        }
+        if ($value === \CatalogStandard::PART_GROUP_FALLBACK[0]) {
+            return \CatalogStandard::PART_GROUP_FALLBACK[1];
+        }
+        foreach (\CatalogStandard::TEXTILE_TYPES as [$type]) {
+            if ($type === $value) {
+                return \CatalogStandard::TEXTILE_TYPE_SORT;
+            }
+        }
+        return self::DEFAULT_SORT;
     }
 
     public static function propertyId(int $iblockId): int
@@ -97,7 +157,7 @@ class ProductType
             return (int)$existing['ID'];
         }
 
-        $slug = \CUtil::translit($value, 'ru', ['replace_space' => '-', 'replace_other' => '-', 'max_len' => 80]);
+        $slug = \CatalogStandard::slug($value);
         $xmlId = $slug;
         for ($i = 2; \CIBlockPropertyEnum::GetList([], ['PROPERTY_ID' => $propertyId, 'XML_ID' => $xmlId])->Fetch(); $i++) {
             $xmlId = $slug . '-' . $i;
@@ -107,7 +167,7 @@ class ProductType
             'PROPERTY_ID' => $propertyId,
             'VALUE' => $value,
             'XML_ID' => $xmlId,
-            'SORT' => self::SORT[$value] ?? self::DEFAULT_SORT,
+            'SORT' => self::sortFor($value),
             'DEF' => 'N',
         ]);
         if (!$id) {

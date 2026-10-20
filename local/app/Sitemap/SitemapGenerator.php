@@ -101,7 +101,7 @@ class SitemapGenerator
         $indexFiles = array_merge($indexFiles, self::writeUrlset('sitemap-pages', $pages));
 
         [$categoryUrls, $sectionMap] = self::generateCategories($base);
-        $categoryUrls = array_merge($categoryUrls, self::generateSeoFilterPages($base, $sectionMap));
+        $categoryUrls = array_merge($categoryUrls, self::generateSeoFilterPages($base, $sectionMap), self::generateSeoTagPages($base));
         $stats['categories'] = count($categoryUrls);
         $indexFiles = array_merge($indexFiles, self::writeUrlset('sitemap-categories', $categoryUrls));
 
@@ -231,6 +231,10 @@ class SitemapGenerator
             );
 
             while ($enumRow = $rsEnum->Fetch()) {
+                // значение с SEO-тегом — адрес /f/… отдаёт 301 на тег, в карту идёт сам тег
+                if (class_exists('SeoTags') && \SeoTags::forFilterValue($sectionCode, $propertyCodeLower, (string)$enumRow['XML_ID'])) {
+                    continue;
+                }
                 $urls[] = [
                     'loc' => $base . '/product-category/' . rawurlencode($sectionCode) . '/f/'
                         . rawurlencode(strtolower($propertyCodeLower)) . '-is-' . rawurlencode($enumRow['XML_ID']) . '/',
@@ -239,6 +243,25 @@ class SitemapGenerator
             }
         }
 
+        return $urls;
+    }
+
+    /**
+     * SEO-теги — посадочные подборки /product-category/<раздел>/<тег>/ (local/php_interface/include/seo_tags.php).
+     * Только страницы тегов (без LINK) с достаточным числом товаров — те, что отдают index, follow.
+     */
+    private static function generateSeoTagPages(string $base): array
+    {
+        if (!class_exists('SeoTags')) {
+            return [];
+        }
+        $urls = [];
+        foreach (\SeoTags::all() as $tag) {
+            if ($tag['LINK'] !== '' || !\SeoTags::isIndexable($tag)) {
+                continue;
+            }
+            $urls[] = ['loc' => $base . \SeoTags::url($tag), 'lastmod' => date('Y-m-d')];
+        }
         return $urls;
     }
 

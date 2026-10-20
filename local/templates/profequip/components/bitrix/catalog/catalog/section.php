@@ -90,8 +90,13 @@ if ($sectionCode !== '') {
         $sectionIPropValues = $sectionIProps->getValues();
         $sectionMetaTitle = trim((string)($sectionIPropValues["SECTION_META_TITLE"] ?? ''));
 
+        // H1 — поле раздела UF_H1 («Промышленные стиральные машины» при коротком названии «Стиральные
+        // машины» в меню), иначе название. Не SEO-шаблон «Заголовок раздела»: тот наследуется подразделами
+        // и попадает в хлебные крошки (см. local/migrations/2026-10-13-catalog-01-structure.php).
+        $sectionH1 = trim((string)($arSection["UF_H1"] ?? '')) ?: $arSection["NAME"];
+        $arResult["CURRENT_SECTION_DATA"]["H1"] = $sectionH1;
         $currentSectionTitleOverride = [
-            "H1" => $arSection["NAME"],
+            "H1" => $sectionH1,
             "TITLE" => $sectionMetaTitle !== '' ? $sectionMetaTitle : $arSection["NAME"],
         ];
 
@@ -114,19 +119,120 @@ if ($sectionCode !== '') {
         )->Fetch();
     }
 
+    // ===== SEO-тег (посадочная подборка /product-category/<раздел>/<тег>/) =====
+    // Маршрут (local/routes/web.php) уже подставил путь фильтра тега в SMART_FILTER_PATH — умный фильтр
+    // и список товаров отработают как для /f/…/. Здесь — мета, текст, индексация и крошка тега.
+    $seoTag = null;
+    if (!empty($arResult["CURRENT_SECTION_DATA"]) && !empty($_REQUEST["SEO_TAG_ID"]) && class_exists('SeoTags')) {
+        $seoTag = SeoTags::byId((int)$_REQUEST["SEO_TAG_ID"]);
+        if ($seoTag && $seoTag["SECTION_CODE"] !== $sectionCode) {
+            $seoTag = null;
+        }
+    }
+    if ($seoTag) {
+        $arResult["CURRENT_SEO_TAG"] = $seoTag;
+        $seoTagH1 = $seoTag["H1"] !== '' ? $seoTag["H1"] : ($arResult["CURRENT_SECTION_DATA"]["H1"] . ': ' . $seoTag["NAME"]);
+        $seoFilterTitleOverride = [
+            "H1" => $seoTagH1,
+            "TITLE" => $seoTag["TITLE"] !== '' ? $seoTag["TITLE"] : ($seoTagH1 . ' — купить в ПРОФЭКВИП'),
+            "DESCRIPTION" => $seoTag["DESCRIPTION"] !== '' ? $seoTag["DESCRIPTION"] : null,
+        ];
+        if ($seoTag["SEO_TEXT"] !== '') {
+            $arResult["CURRENT_SECTION_DATA"]["DESCRIPTION"] = $seoTag["SEO_TEXT"];
+        }
+        // мало товаров (ассортимент изменился) — страница остаётся для пользователей, но не индексируется
+        $APPLICATION->SetPageProperty("robots", SeoTags::isIndexable($seoTag) ? "index, follow" : "noindex, follow");
+        $seoFilterBreadcrumbTitle = $seoTag["NAME"];
+    }
+
     // ===== SEO умного фильтра =====
     // Валидируем каждый сегмент /f/свойство-is-значение/ по реальным свойствам и
     // значениям каталога: несуществующая комбинация -> 404, вместо мягкого 200.
     // Для валидных комбинаций подбираем шаблон META по правилу из инфоблока
     // "seofilterrules" (раздел + свойство), иначе -> noindex + canonical на раздел.
-    if (!empty($arResult["CURRENT_SECTION_DATA"]) && trim((string)($_REQUEST["SMART_FILTER_PATH"] ?? '')) !== '') {
+    if (!$seoTag && !empty($arResult["CURRENT_SECTION_DATA"]) && trim((string)($_REQUEST["SMART_FILTER_PATH"] ?? '')) !== '') {
         $smartFilterSegments = array_values(array_filter(explode('/', trim($_REQUEST["SMART_FILTER_PATH"], '/'))));
         $parsedFilterValues = [];
         $smartFilterIsValid = true;
 
+        // Старые адреса фильтра: значение переименовано/слито (слаг сменился), свойство стало числовым
+        // (zagruzka_kg-is-25 → zagruzka_kg-from-25-to-25) — 301 на новый адрес (b_profequip_slug_history,
+        // пишут миграции 2026-10-13-catalog-*). Новый адрес, совпавший с SEO-тегом, — сразу на тег.
+        $legacyRewritten = false;
+        $rewrittenSegments = [];
         foreach ($smartFilterSegments as $segment) {
             if (!preg_match('#^([a-z0-9_]+)-is-(.+)$#i', $segment, $segMatch)) {
-                continue; // служебные сегменты (apply и т.п.) не относятся к свойствам
+                $rewrittenSegments[] = $segment;
+                continue;
+            }
+            $propCode = strtolower($segMatch[1]);
+            $arProp = CIBlockProperty::GetList([], ["IBLOCK_ID" => $iblockId, "CODE" => strtoupper($propCode)])->Fetch();
+            $newValues = [];
+            $numeric = [];
+            foreach (explode('-or-', $segMatch[2]) as $urlValue) {
+                $legacyValueExists = $arProp && $arProp["PROPERTY_TYPE"] === "L" && CIBlockPropertyEnum::GetList([], [
+                    "PROPERTY_ID" => $arProp["ID"], "XML_ID" => $urlValue,
+                ])->Fetch();
+                if ($legacyValueExists) {
+                    $newValues[] = $urlValue;
+                    continue;
+                }
+                $history = $GLOBALS['DB']->Query("SELECT NEW_SLUG FROM b_profequip_slug_history WHERE PROPERTY_CODE = '" . $GLOBALS['DB']->ForSql($propCode)
+                    . "' AND OLD_SLUG = '" . $GLOBALS['DB']->ForSql(mb_strtolower($urlValue)) . "'")->Fetch();
+                if (!$history) {
+                    $newValues[] = $urlValue; // ни значения, ни истории — пусть 404 ниже
+                    continue;
+                }
+                $legacyRewritten = true;
+                if (str_starts_with($history["NEW_SLUG"], 'num:')) {
+                    $numeric[] = (float)substr($history["NEW_SLUG"], 4);
+                } elseif ($history["NEW_SLUG"] !== '') {
+                    $newValues[] = $history["NEW_SLUG"];
+                }
+            }
+            if ($numeric) {
+                $fmt = static fn($n) => rtrim(rtrim(number_format($n, 2, '.', ''), '0'), '.');
+                $rewrittenSegments[] = $propCode . '-from-' . $fmt(min($numeric)) . '-to-' . $fmt(max($numeric));
+            } elseif ($newValues) {
+                $rewrittenSegments[] = $propCode . '-is-' . implode('-or-', array_unique($newValues));
+            }
+        }
+        if ($legacyRewritten) {
+            $newPath = implode('/', array_filter($rewrittenSegments, static fn($s) => $s !== 'apply'));
+            $tagForPath = class_exists('SeoTags') ? SeoTags::matchFilterPath($sectionCode, $newPath) : null;
+            // одно старое числовое значение (zagruzka_kg-is-25) — на тег-диапазон, куда оно попадает («25 кг» = 23–26,9)
+            if (!$tagForPath && class_exists('SeoTags') && count($rewrittenSegments) === 1
+                && preg_match('#^([a-z0-9_]+)-from-([\d.]+)-to-\2$#', $rewrittenSegments[0], $numMatch)) {
+                $tagForPath = SeoTags::forNumericValue($sectionCode, $numMatch[1], (float)$numMatch[2]);
+            }
+            LocalRedirect($tagForPath ? SeoTags::url($tagForPath)
+                : ('/product-category/' . $sectionCode . '/' . ($newPath !== '' ? 'f/' . $newPath . '/' : '')), false, '301 Moved permanently');
+        }
+
+        // «Наименование детали» (TIP_ZAPCHASTI, 200+ значений, обычно по 1 товару) больше не в фильтре —
+        // проиндексированные /f/tip_zapchasti-is-<деталь>/ ведут 301 на тег группы («Ремни и шкивы»)
+        if (class_exists('SeoTags') && count($smartFilterSegments) === 1
+            && preg_match('#^tip_zapchasti-is-([^/]+)$#', $smartFilterSegments[0], $partMatch)) {
+            $partProp = CIBlockProperty::GetList([], ["IBLOCK_ID" => $iblockId, "CODE" => "TIP_ZAPCHASTI"])->Fetch();
+            $partEnum = $partProp ? CIBlockPropertyEnum::GetList([], ["PROPERTY_ID" => $partProp["ID"], "XML_ID" => $partMatch[1]])->Fetch() : false;
+            if ($partEnum) {
+                [$partGroup] = CatalogStandard::partGroup((string)$partEnum["VALUE"], '');
+                foreach (SeoTags::forSection($sectionCode, false) as $partTag) {
+                    if ($partTag["GROUP"] === 'Тип' && $partTag["NAME"] === $partGroup) {
+                        LocalRedirect(SeoTags::url($partTag), false, '301 Moved permanently');
+                    }
+                }
+            }
+        }
+
+        // Комбинация совпадает с SEO-тегом раздела — канонический адрес у тега, сюда 301
+        if (class_exists('SeoTags') && ($tagForPath = SeoTags::matchFilterPath($sectionCode, (string)$_REQUEST["SMART_FILTER_PATH"]))) {
+            LocalRedirect(SeoTags::url($tagForPath), false, '301 Moved permanently');
+        }
+
+        foreach ($smartFilterSegments as $segment) {
+            if (!preg_match('#^([a-z0-9_]+)-is-(.+)$#i', $segment, $segMatch)) {
+                continue; // служебные сегменты (apply, числовые -from-/-to-) не относятся к спискам
             }
 
             $arProp = CIBlockProperty::GetList([], [
@@ -134,11 +240,20 @@ if ($sectionCode !== '') {
                 "CODE" => strtoupper($segMatch[1]),
             ])->Fetch();
 
-            $arEnum = $arProp ? CIBlockPropertyEnum::GetList([], [
-                "IBLOCK_ID" => $iblockId,
-                "PROPERTY_ID" => $arProp["ID"],
-                "XML_ID" => $segMatch[2],
-            ])->Fetch() : false;
+            $arEnum = false;
+            if ($arProp) {
+                // несколько значений одного свойства: …-is-a-or-b — валидируем каждое
+                foreach (explode('-or-', $segMatch[2]) as $urlValue) {
+                    $arEnum = CIBlockPropertyEnum::GetList([], [
+                        "IBLOCK_ID" => $iblockId,
+                        "PROPERTY_ID" => $arProp["ID"],
+                        "XML_ID" => $urlValue,
+                    ])->Fetch();
+                    if (!$arEnum) {
+                        break;
+                    }
+                }
+            }
 
             if (!$arProp || !$arEnum) {
                 $smartFilterIsValid = false;
@@ -148,6 +263,7 @@ if ($sectionCode !== '') {
             $parsedFilterValues[] = [
                 "PROPERTY_CODE" => $arProp["CODE"],
                 "VALUE_TEXT" => $arEnum["VALUE"],
+                "MULTI" => str_contains($segMatch[2], '-or-'),
             ];
         }
 
@@ -157,7 +273,9 @@ if ($sectionCode !== '') {
         }
 
         $seoFilterRuleFound = false;
-        if (count($parsedFilterValues) === 1) {
+        // посадочная — только одно свойство с одним значением и без числовых диапазонов
+        $hasNumericSegments = (bool)array_filter($smartFilterSegments, static fn($seg) => preg_match('#-(from|to)-#', $seg));
+        if (count($parsedFilterValues) === 1 && !$parsedFilterValues[0]["MULTI"] && !$hasNumericSegments) {
             $seoFilterRuleIblockId = GetIBlockIDByCode("seofilterrules");
             $ruleCode = $sectionCode . "__" . strtolower($parsedFilterValues[0]["PROPERTY_CODE"]);
 
@@ -238,40 +356,23 @@ if ($sectionCode !== '') {
                         )
                     ); ?> 
                 </div>
-                <div class="catalog__features"><button class="btn filter__btn"><svg>
+                <?
+                // Над листингом: плитки подкатегорий с картинками + «Популярные подборки» (SEO-теги раздела).
+                // Заменяют список подразделов в сайдбаре — ссылки над товарами кликают чаще, чем в фильтре.
+                include __DIR__ . '/include/catalog_top.php';
+                ?>
+                <div class="catalog__content catalog__content--toolbar">
+                <div class="catalog__features catalog__features--inline"><button class="btn filter__btn"><svg>
                             <use xlink:href="<?=LAYOUT_DIR?>assets/img/sprite.svg#filter"></use>
                         </svg>Фильтр</button>
-                    <?$APPLICATION->ShowViewContent('catalog_counter');?>    
+                    <span class="catalog__total js-product-count"><?$APPLICATION->ShowViewContent('catalog_counter');?></span>    
                     <div class="catalog__list-view"><button class="btn catalog-view__btn active" data-view="columns"><svg>
                                 <use xlink:href="<?=LAYOUT_DIR?>assets/img/sprite.svg#columns"></use>
                             </svg></button><button class="btn catalog-view__btn" data-view="lines"><svg>
                                 <use xlink:href="<?=LAYOUT_DIR?>assets/img/sprite.svg#lines"></use>
                             </svg></button></div>
                 </div>
-                <div class="catalog__content">
                     <sidebar class="catalog-sidebar">
-                        <?$APPLICATION->IncludeComponent(
-                                "bitrix:catalog.section.list", 
-                                "section_catalog", 
-                                array(
-                                    "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-                                    "IBLOCK_TYPE" => "catalog",
-                                    "FILTER_NAME" => "",
-                                    "SECTION_ID" => $arResult["CURRENT_SECTION_DATA"]["ID"],
-                                    "COUNT_ELEMENTS" => "N",
-                                    "TOP_DEPTH" => 12, 
-                                    "SECTION_FIELDS" => array("NAME", "CODE", "PICTURE", "DESCRIPTION"),
-                                    "SECTION_USER_FIELDS" => array("UF_*"),
-                                    "CACHE_TYPE" => "A",
-                                    "CACHE_TIME" => "36000000",
-                                    "CACHE_GROUPS" => "Y",
-                                    "ADD_SECTIONS_CHAIN" => "N",
-                                    "VIEW_MODE" => "LIST",
-                                    "SHOW_PARENT_NAME" => "Y",
-                                    "COMPONENT_TEMPLATE" => "section_categories"
-                                ),
-                                false
-                            );?>
                             <?$APPLICATION->IncludeComponent(
                                 "bitrix:catalog.smart.filter",
                                 "",
@@ -293,8 +394,11 @@ if ($sectionCode !== '') {
                                     "FILTER_VIEW_MODE" => "VERTICAL",
                                     "XML_EXPORT" => "Y",
                                     "SECTION_TITLE" => "NAME",
-                                    "INCLUDE_SUBSECTIONS" => "N",
-                                    "SECTION_DESCRIPTION" => "DESCRIPTION"
+                                    // Y: товары подразделов тоже (товары больше не дублируются в родительских разделах —
+                                    // см. local/migrations/2026-10-13-catalog-01-structure.php)
+                                    "INCLUDE_SUBSECTIONS" => "Y",
+                                    "SECTION_DESCRIPTION" => "DESCRIPTION",
+                                    "SEO_TAG_ID" => $seoTag ? $seoTag["ID"] : 0
                                 ),
                                 $component,
                                 array('HIDE_ICONS' => 'Y')

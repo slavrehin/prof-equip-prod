@@ -42,6 +42,27 @@ return function (RoutingConfigurator $routes) {
     })->where('sectionPath', '.+')
     ->where('filterPath', '.*');
 
+    // SEO-тег (посадочная подборка): /product-category/<раздел>/<тег>/ — листинг раздела с фильтром тега
+    // (local/php_interface/include/seo_tags.php). Нет такого тега — 404, как и раньше для лишнего сегмента.
+    $routes->any('/product-category/{sectionCode}/{tagCode}/', function ($sectionCode, $tagCode) {
+        $tag = class_exists('SeoTags') ? SeoTags::find($sectionCode, $tagCode) : null;
+        if (!$tag) {
+            // старый вложенный адрес (/prachechnoe-oborudovanie/paromanekeny/, /…/countryproduct-turciya/) — 301
+            $legacy = class_exists('CatalogStandard') ? CatalogStandard::legacyRedirect("/product-category/$sectionCode/$tagCode/") : null;
+            if ($legacy) {
+                LocalRedirect($legacy, false, '301 Moved permanently');
+            }
+            include $_SERVER['DOCUMENT_ROOT'] . '/404.php';
+            die();
+        }
+        $_REQUEST['SECTION_CODE_PATH'] = $sectionCode;
+        $_REQUEST['SMART_FILTER_PATH'] = $tag['FILTER'];
+        $_REQUEST['SEO_TAG_ID'] = $tag['ID'];
+        include_once $_SERVER['DOCUMENT_ROOT'] . '/catalog/index.php';
+        die();
+    })->where('sectionCode', '[a-z0-9\-_]+')
+    ->where('tagCode', '[a-z0-9\-_]+');
+
     // Каталог (разделы)
     $routes->any('/product-category/{sectionPath}/', function ($sectionPath) {
         $_REQUEST['SECTION_CODE_PATH'] = $sectionPath;

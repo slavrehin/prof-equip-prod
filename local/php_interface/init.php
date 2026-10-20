@@ -15,7 +15,9 @@ require_once(__DIR__ . '/include/landing_editor.php'); // редактор со�
 //require_once __DIR__ . '/include/custom_fields.php';
 require_once(__DIR__ . '/include/smartcaptcha.php');
 require_once(__DIR__ . '/include/site_search.php'); // поиск по каталогу + подсказки в шапке
+require_once(__DIR__ . '/include/catalog_standard.php'); // стандарт характеристик каталога: структура, свойства, фильтры по разделам
 require_once(__DIR__ . '/include/product_type.php'); // «Тип» товара (TIP_TOVARA) — фасет фильтра на страницах брендов
+require_once(__DIR__ . '/include/seo_tags.php'); // SEO-теги: посадочные подборки /product-category/<раздел>/<тег>/
 
 /**** autoload ****/
 require_once($_SERVER['DOCUMENT_ROOT'] . '/local/vendor/autoload.php');
@@ -274,6 +276,13 @@ function redirect_by_infoblock_properties() {
     }
     
     if (!\Bitrix\Main\Loader::includeModule('iblock')) {
+        return;
+    }
+
+    // Адрес стал страницей SEO-тега (например, старый /product-category/professionalnyj-tekstil/yubki/
+    // теперь подборка «Юбки») — ручной редирект из админки больше не нужен, страница отдаётся сама.
+    if (class_exists('SeoTags') && preg_match('#^/product-category/([^/]+)/([^/]+)/$#', $currentUrl, $tagUrlMatch)
+        && SeoTags::find($tagUrlMatch[1], $tagUrlMatch[2])) {
         return;
     }
     

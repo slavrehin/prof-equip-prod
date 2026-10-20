@@ -161,9 +161,9 @@ if ($seoFilterSectionCode !== null) {
                             
                             <?foreach($arItem["VALUES"] as $val => $ar):?>
                                 <?php
-                                $seoValueHref = ($isSeoSignificant && !empty($ar["URL_ID"]))
+                                $seoValueHref = !empty($ar["SEO_HREF"]) ? $ar["SEO_HREF"] : (($isSeoSignificant && !empty($ar["URL_ID"]))
                                     ? '/product-category/' . $seoFilterSectionCode . '/f/' . mb_strtolower($arItem["CODE"]) . '-is-' . $ar["URL_ID"] . '/'
-                                    : null;
+                                    : null);
                                 ?>
                                 <?if($arItem["DISPLAY_TYPE"] == "K"):?>
                                     <!-- Радиокнопки -->
@@ -225,9 +225,9 @@ if ($seoFilterSectionCode !== null) {
                                 } elseif(isset($ar["FILE"]["SRC"])) {
                                     $colorStyle = "background: url('" . $ar["FILE"]["SRC"] . "') center/cover;";
                                 }
-                                $seoValueHref = ($isSeoSignificant && !empty($ar["URL_ID"]))
+                                $seoValueHref = !empty($ar["SEO_HREF"]) ? $ar["SEO_HREF"] : (($isSeoSignificant && !empty($ar["URL_ID"]))
                                     ? '/product-category/' . $seoFilterSectionCode . '/f/' . mb_strtolower($arItem["CODE"]) . '-is-' . $ar["URL_ID"] . '/'
-                                    : null;
+                                    : null);
                                 ?>
 
                                 <?if($isColor):?>

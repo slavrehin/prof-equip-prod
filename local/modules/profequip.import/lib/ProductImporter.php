@@ -245,6 +245,14 @@ class ProductImporter
                             }
                         }
                         break;
+                    case 'N':
+                        // «25 кг», «13,9», «33–37» → число (у диапазона — оба конца, если свойство множественное)
+                        if (preg_match_all('/\d+(?:[.,]\d+)?/', str_replace(' ', '', $part), $nums)) {
+                            foreach ($nums[0] as $num) {
+                                $resolved[] = (float)str_replace(',', '.', $num);
+                            }
+                        }
+                        break;
                     default:
                         $resolved[] = $part;
                 }

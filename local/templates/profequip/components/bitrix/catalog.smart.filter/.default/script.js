@@ -246,7 +246,16 @@
         try {
             var formData = new FormData(this.form);
             var addedParams = {};
-            
+
+            // Ползунок, стоящий на краю диапазона, не тронут — не отправляем его, иначе в URL фильтра
+            // попадают «полные» диапазоны (…/zagruzka_kg-from-4-to-270/g_factor-from-66-to-530/)
+            this.form.querySelectorAll('input[type="range"]').forEach(function (range) {
+                var edge = range.classList.contains('js-range-min') ? range.getAttribute('min') : range.getAttribute('max');
+                if (range.name && edge !== null && parseFloat(range.value) === parseFloat(edge)) {
+                    addedParams[range.name] = true;
+                }
+            });
+
             for (var pair of formData.entries()) {
                 var name = pair[0];
                 var value = pair[1];

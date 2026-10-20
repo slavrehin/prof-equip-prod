@@ -1,4 +1,9 @@
 <?
+// 301: расформированные разделы и старые адреса подборок (CatalogStandard::legacyRedirect) —
+// до проверки раздела, иначе неактивный раздел отдал бы 404.
+if (class_exists('CatalogStandard') && ($legacyTarget = CatalogStandard::legacyRedirect((string)parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)))) {
+    LocalRedirect($legacyTarget, false, '301 Moved permanently');
+}
 if (preg_match('#^/product-category/([^/]+)/#', $_SERVER['REQUEST_URI'], $sectionUrlMatch)) {
     CModule::IncludeModule("iblock");
     // GLOBAL_ACTIVE, а не только ACTIVE: раздел может быть активен сам по
@@ -152,7 +157,11 @@ $APPLICATION->IncludeComponent(
 			"section" => "product-category/#SECTION_CODE#/",
 			"element" => "product/#ELEMENT_CODE#/",
 			"compare" => "compare.php?action=#ACTION_CODE#",
-			"smart_filter" => "product-category/#SECTION_CODE#/f/#SMART_FILTER_PATH#/",
+			// страница SEO-тега /product-category/<раздел>/<тег>/ — для компонента это «раздел с фильтром»
+			// (путь фильтра тега уже в $_REQUEST['SMART_FILTER_PATH'], см. local/routes/web.php)
+			"smart_filter" => !empty($_REQUEST["SEO_TAG_ID"]) && class_exists('SeoTags') && ($seoTagForSef = SeoTags::byId((int)$_REQUEST["SEO_TAG_ID"]))
+				? "product-category/#SECTION_CODE#/" . $seoTagForSef["SLUG"] . "/"
+				: "product-category/#SECTION_CODE#/f/#SMART_FILTER_PATH#/",
 		],
 		"VARIABLE_ALIASES" => [
 			"compare" => [
