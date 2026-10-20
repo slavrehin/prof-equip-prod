@@ -125,7 +125,11 @@ $arrFilter['ID'] = $searchIds ?: [0];
                         'PAGE_ELEMENT_COUNT' => '20',
                         "PAGER_TEMPLATE" => "arrows_custom",
                         
-                        'PRICE_CODE' => ['BASE'],
+                        // как в листинге каталога: тип цены BASE_PRICE, валюта → рубли
+                        'PRICE_CODE' => ['BASE_PRICE'],
+                        'CONVERT_CURRENCY' => 'Y',
+                        'CURRENCY_ID' => 'RUB',
+                        'PRICE_VAT_INCLUDE' => 'Y',
                         'USE_PRICE_COUNT' => 'N',
                         'SHOW_PRICE_COUNT' => '1',
                         

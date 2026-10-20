@@ -1,0 +1,50 @@
+/*
+ * Мобильный листинг: кнопка «Фильтр» — закреплённая панель внизу экрана.
+ * Раньше при прокрутке main.js вешал на кнопку .fixed (top: 100px) и она
+ * перекрывала строку поиска под шапкой. Теперь кнопка всегда внизу, а панель
+ * фильтра выезжает над ней (top, который main.js пишет инлайном, перекрыт).
+ */
+@media (max-width: 768px) {
+    .catalog__features .filter__btn,
+    .catalog__features .filter__btn.fixed {
+        position: fixed !important;
+        top: auto !important;
+        left: 0 !important;
+        right: 0;
+        bottom: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: calc(40px + env(safe-area-inset-bottom, 0px)) !important;
+        padding: 0 16px env(safe-area-inset-bottom, 0px);
+        border: 0 !important;
+        border-top: 1px solid #d9dee6 !important;
+        border-radius: 0 !important;
+        background: #fff;
+        box-shadow: 0 -4px 16px rgba(27, 33, 84, .08);
+        color: #1b2154;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .catalog__features .filter__btn svg { width: 20px !important; height: 20px !important; }
+
+    /* main.js задаёт ряду высоту кнопки, когда она «прилипает» — кнопки там больше нет */
+    .catalog__features { height: auto !important; }
+
+    .catalog-sidebar-filters {
+        top: auto !important;
+        left: 10px;
+        right: 10px;
+        bottom: calc(50px + env(safe-area-inset-bottom, 0px));
+        max-height: calc(100vh - 50px - 110px - env(safe-area-inset-bottom, 0px));
+        max-height: calc(100dvh - 50px - 110px - env(safe-area-inset-bottom, 0px));
+        box-shadow: 0 8px 32px rgba(27, 33, 84, .18);
+    }
+
+    /* место под панель: низ страницы и чат Bitrix24 не прячутся за ней */
+    body:has(.catalog__features .filter__btn) { padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px)); }
+    body:has(.catalog__features .filter__btn) .b24-widget-button-wrapper { bottom: calc(56px + env(safe-area-inset-bottom, 0px)) !important; }
+    /* открытый фильтр чат не перекрывает */
+    body:has(.catalog-sidebar-filters.active) .b24-widget-button-wrapper { display: none !important; }
+}

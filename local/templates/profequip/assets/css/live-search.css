@@ -4,6 +4,20 @@
 .search-block__inner,
 .search-block__inner > .input-wrapper { position: relative; }
 
+/* Поле ввода — на всю строку поиска: отступы строки перенесены внутрь input,
+   иначе клик правее плейсхолдера (на десктопе поле ~400px из ~1100) и по
+   краям строки не ставил курсор. Справа — место под кнопку-лупу. */
+.header .search-block .search-block__inner .input-wrapper .input__row { padding: 0; }
+.header .search-block .search-block__inner .input__row .input-wrapper { display: block; width: 100%; }
+.header .search-block .search-block__inner .input__row input[name="s"] {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: .3125rem 2.5rem .3125rem .625rem;
+  cursor: text;
+}
+
 .live-search {
   position: absolute;
   top: calc(100% + 6px);

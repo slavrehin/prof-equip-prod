@@ -26,7 +26,26 @@ class ProfEquipSearch
     const SERVICES_IBLOCK_CODE = 'services';
     const SPARE_PARTS_SECTION_CODE = 'zapasnye-chasti';
     const CACHE_TTL = 86400;
-    const CACHE_VERSION = 'v3';
+    const CACHE_VERSION = 'v5';
+    /**
+     * Раздел «в наличии»: товары привязаны к нему дополнительно, основной раздел
+     * у них обычный («Стиральные машины» и т.п.). Запрос «… в наличии» ищет
+     * остаток запроса только среди них.
+     */
+    const STOCK_SECTION_CODE = 'prachechnoe-oborudovanie-v-nalichii';
+
+    /**
+     * Приоритет брендов в выдаче по прачечным запросам: бонус к релевантности
+     * товаров прачечной ветки (оборудование + запчасти к нему). Ключ —
+     * нормализованное имя бренда. Бонус меньше бонуса за фразу в названии (300)
+     * и точную модель (1000): бренд упорядочивает близкие по смыслу результаты,
+     * но не поднимает нерелевантные.
+     */
+    const LAUNDRY_BRAND_BOOST = ['tolon' => 120, 'fermest' => 80, 'oasis' => 40, 'oazis' => 40];
+    /** Разделы (CODE), товары которых считаются прачечными — по всей цепочке родителей. */
+    const LAUNDRY_SECTION_CODES = ['prachechnoe-oborudovanie', 'zapasnye-chasti-dlya-prachechnogo-oborudovaniya'];
+    /** Начала нормализованных слов запроса, делающие его прачечным. */
+    const LAUNDRY_QUERY_PREFIXES = ['prach', 'stiral', 'sushil', 'sushk', 'gladil', 'katok', 'katk', 'otzhim', 'himchist', 'bele', 'belia'];
 
     /** Поля товара и их вес. digits=false — цифры из поля не учитываются (описания полны «18 кг»). */
     const FIELDS = [
@@ -195,8 +214,10 @@ class ProfEquipSearch
             }
             $sectionNames = [];
             $root = 0;
+            $laundry = false;
             for ($sid = (int)$e['IBLOCK_SECTION_ID'], $guard = 0; $sid && isset($allSections[$sid]) && $guard < 10; $guard++) {
                 $sectionNames[] = $allSections[$sid]['name'];
+                $laundry = $laundry || in_array($allSections[$sid]['code'], self::LAUNDRY_SECTION_CODES, true);
                 $root = $sid;
                 $sid = $allSections[$sid]['parent'];
             }
@@ -208,9 +229,21 @@ class ProfEquipSearch
                 'pic' => (int)$e['PREVIEW_PICTURE'],
                 'section' => $sectionNames[0] ?? '',
                 'parts' => $root && $allSections[$root]['code'] === self::SPARE_PARTS_SECTION_CODE,
+                'laundry' => $laundry,
                 'raw' => ['section' => implode(' ', $sectionNames), 'text' => $preview],
                 'props' => ['ident' => [], 'brand' => [], 'compat' => []],
             ];
+        }
+
+        // Все товары раздела «в наличии» (с учётом дополнительных привязок)
+        $stockSection = CIBlockSection::GetList([], ['IBLOCK_ID' => $iblockId, '=CODE' => self::STOCK_SECTION_CODE], false, ['ID'])->Fetch();
+        if ($stockSection) {
+            $res = CIBlockElement::GetList([], ['IBLOCK_ID' => $iblockId, 'SECTION_ID' => (int)$stockSection['ID'], 'INCLUDE_SUBSECTIONS' => 'Y'], false, false, ['ID']);
+            while ($e = $res->Fetch()) {
+                if (isset($products[(int)$e['ID']])) {
+                    $products[(int)$e['ID']]['stock'] = true;
+                }
+            }
         }
 
         // Свойства одним проходом по всем товарам
@@ -281,6 +314,17 @@ class ProfEquipSearch
             if (preg_match('/(^| )(dlia|for)( |$)/', $nameNorm, $m, PREG_OFFSET_CAPTURE)) {
                 $forPos = strlen(str_replace(' ', '', substr($nameNorm, 0, $m[0][1])));
             }
+            // Бонус приоритетного бренда (бренд из свойств, иначе — слово в названии товара или раздела:
+            // у части запчастей бренд не заполнен, но они лежат в «Запасные части TOLON»)
+            $brandBoost = 0;
+            if ($p['laundry']) {
+                $brandTokens = $f['brand']['t'] ?: array_merge($f['name']['t'], $f['section']['t']);
+                foreach (self::LAUNDRY_BRAND_BOOST as $brand => $boost) {
+                    if (in_array($brand, $brandTokens, true)) {
+                        $brandBoost = max($brandBoost, $boost);
+                    }
+                }
+            }
             $products[$id] = [
                 'id' => $id,
                 'name' => $p['name'],
@@ -288,6 +332,9 @@ class ProfEquipSearch
                 'pic' => $p['pic'],
                 'section' => $p['section'],
                 'parts' => $p['parts'],
+                'laundry' => $p['laundry'],
+                'stock' => !empty($p['stock']),
+                'brandBoost' => $brandBoost,
                 'f' => $f,
                 'exact' => array_values(array_unique(array_filter($exact))),
                 'compatExact' => array_values(array_unique(array_filter($compatExact))),
@@ -498,6 +545,17 @@ class ProfEquipSearch
         if (!$q['tokens'] || strlen($q['compact']) < 2) {
             return [];
         }
+        $rest = self::stripStockWords($query);
+        if ($rest !== null) {
+            $scores = self::searchStock($rest, $suggest);
+            if ($scores) {
+                return $scores;
+            }
+            if (strlen(str_replace(' ', '', $rest)) >= 2) {
+                // в наличии ничего подходящего — обычная выдача по остальным словам («каток в наличии» → катки)
+                return self::searchScores($rest, $suggest);
+            }
+        }
         $scores = self::rank($q, false);
         if (!$scores) {
             $scores = self::rank($q, true);
@@ -516,6 +574,88 @@ class ProfEquipSearch
             } elseif ($top > 1) {
                 $scores = array_filter($scores, fn($s) => $s > 1);
             }
+            $scores = self::applyLaundryBrandPriority($scores, $q);
+        }
+        return $scores;
+    }
+
+    /**
+     * «стиральная машина в наличии» → «стиральная машина»; null — в запросе нет «наличии».
+     * Предлог «в» перед «наличии» убирается вместе с ним.
+     */
+    private static function stripStockWords($query)
+    {
+        $tokens = self::tokens(self::normalize($query));
+        $found = false;
+        $rest = [];
+        foreach ($tokens as $i => $t) {
+            if (strncmp($t, 'nalich', 6) === 0) {
+                $found = true;
+                if ($rest && end($rest) === 'v') {
+                    array_pop($rest);
+                }
+                continue;
+            }
+            $rest[] = $t;
+        }
+        return $found ? implode(' ', $rest) : null;
+    }
+
+    /** Поиск только среди товаров «в наличии»; пустой остаток — весь раздел. */
+    private static function searchStock($rest, $suggest)
+    {
+        $products = self::getIndex()['products'];
+        if (strlen(str_replace(' ', '', $rest)) < 2) {
+            $scores = [];
+            foreach ($products as $id => $p) {
+                if ($p['stock']) {
+                    $scores[$id] = 100;
+                }
+            }
+            $q = self::prepareQuery('');
+        } else {
+            $scores = self::searchScores($rest, $suggest);
+            $scores = array_filter($scores, fn($s, $id) => $products[$id]['stock'], ARRAY_FILTER_USE_BOTH);
+            $q = self::prepareQuery($rest);
+        }
+        // searchScores уже применил приоритет брендов; для пустого остатка — применяем здесь
+        return $scores && $q['tokens'] === [] ? self::applyLaundryBrandPriority($scores, $q) : $scores;
+    }
+
+    /**
+     * Прачечный запрос (по словам запроса или если прачечных товаров
+     * большинство в топ-20) — поднимает Tolon, затем Fermest, затем OASIS.
+     */
+    private static function applyLaundryBrandPriority(array $scores, array $q)
+    {
+        $products = self::getIndex()['products'];
+        $laundry = false;
+        foreach ($q['tokens'] as $qt) {
+            foreach (self::LAUNDRY_QUERY_PREFIXES as $prefix) {
+                if (strncmp($qt, $prefix, strlen($prefix)) === 0) {
+                    $laundry = true;
+                    break 2;
+                }
+            }
+        }
+        if (!$laundry) {
+            $top = array_slice(array_keys($scores), 0, 20);
+            $laundry = count(array_filter($top, fn($id) => $products[$id]['laundry'])) * 2 > count($top);
+        }
+        if (!$laundry) {
+            return $scores;
+        }
+        $boosted = false;
+        foreach ($scores as $id => $s) {
+            if ($s > 1 && $products[$id]['brandBoost']) {
+                $scores[$id] += $products[$id]['brandBoost'];
+                $boosted = true;
+            }
+        }
+        if ($boosted) {
+            uksort($scores, function ($a, $b) use ($scores, $products) {
+                return [$scores[$b], strlen($products[$a]['name']), $a] <=> [$scores[$a], strlen($products[$b]['name']), $b];
+            });
         }
         return $scores;
     }
@@ -538,6 +678,15 @@ class ProfEquipSearch
                 $sum += $m;
             }
             $found[] = ['name' => $s['name'], 'url' => $s['url'], 'count' => $s['count'], 'score' => $sum];
+        }
+        if (self::stripStockWords($query) !== null) {
+            // «… в наличии» — раздел «в наличии» первым, даже если остальные слова в его названии не встречаются
+            foreach (self::getIndex()['sections'] as $s) {
+                if (strpos($s['url'], '/' . self::STOCK_SECTION_CODE . '/') !== false) {
+                    $found = array_filter($found, fn($f) => $f['url'] !== $s['url']);
+                    $found[] = ['name' => $s['name'], 'url' => $s['url'], 'count' => $s['count'], 'score' => 1000];
+                }
+            }
         }
         usort($found, fn($a, $b) => [$b['score'], $b['count']] <=> [$a['score'], $a['count']]);
         return array_slice($found, 0, $limit);

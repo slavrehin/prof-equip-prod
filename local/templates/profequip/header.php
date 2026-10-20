@@ -26,6 +26,8 @@
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-text.css?v=<?=file_exists($catalogTextCssPath) ? filemtime($catalogTextCssPath) : time()?>" rel="stylesheet">
     <?php $otherProductsCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/other-products.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/other-products.css?v=<?=file_exists($otherProductsCssPath) ? filemtime($otherProductsCssPath) : time()?>" rel="stylesheet">
+    <?php $mobileFilterBarCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/mobile-filter-bar.css'; ?>
+    <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/mobile-filter-bar.css?v=<?=file_exists($mobileFilterBarCssPath) ? filemtime($mobileFilterBarCssPath) : time()?>" rel="stylesheet">
     <?php $liveSearchCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/live-search.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/live-search.css?v=<?=file_exists($liveSearchCssPath) ? filemtime($liveSearchCssPath) : time()?>" rel="stylesheet">
     <?php $liveSearchJsPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/js/live-search.js'; ?>
