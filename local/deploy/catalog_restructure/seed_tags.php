@@ -50,14 +50,10 @@ const ENTERPRISE = [
     'Аквачистка' => ['Для аквачистки', 'для аквачистки', 'dlya-akvachistki'],
 ];
 
-// Теги «<раздел>/<слаг>», закрытые от индексации (страница есть, но noindex, без sitemap и ссылок в фильтре).
-// 2026-10-20: в корне прачечного индексируются только 5 типов предприятия (тексты — texts.php).
-const NOINDEX_TAGS = [
-    'prachechnoe-oborudovanie/dlya-kommercheskoj-prachechnoj',
-    'prachechnoe-oborudovanie/dlya-promyshlennoj-prachechnoj',
-    'prachechnoe-oborudovanie/dlya-spetsodezhdy',
-    'prachechnoe-oborudovanie/dlya-akvachistki',
-];
+// Типы предприятия, чьи теги во всех разделах закрыты от индексации (страница есть, но noindex, без sitemap
+// и ссылок в фильтре). 2026-10-20/21: индексируются только мини-прачечная, самообслуживание, гостиницы,
+// больницы и химчистка (тексты корня — texts.php).
+const NOINDEX_ENTERPRISE = ['Коммерческая прачечная', 'Промышленная прачечная', 'Прачечная на предприятии', 'Аквачистка'];
 
 // Тип нагрева → [чипс, прилагательное мн.ч., ср.р., слаг]
 const HEATING = [
@@ -238,7 +234,8 @@ foreach (SPEC as $sectionCode => $groups) {
                     if (($xml = $enumXml('TIP_PREDPRIYATIYA', $value)) === null) {
                         continue;
                     }
-                    $add('Назначение', $chip, $slug, "tip_predpriyatiya-is-$xml", "$name $tail", ['VALUE' => $value]);
+                    $add('Назначение', $chip, $slug, "tip_predpriyatiya-is-$xml", "$name $tail",
+                        ['VALUE' => $value, 'NOINDEX' => in_array($value, NOINDEX_ENTERPRISE, true)]);
                 }
                 break;
             case 'heating':
@@ -443,7 +440,7 @@ foreach ($accepted as $c) {
         'FILTER' => $c['FILTER'],
         'GROUP' => $groupEnum[$c['GROUP']] ?? false,
         'IN_BLOCK' => $inBlock && $c['IN_BLOCK'] ? (int)$inBlock['ID'] : false,
-        'NOINDEX' => in_array($c['SECTION_CODE'] . '/' . $c['SLUG'], NOINDEX_TAGS, true) ? (int)$noindex['ID'] : false,
+        'NOINDEX' => !empty($c['NOINDEX']) ? (int)$noindex['ID'] : false,
         'H1' => $c['H1'],
     ];
     if ($manual = $manualTexts[$c['SECTION_CODE'] . '/' . $c['SLUG']] ?? null) {

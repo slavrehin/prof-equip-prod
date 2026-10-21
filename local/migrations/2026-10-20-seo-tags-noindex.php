@@ -2,7 +2,7 @@
 /**
  * Свойство NOINDEX у SEO-тегов: страница тега остаётся для пользователей (фильтр ведёт на неё),
  * но отдаёт noindex, не попадает в sitemap и не выводится ссылкой <a href> в фильтре.
- * Какие теги закрыты — local/deploy/catalog_restructure/seed_tags.php (NOINDEX_TAGS). Идемпотентна.
+ * Какие теги закрыты — local/deploy/catalog_restructure/seed_tags.php (NOINDEX_ENTERPRISE). Идемпотентна.
  */
 
 call_user_func(static function () {
