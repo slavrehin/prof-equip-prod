@@ -15,7 +15,7 @@ $strReturn = '';
 
 //we can't use $APPLICATION->SetAdditionalCSS() here because we are inside the buffered function GetNavChain()
 
-$strReturn .= '<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList"><div class="breadcrumbs__inner container">';
+$strReturn .= '<div class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList"><div class="breadcrumbs__inner container">';
 
 $itemSize = count($arResult);
 for($index = 0; $index < $itemSize; $index++)
@@ -23,24 +23,30 @@ for($index = 0; $index < $itemSize; $index++)
 	$title = htmlspecialcharsex($arResult[$index]["TITLE"]);
 	$prefix = ($index == 0) ? '' : '/ ';
 	$isLast = ($index == $itemSize - 1);
+	$link = $arResult[$index]["LINK"];
+
+	// Каждый ListItem обязан иметь position и name (и item — для всех,
+	// кроме последнего). Разделитель "/ " вынесен за пределы itemprop="name",
+	// чтобы не попадал в название пункта.
+	$strReturn .= '<span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
 
 	// Последний пункт цепочки — всегда текущая страница, поэтому он
 	// некликабельный (без <a href>), даже если для него формально передан
-	// LINK. Раньше здесь был <a href="..."> (пустой href на последнем шаге
-	// или, для страниц умного фильтра, LINK самого раздела) — визуально не
-	// отличался от остальных ссылок, хотя вести никуда не должен.
+	// LINK. item для последнего пункта по правилам Google необязателен.
 	if($isLast)
 	{
-		$strReturn .= '<span class="breadcrumb__link breadcrumb__link--current" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">'.$prefix.$title.'</span>';
+		$strReturn .= '<span class="breadcrumb__link breadcrumb__link--current">'.$prefix.'<span itemprop="name">'.$title.'</span></span>';
 	}
-	elseif($arResult[$index]["LINK"] <> "")
+	elseif($link <> "")
 	{
-		$strReturn .= '<a class="breadcrumb__link" href="'.$arResult[$index]["LINK"].'" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">'.$prefix.$title.'</a>';
+		$strReturn .= '<a class="breadcrumb__link" href="'.$link.'" itemprop="item">'.$prefix.'<span itemprop="name">'.$title.'</span></a>';
 	}
 	else
 	{
-		$strReturn .= '<span class="breadcrumb__link" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">'.$prefix.$title.'</span>';
+		$strReturn .= '<span class="breadcrumb__link">'.$prefix.'<span itemprop="name">'.$title.'</span></span>';
 	}
+
+	$strReturn .= '<meta itemprop="position" content="'.($index + 1).'"></span>';
 }
 
 $strReturn .= '</div></div>';
