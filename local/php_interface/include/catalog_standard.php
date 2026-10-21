@@ -564,6 +564,131 @@ class CatalogStandard
         return array_keys($types);
     }
 
+    /**
+     * «Тип предприятия» кухонного оборудования (2026-10-21, согласовано с заказчиком): короткий ключ → значение.
+     * Варианты живут в том же свойстве TIP_PREDPRIYATIYA, что и прачечные (сквозной фильтр); в фильтре
+     * раздела видны только значения его товаров. Порядок — SORT вариантов (после прачечных 500).
+     */
+    public const KITCHEN_ENTERPRISE = [
+        'R' => 'Для ресторана', 'H' => 'Для отеля', 'S' => 'Для столовой', 'F' => 'Для фаст-фуда', 'B' => 'Для больницы',
+        'K' => 'Для кафе и кофейни', 'BAR' => 'Для бара', 'P' => 'Для пиццерии', 'C' => 'Для кейтеринга',
+        'SH' => 'Для школы и детского сада', 'D' => 'Для частного дома',
+    ];
+
+    /**
+     * Правила для кухни: код подраздела → ключи KITCHEN_ENTERPRISE. Товар получает объединение правил
+     * всех своих подразделов (без «Популярного» и родителей без правила), затем правки по названию из
+     * kitchenEnterpriseOverrides() — по порядку, '=' заменяет набор, '+' добавляет, '-' убирает.
+     */
+    public const KITCHEN_ENTERPRISE_SECTIONS = [
+        'parokonvektomaty' => ['R', 'H', 'S', 'B', 'C', 'SH'],
+        'parokonvektomaty-rational' => ['R', 'H', 'S', 'B', 'C', 'SH'],
+        'aksessuary' => ['R', 'H', 'S', 'B', 'C', 'SH'],
+        'elektroskovorody' => ['R', 'H', 'S', 'B', 'C', 'SH'],
+        'teplovoe-oborudovanie' => ['H', 'S', 'B', 'C', 'SH'],
+        'elektricheskie-plity' => ['R', 'H', 'S', 'B', 'C', 'SH', 'K'],
+        'gazovye-plity' => ['R', 'H', 'S', 'B', 'C', 'SH', 'K'],
+        'induktsionnye-plity' => ['R', 'H', 'S', 'B', 'C', 'SH', 'K'],
+        'varochnye-poverhnosti' => ['R', 'H', 'K', 'D'],
+        'induktsionnye-grili' => ['R', 'H', 'F', 'K'],
+        'zharochnye-poverhnosti' => ['R', 'H', 'F', 'K'],
+        'frityurnitsiy' => ['R', 'H', 'F', 'K'],
+        'pechi-dlya-pitstsy' => ['P', 'R', 'K'],
+        'holodilnye-i-morozilnye-stoly' => ['R', 'H', 'S', 'F', 'K', 'P', 'C'],
+        'holodilnye-shkafy' => ['R', 'H', 'S', 'F', 'K', 'B', 'SH', 'C'],
+        'shkafy-shokovoj-zamorozki' => ['R', 'H', 'S', 'B', 'C', 'SH'],
+        'defrostery' => ['R', 'S', 'B', 'C'],
+        'kuhonnye-ostrova-i-monobloki' => ['R', 'H', 'S', 'C'],
+        'linii-razdachi' => ['S', 'B', 'SH', 'H', 'C'],
+        'bufetnye-stantsii' => ['H', 'R', 'C'],
+        'holodilnye-vitriny' => ['K', 'R', 'H'],
+        'nastolnye-vitriny' => ['K', 'R', 'H', 'BAR'],
+        'neytralnye-vitriny' => ['K', 'R', 'H', 'S'],
+        'teplovye-vitriny' => ['H', 'S', 'K', 'F', 'R'],
+        'vitriny-dlya-sushi' => ['R', 'K'],
+        'mobilnye-kuhonnye-stantsii' => ['H', 'C', 'R'],
+        'diet-pitanie-tablet-pitanie' => ['B', 'C'],
+        'posudomoechnoe-oborudovanie' => ['R', 'H', 'S', 'B', 'SH', 'C'],
+        'ldogeneratory' => ['BAR', 'R', 'H', 'K', 'F'],
+        'barnye-stojki' => ['BAR', 'R', 'H', 'K'],
+        'barnye-stantsii' => ['BAR', 'R', 'H', 'K'],
+        'vinnye-biblioteki-komnaty-i-pogreba' => ['R', 'H', 'BAR'],
+        'ventiliruemye-potolki' => ['R', 'H', 'S', 'B', 'SH', 'C'],
+        'vytyazhnye-zonty' => ['R', 'H', 'S', 'B', 'SH', 'C', 'F'],
+    ];
+
+    /** Правки по названию товара: [регулярка, '='|'+'|'-', ключи]. */
+    public static function kitchenEnterpriseOverrides(): array
+    {
+        return [
+            // компактные пароконвектоматы и сковороды — для небольших кухонь
+            ['/6-1\/1|6-2\/3|\bXS\b|Junior|Компактн|FlexiCombi (Classic|MagicPilot) 6\.1|SpaceCombi/u', '+', ['K', 'F']],
+            // кондитерские шкафы и шкаф для мороженого — не для пищеблоков
+            ['/Coldline (Wind|Clima|Ice)/u', '=', ['R', 'H', 'K']],
+            ['/Coldline Pastry/u', '=', ['R', 'H', 'K', 'C']],
+            ['/Saladett|Саладетт|Prep Station/u', '+', ['P', 'F']],
+            // грили B-Fire: уличные/встраиваемые — и для частного дома, портативный — для выездных мероприятий
+            ['/B-Fire/u', '+', ['D']],
+            ['/Kutuzov Mini/u', '+', ['C']],
+            ['/Саламандра/u', '-', ['K']],
+            // острова: MOLTENI — ресторан и частная кухня, EMAINOX — ресторан/отель
+            ['/MOLTENI/u', '=', ['R', 'H', 'D']],
+            ['/Кухонный остров EMAINOX/u', '=', ['R', 'H']],
+            // линии раздачи: шведский стол — отели/рестораны/кейтеринг; школьные прилавки; фаст-гурме
+            ['/шведского стола|Widevision|Suprême|DOGE/u', '=', ['H', 'R', 'C']],
+            ['/Kids/u', '=', ['SH', 'S']],
+            ['/Fast Gourmet/u', '=', ['F', 'K', 'R']],
+            ['/Mondrian/u', '=', ['K', 'R', 'H']],
+            ['/ELECTROLUX (Fit System|Self-service|Server)|BLANCO MANHATTAN|B\.PRO BASIC/u', '=', ['S', 'SH', 'B', 'H']],
+            // витрины SAYL: Grab & Go и компактные — фаст-фуд; встраиваемые/напольные — столовые
+            ['/Grab & Go|COMPAK/u', '+', ['F']],
+            ['/INTEGRA (DROP-IN|BASE|T)\b/u', '+', ['S']],
+            ['/PORTÁTIL/u', '+', ['C']],
+            // таблет-питание
+            ['/MenuMobil/u', '=', ['B']],
+            ['/Socamel/u', '=', ['B', 'H']],
+            ['/Cambro/u', '=', ['C', 'SH', 'S', 'B']],
+            // посудомойки по типу машины
+            ['/стаканомоечн/ui', '=', ['BAR', 'R', 'K', 'H']],
+            ['/фронтальн|подстольн/ui', '=', ['R', 'K', 'F', 'P', 'BAR']],
+            ['/купольн/ui', '=', ['R', 'H', 'S', 'K', 'F']],
+            ['/конвейерн|туннельн/ui', '=', ['S', 'B', 'SH', 'H', 'C']],
+            // винные шкафы бытового формата — и для частного дома
+            ['/LIEBHERR|BRERA/u', '+', ['D']],
+        ];
+    }
+
+    /** Значения «Типа предприятия» для кухонного товара по его подразделам и названию. */
+    public static function kitchenEnterprise(array $sectionCodes, string $name): array
+    {
+        $keys = [];
+        foreach ($sectionCodes as $code) {
+            foreach (self::KITCHEN_ENTERPRISE_SECTIONS[$code] ?? [] as $k) {
+                $keys[$k] = true;
+            }
+        }
+        if (!$keys) {
+            return [];
+        }
+        foreach (self::kitchenEnterpriseOverrides() as [$re, $op, $list]) {
+            if (!preg_match($re, $name)) {
+                continue;
+            }
+            if ($op === '=') {
+                $keys = [];
+            }
+            foreach ($list as $k) {
+                if ($op === '-') {
+                    unset($keys[$k]);
+                } else {
+                    $keys[$k] = true;
+                }
+            }
+        }
+        // в порядке словаря
+        return array_values(array_intersect_key(self::KITCHEN_ENTERPRISE, $keys));
+    }
+
     /* ===================================================================== *
      *  6. ФИЛЬТРЫ ПО РАЗДЕЛАМ
      * ===================================================================== */
@@ -598,12 +723,23 @@ class CatalogStandard
         'professionalnaya-himiya' => ['TIP_TOVARA', 'PROIZVODITEL', 'COUNTRY'],
     ];
 
+    /**
+     * Наборы только для самого раздела, без наследования подразделами (у подразделов кухни свои
+     * технические фильтры по умолчанию). 2026-10-21: корень кухни — как корень прачечного.
+     */
+    public const FILTERS_SELF = [
+        'oborudovanie-professionalnoj-kuhni' => ['COUNTRY', 'PROIZVODITEL', 'TIP_PREDPRIYATIYA'],
+    ];
+
     /** Свернутые по умолчанию — после этого количества блоков фильтра. */
     public const FILTER_EXPANDED_COUNT = 4;
 
     /** Код раздела → список свойств фильтра (с учётом родителей) или null. */
     public static function filterCodes(string $sectionCode): ?array
     {
+        if (isset(self::FILTERS_SELF[$sectionCode])) {
+            return self::FILTERS_SELF[$sectionCode];
+        }
         $code = $sectionCode;
         for ($i = 0; $i < 6 && $code !== ''; $i++) {
             if (isset(self::FILTERS[$code])) {

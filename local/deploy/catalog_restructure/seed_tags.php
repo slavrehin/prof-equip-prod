@@ -53,9 +53,14 @@ const ENTERPRISE = [
 // Теги «Тип предприятия» закрыты от индексации (страница есть, но noindex, без sitemap и ссылок в фильтре)
 // везде, кроме разделов ENTERPRISE_INDEX_SECTIONS, а там — кроме типов NOINDEX_ENTERPRISE.
 // 2026-10-21: индексируются только мини-прачечная, самообслуживание, гостиницы, больницы и химчистка
-// в корне прачечного (тексты — texts.php).
-const ENTERPRISE_INDEX_SECTIONS = ['prachechnoe-oborudovanie'];
+// в корне прачечного (тексты — texts.php); в корне кухни — все 11 кухонных значений.
+const ENTERPRISE_INDEX_SECTIONS = ['prachechnoe-oborudovanie', 'oborudovanie-professionalnoj-kuhni'];
 const NOINDEX_ENTERPRISE = ['Коммерческая прачечная', 'Промышленная прачечная', 'Прачечная на предприятии', 'Аквачистка'];
+
+// Кухня (2026-10-21): значения CatalogStandard::KITCHEN_ENTERPRISE («Для ресторана» …) — чипс = значение,
+// слаг = слаг значения. Теги корня кухни «для ресторана/отеля» охватывают почти весь раздел, но это
+// отдельные посадочные со своими текстами (texts.php) — проверку «дублирует раздел» для них не делаем.
+const KITCHEN_ROOT = 'oborudovanie-professionalnoj-kuhni';
 
 // Тип нагрева → [чипс, прилагательное мн.ч., ср.р., слаг]
 const HEATING = [
@@ -101,6 +106,7 @@ const WIDTH = ['до 1,5 м' => [0, 1599], '2 м' => [1600, 2299], '2,5 м' => [
  */
 const SPEC = [
     'prachechnoe-oborudovanie' => ['enterprise', 'brand'],
+    KITCHEN_ROOT => ['enterprise'],
     'stiralnye-mashiny' => ['enterprise', 'load:WASH', 'brand', 'heating', 'voltage', 'aqua', 'country'],
     'vysokoskorostnye-stiralnye-mashiny' => ['purpose', 'load:WASH', 'brand', 'enterprise'],
     'nizko-i-sredneskorostnye-stiralnye-mashiny' => ['load:WASH', 'brand'],
@@ -232,7 +238,14 @@ foreach (SPEC as $sectionCode => $groups) {
                 }
                 break;
             case 'enterprise':
-                foreach (ENTERPRISE as $value => [$chip, $tail, $slug]) {
+                $enterprise = ENTERPRISE;
+                if ($sectionCode === KITCHEN_ROOT) {
+                    $enterprise = [];
+                    foreach (CatalogStandard::KITCHEN_ENTERPRISE as $value) {
+                        $enterprise[$value] = [$value, $lcFirst($value), CatalogStandard::slug($value)];
+                    }
+                }
+                foreach ($enterprise as $value => [$chip, $tail, $slug]) {
                     if (($xml = $enumXml('TIP_PREDPRIYATIYA', $value)) === null) {
                         continue;
                     }
@@ -334,7 +347,7 @@ foreach ($candidates as $c) {
         $rejected[] = "{$c['SECTION_CODE']}/{$c['SLUG']} ({$c['COUNT']}) — мало товаров";
         continue;
     }
-    if ($c['COUNT'] >= 0.9 * $total) {
+    if ($c['COUNT'] >= 0.9 * $total && !($c['SECTION_CODE'] === KITCHEN_ROOT && $c['GROUP'] === 'Назначение')) {
         $rejected[] = "{$c['SECTION_CODE']}/{$c['SLUG']} ({$c['COUNT']} из $total) — дублирует раздел";
         continue;
     }
