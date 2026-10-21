@@ -50,9 +50,11 @@ const ENTERPRISE = [
     'Аквачистка' => ['Для аквачистки', 'для аквачистки', 'dlya-akvachistki'],
 ];
 
-// Типы предприятия, чьи теги во всех разделах закрыты от индексации (страница есть, но noindex, без sitemap
-// и ссылок в фильтре). 2026-10-20/21: индексируются только мини-прачечная, самообслуживание, гостиницы,
-// больницы и химчистка (тексты корня — texts.php).
+// Теги «Тип предприятия» закрыты от индексации (страница есть, но noindex, без sitemap и ссылок в фильтре)
+// везде, кроме разделов ENTERPRISE_INDEX_SECTIONS, а там — кроме типов NOINDEX_ENTERPRISE.
+// 2026-10-21: индексируются только мини-прачечная, самообслуживание, гостиницы, больницы и химчистка
+// в корне прачечного (тексты — texts.php).
+const ENTERPRISE_INDEX_SECTIONS = ['prachechnoe-oborudovanie'];
 const NOINDEX_ENTERPRISE = ['Коммерческая прачечная', 'Промышленная прачечная', 'Прачечная на предприятии', 'Аквачистка'];
 
 // Тип нагрева → [чипс, прилагательное мн.ч., ср.р., слаг]
@@ -235,7 +237,7 @@ foreach (SPEC as $sectionCode => $groups) {
                         continue;
                     }
                     $add('Назначение', $chip, $slug, "tip_predpriyatiya-is-$xml", "$name $tail",
-                        ['VALUE' => $value, 'NOINDEX' => in_array($value, NOINDEX_ENTERPRISE, true)]);
+                        ['VALUE' => $value, 'NOINDEX' => !in_array($sectionCode, ENTERPRISE_INDEX_SECTIONS, true) || in_array($value, NOINDEX_ENTERPRISE, true)]);
                 }
                 break;
             case 'heating':
