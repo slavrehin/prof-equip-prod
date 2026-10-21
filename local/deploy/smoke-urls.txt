@@ -5,4 +5,6 @@
 /
 /product-category/prachechnoe-oborudovanie/
 /product/fermest-enzim/
-/product-category/stiralnye-mashiny/f/proizvoditel-is-fermest/
+# адрес фильтра, совпадающий с SEO-тегом, отдаёт 301 на тег — проверяем сами страницы тегов
+/product-category/stiralnye-mashiny/fermest/
+/product-category/prachechnoe-oborudovanie/dlya-gostinic/
