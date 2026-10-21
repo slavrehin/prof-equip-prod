@@ -615,6 +615,10 @@ class CatalogStandard
         'vinnye-biblioteki-komnaty-i-pogreba' => ['R', 'H', 'BAR'],
         'ventiliruemye-potolki' => ['R', 'H', 'S', 'B', 'SH', 'C'],
         'vytyazhnye-zonty' => ['R', 'H', 'S', 'B', 'SH', 'C', 'F'],
+        // нейтральное оборудование (моечные ванны, производственные столы) — любая коммерческая кухня
+        'neytralnoe-oborudovanie' => ['R', 'H', 'S', 'F', 'B', 'K', 'P', 'C', 'SH'],
+        'moyushchie-vanny' => ['R', 'H', 'S', 'F', 'B', 'K', 'P', 'C', 'SH'],
+        'proizvodstvennye-stoly' => ['R', 'H', 'S', 'F', 'B', 'K', 'P', 'C', 'SH'],
     ];
 
     /** Правки по названию товара: [регулярка, '='|'+'|'-', ключи]. */
