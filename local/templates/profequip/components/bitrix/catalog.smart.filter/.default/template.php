@@ -76,6 +76,7 @@ if ($seoFilterSectionCode !== null) {
                     <?if(isset($arItem["PRICE"])):?>
                         <!-- Ценовой диапазон -->
                         <?if($arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"] > 0):?>
+                        <div class="filters__list accordion__content">
                             <div class="double-range js-filter-range" data-range-id="<?=$key?>">
                                 <div class="slider">
                                     <div class="slider-track js-range-track"></div>
@@ -105,11 +106,13 @@ if ($seoFilterSectionCode !== null) {
                                     <span class="value2 js-range-value-max"><?=$arItem["VALUES"]["MAX"]["HTML_VALUE"] ?: $arItem["VALUES"]["MAX"]["VALUE"]?></span>
                                 </div>
                             </div>
+                        </div>
                         <?endif;?>
                     
                     <?elseif($arItem["DISPLAY_TYPE"] == "A" || $arItem["DISPLAY_TYPE"] == "B"):?>
                         <!-- Числовые диапазоны -->
                         <?if($arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"] > 0):?>
+                        <div class="filters__list accordion__content">
                             <div class="double-range js-filter-range" data-range-id="<?=$key?>">
                                 <div class="slider">
                                     <div class="slider-track js-range-track"></div>
@@ -139,11 +142,12 @@ if ($seoFilterSectionCode !== null) {
                                     <span class="value2 js-range-value-max"><?=$arItem["VALUES"]["MAX"]["HTML_VALUE"] ?: $arItem["VALUES"]["MAX"]["VALUE"]?></span>
                                 </div>
                             </div>
+                        </div>
                         <?endif;?>
                     
                     <?elseif($arItem["DISPLAY_TYPE"] == "P" || $arItem["DISPLAY_TYPE"] == "R" || $arItem["DISPLAY_TYPE"] == "K"):?>
                         <!-- Выпадающие списки и радиокнопки -->
-                        <div class="filters__list">
+                        <div class="filters__list accordion__content">
                             <?if($arItem["DISPLAY_TYPE"] == "K"):?>
                                 <!-- Радиокнопки - опция "Все" -->
                                 <label class="filter-label">

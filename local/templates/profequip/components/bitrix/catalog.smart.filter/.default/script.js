@@ -196,6 +196,25 @@
                 input.dispatchEvent(new Event('change', { bubbles: true }));
             });
             
+            // Двойной ползунок: бегунки не заходят друг за друга, подписи и заливка обновляются на лету
+            this.form.addEventListener('input', function(e) {
+                var target = e.target;
+                if (target.type !== 'range') return;
+
+                var block = target.closest('.js-filter-range');
+                if (!block) return;
+
+                var minInput = block.querySelector('.js-range-min');
+                var maxInput = block.querySelector('.js-range-max');
+                if (minInput && maxInput && parseFloat(minInput.value) > parseFloat(maxInput.value)) {
+                    target.value = target === minInput ? maxInput.value : minInput.value;
+                }
+                self.syncRange(block);
+            });
+            this.form.querySelectorAll('.js-filter-range').forEach(function(block) {
+                self.syncRange(block);
+            });
+
             // Для range слайдеров - при отпускании мыши
             var rangeInputs = this.form.querySelectorAll('input[type="range"]');
             rangeInputs.forEach(function(input) {
@@ -206,6 +225,32 @@
         }
     };
     
+    // Подписи «от/до» и заливка трека между бегунками
+    SmartFilter.prototype.syncRange = function(block) {
+        var minInput = block.querySelector('.js-range-min');
+        var maxInput = block.querySelector('.js-range-max');
+        if (!minInput || !maxInput) return;
+
+        var lo = parseFloat(minInput.min);
+        var span = parseFloat(minInput.max) - lo;
+        var from = span > 0 ? (parseFloat(minInput.value) - lo) / span * 100 : 0;
+        var to = span > 0 ? (parseFloat(maxInput.value) - lo) / span * 100 : 100;
+
+        var track = block.querySelector('.js-range-track');
+        if (track) {
+            track.style.setProperty('--range-from', from + '%');
+            track.style.setProperty('--range-to', to + '%');
+        }
+
+        var minValue = block.querySelector('.js-range-value-min');
+        var maxValue = block.querySelector('.js-range-value-max');
+        if (minValue) minValue.textContent = minInput.value;
+        if (maxValue) maxValue.textContent = maxInput.value;
+
+        // Когда оба бегунка у правого края, сверху должен быть левый — иначе его не сдвинуть
+        minInput.style.zIndex = from > 50 ? 2 : '';
+    };
+
     // Планирование фильтрации с задержкой
     SmartFilter.prototype.scheduleFilter = function() {
         // Отменяем предыдущий таймер
@@ -574,6 +619,9 @@
                 if (valueElement) valueElement.textContent = max;
             }
         });
+        this.form.querySelectorAll('.js-filter-range').forEach(function(block) {
+            this.syncRange(block);
+        }, this);
         
         // Отменяем таймер
         if (this.filterTimer) {
