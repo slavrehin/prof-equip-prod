@@ -509,6 +509,13 @@ if ($sectionCode !== '') {
                         ?>
                     </div>
                 </div>
+                <?
+                // Под листингом: подборки, FAQ раздела, форма, SEO-текст (include/catalog_seo.php). Пока включён только
+                // в этих разделах (и на их SEO-тегах); остальные выводят текст по-старому.
+                $catalogSeoSections = ['prachechnoe-oborudovanie', 'stiralnye-mashiny'];
+                if (in_array($arResult["CURRENT_SECTION_DATA"]["CODE"] ?? '', $catalogSeoSections, true)):
+                    include __DIR__ . '/include/catalog_seo.php';
+                else:?>
                 <?if ($arResult["CURRENT_SECTION_DATA"]["FAQ"]):?>
                     <?global $arFilterFaq;
                     $arFilterFaq = array("ID" => $arResult["CURRENT_SECTION_DATA"]["FAQ"]);?>
@@ -572,5 +579,6 @@ if ($sectionCode !== '') {
                 <div class="catalog__text">
                    <?=$arResult["CURRENT_SECTION_DATA"]["DESCRIPTION"];?>
                 </div>
+                <?endif;?>
             </div>
         </section>

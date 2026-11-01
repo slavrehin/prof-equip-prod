@@ -24,6 +24,8 @@
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-price.css?v=<?=file_exists($catalogPriceCssPath) ? filemtime($catalogPriceCssPath) : time()?>" rel="stylesheet">
     <?php $catalogTextCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/catalog-text.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-text.css?v=<?=file_exists($catalogTextCssPath) ? filemtime($catalogTextCssPath) : time()?>" rel="stylesheet">
+    <?php $catalogSeoCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/catalog-seo.css'; ?>
+    <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-seo.css?v=<?=file_exists($catalogSeoCssPath) ? filemtime($catalogSeoCssPath) : time()?>" rel="stylesheet">
     <?php $otherProductsCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/other-products.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/other-products.css?v=<?=file_exists($otherProductsCssPath) ? filemtime($otherProductsCssPath) : time()?>" rel="stylesheet">
     <?php $catalogNavCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/catalog-nav.css'; ?>
