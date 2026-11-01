@@ -127,6 +127,48 @@ if ($filterSectionCode !== null) {
     }
 }
 
+// Числовые свойства (ползунок): под ним флажки-диапазоны из SEO-тегов раздела вида <код>-from-X-to-Y
+// («25 кг», «50 кг», «от 140 кг») — ссылка на страницу тега, клик выставляет ползунок на диапазон.
+// Границы прижаты к реальному min/max ползунка. Отмечены крайние флажки выбранного диапазона (выбор
+// «25 кг» + «50 кг» = 23–57.9 после перезагрузки снова показывает 25 и 50).
+if ($filterSectionCode !== null && class_exists('SeoTags')) {
+    $sectionTags = SeoTags::forSection($filterSectionCode, false);
+    foreach ($arResult['ITEMS'] as $key => $arItem) {
+        if (empty($arItem['CODE']) || !in_array($arItem['DISPLAY_TYPE'] ?? '', ['A', 'B'], true) || isset($arItem['PRICE'])) {
+            continue;
+        }
+        $lo = (float)$arItem['VALUES']['MIN']['VALUE'];
+        $hi = (float)$arItem['VALUES']['MAX']['VALUE'];
+        if ($hi <= $lo) {
+            continue;
+        }
+        $curMin = $arItem['VALUES']['MIN']['HTML_VALUE'] !== '' && $arItem['VALUES']['MIN']['HTML_VALUE'] !== null ? (float)$arItem['VALUES']['MIN']['HTML_VALUE'] : $lo;
+        $curMax = $arItem['VALUES']['MAX']['HTML_VALUE'] !== '' && $arItem['VALUES']['MAX']['HTML_VALUE'] !== null ? (float)$arItem['VALUES']['MAX']['HTML_VALUE'] : $hi;
+        $isNarrowed = $curMin > $lo || $curMax < $hi;
+        $pattern = '/^' . preg_quote(mb_strtolower($arItem['CODE']), '/') . '-from-([\d.]+)-to-([\d.]+)$/';
+        $bins = [];
+        foreach ($sectionTags as $tag) {
+            if ($tag['LINK'] !== '' || !preg_match($pattern, $tag['FILTER'], $m)) {
+                continue;
+            }
+            $from = max($lo, (float)$m[1]);
+            $to = min($hi, (float)$m[2]);
+            if ($from > $to) {
+                continue;
+            }
+            $bins[] = [
+                'NAME' => $tag['NAME'],
+                'FROM' => $from,
+                'TO' => $to,
+                'HREF' => empty($tag['NOINDEX']) ? SeoTags::url($tag) : null,
+                'CHECKED' => $isNarrowed && $from >= $curMin && $to <= $curMax && ($from == $curMin || $to == $curMax),
+            ];
+        }
+        usort($bins, static fn($a, $b) => $a['FROM'] <=> $b['FROM']);
+        $arResult['ITEMS'][$key]['RANGE_BINS'] = $bins;
+    }
+}
+
 // Выбранная комбинация совпадает с SEO-тегом — в адресную строку сразу чистый адрес тега
 // (/product-category/stiralnye-mashiny/imesa/ вместо /f/proizvoditel-is-imesa/, который всё равно 301 на тег).
 if ($filterSectionCode !== null && class_exists('SeoTags') && !empty($arResult['FILTER_URL'])

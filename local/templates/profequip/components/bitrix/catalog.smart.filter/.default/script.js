@@ -170,6 +170,10 @@
                 var target = e.target;
                 console.log('Change event on:', target); // Для отладки
 
+                if (target.classList.contains('js-range-bin')) {
+                    self.applyRangeBins(target.closest('.filter-range-wrap'));
+                }
+
                 if (target.type === 'checkbox' || target.type === 'radio' || target.type === 'range') {
                     self.scheduleFilter();
                 }
@@ -204,12 +208,26 @@
                 var block = target.closest('.js-filter-range');
                 if (!block) return;
 
+                // step="any" — чтобы флажки выставляли точные границы (26.9), при перетаскивании — целые
+                var rounded = Math.round(parseFloat(target.value));
+                if (rounded >= parseFloat(target.min) && rounded <= parseFloat(target.max)) {
+                    target.value = rounded;
+                }
+
                 var minInput = block.querySelector('.js-range-min');
                 var maxInput = block.querySelector('.js-range-max');
                 if (minInput && maxInput && parseFloat(minInput.value) > parseFloat(maxInput.value)) {
                     target.value = target === minInput ? maxInput.value : minInput.value;
                 }
                 self.syncRange(block);
+
+                // ползунок двигают руками — выбор флажками-диапазонами больше не действует
+                var wrap = block.closest('.filter-range-wrap');
+                if (wrap) {
+                    wrap.querySelectorAll('.js-range-bin:checked').forEach(function(bin) {
+                        bin.checked = false;
+                    });
+                }
             });
             this.form.querySelectorAll('.js-filter-range').forEach(function(block) {
                 self.syncRange(block);
@@ -249,6 +267,28 @@
 
         // Когда оба бегунка у правого края, сверху должен быть левый — иначе его не сдвинуть
         minInput.style.zIndex = from > 50 ? 2 : '';
+    };
+
+    // Клик по флажку-диапазону: ползунок охватывает все отмеченные (от меньшего до большего)
+    SmartFilter.prototype.applyRangeBins = function(wrap) {
+        if (!wrap) return;
+        var block = wrap.querySelector('.js-filter-range');
+        var minInput = block && block.querySelector('.js-range-min');
+        var maxInput = block && block.querySelector('.js-range-max');
+        if (!minInput || !maxInput) return;
+
+        var from = Infinity, to = -Infinity;
+        wrap.querySelectorAll('.js-range-bin:checked').forEach(function(bin) {
+            from = Math.min(from, parseFloat(bin.dataset.from));
+            to = Math.max(to, parseFloat(bin.dataset.to));
+        });
+        if (from > to) {
+            from = minInput.min;
+            to = maxInput.max;
+        }
+        minInput.value = from;
+        maxInput.value = to;
+        this.syncRange(block);
     };
 
     // Планирование фильтрации с задержкой

@@ -112,7 +112,7 @@ if ($seoFilterSectionCode !== null) {
                     <?elseif($arItem["DISPLAY_TYPE"] == "A" || $arItem["DISPLAY_TYPE"] == "B"):?>
                         <!-- Числовые диапазоны -->
                         <?if($arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"] > 0):?>
-                        <div class="filters__list accordion__content">
+                        <div class="accordion__content filter-range-wrap">
                             <div class="double-range js-filter-range" data-range-id="<?=$key?>">
                                 <div class="slider">
                                     <div class="slider-track js-range-track"></div>
@@ -122,7 +122,7 @@ if ($seoFilterSectionCode !== null) {
                                         min="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>" 
                                         max="<?=$arItem["VALUES"]["MAX"]["VALUE"]?>" 
                                         value="<?=$arItem["VALUES"]["MIN"]["HTML_VALUE"] ?: $arItem["VALUES"]["MIN"]["VALUE"]?>" 
-                                        step="1"
+                                        step="any"
                                         name="<?=$arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
                                         id="<?=$arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
                                     />
@@ -132,7 +132,7 @@ if ($seoFilterSectionCode !== null) {
                                         min="<?=$arItem["VALUES"]["MIN"]["VALUE"]?>" 
                                         max="<?=$arItem["VALUES"]["MAX"]["VALUE"]?>" 
                                         value="<?=$arItem["VALUES"]["MAX"]["HTML_VALUE"] ?: $arItem["VALUES"]["MAX"]["VALUE"]?>" 
-                                        step="1"
+                                        step="any"
                                         name="<?=$arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
                                         id="<?=$arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
                                     />
@@ -142,6 +142,27 @@ if ($seoFilterSectionCode !== null) {
                                     <span class="value2 js-range-value-max"><?=$arItem["VALUES"]["MAX"]["HTML_VALUE"] ?: $arItem["VALUES"]["MAX"]["VALUE"]?></span>
                                 </div>
                             </div>
+                            <?if(!empty($arItem["RANGE_BINS"])):?>
+                                <!-- Флажки-диапазоны (SEO-теги «25 кг», «50 кг»…) -->
+                                <div class="filters__list filters__list--bins">
+                                    <div class="filter-label__list">
+                                    <?foreach($arItem["RANGE_BINS"] as $bin):?>
+                                        <label class="filter-label">
+                                            <input
+                                                type="checkbox"
+                                                class="js-range-bin"
+                                                data-from="<?=$bin["FROM"]?>"
+                                                data-to="<?=$bin["TO"]?>"
+                                                <?=$bin["CHECKED"] ? 'checked="checked"' : ''?>
+                                            />
+                                            <span>
+                                                <?if($bin["HREF"]):?><a class="js-filter-seo-link" href="<?=htmlspecialcharsbx($bin["HREF"])?>"><?=htmlspecialcharsbx($bin["NAME"])?></a><?else:?><?=htmlspecialcharsbx($bin["NAME"])?><?endif;?>
+                                            </span>
+                                        </label>
+                                    <?endforeach;?>
+                                    </div>
+                                </div>
+                            <?endif;?>
                         </div>
                         <?endif;?>
                     

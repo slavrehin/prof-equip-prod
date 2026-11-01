@@ -87,3 +87,11 @@
     content: "до ";
     opacity: .6;
 }
+
+.catalog-sidebar-filters .filter-range-wrap {
+    padding-top: 1.25rem;
+}
+
+.catalog-sidebar-filters .filter__item .filters__list.filters__list--bins {
+    padding-top: 1rem;
+}
