@@ -78,6 +78,9 @@ rm -rf bitrix/cache/* bitrix/managed_cache/* bitrix/stack_cache/* 2>/dev/null ||
 # 6. Права на файлы
 log "Владелец файлов -> $OWNER"
 chown -R "$OWNER" "$SITE_ROOT/local" "$SITE_ROOT/bitrix/cache" "$SITE_ROOT/bitrix/managed_cache" "$SITE_ROOT/bitrix/stack_cache" 2>/dev/null || true
+# Группа (www-data = Apache) должна писать в кэш, иначе кэш компонентов
+# молча не сохраняется и каждая страница каталога собирается с нуля (~5 с TTFB).
+chmod -R g+w "$SITE_ROOT/bitrix/cache" "$SITE_ROOT/bitrix/managed_cache" "$SITE_ROOT/bitrix/stack_cache" 2>/dev/null || true
 
 # 7. Smoke-проверка
 log "Smoke-проверка"
