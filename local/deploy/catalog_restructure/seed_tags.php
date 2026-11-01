@@ -56,6 +56,9 @@ const ENTERPRISE = [
 // в корне прачечного (тексты — texts.php); в корне кухни — все 11 кухонных значений.
 const ENTERPRISE_INDEX_SECTIONS = ['prachechnoe-oborudovanie', 'oborudovanie-professionalnoj-kuhni'];
 const NOINDEX_ENTERPRISE = ['Коммерческая прачечная', 'Промышленная прачечная', 'Прачечная на предприятии', 'Аквачистка'];
+// Точечные исключения '<раздел>/<слаг>': индексируются вне ENTERPRISE_INDEX_SECTIONS (ручные тексты — texts.php).
+// 2026-11-01: стиральные машины для больниц, гостиниц и прачечных самообслуживания.
+const ENTERPRISE_INDEX_TAGS = ['stiralnye-mashiny/dlya-bolnic', 'stiralnye-mashiny/dlya-gostinic', 'stiralnye-mashiny/dlya-prachechnoj-samoobsluzhivaniya'];
 
 // Кухня (2026-10-21): значения CatalogStandard::KITCHEN_ENTERPRISE («Для ресторана» …) — чипс = значение,
 // слаг = слаг значения. Теги корня кухни «для ресторана/отеля» охватывают почти весь раздел, но это
@@ -250,7 +253,8 @@ foreach (SPEC as $sectionCode => $groups) {
                         continue;
                     }
                     $add('Назначение', $chip, $slug, "tip_predpriyatiya-is-$xml", "$name $tail",
-                        ['VALUE' => $value, 'NOINDEX' => !in_array($sectionCode, ENTERPRISE_INDEX_SECTIONS, true) || in_array($value, NOINDEX_ENTERPRISE, true)]);
+                        ['VALUE' => $value, 'NOINDEX' => !in_array("$sectionCode/$slug", ENTERPRISE_INDEX_TAGS, true)
+                            && (!in_array($sectionCode, ENTERPRISE_INDEX_SECTIONS, true) || in_array($value, NOINDEX_ENTERPRISE, true))]);
                 }
                 break;
             case 'heating':
