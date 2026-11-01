@@ -410,6 +410,16 @@ if ($sectionCode !== '') {
                         // конкретный раздел (см. выше); при обычном просмотре каталога без
                         // раздела оно не установлено, и список товаров показывается как раньше.
                         if (isset($arResult["CURRENT_SECTION_HAS_ELEMENTS"]) && !$arResult["CURRENT_SECTION_HAS_ELEMENTS"]):
+                            // bitrix:catalog.section здесь не вызывается, а цепочку разделов в хлебные
+                            // крошки добавляет именно он (ADD_SECTIONS_CHAIN) — без этого у пустой
+                            // категории в крошках только «Главная», и BreadcrumbList из одного пункта
+                            // Google считает ошибкой. Добавляем путь раздела сами.
+                            if ($arParams["ADD_SECTIONS_CHAIN"] !== "N") {
+                                $rsNavChain = CIBlockSection::GetNavChain($arParams["IBLOCK_ID"], $arResult["CURRENT_SECTION_DATA"]["ID"], ["ID", "NAME", "CODE", "SECTION_PAGE_URL"]);
+                                while ($arNavSection = $rsNavChain->GetNext()) {
+                                    $APPLICATION->AddChainItem($arNavSection["NAME"], $arNavSection["SECTION_PAGE_URL"]);
+                                }
+                            }
                         ?>
                             <p class="catalog__empty">В этой категории пока нет товаров. Загляните позже — ассортимент пополняется.</p>
                         <?else:?>
