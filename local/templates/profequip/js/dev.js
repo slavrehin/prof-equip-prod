@@ -193,7 +193,7 @@
                 if (!widgetId) {
                     console.log('Creating new captcha widget');
                     widgetId = window.smartCaptcha.render(captchaContainer, {
-                        sitekey: 'ysc1_UIwDIZX4s5peooFanDbgUdhicJUCkPZ3AsQJ559m1ffac82e',
+                        sitekey: 'ysc1_15CTrEc7TVo1SvnadmrtqSO1Qp8911oC89iNyC0Q98a67d6e',
                         invisible: true,
                         callback: function(token) {
                             console.log("Captcha token:", token);

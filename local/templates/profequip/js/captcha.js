@@ -4,7 +4,7 @@ function onloadFunction() {
     }
 
     window.smartCaptcha.render(document.querySelector(".captcha-container-footer"), {
-        sitekey: 'ysc1_UIwDIZX4s5peooFanDbgUdhicJUCkPZ3AsQJ559m1ffac82e',
+        sitekey: 'ysc1_15CTrEc7TVo1SvnadmrtqSO1Qp8911oC89iNyC0Q98a67d6e',
         invisible: true, 
         callback: callback,
         test: true,
