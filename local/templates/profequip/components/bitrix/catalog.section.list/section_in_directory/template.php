@@ -12,6 +12,16 @@
                 $pictureWebp = '';
                 $pictureWebp2x = '';
                 
+                // Нет картинки раздела (оригиналы /upload утеряны) — фото первого товара раздела
+                if (empty($arSection['PICTURE'])) {
+                    $rsEl = CIBlockElement::GetList(
+                        ['SORT' => 'ASC', 'ID' => 'ASC'],
+                        ['IBLOCK_ID' => $arSection['IBLOCK_ID'], 'SECTION_ID' => $arSection['ID'], 'INCLUDE_SUBSECTIONS' => 'Y',
+                         'ACTIVE' => 'Y', '!DETAIL_PICTURE' => false],
+                        false, ['nTopCount' => 1], ['ID', 'DETAIL_PICTURE']
+                    );
+                    if ($arEl = $rsEl->Fetch()) { $arSection['PICTURE'] = $arEl['DETAIL_PICTURE']; }
+                }
                 if (!empty($arSection['PICTURE'])) {
                     // Ресайз для обычной версии (400x300)
                     $arImage = CFile::ResizeImageGet(
@@ -37,12 +47,14 @@
                 $sectionUrl = $arSection['SECTION_PAGE_URL'];
             ?>
                 <a class="catalog-link-card" href="<?=$sectionUrl?>">
+                    <?php if ($pictureSrc): ?>
                     <picture>
-                        <img src="<?=$pictureSrc?>" 
-                             srcset="<?=$pictureSrc?> 1x, <?=$pictureSrc2x?> 2x" 
+                        <img src="<?=$pictureSrc?>"
+                             srcset="<?=$pictureSrc?> 1x, <?=$pictureSrc2x?> 2x"
                              alt="<?=htmlspecialchars($arSection['NAME'])?>"
                              loading="lazy">
                     </picture>
+                    <?php endif; ?>
                     <div class="catalog-link-card__content">
                         <p class="title"><?=htmlspecialchars($arSection['NAME'])?></p>
                         <p class="link">Подробнее</p>

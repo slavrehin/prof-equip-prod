@@ -46,7 +46,7 @@
                 <div class="image-wrapper">
                     <picture>
                         <source srcset="<?=$iconSrc?>, <?=$iconSrc?> 2x" type="image/webp">
-                        <img src="<?=$iconSrc?>" srcset="<?=$iconSrc?>, <?=$iconSrc?>2x" alt="step">
+                        <img src="<?=$iconSrc?>" srcset="<?=$iconSrc?>, <?=$iconSrc?> 2x" alt="step">
                     </picture>
                 </div>
                 <div class="chemistry-step__content">
@@ -94,7 +94,7 @@
                 <div class="image-wrapper">
                     <picture>
                         <source srcset="<?=$iconSrc?>, <?=$iconSrc?> 2x" type="image/webp">
-                        <img src="<?=$iconSrc?>" srcset="<?=$iconSrc?>, <?=$iconSrc?>2x" alt="step">
+                        <img src="<?=$iconSrc?>" srcset="<?=$iconSrc?>, <?=$iconSrc?> 2x" alt="step">
                     </picture>
                 </div>
                 <div class="chemistry-step__content">
