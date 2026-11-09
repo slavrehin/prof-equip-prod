@@ -16,7 +16,7 @@
     <meta name="robots" content="noindex, nofollow">
     <?php endif; ?>
     <meta name="format-detection" content="telephone=no">
-    <link rel="icon" href="/favicon.webp">
+    <link rel="icon" href="/favicon.webp?v=2">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@26.0.6/build/css/intlTelInput.css">
     <link href="<?=SITE_TEMPLATE_PATH?>/design-system/tokens.css" rel="stylesheet">
     <?php $mainCssPath = $_SERVER['DOCUMENT_ROOT'] . LAYOUT_DIR . 'assets/css/main.css'; ?>
@@ -176,14 +176,14 @@
         <div class="header__inner container"><a class="logo" href="/">
                 <div class="white-logo">
                     <picture>
-                        <source srcset="/upload/logo-white.png, /upload/logo-white.png 2x" type="image/webp">
-                        <img src="/upload/logo-white.png" srcset="/upload/logo-white.png, /upload/logo-white.png 2x" alt="logo">
+                        <source srcset="/upload/logo-white.png?v=2, /upload/logo-white.png?v=2 2x" type="image/webp">
+                        <img src="/upload/logo-white.png?v=2" srcset="/upload/logo-white.png?v=2, /upload/logo-white.png?v=2 2x" alt="logo">
                     </picture>
                 </div>
                 <div class="color-logo">
                     <picture>
-                        <source srcset="/upload/logo.png" type="image/webp">
-                        <img src="/upload/logo.png" srcset="/upload/logo.png" alt="logo">
+                        <source srcset="/upload/logo.png?v=2" type="image/webp">
+                        <img src="/upload/logo.png?v=2" srcset="/upload/logo.png?v=2" alt="logo">
                     </picture>
                 </div>
             </a><button class="btn primary s burger__btn" type="button"><span class="burger__icon"><span></span><span></span><span></span></span><span class="btn__text">Каталог</span></button>
