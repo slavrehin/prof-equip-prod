@@ -1,0 +1,169 @@
+AKVACHISTKA	Аквачистка
+AVTOMATICHESKAYA_OSTANOVKA	Автоматическая Остановка
+BOJLER	Бойлер
+CHASTOTA_VRASHENIYA	Частота Вращения, Об/Мин
+CHISLO_VALOV_KATKA	Число Валов Катка
+COUNTRY	Страна
+DAVLENIE_GAZA_MBAR	Давление Газа, Мбар
+DAVLENIE_PARA_KPA	Давление Пара, Кпа
+DAVLENIE_PARA_OPCIYA	Опциональное Давление Пара, Бар
+DAVLENIE_VODY_BAR	Давление Воды, Бар
+DAVLENIE_VODY_KPA	Давление Воды, Кпа
+DAVLENIE_VOZDUHA_BAR	Рабочее Давление Воздуха, Бар
+DIAMETR_BARABANA_MM	Диаметр Барабана, Мм
+DIAMETR_VALA_MM	Диаметр Вала (Мм)
+DIAMETR_ZAGRUZOCHNOGO_LYUKA	Диаметр Загрузочного Люка, Мм
+DINAMICHESKAYA_NAGRUZKA	Динамическая Нагрузка, Кг/М2
+DIZAJN_POLOTENCA	Дизайн Полотенца
+DIZAJN_TKANI	Дизайн Ткани
+DLINA_VALA_MM	Длина Вала, Мм
+DLITELNOST_AVTONOMNO	Длительность Автономной Работы, Час
+DLYA_SETEVOGO_OTELYA	Для Сетевого Отеля
+DOPOLNITELNYE_PARAMETRY	Дополнительные Параметры
+DVIGATEL_VALA_KVT	Двигатель Вала (Квт)
+FUNKTSIYA_SHTABELIROVANIYA	Функция Штабелирования
+GABARITNYE_RAZMERY_SH_G_V_MM	Габаритные Размеры Ш*Г*В, Мм
+GLAZHENIE	Глажение
+GLUBINA_BARABANA_MM	Глубина Барабана, Мм
+G_FACTOR	G-Фактор
+ISPARITEL_SOEDINENIE	Испаритель, Подсоединение, Диаметр, Dn-Bsp
+ISTOCHNIK_PARA	Источник Пара
+KARTRIDZHI_DLYA_DECO_FILTRA	Картриджи Для Deco-Фильтра
+KLAPANA_PODACHI_VODY	Клапана Подачи Воды
+KOLICHESTVO_BAKOV	Количество Баков
+KOLICHESTVO_DECO_FILTROV	Количество Deco-Фильтров
+KOLICHESTVO_KONFOROK	Количество конфорок
+KOLICHESTVO_UROVNEY	Количество Уровней
+KOLLEKTSIYA	Коллекция
+KOMPLEKT_DLYA_AKVACHISTKI	Состав Комплекта Оборудования Для Аквачистки
+KONTROL_OST_VLAZHNOSTI	Контроль Остаточной Влажности
+LINEJNAYA_PLOTNOST	Линейная Плотность
+MATERIAL	Материал
+MAX_DAVLENIE_VOZDUHA	Максимальное Давление Сжатого Воздуха, Кг/См2
+MAX_POTOK_VODY	Максимальный Поток Подачи Воды, Л/Мин
+MAX_RABOCHEE_DAVLENIE_VODY	Максимальное Рабочее Давление Воды, Кг/См2
+MAX_RASHOD_VOZDUHA	Максимальный Расход Воздуха, Л Атм. Воздуха/Мин
+MAX_RASHOD_VOZDUHA_ATM	Максимальный Расход Воздуха, Куб. Фут Атм. Воздуха/Мин
+MIN_RABOCHEE_DAVLENIE_VODY	Минимальное Рабочее Давление Воды, Кг/См2
+MODEL	Модель
+MODELI_OBORUDOVANIYA	Модели Оборудования
+MOSHHNOST	Мощность
+MOSHHNOST_DVIGATELYA_KVT	Мощность Двигателя, Квт
+MOSHHNOST_GAZ_KVT	Мощность Для Газового Нагрева, Квт
+MOSHHNOST_KVT	Мощность, Квт
+MOSHNOST_PAR_KVT	Мощность Для Парового Нагрева, Квт
+MOTOR_ASPIRATORA_KVT	Мотор Аспиратора, Квт
+MOTOR_NASOSA_KVT	Мотор Насоса, Квт
+MOTOR_VENTILYATORA_KVT	Мотор Вентилятора, Квт
+NAGREV	Нагрев
+NAPRYAZHENIE_V	Напряжение, В
+NAZNACHENIE	Назначение
+NAZNACHENIE_OBORUDOVANIYA	Назначение Кухонного Оборудования
+NAZNACHENIE_POLOTENCA	Назначение Полотенца
+NAZNACHENIE_TKANI	Назначение Ткани
+OBEM_DECO_FILTRA_L	Объем Deco-Фильтра, Л
+OBEM_DISTILLYATORA_L	Объем Дистиллятора, Л
+OBEM_EKO_FILTRA_L	Объем Эко-Фильтра, Л
+OBEM_PERVOGO_BAKA_L	Объем Первого Бака, Л
+OBEM_TRETEGO_BAKA_L	Объем Третьего Бака, Л
+OBEM_VTOROGO_BAKA_L	Объем Второго Бака, Л
+OBYEM_BARABANA_L	Объём Барабана, Л
+OBYEM_BOYLERA_L	Объём Бойлера, Л
+OBYEM_ISPARYAEMOGO_VOZDUHA	Объём Испаряемого Воздуха, Л/Час
+OBYEM_NEYLON_FILTRA	Объем Нейлонового Фильтра, Л
+OSOBENNOSTI	Особенности
+OSTATOCHNAYA_VLAZHNOST	Остаточная Влажность (%)
+OTDELENIYA_BARABANA	Количество Отделений Барабана
+PAROVOJ_KLAPAN_SOEDINENIE	Паровой Клапан, Подсоединение, Диаметр, Dn-Bsp
+PLETENIE	Плетение
+PLOSHAD_NEYLONOVOGO_FILTRA	Площадь Фильтрующей Поверхности Нейлонового Фильтра, М2
+PLOSHAD_POVERHNOSTI_FILTRA	Площадь Фильтрующей Поверхности Эко-Фильтра, М2
+PODACHA_VOZDUHA	Подача Воздуха
+PODKLYUCHENIE	Подключение
+PODKLYUCHENIE_PARA	Подключение Пара
+PODKLYUCHENIE_VOZDUHA	Подключение Сжатого Воздуха, Мм
+PODSOEDINENIE_GAZA	Подсоединение Газа, Диаметр, Dn-Bsp
+PODSOEDINENIE_SLIVA_MM	Подсоединение Слива, Диаметр, Мм
+PODSOEDINENIE_VODY	Подсоединение Входящей Воды, Диаметр, Dn-Bsp
+POL	Пол
+POLEZNY_OBYEM_DISTILLYATORA	Полезный Объем Дистиллятора, Л
+POLNOE_VREMYA_CIKLA_MIN	Полное Время Цикла, Мин
+POTOK_SBROSA_VODY_L_MIN	Поток Сброса Воды, Л/Мин
+POTREBLENIE_ELEKTROENERGII	Номинальное Потребление Электроэнергии, Квт
+POTREBLENIE_GAZA	Потребление Газа, Куб./Час
+POTREBLENIE_PARA_KG_CH	Потребление Пара (Кг/Ч)
+POTREBLENIE_PARA_KG_CHAS	Потребление Пара, Кг/Час
+POTREBLENIE_SZHATOGO_VOZDUHA	Потребление Сжатого Воздуха, Л/Мин
+POTREBLENIE_VODY_HOL_GOR_L	Потребление Воды (Хол. + Гор.), Л
+POVERHNOSTNAYA_PLOTNOST	Поверхностная Плотность, Г/М.кв.
+PROIZVODITEL	Производитель
+PROIZVODITELNOST_KG_CH	Производительность, Кг/Ч
+PROIZVODITEL_ZAPCHASTEJ	Производитель Запчастей
+RABOCHAYA_MOSHHNOST_PAR_KVT	Рабочая Мощность (Пар), Квт
+RABOCHAYA_TEMPERATURA_C	Рабочая Температура, °C
+RABOCHEE_DAVLENIE_PARA	Рабочее Давление Пара, Кг/См2
+RABOCHEE_DAVLENIE_PARA_BAR	Рабочее Давление Пара, Бар
+RABOCHEE_DAVLENIE_VOZDUHA	Рабочее Давление Сжатого Воздуха, Кг/См2
+RASHOD_ENERGII_DVIGATEL	Расход Электроэнергии Двигателя, Квт
+RASHOD_ENERGII_VENTILYATOR	Расход Электроэнергии Вентилятора, Квт
+RASHOD_PARA_KG_CHAS	Расход Пара, Кг/Час
+RASHOD_PARA_KG_CIKL	Расход Пара, Кг/Цикл
+RASTVORITEL	Растворитель
+RAZDVIZHNYE_DVERTSY_LYUKA	Раздвижные Дверцы Люка
+RAZMERY_POLOTENETS_SM	Размеры Полотенец, См
+RAZMERY_STOLA	Размеры Стола, Мм
+RAZMER_MUZHSKOJ	Размер Мужской
+RAZMER_SLIVNYH_KLAPANOV	Размер Сливных Клапанов, Внешний, Мм
+RAZMER_ZHENSKIJ	Размер Женский
+REGULIROVANIE_STOLESHNICY	Регулирование Столешницы По Высоте
+REVERS_BARABANA	Реверс Барабана
+ROOM_READY	Room Ready
+RUKAV	Рукав
+SHIRINA_DLYA_SKLADYVATELYA	Рабочая Ширина Для Складывателя, Мм
+SHIRINA_VALA_MM	Ширина Вала (Мм)
+SHIRINA_ZONY_GLAZHENIYA_MM	Ширина Зоны Глажения, Мм
+SHIRINY_TKANI_SM	Ширины Ткани, См
+SISTEMA_UPRAVLENIYA	Система Управления
+SKOROST_GLAZHENIYA_M_MIN	Скорость Глажения, М/Мин
+SKOROST_GLAZHKI_M_MIN	Скорость Глажки (М/Мин)
+SKOROST_PRI_OTZHIME_OB_MIN	Скорость При Отжиме, Об/Мин
+SKOROST_PRI_STIRKE_OB_MIN	Скорость При Стирке, Об/Мин
+SKOROST_SLIVA	Скорость Слива, Л/Мин
+SKOROST_ZALIVA	Скорость Залива, Л/Мин
+SOSTAV_KOMPLEKTA	Состав Комплекта Оборудования
+SOSTAV_OSNOVY	Состав Основы, Хлопок (%)
+SOSTAV_PETELNYH_NITEJ	Состав Петельных Нитей, Хлопок (%)
+SOSTAV_TKANI_HLOPOK	Состав Ткани, Хлопок (%)
+SOSTAV_TKANI_KOSTYUMY	Состав Ткани, Костюмы
+SOSTAV_TKANI_POLIESTER	Состав Ткани, Полиэстер (%)
+SOSTAV_TKANI_RUB_BLUZKI	Состав Ткани, Руб./Блузки
+STRANA	Страна
+TAJMER	Таймер
+TIP_IZDELIYA	Тип Изделия
+TIP_KROYA	Тип Кроя
+TIP_NAGREVA	Тип Нагрева
+TIP_OBORUDOVANIYA	Тип Оборудования
+TIP_PETELNOY_NITI	Тип Петельной Нити
+TIP_PLITY	Тип Плиты
+TIP_POSADKI	Тип Посадки
+TIP_PREDPRIYATIYA	Тип Предприятия
+TKAN	Ткань
+TSVET_FORMA_OFITSIANTOV	Цвет, Форма Для Официантов
+TSVET_KOSTYUMY	Цвет, Костюмы
+TSVET_POLOTENTSA	Цвет Полотенца
+TSVET_RUBASHKI	Цвет, Рубашки
+TSVET_TKANI	Цвет Ткани
+UDALENIE_PYATEN	Удаление Пятен
+UPAKOVKA_KG	Упаковка, Кг
+UROVEN_SHUMA_DB	Уровень Шума, Дб
+USTANOVKA	Установка
+UTYUG_V_KOMPLEKTE	Утюг В Комплекте
+VES_KG	Вес, Кг
+VMESTIMOST_KG	Вместимость, Кг
+VOZDUSHNYJ_POTOK_ELEKTRO	Воздушный Поток, Электрический Нагрев, Куб.м/Час
+VOZDUSHNYJ_POTOK_PAR_GAZ	Воздушный Поток, Паровой/Газовый Нагрев, Куб.м/Час
+VOZVRAT_KONDENSATA	Возврат Конденсата
+VREMYA_SUSHKI	Общее Время Сушки При Полной Загрузке, Мин
+VYPARIVAYUSHAYA_SPOSOBNOST	Выпаривающая Способность, Л/Ч
+VYVOD_VOZDUHA_DIAMETR_MM	Вывод Воздуха, Подсоединение, Диаметр, Мм
+ZAGRUZKA_KG	Загрузка, Кг

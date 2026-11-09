@@ -1,0 +1,250 @@
+[
+ {
+  "iblock": "catalog",
+  "code": "halton-kcj-capture-jet",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/halton-kcj-capture-jet/1.jpg",
+   "/mnt/photos/_batch2/kitchen/halton-kcj-capture-jet/2.jpg"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "halton-kvf-capture-jet",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/halton-kvf-capture-jet/1.jpg",
+   "/mnt/photos/_batch2/kitchen/halton-kvf-capture-jet/2.jpg"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "halton-kvi-capture-jet",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/halton-kvi-capture-jet/1.jpg",
+   "/mnt/photos/_batch2/kitchen/halton-kvi-capture-jet/2.jpg"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "halton-kvl",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/halton-kvl/1.jpg",
+   "/mnt/photos/_batch2/kitchen/halton-kvl/2.jpg"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "halton-kvx",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/halton-kvx/1.jpg",
+   "/mnt/photos/_batch2/kitchen/halton-kvx/2.jpg"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "halton-uvf-capture-ray",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/halton-uvf-capture-ray/1.jpg",
+   "/mnt/photos/_batch2/kitchen/halton-uvf-capture-ray/2.jpg"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "halton-uvi-capture-ray",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/halton-uvi-capture-ray/1.jpg",
+   "/mnt/photos/_batch2/kitchen/halton-uvi-capture-ray/2.jpg"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "halton-uvl-low-sidewall-canopy",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/halton-uvl-low-sidewall-canopy/1.jpg"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-premax-cp",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-premax-cp/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-premax-cp/2.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-profi-cn",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-profi-cn/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-profi-cn/2.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-profi-cs",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-profi-cs/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-profi-cs/2.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-u704-11b-ecomax",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-u704-11b-ecomax/1.webp",
+   "/mnt/photos/_batch2/kitchen/hobart-u704-11b-ecomax/2.webp"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-ux-10b-profi",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-ux-10b-profi/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-ux-10b-profi/2.png",
+   "/mnt/photos/_batch2/kitchen/hobart-ux-10b-profi/3.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-uxt-10b-profi",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-uxt-10b-profi/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-uxt-10b-profi/2.png",
+   "/mnt/photos/_batch2/kitchen/hobart-uxt-10b-profi/3.png",
+   "/mnt/photos/_batch2/kitchen/hobart-uxt-10b-profi/4.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-amx-10b-profi",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-amx-10b-profi/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-amx-10b-profi/2.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-amxt-10c-profi",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-amxt-10c-profi/1.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-amxxl-10c-profi",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-amxxl-10c-profi/1.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-h604-12b-ecomax",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-h604-12b-ecomax/1.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-f504-12b-ecomax",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-f504-12b-ecomax/1.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-fx-10c-profi",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-fx-10c-profi/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-fx-10c-profi/2.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-fxl-10c-profi",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-fxl-10c-profi/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-fxl-10c-profi/2.png",
+   "/mnt/photos/_batch2/kitchen/hobart-fxl-10c-profi/3.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-g404-12b-ecomax",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-g404-12b-ecomax/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-g404-12b-ecomax/2.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-g404-12c-ecomax",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-g404-12c-ecomax/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-g404-12c-ecomax/2.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-gx-10c-profi",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-gx-10c-profi/1.png",
+   "/mnt/photos/_batch2/kitchen/hobart-gx-10c-profi/2.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "hobart-f504-12c-ecomax",
+  "mode": "product",
+  "source": "batch2/kitchen",
+  "files": [
+   "/mnt/photos/_batch2/kitchen/hobart-f504-12c-ecomax/1.png"
+  ]
+ }
+]

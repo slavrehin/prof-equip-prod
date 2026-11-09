@@ -1,0 +1,194 @@
+/* Без переопределения глобальных шрифтов — наследуется от страницы */
+    .news-sale {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+    }
+    .news-header {
+      background: #0e86a3;
+      padding: 32px 36px;
+      color: white;
+    }
+    .news-header h2 {
+      margin: 0 0 6px 0;
+      font-size: 1.9rem;
+      font-weight: 700;
+    }
+    .news-header .news-tag {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      border-left: 3px solid #29cec5;
+      padding-left: 12px;
+    }
+    .news-content {
+      padding: 28px 36px 36px;
+    }
+    .news-intro {
+      background: #f2fafc;
+      border-left: 4px solid #5cbebb;
+      padding: 18px 22px;
+      margin-bottom: 32px;
+      border-radius: 0 16px 16px 0;
+      color: #1c2154;
+      line-height: 1.5;
+    }
+    .news-intro p {
+      margin: 0 0 10px 0;
+    }
+    .news-intro p:last-child {
+      margin-bottom: 0;
+    }
+    .news-group {
+      margin-bottom: 48px;
+    }
+    .news-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .news-card {
+      background: white;
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid #d9ecef;
+      transition: 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+    }
+    .news-card:hover {
+      border-color: #5cbebb;
+      transform: translateY(-2px);
+    }
+    .news-card-image {
+      margin: -10px -10px 12px -10px;
+      overflow: hidden;
+      border-radius: 16px 16px 12px 12px;
+      background: #f0f6f8;
+      text-align: center;
+    }
+    .news-card-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform 0.2s;
+    }
+    .news-card:hover .news-card-image img {
+      transform: scale(1.02);
+    }
+    .news-card-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #1c2154;
+      margin-bottom: 4px;
+    }
+    .news-card-type {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #0e86a3;
+      letter-spacing: 0.4px;
+      margin-bottom: 12px;
+    }
+    .news-specs {
+      margin: 10px 0;
+      font-size: 0.8rem;
+      color: #2a4b5c;
+      border-top: 1px dashed #cbe6ea;
+      padding-top: 8px;
+    }
+    .news-specs span {
+      display: inline-block;
+      background: #eef8fa;
+      padding: 3px 8px;
+      border-radius: 30px;
+      margin: 0 4px 6px 0;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #1c2154;
+    }
+    .news-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0e86a3;
+      margin: 12px 0 6px;
+    }
+    .news-price small {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #5cbebb;
+    }
+    .news-stock {
+      display: inline-block;
+      background: #dff3f0;
+      color: #1c2154;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 30px;
+      margin-top: 6px;
+    }
+    .news-link {
+      display: inline-block;
+      margin-top: 14px;
+      background: #29cec5;
+      color: #1c2154;
+      text-decoration: none;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      transition: 0.2s;
+      align-self: flex-start;
+    }
+    .news-link:hover {
+      background: #5cbebb;
+      color: white;
+    }
+    .news-group-image {
+      text-align: center;
+      background: #f7fdfe;
+      border-radius: 20px;
+      padding: 12px;
+      border: 1px solid #d9f0f2;
+      margin-top: 8px;
+    }
+    .news-group-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+      margin: 0 auto;
+    }
+    .news-outro {
+      margin-top: 28px;
+      background: #f0f9fb;
+      border-radius: 24px;
+      padding: 22px 28px;
+      text-align: center;
+      border-top: 2px solid #5cbebb;
+    }
+    .news-outro p {
+      margin: 0 0 10px 0;
+      color: #1c2154;
+    }
+    .news-contact {
+      font-weight: 700;
+      color: #0e86a3;
+      margin-top: 8px;
+    }
+    @media (max-width: 780px) {
+      .news-header, .news-content {
+        padding: 24px 20px;
+      }
+      .news-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }

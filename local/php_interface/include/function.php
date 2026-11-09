@@ -965,9 +965,35 @@ function profequip_GetProjectsTypeFilters(int $iblockId): array
         return [];
     }
 
+    // теги, у которых есть хотя бы одна видимая карточка: profequip_RenderProjectCard
+    // не выводит проекты без картинки, и тег без них дал бы пустой список
+    $usedEnumIds = [];
+    $rsUsed = CIBlockElement::GetList(
+        [],
+        [
+            'IBLOCK_ID' => $iblockId,
+            'ACTIVE' => 'Y',
+            '!PROPERTY_TYPE' => false,
+            [
+                'LOGIC' => 'OR',
+                ['!PREVIEW_PICTURE' => false],
+                ['!DETAIL_PICTURE' => false],
+            ],
+        ],
+        false,
+        false,
+        ['ID', 'PROPERTY_TYPE']
+    );
+    while ($row = $rsUsed->Fetch()) {
+        $usedEnumIds[(int)$row['PROPERTY_TYPE_ENUM_ID']] = true;
+    }
+
     $filters = [];
     $rsEnum = CIBlockPropertyEnum::GetList(['SORT' => 'ASC'], ['PROPERTY_ID' => $propertyId]);
     while ($enum = $rsEnum->Fetch()) {
+        if (!isset($usedEnumIds[(int)$enum['ID']])) {
+            continue;
+        }
         $filters[] = ['id' => (int)$enum['ID'], 'name' => $enum['VALUE']];
     }
 

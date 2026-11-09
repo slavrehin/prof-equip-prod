@@ -1,0 +1,65 @@
+[
+ {
+  "iblock": "catalog",
+  "code": "pneumatic_butterfly_valve_th0110040307",
+  "mode": "product",
+  "files": [
+   "/mnt/b24/chat_files/9407/ПНЕВМАТИЧЕСКИЙ ДИСКОВЫЙ ЗАТВОР ДЛЯ TOLON TWE110, арт. TH0110040307.png"
+  ],
+  "source": "b24"
+ },
+ {
+  "iblock": "catalog",
+  "code": "emergency_stop_panel_th0250150036",
+  "mode": "product",
+  "files": [
+   "/mnt/b24/chat_files/9407/ПАНЕЛЬ КНОПКИ АВАРИЙНОЙ ОСТАНОВКИ ДЛЯ TOLON, арт. TH0250150036.png"
+  ],
+  "source": "b24"
+ },
+ {
+  "iblock": "catalog",
+  "code": "clipper_lacer_machine_maqagr_50_304576",
+  "mode": "product",
+  "files": [
+   "/mnt/b24/chat_files/9407/УСТРОЙСТВО ДЛЯ УСТАНОВКИ ЗАМКОВ CLIPPER MAQAGR 50.png"
+  ],
+  "source": "b24"
+ },
+ {
+  "iblock": "brands",
+  "code": "halton",
+  "mode": "logo",
+  "files": [
+   "/mnt/b24/files/7889/Halton.png"
+  ],
+  "source": "b24"
+ },
+ {
+  "iblock": "brands",
+  "code": "pedrali",
+  "mode": "logo",
+  "files": [
+   "/mnt/b24/files/8071/Pedrali.png"
+  ],
+  "source": "b24"
+ },
+ {
+  "iblock": "brands",
+  "code": "fresco-maggiore",
+  "mode": "logo",
+  "files": [
+   "/mnt/b24/files/8071/Fresco maggiore.png"
+  ],
+  "source": "b24"
+ },
+ {
+  "iblock": "brands",
+  "code": "fermest",
+  "mode": "logo",
+  "files": [
+   "/mnt/b24/files/8071/Фермест.png"
+  ],
+  "source": "b24"
+ }
+]

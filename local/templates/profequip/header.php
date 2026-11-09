@@ -11,7 +11,8 @@
     // "index, follow" и на noindex-страницах создавал второй, противоречащий тег
     // (Яндекс индексировал такие URL, см. /f/potreblenie_para_kg_chas-is-10-15/). ?>
     <?php $APPLICATION->ShowHead() ?>
-    <?php if ($_SERVER['HTTP_HOST'] === 'test3.prof-equip.ru'): ?>
+    <?php // любой хост, кроме боевого (dev., test3., localhost), закрыт от индексации
+    if (!in_array(strtolower(explode(':', $_SERVER['HTTP_HOST'] ?? '')[0]), ['prof-equip.ru', 'www.prof-equip.ru'], true)): ?>
     <meta name="robots" content="noindex, nofollow">
     <?php endif; ?>
     <meta name="format-detection" content="telephone=no">

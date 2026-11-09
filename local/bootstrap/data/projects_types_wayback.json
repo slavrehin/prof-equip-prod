@@ -1,0 +1,475 @@
+{
+ "mantera-supreme-seaside-5": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "mantera-supreme-seaside-5-2": [
+  "Гостиница",
+  "Прачечная"
+ ],
+ "vladivostok-grand-hotel-spa": [
+  "Гостиница",
+  "Текстиль",
+  "Ресторан"
+ ],
+ "otel-ruma": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "riviera-wellness-resort": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-hilton-astana-2023": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "berry-hotel-spa-4-kaliningrad-2023": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "kosmos-paveleckaya": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-doubletree-by-hilton-hotel-minsk-belarus-2022-god": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-hilton-garden-inn-orenburg-2022-god": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-doubletree-by-hilton-moscow-vnukovo-airport-moskva-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "mnogofunktsionalnyj-kompleks-burny-vladivostok-mys-burnyj-2022": [
+  "Гостиница",
+  "Прачечная"
+ ],
+ "setevoj-otel-cosmos-hotel-group-psb-patriot-moskovskaya-oblast-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "sanatorij-biryuza-sochi-2022": [
+  "Санаторий",
+  "Кухня"
+ ],
+ "hotel-pullman-sochi-center-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-dlya-nuzhd-kompanii-nord-holc-krasnoyarskij-kraj-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-kortyard-irkutsk-centr-irkutsk-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-hilton-saint-petersburg-expoforum-sankt-peterburg-rossiya-2022-god": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "oor-rtk": [
+  "Прачечная"
+ ],
+ "prachechnaya-standart-chistoty": [
+  "Ресторан"
+ ],
+ "dizajn-otel-standart-5-moskva-2016": [
+  "Гостиница",
+  "Кухня"
+ ],
+ "setevoj-otel-ibis-kaliningrad-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "doubletree-by-hilton-novosibirsk-novosibirsk": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoy-otel-hampton-by-hilton-saint-petersburg-expoforum-sankt-peterburg": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "pentahotel-moskva-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-hilton-baku-azerbajdzhan-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "marriott-imperial-plaza-hotel-moskva-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "myasnoj-restoran-800-s-contemporary-steak-moskva-2018": [
+  "Ресторан",
+  "Кухня"
+ ],
+ "restoran-g-t-holiday-inn-sokolniki-moskva-2019": [
+  "Ресторан",
+  "Кухня"
+ ],
+ "chetyrehzvezdochnyj-otel-piter-inn-petrozavodsk-2022": [
+  "Гостиница",
+  "Прачечная"
+ ],
+ "yalta-inturist-krym-2022-god": [
+  "Прачечная"
+ ],
+ "set-fitnes-klubov-sssr-moskva-2022": [
+  "Прачечная"
+ ],
+ "gimnaziya-imeni-e-m-primakova-moskovskaya-oblast-2022": [
+  "Прачечная"
+ ],
+ "setevoj-otel-novotel-krasnaya-polyana-sochi-2019-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "gorodskie-oteli-the-faces-sankt-peterburg-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-novotel-krasnoyarsk-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "prachechnoe-predpriyatie-chajkovskaya-spetsodezhda-g-glazov-2020": [
+  "Прачечная"
+ ],
+ "proizvodstvennyj-kompleks-legkoj-promyshlennosti-btk-grupp-podrazdelenie-arendy-spetsodezhdy-ufa-2020": [
+  "Прачечная"
+ ],
+ "otel-yalta-inturist-4-industrialnaya-prachechnaya-yalta-2006-2014": [
+  "Гостиница",
+  "Прачечная",
+  "Крым"
+ ],
+ "setevoj-otel-ola-rezort-olginka-krasnodarskij-kraj-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "kafe-pekarnya-i-proizvodstvennyj-tseh-victor-compagnie-g-sevastopol-2021": [
+  "Кухня",
+  "Крым"
+ ],
+ "rikvest-moskva-2022-god": [
+  "Прачечная"
+ ],
+ "gruppa-kompanij-cotton-way-moskva-2022": [
+  "Прачечная"
+ ],
+ "golf-klub-mill-creek-leningradskaya-oblast-vsevolozhsk-2021": [
+  "Прачечная"
+ ],
+ "elis-moskva-2022": [
+  "Гостиница",
+  "Прачечная"
+ ],
+ "proizvoditel-gigienicheskikh-sredstv-bella-moskva-2018-god": [
+  "Прачечная"
+ ],
+ "up-savushkino-belarus-oltush-2019": [
+  "Прачечная"
+ ],
+ "otel-the-local-5-zvezd-groznyj-2018": [
+  "Гостиница",
+  "Прачечная",
+  "Ресторан",
+  "Кухня"
+ ],
+ "zavod-po-proizvodstvu-syrov-syry-kubani-krasnodarskij-kraj-st-vyselki-2018": [
+  "Краснодарский край",
+  "Прачечная",
+  "Кухня"
+ ],
+ "sanatorij-belorussiya-mishor-2009-2010": [
+  "Прачечная",
+  "Санаторий",
+  "Кухня",
+  "Крым"
+ ],
+ "industrialnaya-prachechnaya-x-moskva-2017": [
+  "Прачечная"
+ ],
+ "kurort-krasnaya-pahra-set-otelej-amaks-hotels-resorts-2015": [
+  "Гостиница",
+  "Прачечная"
+ ],
+ "restoran-v-mfsk-lokomotiv-yaroslavl-2018-god": [
+  "Ресторан",
+  "Стадион",
+  "Кухня"
+ ],
+ "otel-ribera-resort-spa-evpatoriya-2018": [
+  "Гостиница",
+  "Ресторан",
+  "Кухня",
+  "Крым"
+ ],
+ "restoran-tiflis-livadiya-yalta-2019": [
+  "Ресторан",
+  "Кухня",
+  "Крым"
+ ],
+ "gril-bar-shashlykoff-simferopol-2017": [
+  "Ресторан",
+  "Кухня",
+  "Крым"
+ ],
+ "akvapark-atlantida-yalta-2016": [
+  "Ресторан",
+  "Кухня",
+  "Крым"
+ ],
+ "otel-palmira-business-club-moskva-2016": [
+  "Гостиница",
+  "Прачечная"
+ ],
+ "akvachistka-lagoon-shop-kaliningrad-2014": [
+  "Аквачистка",
+  "Прачечная"
+ ],
+ "otel-holiday-inn-sokolniki-moskva-2014-2017": [
+  "Гостиница",
+  "Прачечная",
+  "Кухня"
+ ],
+ "set-akvachistok-green-way-lagoon-kiev-2012": [
+  "Аквачистка",
+  "Прачечная"
+ ],
+ "restorannyj-kompleks-otelya-ramada-encore-2": [
+  "Гостиница",
+  "Прачечная",
+  "Кухня"
+ ],
+ "restoran-balerina-i-bifshteks-krasnodar-2017": [
+  "Краснодарский край",
+  "Ресторан",
+  "Кухня"
+ ],
+ "otel-sadovoe-koltso-4-moskva-2015-2017": [
+  "Гостиница",
+  "Текстиль",
+  "Ресторан"
+ ],
+ "restoran-ermak-moskva-2015-2017": [
+  "Текстиль",
+  "Ресторан"
+ ],
+ "restoran-burger-pizzetta-tts-evropejskij-moskva-2016": [
+  "Ресторан",
+  "Кухня"
+ ],
+ "restoran-viet-soul-moskva-tts-hanoj-moskva-2014": [
+  "Текстиль",
+  "Ресторан",
+  "Кухня"
+ ],
+ "restoran-bake-n-roll-moskva-2014": [
+  "Ресторан",
+  "Кухня"
+ ],
+ "restoran-pivovarnya-paulaner-krasnodar-2014": [
+  "Краснодарский край",
+  "Ресторан",
+  "Кухня"
+ ],
+ "restoran-lavilla-krasnodar-2013": [
+  "Краснодарский край",
+  "Ресторан",
+  "Кухня"
+ ],
+ "foritas-industrialnaya-prachechnaya-kaunas-litva-2010": [
+  "Туннельная прачечная",
+  "Прачечная"
+ ],
+ "spa-otel-akvamarin-5-sevastopol-2011-2017": [
+  "Гостиница",
+  "Прачечная",
+  "Кухня",
+  "Химия",
+  "Крым"
+ ],
+ "kommercheskaya-prachechnaya-simferopol-2010": [
+  "Прачечная",
+  "Крым"
+ ],
+ "moscow-marriott-imperial-plaza": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "gostinitsa-imperial-osetiya-2023-god": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "sia-sadzives-pakalpojumi-lindo-grupa-industrialnaya-prachechnaya-riga-latviya-2006-2010": [
+  "Туннельная прачечная",
+  "Прачечная"
+ ],
+ "rodovaya-obshhina-yanut-kamchatka-2023": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "kongress-otel-ekaterinburg-2023": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "rikvest-ooo-zheldor-servis-industrialnaya-prachechnaya-novorossijsk-2006": [
+  "Туннельная прачечная",
+  "Краснодарский край",
+  "Прачечная"
+ ],
+ "otel-azimut-v-ofisnom-parke-comcity-moskva-2022-godluxury-house-eko-otel-spa-kropotkin-rossiya-2022-god": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "luxury-house-eko-otel-spa-kropotkin": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-marriott-hotel-krasnodar-2018": [
+  "Краснодарский край",
+  "Гостиница",
+  "Кухня"
+ ],
+ "tatyana-provence-zvenigorod-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "holiday-perm": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "holiday-inn-tula": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "hampton-by-hilton-astana-triumphal-arch-nur-sultan-kazahstan-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "hampton-by-hilton-samara-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "courtyard-by-marriott-irkutsk-2022": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-mercure-rostov-na-donu-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-ibis-yaroslavl-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-ibis-samara-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-ibis-omsk-2019": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "kazino-sochi-casino-resort-sochi-2016": [
+  "Краснодарский край",
+  "Казино",
+  "Кухня"
+ ],
+ "biznes-otel-kontinental-5-belgorod-2014": [
+  "Гостиница",
+  "Кухня"
+ ],
+ "setevoj-otel-ibis-krasnoyarsk-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-ibis-irkutsk-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "setevoj-otel-ibis-domodedovo-moskva-2020": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-hilton-5-restoran-all-dining-restaurant-kiev": [
+  "Гостиница",
+  "Кухня"
+ ],
+ "setevoj-otel-ibis-dinamo-moskva-2019-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "gostevoy-dom-velikiy-ustyug": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "gornaya-turisticheskaya-baza-tumroki-kamchatka-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "gorno-sportivnaya-baza-snezhnaya-dolina-kamchatka-2020-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "kurort-igora-leningradskaya-oblast-2021": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-mercure-saransk-tsentr-2019": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-renaissance-belarus-minsk-2019": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-mercure-minsk-old-town-belarus-minsk": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-mitino-moskva-2018": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-double-tree-by-hilton-tyumen-tyumen-2019": [
+  "Гостиница",
+  "Текстиль"
+ ],
+ "otel-hilton-5-restoran-all-dining-restaurant-kiev-2014-2": [
+  "Гостиница",
+  "Кухня"
+ ],
+ "otel-pansionat-morskoj-alushta-2010": [
+  "Гостиница",
+  "Прачечная",
+  "Крым"
+ ],
+ "stadion-olimpijskij-kiev-2011": [
+  "Стадион",
+  "Кухня"
+ ],
+ "litsej-internat-podmoskovnyj-moskovskaya-oblast-2021": [
+  "Текстиль"
+ ],
+ "pervaya-gradskaya-bolnitsa-im-n-i-pirogova-moskva-2019": [
+  "Текстиль"
+ ],
+ "psikhiatricheskaya-klinicheskaya-bolnitsa-13-moskva": [
+  "Текстиль"
+ ],
+ "avstriyskiy-tsentr-zdorovya-verba-mayr-moskovskaya-oblast-g-pushkino": [
+  "Текстиль"
+ ],
+ "fgbu-kombinat-pitaniya-kremlevskij-moskva-2019": [
+  "Текстиль"
+ ]
+}

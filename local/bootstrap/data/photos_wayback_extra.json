@@ -1,0 +1,29 @@
+[
+ {
+  "iblock": "catalog",
+  "code": "mashina-dlya-skladyvaniya-belya-jensen-katana",
+  "mode": "product",
+  "source": "wayback",
+  "files": [
+   "/var/www/html/wp-content/uploads/2019/07/Mashina-dlya-skladyvaniya-belya-JENSEN-Katana-300x200.jpg"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "professionalnaya-stiralnaya-mashina-tolon-twe-40-zagruzka-40-kg",
+  "mode": "product",
+  "source": "wayback",
+  "files": [
+   "/var/www/html/wp-content/uploads/2018/03/TOLON-TWE-40.png"
+  ]
+ },
+ {
+  "iblock": "catalog",
+  "code": "professionalnaya-sushilnaya-mashina-tolon-trd28-zagruzka-27-5-kg-31-kg",
+  "mode": "product",
+  "source": "wayback",
+  "files": [
+   "/var/www/html/wp-content/uploads/2020/03/PROFESSIONALNAYA-SUSHILNAYA-MASHINA-TOLON-TRD28-363x467-2.jpg"
+  ]
+ }
+]

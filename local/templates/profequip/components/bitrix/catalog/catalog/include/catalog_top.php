@@ -76,7 +76,13 @@ $navData = (static function (int $iblockId, int $sectionId): array {
     return $result;
 })($navIblockId, (int)$navSection['ID']);
 
-$navTiles = array_values(array_filter($navData['ITEMS'], static fn($i) => !$i['SHOWCASE']));
+// «Популярные подборки» над каталогом временно скрыты (решение 2026-10-16). Страницы тегов и ссылки
+// на них из фильтра работают; вернуть блок — $navShowChips = true.
+$navShowChips = false;
+// Пока чипсы скрыты, витрина «… в наличии» выводится обычной плиткой (как до 2026-10-20),
+// иначе ссылка на неё пропадает со страницы раздела. Служебный test-import-tmp не показываем.
+$navTiles = array_values(array_filter($navData['ITEMS'], static fn($i) => !$i['SHOWCASE']
+    || (!$navShowChips && $i['CODE'] !== 'test-import-tmp')));
 $navShowcases = array_values(array_filter($navData['ITEMS'], static fn($i) => $i['SHOWCASE'] && $navData['MODE'] === 'children'));
 $navTags = class_exists('SeoTags') ? SeoTags::forSection((string)$navSection['CODE']) : [];
 // Первые чипсы — по одному из каждой группы по очереди (назначение, загрузка, бренд, нагрев…), чтобы
@@ -120,11 +126,6 @@ $navVisibleChips = 10;
     </ul>
 </nav>
 <?endif;?>
-<?
-// «Популярные подборки» над каталогом временно скрыты (решение 2026-10-16). Страницы тегов и ссылки
-// на них из фильтра работают; вернуть блок — $navShowChips = true.
-$navShowChips = false;
-?>
 <?if ($navShowChips && ($navTags || $navShowcases || $navCurrentTagId)):?>
 <nav class="cnav-chips" aria-label="Популярные подборки">
     <span class="cnav-chips__title">Популярные подборки</span>

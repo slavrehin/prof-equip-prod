@@ -39,7 +39,8 @@ if (empty($arResult["ITEMS"])) return;
                     $pictureSrc2x = $resizedPicture2x["src"];
                 }
                 $timestamp = MakeTimeStamp($item["ACTIVE_FROM"] ?: $item["DATE_CREATE"]);
-                $date = FormatDate("d.m.Y", $timestamp);?>
+                // у проектов ACTIVE_FROM = 01.01.<год реализации> (local/bootstrap/projects_dates.php) — выводим только год
+                $date = FormatDate(date("m-d", $timestamp) === "01-01" ? "Y" : "d.m.Y", $timestamp);?>
                 <a class="another-object-card swiper-slide" href="<?=$item["DETAIL_PAGE_URL"]?>" id="<?=$this->GetEditAreaId($item['ID']);?>">
                     <div class="image-wapper">
                         <picture>

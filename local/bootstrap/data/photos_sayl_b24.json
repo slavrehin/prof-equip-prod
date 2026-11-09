@@ -1,0 +1,313 @@
+[
+ {
+  "iblock": "catalog",
+  "code": "sayl-buffet-360",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-buffet-360.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-buffet-360/1.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-buffet-360/2.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"BUFFET 360.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-buffet-integra",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-buffet-integra.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"BUFFET INTEGRA.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-buffet-island",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-buffet-island.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"BUFFET ISLAND.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-buffet-portatil",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-buffet-portatil.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"BUFFET PORTATIL.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-buffet-service",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-buffet-service.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-buffet-service/1.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"BUFFET SERVICE.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-classic-sushi",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-classic-sushi.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"CLASSIC SUSHI.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-integra-combi",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-integra-combi.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"COMBI.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-compak",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-compak.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-compak/1.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"COMPAK.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-crystal-box",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-crystal-box.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"CRYSTAL BOX.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-integra-base",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-integra-base.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-integra-base/1.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"INTEGRA BASE.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-integra-drop-in",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-integra-drop-in.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-integra-drop-in/1.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"INTEGRA DROP-IN.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-integra-t",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-integra-t.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"INTEGRA T.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-logic-sushi",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-logic-sushi.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-logic-sushi/1.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"LOGIC SUSHI.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-loma",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-loma.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-loma/1.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-loma/2.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"LOMA.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-maxiself",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-maxiself.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-maxiself/1.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"MAXISELF.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-neutra-curvada",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-neutra-curvada.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-neutra-curvada/1.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-neutra-curvada/2.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"NEUTRA CURVADA.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-neutra-pitagoras",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-neutra-pitagoras.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-neutra-pitagoras/1.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"NEUTRA PITAGORAS.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-neutra-recta",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-neutra-recta.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-neutra-recta/1.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"NEUTRA RECTA.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-neutra-vision",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-neutra-vision.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-neutra-vision/1.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-neutra-vision/2.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-neutra-vision/3.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"NEUTRA VISION.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-pak-curvada",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-pak-curvada.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-pak-curvada/1.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"PAK CURVADA.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-pak-recta",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-pak-recta.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-pak-recta/1.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-pak-recta/2.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"PAK RECTA.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-qbo",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-qbo.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-qbo/1.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-qbo/2.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-qbo/3.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"QBO.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-shark-sushi",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-shark-sushi.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"SHARK SUSHI.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-slim-sushi",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-slim-sushi.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-slim-sushi/1.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-slim-sushi/2.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"SLIM SUSHI.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-splendid",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-splendid.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-splendid/1.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-splendid/2.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-splendid/3.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"SPLENDID.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-tower",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-tower.jpg",
+   "/mnt/photos/_batch2/kitchen/sayl-tower/1.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-tower/2.webp",
+   "/mnt/photos/_batch2/kitchen/sayl-tower/3.webp"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"TOWER.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-vela",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-vela.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"VELA.png\""
+ },
+ {
+  "iblock": "catalog",
+  "code": "sayl-xl",
+  "mode": "product",
+  "files": [
+   "/mnt/photos/SAYL/sayl-xl.jpg"
+  ],
+  "source": "b24#8607",
+  "note": "оригинал контент-менеджера: B24 задача 8607, архив чек-листа, файл \"XL.png\""
+ }
+]
