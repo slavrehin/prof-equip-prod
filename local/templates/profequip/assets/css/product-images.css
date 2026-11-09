@@ -1,0 +1,36 @@
+/* Фото товаров: вписывать в квадрат целиком, а не обрезать.
+ *
+ * main.css (сборка local/layout) ставит object-fit: cover в карточке листинга (.catalog-card),
+ * в слайдерах товаров (химия, блог) и в главной галерее карточки товара. Неквадратное фото
+ * при этом режется по длинной стороне: аудит 2026-11-09 (local/bootstrap/audit_photos_v2.php)
+ * насчитал 548 товаров, у которых из кадра выпадает больше 3% изображения.
+ * Здесь переводим их на contain с белым фоном и небольшим белым полем вокруг. Отдельный
+ * файл, а не правка scss, чтобы пережить пересборку макетов (тот же приём, что other-products.css).
+ * !important нужен потому, что селекторы main.css длинные (5-7 классов).
+ */
+
+/* листинг категории, «Другие товары», слайдеры товаров */
+.catalog-card .image-wrapper,
+.chemistry-catalog-swiper .swiper-slide .image-wrapper,
+.blog-catalog-swiper .swiper-slide .image-wrapper {
+    background: #fff;
+}
+.catalog-card .image-wrapper img,
+.chemistry-catalog-swiper .swiper-slide .image-wrapper img,
+.blog-catalog-swiper .swiper-slide .image-wrapper img {
+    object-fit: contain !important;
+    object-position: center;
+    box-sizing: border-box;
+    padding: 4%;
+    background: #fff;
+}
+
+/* главная галерея карточки товара (миниатюры уже contain) */
+.catalog-product-hero__swiper .image-wrapper {
+    background: #fff;
+}
+.catalog-product-hero__swiper .image-wrapper img {
+    object-fit: contain !important;
+    object-position: center;
+    background: #fff;
+}

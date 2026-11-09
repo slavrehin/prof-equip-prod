@@ -29,7 +29,9 @@
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-seo.css?v=<?=file_exists($catalogSeoCssPath) ? filemtime($catalogSeoCssPath) : time()?>" rel="stylesheet">
     <?php $otherProductsCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/other-products.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/other-products.css?v=<?=file_exists($otherProductsCssPath) ? filemtime($otherProductsCssPath) : time()?>" rel="stylesheet">
-    <?php $catalogNavCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/catalog-nav.css'; ?>
+    <?php $productImagesCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/product-images.css'; ?>
+    <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/product-images.css?v=<?=file_exists($productImagesCssPath) ? filemtime($productImagesCssPath) : time()?>" rel="stylesheet">
+    <?php $catalogNavCssPath =$_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/catalog-nav.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/catalog-nav.css?v=<?=file_exists($catalogNavCssPath) ? filemtime($catalogNavCssPath) : time()?>" rel="stylesheet">
     <?php $mobileFilterBarCssPath = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/assets/css/mobile-filter-bar.css'; ?>
     <link href="<?=SITE_TEMPLATE_PATH?>/assets/css/mobile-filter-bar.css?v=<?=file_exists($mobileFilterBarCssPath) ? filemtime($mobileFilterBarCssPath) : time()?>" rel="stylesheet">
