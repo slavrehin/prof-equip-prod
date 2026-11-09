@@ -199,8 +199,13 @@ $catId = ib('catalog');
 $secByCode = [];
 $loadSecs = function () use ($catId, &$secByCode) {
     $secByCode = [];
-    $r = CIBlockSection::GetList([], ['IBLOCK_ID' => $catId, 'CHECK_PERMISSIONS' => 'N'], false, ['ID', 'CODE', 'DEPTH_LEVEL']);
-    while ($s = $r->Fetch()) $secByCode[$s['CODE']] = $s;
+    $r = CIBlockSection::GetList(['LEFT_MARGIN' => 'ASC'], ['IBLOCK_ID' => $catId, 'CHECK_PERMISSIONS' => 'N'], false, ['ID', 'CODE', 'DEPTH_LEVEL', 'LEFT_MARGIN']);
+    $root = null;
+    while ($s = $r->Fetch()) {
+        if ((int) $s['DEPTH_LEVEL'] === 1) $root = $s['CODE'];
+        $s['ROOT'] = $root;
+        $secByCode[$s['CODE']] = $s;
+    }
 };
 $loadSecs();
 if (want('sections')) {
@@ -286,7 +291,14 @@ if (want('catalog')) {
             continue;
         }
         if ($g = gallery($e['gallery'])) $pv['GALLERY'] = $g;
-        $secs = array_values(array_unique(array_merge($e['extra']['listing_sections'] ?? [], $e['sections'])));
+        // listing_sections — все WP-листинги, где товар мелькал (в т.ч. сайдбар-виджет «В наличии» на
+        // страницах химии), поэтому берём только разделы из того же корня, что и разделы самой карточки
+        // (иначе машины TOLON попадали в «Стиральные порошки с отбеливателем» и т.п.)
+        $ownRoots = [];
+        foreach ($e['sections'] as $sc) if (isset($secByCode[$sc])) $ownRoots[$secByCode[$sc]['ROOT']] = true;
+        $listing = array_filter($e['extra']['listing_sections'] ?? [],
+            fn($sc) => isset($secByCode[$sc]) && (!$ownRoots || isset($ownRoots[$secByCode[$sc]['ROOT']])));
+        $secs = array_values(array_unique(array_merge($listing, $e['sections'])));
         if (!$secs && preg_match('/мебел/ui', (string) ($e['extra']['section_hint'] ?? ''))) $secs = ['mebel'];
         $secIds = [];
         foreach ($secs as $sc) if (isset($secByCode[$sc])) $secIds[$sc] = $secByCode[$sc];
