@@ -65,8 +65,19 @@ $text = <<<HTML
 <p>До встречи на стенде ПРОФЭКВИП!</p>
 HTML;
 
-$e = \CIBlockElement::GetList([], ['IBLOCK_ID' => $ib, '=CODE' => $code, 'CHECK_PERMISSIONS' => 'N'], false, ['nTopCount' => 1], ['ID'])->Fetch();
-if ($e) { echo "$code: уже есть #{$e['ID']}\n"; exit(0); }
+// Дата без времени, как у остальных новостей (первый прогон ставил 19:30 — это было «в будущем», новость отдавала 404)
+$activeFrom = '09.11.2026 00:00:00';
+$e = \CIBlockElement::GetList([], ['IBLOCK_ID' => $ib, '=CODE' => $code, 'CHECK_PERMISSIONS' => 'N'], false, ['nTopCount' => 1], ['ID', 'ACTIVE_FROM'])->Fetch();
+if ($e) {
+    echo "$code: уже есть #{$e['ID']}";
+    if (MakeTimeStamp($e['ACTIVE_FROM']) !== MakeTimeStamp($activeFrom) && !$dry) {
+        echo (new \CIBlockElement())->Update($e['ID'], ['ACTIVE_FROM' => $activeFrom]) ? ", дата → $activeFrom" : ', ошибка даты';
+        \CIBlock::clearIblockTagCache($ib);
+        BXClearCache(true);
+    }
+    echo "\n";
+    exit(0);
+}
 if ($dry) { echo "$code: будет создана (инфоблок $ib)\n"; exit(0); }
 
 $img = __DIR__ . '/cleanexpo-2026.jpg';
@@ -74,7 +85,7 @@ $be = new \CIBlockElement();
 $id = $be->Add([
     'IBLOCK_ID' => $ib, 'CODE' => $code, 'ACTIVE' => 'Y', 'SORT' => 500,
     'NAME' => 'ПРОФЭКВИП представит современные решения для профессиональных прачечных на CleanExpo 2026',
-    'ACTIVE_FROM' => '09.11.2026 19:30:00',
+    'ACTIVE_FROM' => $activeFrom,
     'PREVIEW_TEXT_TYPE' => 'text', 'PREVIEW_TEXT' => $lead,
     'DETAIL_TEXT_TYPE' => 'html', 'DETAIL_TEXT' => $text,
     'PREVIEW_PICTURE' => \CFile::MakeFileArray($img), 'DETAIL_PICTURE' => \CFile::MakeFileArray($img),
