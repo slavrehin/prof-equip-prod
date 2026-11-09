@@ -27,7 +27,7 @@
                     
                 ?>
                     <div class="swiper-slide" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-                        <div class="reviews-item">
+                        <div class="reviews-item<?= empty($pictureSrc) ? ' reviews-item--text' : '' ?>">
                             <?php if (!empty($pictureSrc)): ?>
                             <div class="image-wrapper">
                                 <img src="<?=$pictureSrc?>" alt="<?=htmlspecialchars($author)?>">
@@ -46,10 +46,10 @@
             
             <div class="navigation">
                 <button class="btn reviews__prev" type="button">
-                    <svg><use xlink:href="<?=LAYOUT_DIR;?>assets/assets/img/sprite.svg#arrow-swiper-left"></use></svg>
+                    <svg><use xlink:href="<?=LAYOUT_DIR;?>assets/img/sprite.svg#arrow-swiper-left"></use></svg>
                 </button>
                 <button class="btn reviews__next" type="button">
-                    <svg><use xlink:href="<?=LAYOUT_DIR;?>assets/assets/img/sprite.svg#arrow-swiper-right"></use></svg>
+                    <svg><use xlink:href="<?=LAYOUT_DIR;?>assets/img/sprite.svg#arrow-swiper-right"></use></svg>
                 </button>
             </div>
             <div class="pagination"></div>

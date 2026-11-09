@@ -1,0 +1,33 @@
+/* Отзывы без картинки (сканы писем утеряны вместе с /upload).
+   В макете слева от текста стоит скан, и стрелки слайдера лежат поверх него;
+   без скана стрелки перекрывали начало текста и подпись. */
+.reviews .reviews-swiper .swiper-slide {
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.reviews-item.reviews-item--text {
+    width: 100%;
+    justify-content: center;
+}
+.reviews-item.reviews-item--text .review__text {
+    padding: 0 4rem;
+    max-width: 62rem;
+    margin: 0 auto;
+}
+.reviews-item.reviews-item--text .review__text .author {
+    text-align: left;
+}
+@media (max-width: 767.98px) {
+    .reviews-item.reviews-item--text .review__text {
+        padding: 0 2.75rem;
+    }
+    .reviews-item.reviews-item--text .review__text .text {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .reviews-item.reviews-item--text .review__text .author {
+        font-size: 1.125rem;
+        line-height: 1.5rem;
+    }
+}
