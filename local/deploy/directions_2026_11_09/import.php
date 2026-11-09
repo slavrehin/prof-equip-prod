@@ -169,10 +169,17 @@ reviews($data['equipment']['REVIEWS']);
 $d = $data['kuhnya'];
 $id = elementId($IB['kuhnya'], 'kuhnya');
 echo "kuhnya #$id\n";
+// Портфолио: 2 проекта с боевой страницы + все активные проекты с тегом «Кухня» и фото (просьба заказчика 2026-11-09)
+$kitchenProjects = ids($IB['projects'], $d['PROJECTS'], 'проект');
+$r = \CIBlockElement::GetList(['ACTIVE_FROM' => 'DESC'], ['IBLOCK_ID' => $IB['projects'], 'ACTIVE' => 'Y',
+    'PROPERTY_TYPE_VALUE' => 'Кухня', '!PREVIEW_PICTURE' => false, 'CHECK_PERMISSIONS' => 'N'], false, false, ['ID']);
+while ($x = $r->Fetch()) { $kitchenProjects[] = (int) $x['ID']; }
+$kitchenProjects = array_values(array_unique($kitchenProjects));
+echo '  проектов в портфолио: ' . count($kitchenProjects) . "\n";
 setProps($IB['kuhnya'], $id, [
     'DESCRIPTION'        => html($d['DESCRIPTION']),
     'LINK_CATALOG'       => $d['LINK_CATALOG'],
-    'PROJECTS'           => ids($IB['projects'], $d['PROJECTS'], 'проект'),
+    'PROJECTS'           => $kitchenProjects,
     'BRANDS'             => ids($IB['brands'], $d['BRANDS'], 'бренд'),
     'CATEGORIES_CATALOG' => sectionIds($IB['catalog'], $d['CATEGORIES_CATALOG']),
     'STEPS'              => steps($d['STEPS'], 'dir-kuhnya-step', 'steps', 'svg'),
