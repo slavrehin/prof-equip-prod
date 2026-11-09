@@ -38,8 +38,10 @@
    возврата функции.
 8. **Каждое изменение коммитится в git и пушится в GitHub — без отдельного
    запроса.** Сделал правку (шаблон, скрипт, картинка вне `/upload`,
-   конфиг) → коммит в `site/www` (master) → `git push` в `../repo` →
-   из `repo` `git push origin master` (GitHub `slavrehin/prof-equip-prod`).
+   конфиг) → коммит в `site/www` (master) → в `prof-equip-local/repo`:
+   `git pull --ff-only ../site/www master && git push origin master`
+   (GitHub `slavrehin/prof-equip-prod`; push из www в repo не работает —
+   там master checked out).
    Порядок: сначала коммит, потом выкладка на dev/прод, чтобы на сервере
    не было кода, которого нет в git. Перед коммитом — `git status`/`git diff`:
    секреты (`constants_local.php`, `.settings.php`, `dbconn.php`), дампы и
