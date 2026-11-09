@@ -43,14 +43,20 @@ function cleanBrandText(string $html): string
         LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
     libxml_clear_errors();
     $xp = new \DOMXPath($doc);
+    // в шапке WP обычно только логотип, но на проде у renzacci сюда вручную перенесён первый абзац — его сохраняем
+    $intro = '';
+    $head = $xp->query('//div[contains(concat(" ", normalize-space(@class), " "), " brand-description ")]')->item(0);
+    if ($head && ($t = trim(preg_replace('/\s+/u', ' ', $head->textContent))) !== '') {
+        $intro = '<p>' . htmlspecialchars($t, ENT_QUOTES | ENT_HTML5, 'UTF-8') . '</p>';
+    }
     $node = $xp->query('//div[normalize-space(@class)="term-description"]')->item(0);
-    if (!$node) { return ''; }
+    if (!$node) { return $intro; }
     foreach (iterator_to_array($xp->query('.//div[contains(concat(" ", normalize-space(@class), " "), " vc_row ")]', $node)) as $btn) {
         $btn->parentNode->removeChild($btn);
     }
     $out = '';
     foreach ($node->childNodes as $ch) { $out .= $doc->saveHTML($ch); }
-    $out = trim(preg_replace('/\s+/u', ' ', $out));
+    $out = trim(preg_replace('/\s+/u', ' ', $intro . $out));
     return str_replace('> <', ">\n<", $out);
 }
 
@@ -85,6 +91,7 @@ foreach ($rows as $e) {
     $det = cleanBrandText((string) $e['DETAIL_TEXT']);
     printf("%s#%d %s: %d → %d байт%s\n", $dry ? '[dry] ' : '', $e['ID'], $e['CODE'],
         strlen((string) $e['PREVIEW_TEXT']), strlen($prev), $prev === '' ? ' (текста нет, описание пустое)' : '');
+    if ($dry && $prev !== '') { echo '      начало: ' . mb_substr(strip_tags($prev), 0, 90) . "…\n"; }
     if (!$dry) {
         $ok = $el->Update((int) $e['ID'], [
             'PREVIEW_TEXT' => $prev, 'PREVIEW_TEXT_TYPE' => 'html',
