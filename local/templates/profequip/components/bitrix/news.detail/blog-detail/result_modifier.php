@@ -122,6 +122,17 @@ if (!empty($arResult['ID']) && !empty($arResult['PROPERTIES'])) {
 }
 
 
+// Анонс при импорте получился обрезанным началом текста («…») — на детальной он дублировал первый абзац.
+// Показываем анонс, только если он не повторяет начало детального текста.
+if (!empty($arResult['~PREVIEW_TEXT']) && !empty($arResult['~DETAIL_TEXT'])) {
+    $plain = static fn($h) => trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($h), ENT_QUOTES | ENT_HTML5, 'UTF-8')));
+    $pv = preg_replace('/[\s.…]+$/u', '', $plain($arResult['~PREVIEW_TEXT']));
+    $head = mb_substr($pv, 0, 80);
+    if ($head !== '' && mb_strpos($plain($arResult['~DETAIL_TEXT']), $head) !== false) {
+        $arResult['~PREVIEW_TEXT'] = $arResult['PREVIEW_TEXT'] = '';
+    }
+}
+
 // Применяем обработку к детальному тексту
 if (!empty($arResult['~DETAIL_TEXT'])) {
     $arResult['DETAIL_TEXT'] = wrapImagesInTemplate($arResult['~DETAIL_TEXT']);
