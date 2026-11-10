@@ -502,12 +502,14 @@ function wrapImagesInTemplate($text) {
     // Заменяем каждый найденный img на обертку
     $text = preg_replace_callback($pattern, function($matches) {
         $imgSrc = $matches[1]; // Получаем src картинки
-        
+        // alt из исходного тега (раньше всегда затирался на «blog img»)
+        $alt = preg_match('/\salt="([^"]*)"/i', $matches[0], $m) && trim($m[1]) !== '' ? $m[1] : 'blog img';
+
         // Формируем HTML обертки
         $wrappedHtml = '<div class="image-wrapper">';
         $wrappedHtml .= '<picture>';
         $wrappedHtml .= '<source srcset="' . $imgSrc . '" type="image/webp">';
-        $wrappedHtml .= '<img src="' . $imgSrc . '" srcset="' . $imgSrc . ', ' . $imgSrc . ' 2x" alt="blog img">';
+        $wrappedHtml .= '<img src="' . $imgSrc . '" srcset="' . $imgSrc . ', ' . $imgSrc . ' 2x" alt="' . $alt . '" loading="lazy">';
         $wrappedHtml .= '</picture>';
         $wrappedHtml .= '</div>';
         
