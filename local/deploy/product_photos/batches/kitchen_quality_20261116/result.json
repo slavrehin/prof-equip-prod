@@ -1,0 +1,10 @@
+{
+  "verified_products": 20,
+  "replaced": 9,
+  "kept_good_original": 7,
+  "needs_original": 4,
+  "hashes_match": 20,
+  "backup": "/backup/kitchen_quality_20261116_before.sql.gz",
+  "rollback": "/backup/kitchen_quality_20261116_rollback.json",
+  "ftp": "Login successful; LIST -a contains only . and ..; no accessible photos or SQL archive."
+}
