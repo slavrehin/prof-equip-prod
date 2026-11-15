@@ -1,0 +1,22 @@
+[
+  {
+    "id": 668,
+    "prompt": "Use case: precise-object-edit. Restore and clean this EXISTING real product catalog image for an ecommerce product page. It depicts BONNET i-Top cantilever cooking island. Preserve the exact photographed product, design, geometry, proportions, perspective, silhouette, equipment layout, every knob, handle, burner, metal guard, support, door and all material colors. Keep the same cantilever support configuration and suspended lower oven and cabinet, left two open burners, center solid cooking plate and right two fryer wells with upright basket handles. Preserve all blue-ring control knobs in their exact positions and counts. Output a sharp but faithful landscape product image approximately 1536 pixels wide, on a perfectly white background with a soft natural original contact shadow and 7% margins, fully visible and centered. Reduce JPEG artifacts and jagged edges conservatively. This is image restoration, NOT a redesign or an imagined new product. Do not invent new hardware or fine markings that cannot be read. Do not add text, logos, accessories, food or objects. The metal must remain metal grey; only the background must be white.",
+    "status": "rejected_not_for_publication"
+  },
+  {
+    "id": 1398,
+    "prompt": "Use case: precise-object-edit. Restore and clean this EXISTING real product catalog image for an ecommerce product page. It depicts Modular Function stainless steel cooking line. Preserve the exact photographed product, design, geometry, proportions, perspective, silhouette, equipment layout, every knob, handle, burner, metal guard, support, door and all material colors. Keep the high three-quarter top view, left four gas burners with gold caps, next pasta cooker/fryer baskets with black handles, next cooking plate and far-right ridged grill, all front controls and cabinet doors as in the original. Do not change arrangement or add any controls. Output a sharp but faithful landscape product image approximately 1536 pixels wide, on a perfectly white background with a soft natural original contact shadow and 7% margins, fully visible and centered. Reduce JPEG artifacts and jagged edges conservatively. This is image restoration, NOT a redesign or an imagined new product. Do not invent new hardware or fine markings that cannot be read. Do not add text, logos, accessories, food or objects. The metal must remain metal grey; only the background must be white.",
+    "status": "rejected_not_for_publication"
+  },
+  {
+    "id": 1400,
+    "prompt": "Use case: precise-object-edit. Restore and clean this EXISTING real product catalog image for an ecommerce product page. It depicts Modular Sensation black-front cooking island. Preserve the exact photographed product, design, geometry, proportions, perspective, silhouette, equipment layout, every knob, handle, burner, metal guard, support, door and all material colors. Remove the separate large floating Modular header logo above the product by cropping that whitespace; do not remove any markings physically on the equipment. Keep the six dark front cabinet panels, curved silver handles, recessed left fryer, central cooking modules with upright metal guards and right gas burner section exactly as shown. Output a sharp but faithful landscape product image approximately 1536 pixels wide, on a perfectly white background with a soft natural original contact shadow and 7% margins, fully visible and centered. Reduce JPEG artifacts and jagged edges conservatively. This is image restoration, NOT a redesign or an imagined new product. Do not invent new hardware or fine markings that cannot be read. Do not add text, logos, accessories, food or objects. The metal must remain metal grey; only the background must be white.",
+    "status": "rejected_not_for_publication"
+  },
+  {
+    "id": 1397,
+    "status": "rejected_not_for_publication",
+    "prompt": "Extract the original Modular Emotion cooking island from the supplied catalog page onto white; preserve exact controls, seven doors, cooking modules, handles and geometry. No redesign or invented detail."
+  }
+]

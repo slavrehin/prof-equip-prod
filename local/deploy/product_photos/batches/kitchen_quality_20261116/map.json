@@ -1,0 +1,212 @@
+[
+  {
+    "id": 325,
+    "code": "elektricheskaya-frityurnitsa-mkn-london-1",
+    "name": "Электрическая фритюрница MKN LONDON 1",
+    "files": [
+      "img/325_1.jpg"
+    ],
+    "source": "Более крупные оригинальные фотографии поставщика/производителя",
+    "provenance": [
+      {
+        "file": "img/325_1.jpg",
+        "source": "https://hotelaria.pintocruz.pt/cdn/shop/files/2020321.jpg",
+        "resolution": [
+          2500,
+          2500
+        ],
+        "sha256": "66fbeac0dd994c5a60f2c100ce35edf25286e98627e3459ee2f1e58ebf397eb2"
+      }
+    ]
+  },
+  {
+    "id": 328,
+    "code": "elektricheskaya-plita-mkn-optima-850-gn-2-1-s-4-konforkami-i-elektricheskim-shkafom-2",
+    "name": "Электрическая плита MKN OPTIMA 850 GN 2/1  с 4 конфорками и электрическим шкафом",
+    "files": [
+      "img/328_1.jpg"
+    ],
+    "source": "Более крупные оригинальные фотографии поставщика/производителя",
+    "provenance": [
+      {
+        "file": "img/328_1.jpg",
+        "source": "https://hotelaria.pintocruz.pt/cdn/shop/files/2023203.jpg",
+        "resolution": [
+          2500,
+          2500
+        ],
+        "sha256": "a7242618e4f271f05bac872659169b53e0a55d550c2e5869ee82842647f6d457"
+      }
+    ]
+  },
+  {
+    "id": 333,
+    "code": "elektricheskaya-plita-mkn-optima-850-vitro-4-gn-2-1-s-elektricheskim-shkafom",
+    "name": "Электрическая плита MKN OPTIMA 850 VITRO 4 GN 2/1 с электрическим шкафом",
+    "files": [
+      "img/333_1.jpg"
+    ],
+    "source": "Более крупные оригинальные фотографии поставщика/производителя",
+    "provenance": [
+      {
+        "file": "img/333_1.jpg",
+        "source": "https://hotelaria.pintocruz.pt/cdn/shop/files/2023406.jpg",
+        "resolution": [
+          2500,
+          2500
+        ],
+        "sha256": "47b74bfa3566d501b4c33db028519913e7369a0ebb0dd85c3fb448c278f2a9da"
+      }
+    ]
+  },
+  {
+    "id": 335,
+    "code": "elektricheskaya-plita-vitro-4",
+    "name": "Электрическая плита VITRO 4",
+    "files": [
+      "img/335_1.jpg"
+    ],
+    "source": "Более крупные оригинальные фотографии поставщика/производителя",
+    "provenance": [
+      {
+        "file": "img/335_1.jpg",
+        "source": "https://hotelaria.pintocruz.pt/cdn/shop/files/2023405.jpg",
+        "resolution": [
+          2500,
+          2500
+        ],
+        "sha256": "3381981e6f299022d19cff0f42b4a5eb01bc9e385841f2aed74b918a54d9f8c6"
+      }
+    ]
+  },
+  {
+    "id": 401,
+    "code": "gazovaya-plita-mkn-s-4-konforkami",
+    "name": "Газовая плита MKN с 4 конфорками",
+    "files": [
+      "img/401_1.jpg"
+    ],
+    "source": "Более крупные оригинальные фотографии поставщика/производителя",
+    "provenance": [
+      {
+        "file": "img/401_1.jpg",
+        "source": "https://hotelaria.pintocruz.pt/cdn/shop/files/2063402.jpg",
+        "resolution": [
+          2500,
+          2500
+        ],
+        "sha256": "ceeee5b56eadf991815498c8e28c026ee6e01f59ecd32670f49f996c4584543c"
+      }
+    ]
+  },
+  {
+    "id": 765,
+    "code": "parokonvektomat-mkn-flexicombi-magicpilot-10-1-gaz",
+    "name": "Пароконвектомат MKN FlexiCombi MagicPilot 10.1 газ",
+    "files": [
+      "img/765_1.jpg"
+    ],
+    "source": "Более крупные оригинальные фотографии поставщика/производителя",
+    "provenance": [
+      {
+        "file": "img/765_1.jpg",
+        "source": "https://www.gastrodax.de/media/catalog/product/f/k/fkgcod115tg2.jpg",
+        "resolution": [
+          885,
+          880
+        ],
+        "sha256": "6312eebe56e5dda86bdb30bd028dce9786897bb655804116d51e120b9e6d901e"
+      }
+    ]
+  },
+  {
+    "id": 768,
+    "code": "parokonvektomat-mkn-flexicombi-magicpilot-6-1-gaz",
+    "name": "Пароконвектомат MKN FlexiCombi MagicPilot 6.1 газ",
+    "files": [
+      "img/768_1.jpg"
+    ],
+    "source": "Более крупные оригинальные фотографии поставщика/производителя",
+    "provenance": [
+      {
+        "file": "img/768_1.jpg",
+        "source": "https://www.gastrodax.de/media/catalog/product/f/k/fkgcod615tg2.jpg",
+        "resolution": [
+          925,
+          719
+        ],
+        "sha256": "892daefbfa5cba55f1868b344cb4940d1c8d54eec97544d9fecf134306607b01"
+      }
+    ]
+  },
+  {
+    "id": 770,
+    "code": "parokonvektomat-mkn-junior-magicpilot-skecod623tg2",
+    "name": "Пароконвектомат MKN Junior MagicPilot SKECOD623TG2",
+    "files": [
+      "img/770_1.jpg"
+    ],
+    "source": "Более крупные оригинальные фотографии поставщика/производителя",
+    "provenance": [
+      {
+        "file": "img/770_1.jpg",
+        "source": "https://hotelaria.pintocruz.pt/cdn/shop/files/SKECOD623TG2.jpg",
+        "resolution": [
+          2500,
+          2500
+        ],
+        "sha256": "fb85fcfba549c1764049750557f48156666988b925bfd1addf6cb171e9c0a379"
+      }
+    ]
+  },
+  {
+    "id": 1046,
+    "code": "professionalnoe-modulnoe-kuhonnoe-oborudovanie-bonnet-maestro",
+    "name": "Профессиональное модульное кухонное оборудование BONNET Maestro",
+    "files": [
+      "img/1046_1.jpg",
+      "img/1046_2.jpg",
+      "img/1046_3.jpg",
+      "img/1046_4.jpg"
+    ],
+    "source": "Более крупные оригинальные фотографии поставщика/производителя",
+    "provenance": [
+      {
+        "file": "img/1046_1.jpg",
+        "source": "https://hobart.getbynder.com/asset/43e7346d-83c3-4b9a-8d17-44a2a622e7ab/thumbnail/webimage-BO_cook_Maestro_detail_0320_03",
+        "resolution": [
+          600,
+          600
+        ],
+        "sha256": "df69d7ede3b322354ac77bfb26e33614f71f2b86857a4648468a739c18c1f7e8"
+      },
+      {
+        "file": "img/1046_2.jpg",
+        "source": "https://hobart.getbynder.com/asset/1a8e5e58-9f1a-4797-b9c7-4b1ff7905ed3/thumbnail/webimage-BO_cook_Maestro_detail_0320_01",
+        "resolution": [
+          600,
+          600
+        ],
+        "sha256": "1d4f60a92623fdfbf92d5c95c1779d5decf4f34c2cc6306fa66d8e7cdae7d4bf"
+      },
+      {
+        "file": "img/1046_3.jpg",
+        "source": "https://hobart.getbynder.com/asset/3cda2610-699c-4d05-a01a-269f251fa089/thumbnail/webimage-BO_cook_Maestro_detail_0320_02",
+        "resolution": [
+          600,
+          600
+        ],
+        "sha256": "a2ee54fed96c743921644734d05529cccb6ad47c8714a150c631eac85ad669ab"
+      },
+      {
+        "file": "img/1046_4.jpg",
+        "source": "https://hobart.getbynder.com/asset/768ab129-c701-425f-bcfd-6249fd486bda/thumbnail/webimage-BO_cook_Maestro_detail_0320_04",
+        "resolution": [
+          600,
+          600
+        ],
+        "sha256": "4a65ca97877ad678d0eb0a6feeb5b85234998ca6632ab037ca772135130491ba"
+      }
+    ]
+  }
+]
