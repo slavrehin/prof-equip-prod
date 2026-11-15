@@ -1,0 +1,26 @@
+[
+  {
+    "id": 226,
+    "name": "Барная станция ПРОФЭКВИП",
+    "url": "https://prof-equip.ru/product/barnaya-stantsiya-profitex/",
+    "reason": "Оригинальная фотография по архивной ссылке не сохранилась; подтвержденного фото станции ПРОФЭКВИП не найдено."
+  },
+  {
+    "id": 326,
+    "name": "Электрическая фритюрница MKN LONDON 2 EcoControl",
+    "url": "https://prof-equip.ru/product/elektricheskaya-frityurnitsa-mkn-london-2-ecocontrol/",
+    "reason": "Не найдено подтвержденное фото исполнения EcoControl. Фото London 2 в каталоге показывает обычное управление."
+  },
+  {
+    "id": 329,
+    "name": "Электрическая плита MKN OPTIMA 850 GN 2/1  с 4 конфорками и электрическим шкафом",
+    "url": "https://prof-equip.ru/product/elektricheskaya-plita-mkn-optima-850-gn-2-1-s-4-konforkami-i-elektricheskim-shkafom/",
+    "reason": "Противоречие исходных данных: название — 4 конфорки и духовка, артикул 2023201 и габариты 400×850 — 2 конфорки без духовки. Нужна идентификация товара."
+  },
+  {
+    "id": 1224,
+    "name": "RS 6 – GN2/l Холодильный шкаф",
+    "url": "https://prof-equip.ru/product/rs-6-gn2-l-holodilnyj-shkaf/",
+    "reason": "Недостаточно данных для надежной идентификации производителя и модели RS 6 GN2/l; архивный файл отсутствует."
+  }
+]
