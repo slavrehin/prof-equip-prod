@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1093,
+    "name": "Профессиональный гладильный каток Girbau P-86 MINI, длина вала 830 мм",
+    "code": "professionalnyj-gladilnyj-katok-girbau-p-86-mini-dlina-vala-830-mm",
+    "files": ["img/p-86-mini.jpg"],
+    "source": "girbau.zip, предоставлен пользователем 2026-11-17"
+  },
+  {
+    "id": 998,
+    "name": "Профессиональная сушильная машина Girbau SE-7, загрузка 7,92 кг",
+    "code": "professionalnaya-sushilnaya-mashina-girbau-se-7-zagruzka-7-92-kg",
+    "files": ["img/se-7.jpg"],
+    "source": "girbau.zip, предоставлен пользователем 2026-11-17"
+  },
+  {
+    "id": 1013,
+    "name": "Профессиональная сушильная машина с реверсом Girbau SLI-9, загрузка 8 кг – 11,5 кг",
+    "code": "professionalnaya-sushilnaya-mashina-s-reversom-girbau-sli-9-zagruzka-8-kg-11-5-kg",
+    "files": ["img/sli-9.jpg"],
+    "source": "girbau.zip, предоставлен пользователем 2026-11-17"
+  },
+  {
+    "id": 1014,
+    "name": "Профессиональная сушильная машина с реверсом Girbau SLI-9U, загрузка 8 кг – 11,5 кг",
+    "code": "professionalnaya-sushilnaya-mashina-s-reversom-girbau-sli-9u-zagruzka-8-kg-11-5-kg",
+    "files": ["img/sli-9u.jpg"],
+    "source": "girbau.zip, предоставлен пользователем 2026-11-17"
+  },
+  {
+    "id": 1015,
+    "name": "Профессиональная сушильная машина с реверсом Girbau STI-54, загрузка 43 кг – 60 кг",
+    "code": "professionalnaya-sushilnaya-mashina-s-reversom-girbau-sti-54-zagruzka-43-kg-60-kg",
+    "files": ["img/sti-54.jpg"],
+    "source": "girbau.zip, предоставлен пользователем 2026-11-17"
+  },
+  {
+    "id": 1016,
+    "name": "Профессиональная сушильная машина с реверсом Girbau STI-77, загрузка 58 кг – 80,5 кг",
+    "code": "professionalnaya-sushilnaya-mashina-s-reversom-girbau-sti-77-zagruzka-58-kg-80-5-kg",
+    "files": ["img/sti-77.jpg"],
+    "source": "girbau.zip, предоставлен пользователем 2026-11-17"
+  }
+]
