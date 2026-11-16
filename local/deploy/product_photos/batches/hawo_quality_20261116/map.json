@@ -1,0 +1,50 @@
+[
+  {
+    "id": 636,
+    "name": "HAWO HP 500 TM",
+    "code": "mashina-upakovochnaya-dlya-odezhdy-hawo-hp-500-tm",
+    "files": [
+      "img/636_white.png"
+    ],
+    "source": "https://wavepoint-group.files.svdcdn.com/production/images/Hawo-HP630KST-A4.pdf?dm=1732709647",
+    "sha256": {
+      "img/636_white.png": "8a1ae968895e622009337683585a530dc817af07f8303569d5a67657776cd5cc"
+    },
+    "processing": "Retouched with built-in image_gen: white background and image cleanup; based on real source photos, no generated camera angles."
+  },
+  {
+    "id": 637,
+    "name": "HAWO HP 630 KST BS",
+    "code": "mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-kst-bs",
+    "files": [
+      "img/637_white.png"
+    ],
+    "source": "https://wavepoint-group.files.svdcdn.com/production/images/Hawo-HP630KST-A4.pdf?dm=1732709647",
+    "sha256": {
+      "img/637_white.png": "bc9167be1c8caf99319885fb5747538ef8633c000c6ca545de634c692aad3083"
+    },
+    "processing": "Retouched with built-in image_gen: white background and image cleanup; based on real source photos, no generated camera angles."
+  },
+  {
+    "id": 638,
+    "name": "HAWO HP 630 KST-P-BS",
+    "code": "mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-kst-p-bs",
+    "files": [
+      "img/638_white.png",
+      "img/638_detail_white.png",
+      "img/638_detail2_white.png"
+    ],
+    "source": "https://www.wasch-und-buegeltechnik.de/images/product_images/original_images/Hawo_hp630KST-BS.jpg",
+    "sha256": {
+      "img/638_white.png": "e3aa042c0fb27376ea09e5a2e3a68cf2eefd54504d473d5cb0aab8c3ffe26527",
+      "img/638_detail_white.png": "2811185f92acd6799c2d9a694862d6ecfda95f422b4e1575c15d6944ce8f1735",
+      "img/638_detail2_white.png": "2a05b3a77024ec9be37d1d57afae3a95be4d3d136c2750d5581aa8d34fbb65ef"
+    },
+    "processing": "Retouched with built-in image_gen: white background and image cleanup; based on real source photos, no generated camera angles.",
+    "additional_sources": [
+      "https://www.wasch-und-buegeltechnik.de/images/product_images/original_images/Hawo_hp630KST-BS_01.jpg",
+      "https://www.wasch-und-buegeltechnik.de/images/product_images/original_images/Hawo_hp630KST-BS_02.jpg"
+    ],
+    "note": "Source seller offers BS and pneumatic option; same three red-machine photographs as exact KST-P-BS listing at Allstitch, now sourced at original resolution."
+  }
+]
