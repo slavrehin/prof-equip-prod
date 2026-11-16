@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1460,
+    "name": "Вакуумная упаковочная машина HAWO hv 630 AP-2",
+    "code": "vakuumnaya-upakovochnaya-mashina-hawo-hv-630-ap-2",
+    "source": "https://www.imootan.com/product/4842072/",
+    "processing": "Built-in image_gen photo restoration and white background, based on supplier photo with HV630AP2 designation and matching 700x490x280 / 630mm / 2800W specs. Alternate supplier listing https://www.imootan.com/product/4566206/ .",
+    "files": [
+      "img/hv630_white.png"
+    ],
+    "sha256": {
+      "img/hv630_white.png": "dae7ee8a3e66d811e980c6aa2d336e3efce6ccb31fd4f8b2ebf6a209650331a7"
+    }
+  },
+  {
+    "id": 896,
+    "name": "Полный комплект оборудования для химчистки одежды",
+    "code": "polnyj-komplekt-oborudovaniya-dlya-himchistki-odezhdy",
+    "source": "Existing product photos for exact named components in local catalog: 627,1304,1355,1118,814,798,1193,643",
+    "processing": "User approved illustrative collage. Built-in image_gen compositing in two stages, eight primary components, not a photograph of actual full delivery. Caption in image clarifies illustrative scope. Unspecified 6kg machines and accessory items not invented.",
+    "files": [
+      "img/kit_white.png"
+    ],
+    "sha256": {
+      "img/kit_white.png": "897a940857c0f34f95a6a02168d6fc2092d060a4b0eb942f6fb605631eed1a98"
+    }
+  }
+]
