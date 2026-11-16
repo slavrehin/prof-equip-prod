@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1397,
+    "code": "teplovye-linii-modular-emotion",
+    "name": "Тепловые линии MODULAR EMOTION",
+    "files": [
+      "img/1397_emotion.png"
+    ],
+    "source": "Original old WordPress uploads recovered over authorized FTP; same equipment photo, 700x525, white background.",
+    "provenance": [
+      {
+        "path": "/wp-content/uploads/2019/03/Modular_emotion_cooking.png",
+        "resolution": [
+          700,
+          525
+        ],
+        "sha256": "b563bdf88c9892d3bbf560bd96343d5129594fa84db8d13f2c3bde44ca49234b"
+      }
+    ]
+  }
+]
