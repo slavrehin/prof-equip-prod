@@ -80,6 +80,9 @@ jobs:
               tail -n 200 "$log"
               echo '```'
             } >>"$GITHUB_STEP_SUMMARY"
+            tail -n 20 "$log" | while IFS= read -r line; do
+              printf '::error::%s\n' "$line"
+            done
           fi
           exit "$status"
 
