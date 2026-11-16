@@ -1,43 +1,46 @@
 #!/usr/bin/env bash
 # Smoke-проверка публичной части сайта. Возвращает 0 если всё зелёное, 1 иначе.
-# Список URL — в smoke-urls.txt рядом (по одному пути на строку, без домена).
-# Заказчик может дополнять этот список.
+# SMOKE_BASE_URL задаёт окружение, SMOKE_AUTH — необязательные "user:password" Basic Auth.
 
 set -uo pipefail
 
 SITE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 URLS_FILE="$SITE_ROOT/local/deploy/smoke-urls.txt"
 BASE_URL="${SMOKE_BASE_URL:-https://prof-equip.ru}"
+BODY_FILE="$(mktemp "${TMPDIR:-/tmp}/profequip-smoke.XXXXXX")"
+trap 'rm -f "$BODY_FILE"' EXIT
+CURL_ARGS=(-sS --max-time "${SMOKE_TIMEOUT:-60}")
+if [ -n "${SMOKE_AUTH:-}" ]; then
+    CURL_ARGS+=(--user "$SMOKE_AUTH")
+fi
 
 FAILED=0
 
 check_url() {
     local path="$1"
     local url="$BASE_URL$path"
-    local body
     local code
 
-    body="$(curl -s -o /tmp/smoke_body.$$ -w '%{http_code}' "$url")"
-    code="$body"
+    code="$(curl "${CURL_ARGS[@]}" -o "$BODY_FILE" -w '%{http_code}' "$url")"
 
     if [ "$code" != "200" ]; then
         echo "FAIL  [$code]  $url"
         FAILED=1
-        rm -f /tmp/smoke_body.$$
         return
     fi
 
-    if grep -q '<title>Title</title>' /tmp/smoke_body.$$; then
+    if [ ! -s "$BODY_FILE" ]; then
+        echo "FAIL  [200, пустой ответ]  $url"
+        FAILED=1
+    elif grep -q '<title>Title</title>' "$BODY_FILE"; then
         echo "FAIL  [200, но <title>Title</title> — заглушка Bitrix]  $url"
         FAILED=1
-    elif grep -qi 'Description</' /tmp/smoke_body.$$; then
+    elif grep -qi 'Description</' "$BODY_FILE"; then
         echo "FAIL  [200, но встречается литеральный Description — заглушка Bitrix]  $url"
         FAILED=1
     else
         echo "OK    [200]  $url"
     fi
-
-    rm -f /tmp/smoke_body.$$
 }
 
 if [ ! -f "$URLS_FILE" ]; then
@@ -64,4 +67,4 @@ if [ -f "$SITE_ROOT/error.log" ]; then
     fi
 fi
 
-exit $FAILED
+exit "$FAILED"

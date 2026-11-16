@@ -1,117 +1,68 @@
-# prof-equip.ru — контекст для Claude Code
+# prof-equip.ru — технический контекст
 
-Интернет-магазин на 1С-Битрикс. Прод и тестовая копия — на одном VPS
-(`93.189.228.162`, root).
+Интернет-магазин на 1С-Битрикс. Актуальная схема: local → dev → prod.
 
-| | |
+| Окружение | Расположение |
 |---|---|
-| Прод | `/var/www/wordpress/`, домен `prof-equip.ru` |
-| test3 | `/var/www/prof-equip-test/src/` (Docker), домен `test3.prof-equip.ru`, закрыт Basic Auth + noindex |
-| Версии | PHP 8.4.15, MySQL 8.0.45, Bitrix `SM_VERSION 26.100.0` |
-| Основной инфоблок каталога | `IBLOCK_ID = 11` (CODE=`catalog`) |
+| local | `/Users/slavrehin/Documents/prof-equip-local/site/www`, Docker, `http://127.0.0.1:8090/` |
+| dev | `root@89.111.178.85`, `/var/www/dev.prof-equip.ru/docs`, Basic Auth + запрет индексации |
+| prod | `root@89.111.178.85`, `/var/www/prof-equip.ru/docs`, `prof-equip.ru` |
+| Git | `slavrehin/prof-equip-prod`; основной worktree `site/www`, чистое зеркало `repo` |
+
+| Компонент | Значение |
+|---|---|
+| Версии | PHP 8.4, MySQL 8.0, Bitrix `SM_VERSION 26.100.0` |
+| Основной инфоблок каталога | `IBLOCK_ID = 11`, `CODE=catalog` |
 | Активный шаблон | `local/templates/profequip` |
+| Frontend | `local/layout`: Pug, SCSS, JS, Webpack, Node 20 |
 | Кастомный модуль импорта | `local/modules/profequip.import/` |
-| Git | этот репозиторий (`prof-equip-prod`). Прод — `master`, только `git fetch` + `merge --ff-only`, **никогда push**. test3 — разработка, пушит ветки |
 
-## Устройство test3
+Старый VPS `93.189.228.162`, test3 и прежняя Git-only схема описаны в `ХРОНОЛОГИЯ.md` как история. Текущая инструкция — `DEPLOY.md` и `site/deploy_cloud/`.
 
-`/var/www/prof-equip-test/src` — тот же git, что и прод. `upload/` и
-`wp-content/uploads/` монтируются в Docker-контейнер **read-only** прямо из
-боевых папок (см. `docker-compose.yml` в `/var/www/prof-equip-test/`) —
-не дублируются, но и не могут быть изменены с test3. Своя отдельная БД
-(`sitedb` в контейнере), свой `bitrix/.settings.php` (не в git).
+## Правила работы
 
-## Правила работы с продом
+1. **Ни одной операции на проде до резервной копии.** Полный бэкап: `site/server/backup_full.sh`; файловый деплой также снимает дамп БД.
+2. Не использовать `git clean`, `git checkout .`, `git reset --hard` на сервере без явного запроса и понимания потерь.
+3. Обычный `site/deploy_cloud/deploy_prod.sh` копирует только файлы. База local/dev на прод не переносится; `--with-db` требует отдельного явного согласования.
+4. Структурные изменения БД — идемпотентными миграциями `local/migrations/`; контентные изменения — скриптами `local/deploy/<задача>/` с dry-run, резервным снимком и read-back проверкой.
+5. Секреты `bitrix/.settings.php`, `dbconn.php`, `local/php_interface/include/constants_local.php` в Git не включаются и различаются по окружениям.
+6. Результат проверяется запросом к БД, содержимым файлов и HTTP-страницами, а не только кодом возврата функции.
+7. **Каждое изменение коммитится и пушится в GitHub без отдельного запроса.** После коммита в `site/www`:
+   `git -C repo pull --ff-only ../site/www master && git -C repo push origin master`.
+8. Перед коммитом проверить `git status` и `git diff`: секреты, дампы и `/upload` в индекс не попадают. Изменения `/upload` воспроизводятся идемпотентным импортом с исходниками в Git.
+9. Сначала коммит и push, затем выкладка на dev/прод.
 
-1. **Ни одной операции на проде до бэкапа.** `deploy.sh` делает это сам.
-2. **Никогда** `git clean` / `git checkout .` / `git reset --hard` на
-   проде без явного запроса пользователя и понимания, что теряется.
-3. **Дамп test3 никогда не заливается на прод.** Структурные изменения БД —
-   только через `local/migrations/`.
-4. Секреты (`bitrix/.settings.php`, `dbconn.php`, API-ключи в
-   `local/php_interface/include/constants_local.php`) не в git, разные на
-   проде и test3.
-5. Первый коммит сделан от состояния прода (2026-09-01), не от test3.
-6. Изменения структуры БД — идемпотентными миграциями
-   (`local/migrations/README.md`).
-7. Результат проверяется запросом к базе / открытием страницы, не кодом
-   возврата функции.
-8. **Каждое изменение коммитится в git и пушится в GitHub — без отдельного
-   запроса.** Сделал правку (шаблон, скрипт, картинка вне `/upload`,
-   конфиг) → коммит в `site/www` (master) → в `prof-equip-local/repo`:
-   `git pull --ff-only ../site/www master && git push origin master`
-   (GitHub `slavrehin/prof-equip-prod`; push из www в repo не работает —
-   там master checked out).
-   Порядок: сначала коммит, потом выкладка на dev/прод, чтобы на сервере
-   не было кода, которого нет в git. Перед коммитом — `git status`/`git diff`:
-   секреты (`constants_local.php`, `.settings.php`, `dbconn.php`), дампы и
-   `/upload` в индекс не попадают. Файлы из `/upload` в git не идут — такие
-   изменения оформлять идемпотентным скриптом в `local/deploy/<задача>/`
-   (с исходниками в git) или хотя бы описывать в сообщении коммита.
+## Секреты
 
-## Секреты — где искать
+`local/php_interface/include/constants_local.php` содержит ключи Яндекс.SmartCaptcha и `BITRIX24_WEBHOOK_URL`; файл не входит в Git. `constants.php` подключает его через `require_once`. Выгрузки Bitrix24 используют `site/.b24-webhook`, значение не печатать.
 
-`local/php_interface/include/constants_local.php` (не в git, на диске у
-каждого окружения свой): API-ключи Яндекс.SmartCaptcha,
-`BITRIX24_WEBHOOK_URL` (вебхук CRM). `constants.php` в git подключает этот
-файл через `require_once`.
+Владелец подтвердил, что вебхук с потерянного сервера отозван. Полные резервные наборы содержат секреты и должны храниться приватно. `local/layout/.env` исключён из Git и сохраняется только локально; frontend не использует переменные `APP_*` в исходниках.
 
-## CLI mysqldump не работает на этом сервере
+## Резервные копии и mysqldump
 
-`mysql`/`mysqldump` CLI получают `Access denied` с рабочими учётными
-данными из `.settings.php`, независимо от сокета/TCP/SSL-флагов; при этом
-`mysqli_connect()` с теми же данными подключается нормально. Причина не
-выяснена. Поэтому бэкап и восстановление БД (`local/deploy/db_dump.php`,
-`rollback.sh`) сделаны напрямую через `mysqli`, не через `mysqldump`.
+На текущем сервере `site/server/backup_full.sh` и `site/deploy_cloud/` используют `mysqldump --single-transaction`. Прежняя проблема CLI-аутентификации на потерянном VPS не относится к текущему серверу. Старые `local/deploy/deploy.sh`, `rollback.sh` и `db_dump.php` сохранены в истории кода, но не описывают актуальный процесс.
 
-## PHP CLI не бутстрапил ядро Bitrix — исправлено (short_open_tag)
+## PHP CLI и short_open_tag
 
-Сайт обслуживается Apache + `libapache2-mod-php8.4` (не php-fpm — `apache2 -k
-start` в процессах, php-fpm не установлен). У Apache и CLI **разные php.ini**
-(`/etc/php/8.4/apache2/` и `/etc/php/8.4/cli/`). У Apache `short_open_tag =
-On`, у CLI по умолчанию был `Off`. Ядро Bitrix написано с короткими тегами
-`<?` — при `Off` PHP CLI не парсил `bitrix/modules/main/include.php` и
-подобные файлы как код, выводил их как текст, из-за чего падало
-`Class "Bitrix\Main\HttpApplication" not found` при любом запуске CLI-скрипта,
-подключающего `prolog_before.php` (обнаружено на Этапе 7 при первом реальном
-запуске `local/migrations/run.php` на проде — до этого ни разу не
-проверялось на живом сервере).
+Для ядра Bitrix необходим `short_open_tag=On` и для Apache, и для CLI. В локальном Docker настройка находится в `site/docker/php/php.ini`; на сервере — в `/etc/php/8.4/*/conf.d/99-bitrix.ini`.
 
-Исправлено системно (вне git, это конфиг сервера, не сайта):
+Если CLI-скрипт падает сразу на прологе с `Class "Bitrix\Main\HttpApplication" not found`, сначала проверить эту настройку. Подробности восстановления серверной конфигурации — в `site/server/provision.sh`.
 
-```
-/etc/php/8.4/cli/conf.d/99-bitrix-short-open-tag.ini
-short_open_tag = On
-```
+## Известные особенности Bitrix
 
-Если на новом окружении (например, при переносе на другой сервер) CLI-скрипты
-Bitrix (`local/migrations/run.php`, `local/modules/profequip.import/cli/*`)
-падают с похожей ошибкой сразу на прологе — проверить эту настройку первой.
+Подробнее — `local/migrations/README.md`.
 
-## Известные грабли Bitrix (см. `local/migrations/README.md` подробнее)
+- PHP 8.4: `CIBlockProperty/Element/Section::Add/Update` вызывать через `new`.
+- Картинки элементов обновлять только прямым SQL, не `CIBlockElement::Update()`: иначе может обнулиться `IBLOCK_SECTION_ID`.
+- Привязка свойства к умному фильтру хранится в `b_iblock_section_property`, не в колонке `b_iblock_property`.
+- `CIBlockElement::GetProperty()` вызывать для одного элемента за раз.
+- Миграции безопасно изолировать в `call_user_func(static function () { ... });`, чтобы переменные не перезаписали состояние раннера.
 
-- PHP 8.4: `CIBlockProperty/Element/Section::Add/Update` только через `new`.
-- Картинки элементов — только прямым SQL, не `CIBlockElement::Update()`
-  (иначе может обнулиться `IBLOCK_SECTION_ID`).
-- Привязка свойства к умному фильтру — таблица
-  `b_iblock_section_property`, не колонка в `b_iblock_property`.
-- `CIBlockElement::GetProperty()` — только по одному элементу за вызов.
+## Проверки
 
-## Ключи деплоя (GitHub deploy keys на этом репозитории)
+- `local/deploy/smoke.sh` — HTTP и базовые SEO-заглушки, список в `smoke-urls.txt`.
+- `local/migrations/run.php --dry-run` — неприменённые миграции.
+- GitHub Actions — PHP lint, shell syntax и frontend build; smoke запускается вручную.
+- Импорты и повторные миграции проверяются на реальной локальной/dev БД: GitHub-hosted CI не содержит ядро Bitrix и дамп данных.
 
-- `prof-equip-prod-deploy` (на проде, `~/.ssh/deploy_prof-equip`) —
-  **read-only**. Временно включался на запись только для самого первого
-  push истории 2026-09-01, затем возвращён в read-only.
-- `prof-equip-test3-dev` (на test3, `~/.ssh/deploy_prof-equip-test3`) —
-  постоянный **write**, test3 пушит ветки в разработке.
-
-## Известное, но не устранённое
-
-- На главной странице два тега `<meta name="robots">` (не связано с
-  git/деплоем, существовало и на test3 до переноса). Основная защита от
-  индексации test3 — заголовок `X-Robots-Tag` от nginx и Basic Auth, оба
-  работают независимо от этого дубля.
-- У части товаров в каталоге не заполнены SEO title/description (Bitrix
-  отдаёт буквальные заглушки `<title>Title</title>`) — `smoke.sh` это
-  ловит на тех URL, что в `smoke-urls.txt`, но не гарантирует полноту по
-  всему каталогу.
+Полнота smoke по всему каталогу не гарантируется. Для контентных задач дополнительно использовать отчёты и проверки из `site/checks/`.

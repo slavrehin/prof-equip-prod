@@ -5,6 +5,12 @@
 /
 /product-category/prachechnoe-oborudovanie/
 /product/fermest-enzim/
-# адрес фильтра, совпадающий с SEO-тегом, отдаёт 301 на тег — проверяем сами страницы тегов
+# Адрес фильтра, совпадающий с SEO-тегом, отдаёт 301 на тег — проверяем сами страницы тегов.
 /product-category/stiralnye-mashiny/fermest/
 /product-category/prachechnoe-oborudovanie/dlya-gostinic/
+/brends/
+/portfolio/
+/novosti/
+/prachechnaya/
+/tekstil/
+/kontakty/

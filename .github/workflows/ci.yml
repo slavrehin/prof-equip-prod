@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      smoke_base_url:
+        description: Public base URL for the smoke check
+        required: false
+        default: https://prof-equip.ru
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  php-and-shell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: none
+          coverage: none
+      - name: Lint tracked PHP files
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=0
+          while IFS= read -r -d '' file; do
+            php -l "$file" >/dev/null
+            count=$((count + 1))
+          done < <(git ls-files -z '*.php')
+          echo "Linted $count PHP files"
+      - name: Check tracked shell scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          count=0
+          while IFS= read -r -d '' file; do
+            bash -n "$file"
+            count=$((count + 1))
+          done < <(git ls-files -z '*.sh')
+          echo "Checked $count shell scripts"
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: local/layout
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: local/layout/package-lock.json
+      - run: npm ci
+      - run: npm run build
+
+  smoke:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check public pages
+        env:
+          SMOKE_BASE_URL: ${{ inputs.smoke_base_url }}
+        run: bash local/deploy/smoke.sh
