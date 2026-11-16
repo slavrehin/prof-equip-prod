@@ -1,0 +1,17 @@
+/* Project text: separate consecutive content groups inside each accordion panel.
+   Bitrix loads this stylesheet with the project-detail component template. */
+.project-content .project-content__inner .project-content__wrapper .project-content__text .accordion__content > :is(ul, ol) + :is(p, h3, h4, ul, ol) {
+    margin-top: 1.5rem;
+}
+
+/* Bold text is emphasis, not an additional block with its own bottom margin. */
+.project-content .project-content__inner .project-content__wrapper .project-content__text .accordion__content p > strong,
+.project-content .project-content__inner .project-content__wrapper .project-content__text .accordion__content li strong {
+    display: inline;
+    margin: 0;
+}
+
+.project-content .project-content__inner .project-content__wrapper .project-content__text .accordion__content li strong {
+    font-size: inherit;
+    line-height: inherit;
+}
