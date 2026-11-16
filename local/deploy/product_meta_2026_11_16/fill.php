@@ -56,12 +56,15 @@ foreach ($plan as $change) {
     (new \Bitrix\Iblock\InheritedProperty\ElementTemplates($ib, $id))->set($change['set']);
     $entity = new \Bitrix\Iblock\InheritedProperty\ElementValues($ib, $id);
     $entity->clearValues();
-    $actual = $entity->getValues();
+    // Verify persisted templates directly: Bitrix caches inherited templates in-process.
+    $actual = [];
+    $rows = $GLOBALS['DB']->Query("SELECT CODE, TEMPLATE FROM b_iblock_iproperty WHERE IBLOCK_ID=$ib AND ENTITY_TYPE='E' AND ENTITY_ID=$id");
+    while ($row = $rows->Fetch()) { $actual[$row['CODE']] = $row['TEMPLATE']; }
     foreach ($change['set'] as $key => $value) {
         if (($actual[$key] ?? null) !== $value) { throw new RuntimeException("Verification failed: $id $key"); }
     }
-    foreach ($change['before_values'] as $key => $value) {
-        if (!array_key_exists($key, $change['set']) && ($actual[$key] ?? null) !== $value) {
+    foreach ($change['before_templates'] as $key => $row) {
+        if (!array_key_exists($key, $change['set']) && ($actual[$key] ?? null) !== $row['TEMPLATE']) {
             throw new RuntimeException("Unchanged field mismatch: $id $key");
         }
     }
