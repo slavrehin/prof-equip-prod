@@ -17,13 +17,14 @@ permissions:
 
 jobs:
   php-and-shell:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
           extensions: none
+          ini-values: short_open_tag=On
           coverage: none
       - name: Lint tracked PHP files
         shell: bash
@@ -31,7 +32,10 @@ jobs:
           set -euo pipefail
           count=0
           while IFS= read -r -d '' file; do
-            php -l "$file" >/dev/null
+            if ! output=$(php -l "$file" 2>&1); then
+              printf '%s\n' "$output"
+              exit 1
+            fi
             count=$((count + 1))
           done < <(git ls-files -z '*.php')
           echo "Linted $count PHP files"
@@ -47,7 +51,7 @@ jobs:
           echo "Checked $count shell scripts"
 
   frontend:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: local/layout
@@ -59,11 +63,29 @@ jobs:
           cache: npm
           cache-dependency-path: local/layout/package-lock.json
       - run: npm ci
-      - run: npm run build
+      - name: Build frontend
+        shell: bash
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
+        run: |
+          log="$RUNNER_TEMP/frontend-build.log"
+          set +e
+          npm run build >"$log" 2>&1
+          status=$?
+          cat "$log"
+          if [ "$status" -ne 0 ]; then
+            {
+              echo '### Frontend build failed'
+              echo '```text'
+              tail -n 200 "$log"
+              echo '```'
+            } >>"$GITHUB_STEP_SUMMARY"
+          fi
+          exit "$status"
 
   smoke:
     if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - name: Check public pages
