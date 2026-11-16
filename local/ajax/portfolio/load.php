@@ -28,8 +28,8 @@ if ($filter > 0) {
 // +1 сверх окна offset..offset+batchSize — чтобы понять, есть ли ещё
 // элементы дальше, без отдельного COUNT-запроса.
 $res = CIBlockElement::GetList(
-    // тот же порядок, что у первой порции в /portfolio/index.php (от новых к старым)
-    ["ACTIVE_FROM" => "DESC", "SORT" => "ASC"],
+    // Редакторский порядок, затем дата — как у первой порции /portfolio/index.php.
+    ["SORT" => "ASC", "ACTIVE_FROM" => "DESC"],
     $elementFilter,
     false,
     ["nTopCount" => $offset + $batchSize + 1],
