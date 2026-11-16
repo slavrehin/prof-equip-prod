@@ -1,0 +1,15 @@
+[
+  {
+    "id": 643,
+    "name": "Hawo KST 630",
+    "code": "mashina-upakovochnaya-dlya-odezhdy-hawo-kst-630",
+    "files": [
+      "img/643_white.png"
+    ],
+    "source": "https://wavepoint-group.files.svdcdn.com/production/images/Hawo-HP630KST-A4.pdf?dm=1732709647",
+    "processing": "Built-in image_gen background replacement and photo cleanup; basic KST without bottom sealer",
+    "sha256": {
+      "img/643_white.png": "7bbd6e5eb345c9ad775c9cedc60c6cb987a8f5737d6f34d14d656c9ae65b1b0a"
+    }
+  }
+]
