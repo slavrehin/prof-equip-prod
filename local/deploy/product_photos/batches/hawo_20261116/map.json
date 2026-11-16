@@ -1,0 +1,42 @@
+[
+  {
+    "id": 636,
+    "name": "HAWO HP 500 TM",
+    "code": "mashina-upakovochnaya-dlya-odezhdy-hawo-hp-500-tm",
+    "files": [
+      "img/636_0.png"
+    ],
+    "source": "https://wavepoint-group.files.svdcdn.com/production/images/Hawo-HP630KST-A4.pdf?dm=1732709647",
+    "sha256": {
+      "img/636_0.png": "77591fac49d1c0317a61d4afce74c7eb8849e0e7e06b200156be1bcf45f7ea33"
+    }
+  },
+  {
+    "id": 637,
+    "name": "HAWO HP 630 KST BS",
+    "code": "mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-kst-bs",
+    "files": [
+      "img/637_0.jpg"
+    ],
+    "source": "https://www.thenovelgroup.ru/catalog/prochee/hawo-hp-630-kst-bs-detail",
+    "sha256": {
+      "img/637_0.jpg": "edc76d830485b634f98e4d25ebb84bc747fefd28fd746fd3bdadeb49d80faaa9"
+    }
+  },
+  {
+    "id": 638,
+    "name": "HAWO HP 630 KST-P-BS",
+    "code": "mashina-upakovochnaya-dlya-odezhdy-hawo-hp-630-kst-p-bs",
+    "files": [
+      "img/638_0.jpg",
+      "img/638_1.jpg",
+      "img/638_2.jpg"
+    ],
+    "source": "https://eshop.allstitch.ro/echipamente/masina-de-ambalat-in-folie-hawo-hp-630-kst-p-bs-actionare-pneumatica.html",
+    "sha256": {
+      "img/638_0.jpg": "c3c8891d7bce5f7160434b6113fa3d3ed14782e968b3afdef7e95c0e37b5b049",
+      "img/638_1.jpg": "61ac59391871781a8254212feaf533ba67ef3baf84dbcfefc7326ffb15046be0",
+      "img/638_2.jpg": "f2ec1e24e203d1a19ea02323c6be91037df1e169d58d45eae4532e1f0d51fd57"
+    }
+  }
+]
