@@ -80,7 +80,10 @@ jobs:
               tail -n 200 "$log"
               echo '```'
             } >>"$GITHUB_STEP_SUMMARY"
-            tail -n 20 "$log" | while IFS= read -r line; do
+            {
+              grep -E 'ERROR|Error|error|failed|Killed|Module not found' "$log" | tail -n 20
+              tail -n 10 "$log"
+            } | awk '!seen[$0]++' | while IFS= read -r line; do
               printf '::error::%s\n' "$line"
             done
           fi
