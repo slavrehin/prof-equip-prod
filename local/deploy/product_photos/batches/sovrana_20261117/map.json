@@ -1,0 +1,74 @@
+[
+ {
+  "id": 622,
+  "name": "Машина химической чистки SOVRANA A60L, загрузка 25 кг",
+  "code": "mashina-himicheskoj-chistki-sovrana-a60l",
+  "files": [
+   "img/sovrana-a60l-25kg.jpg"
+  ],
+  "source": "sovrana.zip, предоставлен пользователем 2026-11-17 (zaomonolit.ru)"
+ },
+ {
+  "id": 624,
+  "name": "Машина химической чистки SOVRANA A80L, загрузка 32 кг",
+  "code": "mashina-himicheskoj-chistki-sovrana-a80l-zagruzka-32-kg",
+  "files": [
+   "img/sovrana-a80l-32kg.jpg"
+  ],
+  "source": "sovrana.zip, предоставлен пользователем 2026-11-17 (zaomonolit.ru)"
+ },
+ {
+  "id": 625,
+  "name": "Машина химической чистки SOVRANA A90L, загрузка 40 кг",
+  "code": "mashina-himicheskoj-chistki-sovrana-a90l-zagruzka-40-kg",
+  "files": [
+   "img/sovrana-a90l-40kg.jpg"
+  ],
+  "source": "sovrana.zip, предоставлен пользователем 2026-11-17 (zaomonolit.ru)"
+ },
+ {
+  "id": 630,
+  "name": "Машина химической чистки SOVRANA S12 LT3, загрузка 12 кг",
+  "code": "mashina-himicheskoj-chistki-sovrana-s12-lt3-zagruzka-12-kg",
+  "files": [
+   "img/sovrana-s12-lt3-12kg.jpg"
+  ],
+  "source": "sovrana.zip, предоставлен пользователем 2026-11-17 (zaomonolit.ru)"
+ },
+ {
+  "id": 631,
+  "name": "Машина химической чистки SOVRANA S12 ST2, загрузка 12 кг",
+  "code": "mashina-himicheskoj-chistki-sovrana-s12-st2-zagruzka-12-kg",
+  "files": [
+   "img/sovrana-s12-st2-12kg.jpg"
+  ],
+  "source": "sovrana.zip, предоставлен пользователем 2026-11-17 (zaomonolit.ru)"
+ },
+ {
+  "id": 632,
+  "name": "Машина химической чистки SOVRANA S15 LT2, загрузка 15 кг",
+  "code": "mashina-himicheskoj-chistki-sovrana-s15-lt2-zagruzka-15-kg",
+  "files": [
+   "img/sovrana-s15-lt2-15kg.jpg"
+  ],
+  "source": "sovrana.zip, предоставлен пользователем 2026-11-17 (zaomonolit.ru)"
+ },
+ {
+  "id": 633,
+  "name": "Машина химической чистки SOVRANA S15 LT3, загрузка 15 кг",
+  "code": "mashina-himicheskoj-chistki-sovrana-s15-lt3-zagruzka-15-kg",
+  "files": [
+   "img/sovrana-s15-lt3-15kg.jpg"
+  ],
+  "source": "sovrana.zip, предоставлен пользователем 2026-11-17 (zaomonolit.ru)"
+ },
+ {
+  "id": 634,
+  "name": "Машина химической чистки SOVRANA S15 ST2, загрузка 15 кг",
+  "code": "mashina-himicheskoj-chistki-sovrana-s15-st2-zagruzka-15-kg",
+  "files": [
+   "img/sovrana-s15-st2-15kg.jpg"
+  ],
+  "source": "sovrana.zip, предоставлен пользователем 2026-11-17 (zaomonolit.ru)"
+ }
+]
