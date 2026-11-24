@@ -396,8 +396,12 @@ foreach ($forms as $wantId => [$sid, $title, $prefix, $fields]) {
                 'arANSWER' => [['MESSAGE' => ' ', 'C_SORT' => 100, 'ACTIVE' => 'Y', 'FIELD_TYPE' => $type]]], false, 'N');
             if (!$qid) throw new RuntimeException("Поле $qsid формы $sid: " . $GLOBALS['strError']);
         }
-        $tpl = [];
-        CForm::SetMailTemplate($fid, 'Y', '', true, $tpl);
+        // SetMailTemplate() только создаёт правило; без строки в b_form_2_mail_template
+        // форма письма не шлёт (так и было после восстановления 06.11)
+        CForm::SetMailTemplate($fid, 'Y', '', false);
+        $msg = $DB->Query("SELECT ID FROM b_event_message WHERE EVENT_NAME = 'FORM_FILLING_$sid' ORDER BY ID LIMIT 1")->Fetch();
+        if (!$msg) throw new RuntimeException("Почтовое правило FORM_FILLING_$sid не создано");
+        $DB->Query("INSERT IGNORE INTO b_form_2_mail_template (FORM_ID, MAIL_TEMPLATE_ID) VALUES ($fid, {$msg['ID']})");
     }
 }
 // адресат писем форм, как на проде (миграция лендинга 09-18 копирует его у SIMPLE_FORM_3)
