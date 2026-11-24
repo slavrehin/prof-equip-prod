@@ -8,7 +8,11 @@ if ($apply && !$isDev && !in_array('--allow-production', $argv, true)) {
     fwrite(STDERR, "Refusing write outside dev. Production requires approval and --allow-production.\n"); exit(1);
 }
 $backupDir = null;
-foreach ($argv as $arg) { if (str_starts_with($arg, '--backup-dir=')) { $backupDir = substr($arg, 13); } }
+$only = null; // --only=code1,code2 — обработать только указанные проекты
+foreach ($argv as $arg) {
+    if (str_starts_with($arg, '--backup-dir=')) { $backupDir = substr($arg, 13); }
+    if (str_starts_with($arg, '--only=')) { $only = array_values(array_filter(array_map('trim', explode(',', substr($arg, 7))))); }
+}
 if ($apply && (!$backupDir || !is_dir($backupDir) || !is_writable($backupDir))) {
     fwrite(STDERR, "An existing writable --backup-dir outside the document root is required.\n"); exit(1);
 }
@@ -80,6 +84,11 @@ function verifyProps(array $expected, array $actual, string $code): void {
 }
 
 $projects = json_decode(file_get_contents(__DIR__.'/projects.json'), true, 512, JSON_THROW_ON_ERROR);
+if ($only !== null) {
+    $unknown = array_diff($only, array_column($projects, 'code'));
+    if (!$only || $unknown) { fwrite(STDERR, "Unknown --only codes: ".implode(',', $unknown)."\n"); exit(1); }
+    $projects = array_values(array_filter($projects, fn($p) => in_array($p['code'], $only, true)));
+}
 $ib = iblockId('projects'); $brandsIb = iblockId('brands'); $catalogIb = iblockId('catalog');
 // Preflight the entire batch before changing any records.
 $plans = [];
