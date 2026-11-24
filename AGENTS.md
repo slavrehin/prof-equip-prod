@@ -49,6 +49,27 @@
    U=$(sed -n 1p site/.dev-basic-auth); P=$(sed -n 2p site/.dev-basic-auth)
    curl -s -u "$U:$P" "https://dev.prof-equip.ru/product/<code>/" | grep -oE '/upload/iblock/[a-z0-9]+/[a-z0-9]+\.(jpg|webp)'
    ```
+10. **Деплой файлов на прод** (только после проверки на dev):
+    ```bash
+    bash site/deploy_cloud/deploy_prod.sh
+    ```
+    Скрипт переносит файлы (включая партию в `local/deploy/product_photos/batches/`), но **не базу**.
+    Без следующего шага фото на проде не появятся: записи о них есть только в базах local/dev.
+11. **Импорт на проде** — снимок базы, сухой прогон, применение с логом отката:
+    ```bash
+    B=<brand>_YYYYMMDD
+    ssh root@89.111.178.85 "mysqldump --defaults-extra-file=/root/.my-prof.cnf --single-transaction --no-tablespaces profdb \
+      | gzip > /backup/prod_db_before_photos_${B}_\$(date +%Y%m%d_%H%M%S).sql.gz"
+    ssh root@89.111.178.85 "cd /var/www/prof-equip.ru/docs && sudo -u www-data php local/deploy/product_photos/import.php $B --dry"
+    ssh root@89.111.178.85 "cd /var/www/prof-equip.ru/docs && sudo -u www-data php local/deploy/product_photos/import.php $B \
+      --log=/var/www/prof-equip.ru/rollback_${B}.json"
+    ```
+    - Сухой прогон на проде может отличаться от локального: там могли появиться фото, добавленные через админку, — их импорт не трогает.
+    - Лог отката хранится на сервере вне корня сайта; откат: `... import.php --rollback=/var/www/prof-equip.ru/rollback_${B}.json`.
+12. **Проверить на проде** те же карточки:
+    ```bash
+    curl -s "https://prof-equip.ru/product/<code>/" | grep -oE '/upload/iblock/[a-z0-9]+/[a-z0-9]+\.(jpg|webp)'
+    ```
 
 ### Важные ограничения
 
