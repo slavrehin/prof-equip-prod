@@ -1,0 +1,743 @@
+{
+ "direction": "kuhnya",
+ "exported": "2026-11-25 собрано по брифу «брифы направления/бриф Кухня.docx»",
+ "props": {
+  "LAND_BLOCKS": {
+   "anchors": {
+    "menu": [
+     {
+      "v": "Проекты",
+      "d": "#projects"
+     },
+     {
+      "v": "RATIONAL",
+      "d": "#stock"
+     },
+     {
+      "v": "Галерея",
+      "d": "#library"
+     },
+     {
+      "v": "Бренды",
+      "d": "#brands"
+     },
+     {
+      "v": "Форматы",
+      "d": "#solutions"
+     },
+     {
+      "v": "Сервис и запчасти",
+      "d": "#parts"
+     },
+     {
+      "v": "Партнёрам",
+      "d": "#partners"
+     },
+     {
+      "v": "Статьи",
+      "d": "#expert"
+     },
+     {
+      "v": "Вопросы",
+      "d": "#faq"
+     },
+     {
+      "v": "Контакты",
+      "d": "#final"
+     }
+    ],
+    "btn": "Получить консультацию",
+    "source": "Якорное меню · консультация",
+    "active": 1
+   },
+   "projects": {
+    "title": "Реализованные проекты",
+    "lead": "Рестораны, кофейни, отели, санатории и частные резиденции. Проектируем технологию, поставляем оборудование и запускаем кухню силами одной команды.",
+    "anchor": "Проекты",
+    "link_text": "Все проекты",
+    "link_url": "/portfolio/",
+    "pool_type": "",
+    "active": 1
+   },
+   "consult": {
+    "title": "Подберём решение для вашей кухни",
+    "lead": "Расскажите о проекте — инженер направления предложит технологию и состав оборудования под ваш формат и бюджет.",
+    "btn": "Получить консультацию",
+    "ok": "Заявка отправлена. Инженер направления «Кухня» свяжется с вами в рабочее время.",
+    "source": "Блок «Проекты» · консультация",
+    "active": 1
+   },
+   "stock": {
+    "title": "Оборудование RATIONAL",
+    "lead": "Пароконвектоматы iCombi и многофункциональные сковороды iVario. Официальные поставки, монтаж, запуск и сервисное обслуживание.",
+    "anchor": "RATIONAL",
+    "link_text": "Все пароконвектоматы RATIONAL",
+    "link_url": "/product-category/parokonvektomaty-rational/",
+    "btn": "Получить КП",
+    "section_code": "",
+    "limit": 8,
+    "price_note": "с НДС",
+    "no_stock": "",
+    "products": "parokonvektomat-rational-icombi-pro-6-1-1-e\nparokonvektomat-rational-icombi-pro-10-1-1-e\nparokonvektomat-rational-icombi-pro-10-2-1\nparokonvektomat-rational-icombi-pro-xs-6-2-3\nparokonvektomat-rational-icombi-classic-6-1-1-e\nparokonvektomat-rational-icombi-classic-10-1-1\nskovoroda-mnogofunktsionalnaya-rational-ivario-pro-2s\nskovoroda-mnogofunktsionalnaya-rational-ivario-pro-l",
+    "active": 1
+   },
+   "library": {
+    "title": "Галерея наших кухонь",
+    "lead": "Кухни, которые мы спроектировали, оснастили и запустили.",
+    "anchor": "Галерея",
+    "active": 1
+   },
+   "brands": {
+    "title": "Бренды профессиональной кухни",
+    "lead": "RATIONAL, HOBART, HOSHIZAKI, SAYL, VIANEN, ANGELO PO и другие производители. Официальные поставки, гарантия, сервис и оригинальные запчасти.",
+    "anchor": "Бренды",
+    "link_text": "Все бренды",
+    "link_url": "/brends/",
+    "featured_pic": 0,
+    "featured_name": "",
+    "featured_url": "",
+    "featured_label": "",
+    "active": 1
+   },
+   "tz": {
+    "title": "Есть планировка или ТЗ?",
+    "lead": "Пришлите — подберём оборудование под технологию и бюджет и подготовим коммерческое предложение.",
+    "btn": "Отправить планировку / ТЗ",
+    "ok": "Файлы получены. Специалист изучит проект и вернётся с составом оборудования и КП.",
+    "source": "Кухня · планировка / ТЗ",
+    "items": [],
+    "active": 1
+   },
+   "solutions": {
+    "title": "Решения для профессиональных кухонь",
+    "lead": "Состав кухни зависит от формата: меню, количества гостей, режима работы и помещения. Выберите свой — покажем, с чего начинается проект.",
+    "anchor": "Форматы",
+    "active": 1
+   },
+   "parts": {
+    "title": "Сервис и запчасти",
+    "lead": "Собственная сервисная служба ПРОФЭКВИП: монтаж, пусконаладка, гарантийное и постгарантийное обслуживание. Востребованные запчасти — на складе.",
+    "anchor": "Сервис",
+    "btn": "Подобрать запчасть",
+    "btn2_text": "Каталог запчастей",
+    "btn2_url": "/product-category/zapasnye-chasti-dlya-kuhonnogo-oborudovaniya/",
+    "form_title": "Подбор запчасти",
+    "form_text": "Ответим с наличием и сроком поставки.",
+    "ok": "Запрос на подбор отправлен. Специалист по запчастям свяжется с вами и уточнит детали.",
+    "source": "Кухня · подбор запчасти",
+    "items": [
+     {
+      "v": "Выезд инженеров, диагностика и ремонт — чтобы кухня не простаивала.",
+      "d": "Сервисная служба 24/7"
+     },
+     {
+      "v": "Ходовые позиции для теплового, холодильного и моечного оборудования хранятся на складе.",
+      "d": "Запчасти в наличии"
+     },
+     {
+      "v": "Найдём деталь по модели, артикулу или фото шильдика.",
+      "d": "Подбор по модели"
+     }
+    ],
+    "pic": 4373,
+    "active": 1
+   },
+   "partners": {
+    "kicker": "Партнёрам",
+    "title": "Проектировщикам, девелоперам и отельным операторам",
+    "lead": "Берём на себя технологическую часть кухни в составе вашего проекта — от концепции до сдачи объекта.",
+    "anchor": "",
+    "items": [
+     {
+      "v": "Расстановка оборудования, спецификации и задания для смежных разделов: вентиляции, водоснабжения, электроснабжения.",
+      "d": "Технологический проект"
+     },
+     {
+      "v": "Проектирование, поставка, монтаж и сервис — один договор и один ответственный менеджер.",
+      "d": "Одна точка ответственности"
+     },
+     {
+      "v": "Работаем напрямую с производителями: гарантия, сертификаты и оригинальные запчасти.",
+      "d": "Официальные поставки"
+     },
+     {
+      "v": "Подбираем решения под бюджет проекта и закладываем сроки поставки в график строительства.",
+      "d": "Сроки и бюджет"
+     }
+    ],
+    "btn": "Запросить материалы для проекта",
+    "source": "Партнёрам · запрос материалов",
+    "link_url": "",
+    "btn2_text": "Смотреть проекты",
+    "btn2_url": "/portfolio/",
+    "pic": 4411,
+    "active": 1
+   },
+   "reviews": {
+    "title": "Отзывы клиентов",
+    "lead": "",
+    "anchor": "Отзывы",
+    "active": 0
+   },
+   "expert": {
+    "title": "Экспертный центр",
+    "lead": "Практика оснащения профессиональных кухонь, оборудование и новости ПРОФЭКВИП.",
+    "anchor": "Статьи",
+    "links": [
+     {
+      "v": "/blog/",
+      "d": "Все статьи"
+     },
+     {
+      "v": "/novosti/",
+      "d": "Все новости"
+     }
+    ],
+    "active": 1
+   },
+   "faq": {
+    "title": "Вопросы и ответы",
+    "lead": "",
+    "anchor": "Вопросы",
+    "active": 1
+   },
+   "final": {
+    "title": "Обсудим вашу кухню?",
+    "lead": "Расскажите о проекте и приложите ТЗ, планировку или спецификацию — подготовим решение и коммерческое предложение.",
+    "anchor": "Контакты",
+    "btn": "Отправить запрос",
+    "ok": "Запрос отправлен. Менеджер направления «Кухня» свяжется с вами в рабочее время.",
+    "source": "Финальная форма",
+    "items": [
+     {
+      "v": "Оснастить кухню под ключ",
+      "d": "project"
+     },
+     {
+      "v": "Подобрать оборудование",
+      "d": "buy"
+     },
+     {
+      "v": "Технологический проект",
+      "d": "calc"
+     },
+     {
+      "v": "Получить КП",
+      "d": "kp"
+     },
+     {
+      "v": "Сервис / запчасти",
+      "d": "service"
+     }
+    ],
+    "company": "y",
+    "file_hint": "PDF, DWG, XLSX, JPG — до 25 МБ",
+    "file_max": 25,
+    "active": 1
+   },
+   "sticky": {
+    "btn": "Получить расчёт",
+    "source": "Мобильная панель · расчёт",
+    "active": 1
+   }
+  },
+  "LAND_SLIDES": [
+   {
+    "title": "Профессиональные кухни от проекта до запуска",
+    "text": "Проектируем технологию, подбираем оборудование и создаём профессиональные кухни для ресторанов, отелей, кафе и предприятий питания.",
+    "kicker": "",
+    "tab": "От проекта до запуска",
+    "btn1_text": "Получить консультацию",
+    "btn1_target": "#final",
+    "btn1_source": "Слайдер · проект до запуска",
+    "btn2_text": "В каталог",
+    "btn2_target": "/product-category/oborudovanie-professionalnoj-kuhni/",
+    "art": "plan",
+    "pic": 4477,
+    "pic_mob": 0
+   },
+   {
+    "title": "Лучшие решения для профессиональной кухни",
+    "text": "Оборудование RATIONAL, HOBART, HOSHIZAKI, SAYL, VIANEN и ANGELO PO — для высокой производительности, стабильной работы и точного соответствия задачам проекта.",
+    "kicker": "",
+    "tab": "Оборудование",
+    "btn1_text": "Получить консультацию",
+    "btn1_target": "#final",
+    "btn1_source": "Слайдер · оборудование",
+    "btn2_text": "В каталог",
+    "btn2_target": "/product-category/oborudovanie-professionalnoj-kuhni/",
+    "art": "plan",
+    "pic": 4393,
+    "pic_mob": 0
+   },
+   {
+    "title": "Оборудование, которое работает на ваш бизнес",
+    "text": "Собственная сервисная служба ПРОФЭКВИП и востребованные запчасти в наличии на складе — для бесперебойной работы вашего объекта.",
+    "kicker": "",
+    "tab": "Сервис и запчасти",
+    "btn1_text": "Получить консультацию",
+    "btn1_target": "#final",
+    "btn1_source": "Слайдер · сервис и запчасти",
+    "btn2_text": "В каталог запчастей",
+    "btn2_target": "/product-category/zapasnye-chasti-dlya-kuhonnogo-oborudovaniya/",
+    "art": "parts",
+    "pic": 4392,
+    "pic_mob": 0
+   }
+  ],
+  "LAND_ADVANTAGES": [
+   {
+    "title": "Комплексное оснащение",
+    "text": "от идеи до запуска",
+    "icon": "i-kitchen"
+   },
+   {
+    "title": "Проектный отдел",
+    "text": "технология и расстановка оборудования",
+    "icon": "i-plan"
+   },
+   {
+    "title": "Сервисная служба 24/7",
+    "text": "монтаж, запуск, обслуживание",
+    "icon": "wrench"
+   },
+   {
+    "title": "Запчасти и расходники",
+    "text": "востребованные позиции на складе",
+    "icon": "box"
+   }
+  ],
+  "LAND_SOLUTIONS": [
+   {
+    "title": "Ресторан",
+    "sub": "À la carte, банкетные залы, шоу-кухни",
+    "text": "Технология под меню и поток гостей: горячий и холодный цеха, заготовка, мойка и раздача. Подбираем линию оборудования и расставляем её так, чтобы повару не приходилось делать лишних шагов.",
+    "specs": [],
+    "url": "/product-category/oborudovanie-professionalnoj-kuhni/",
+    "link_text": "Оборудование для ресторана",
+    "art": "plan",
+    "pic": 4405,
+    "filter": ""
+   },
+   {
+    "title": "Профессиональная кухня в частном доме",
+    "sub": "Резиденции, загородные дома, шеф-кухни",
+    "text": "Ресторанный уровень оборудования в жилом интерьере: компактные тепловые линии, встроенное холодильное оборудование, вентиляция и отделка под дизайн-проект дома.",
+    "specs": [],
+    "url": "/portfolio/chastnyy-dom-tagankovo-moskovskaya-oblast-2026-god/",
+    "link_text": "Смотреть проект",
+    "art": "plan",
+    "pic": 4374,
+    "filter": ""
+   },
+   {
+    "title": "Точки питания в отеле",
+    "sub": "Рестораны, завтраки, бары, банкеты",
+    "text": "Кухни и линии раздачи для завтраков «шведский стол», ресторанов, баров и банкетных залов — с расчётом на утренний пик и загрузку во время мероприятий.",
+    "specs": [],
+    "url": "/portfolio/sanatorij-biryuza-sochi-2022/",
+    "link_text": "Смотреть проект",
+    "art": "plan",
+    "pic": 4437,
+    "filter": ""
+   },
+   {
+    "title": "Столовая",
+    "sub": "Корпоративное питание, санатории, учебные заведения",
+    "text": "Производственная кухня с цехами и линией раздачи на большой поток гостей: пароконвектоматы, котлы, сковороды, моечное и холодильное оборудование.",
+    "specs": [],
+    "url": "/product-category/linii-razdachi/",
+    "link_text": "Линии раздачи",
+    "art": "plan",
+    "pic": 4407,
+    "filter": ""
+   },
+   {
+    "title": "Кофейня и кафе",
+    "sub": "Кофейни, пекарни, кафе с кухней",
+    "text": "Компактная кухня и бар: кофемашины, оборудование для выпечки, холодильные витрины и тепловое оборудование, которые помещаются на небольшой площади.",
+    "specs": [],
+    "url": "/portfolio/osnashchenie-kofemanii-bez-tarelok-moskva-2026-god/",
+    "link_text": "Смотреть проект",
+    "art": "plan",
+    "pic": 4460,
+    "filter": ""
+   }
+  ],
+  "LAND_LIBRARY": [
+   {
+    "pic": 4474,
+    "caption": "Кофемания, Школа шефов — Москва",
+    "url": "/portfolio/kofemaniya-shkola-shefov-moskva-novinskiy-bulvar-2026-god/"
+   },
+   {
+    "pic": 4405,
+    "caption": "Hotel Standart — Москва",
+    "url": "/portfolio/dizajn-otel-standart-5-moskva-2016/"
+   },
+   {
+    "pic": 4441,
+    "caption": "Санаторий «Бирюза» — Сочи",
+    "url": "/portfolio/sanatorij-biryuza-sochi-2022/"
+   },
+   {
+    "pic": 4462,
+    "caption": "Кофемания Bez Tarelok — Москва",
+    "url": "/portfolio/osnashchenie-kofemanii-bez-tarelok-moskva-2026-god/"
+   },
+   {
+    "pic": 4413,
+    "caption": "Частная резиденция — Барвиха",
+    "url": "/portfolio/osnashchenie-chastnoy-rezidentsii-barvikha-moskovskaya-oblast-2026-god/"
+   }
+  ],
+  "LAND_FAQ": [
+   {
+    "q": "С чего начать, если есть только помещение?",
+    "a": "Пришлите планировку или обмерный план и опишите концепцию: формат заведения, меню, количество посадочных мест. Проектный отдел предложит технологию и состав оборудования."
+   },
+   {
+    "q": "Вы делаете технологический проект кухни?",
+    "a": "Да. Проектный отдел готовит технологическую расстановку оборудования, спецификации и задания для смежных разделов: вентиляции, водоснабжения, канализации и электроснабжения."
+   },
+   {
+    "q": "Сколько времени занимает оснащение кухни под ключ?",
+    "a": "Зависит от масштаба объекта и состава оборудования. Часть позиций есть на складе, часть поставляется под заказ — точные сроки фиксируем в коммерческом предложении и графике работ."
+   },
+   {
+    "q": "Можно купить отдельное оборудование без проекта?",
+    "a": "Да. Поставляем как отдельные позиции из каталога, так и комплексно. Поможем подобрать модель под задачу и рассчитаем стоимость с доставкой."
+   },
+   {
+    "q": "Как узнать цену оборудования?",
+    "a": "Цены на многие позиции указаны в каталоге. Для комплексного проекта подготовим коммерческое предложение по спецификации — пришлите ТЗ или планировку через форму на этой странице."
+   },
+   {
+    "q": "Какие бренды вы поставляете?",
+    "a": "RATIONAL, HOBART, HOSHIZAKI, SAYL, VIANEN, ANGELO PO и другие ведущие производители. Полный список — в разделе «Бренды»."
+   },
+   {
+    "q": "Вы выполняете монтаж и пусконаладку?",
+    "a": "Да, монтаж, подключение и пусконаладку выполняет собственная сервисная служба ПРОФЭКВИП. После запуска проводим вводное обучение персонала."
+   },
+   {
+    "q": "Есть гарантия и сервисное обслуживание?",
+    "a": "На оборудование действует гарантия производителя. Сервисная служба ПРОФЭКВИП выполняет гарантийное и постгарантийное обслуживание, возможен сервисный договор."
+   },
+   {
+    "q": "Где купить запчасти для кухонного оборудования?",
+    "a": "Востребованные запчасти и расходники есть на складе. Пришлите модель оборудования, артикул или фото шильдика — подберём деталь и сообщим срок поставки."
+   },
+   {
+    "q": "Вы работаете в регионах?",
+    "a": "Да, поставляем оборудование и реализуем проекты по всей России — от Москвы и Подмосковья до Краснодарского края и Сочи."
+   }
+  ]
+ },
+ "links": {
+  "PROJECTS": [
+   {
+    "iblock": "projects",
+    "code": "osnashchenie-kofemanii-bez-tarelok-moskva-2026-god"
+   },
+   {
+    "iblock": "projects",
+    "code": "sanatorij-biryuza-sochi-2022"
+   },
+   {
+    "iblock": "projects",
+    "code": "kofemaniya-shkola-shefov-moskva-novinskiy-bulvar-2026-god"
+   },
+   {
+    "iblock": "projects",
+    "code": "chastnyy-dom-tagankovo-moskovskaya-oblast-2026-god"
+   },
+   {
+    "iblock": "projects",
+    "code": "osnashchenie-chastnoy-rezidentsii-barvikha-moskovskaya-oblast-2026-god"
+   },
+   {
+    "iblock": "projects",
+    "code": "dizajn-otel-standart-5-moskva-2016"
+   },
+   {
+    "iblock": "projects",
+    "code": "osnashchenie-chastnogo-doma-krasnodar-2026"
+   }
+  ],
+  "BRANDS": [
+   {
+    "iblock": "brands",
+    "code": "rational"
+   },
+   {
+    "iblock": "brands",
+    "code": "hobart"
+   },
+   {
+    "iblock": "brands",
+    "code": "hoshizaki"
+   },
+   {
+    "iblock": "brands",
+    "code": "sayl"
+   },
+   {
+    "iblock": "brands",
+    "code": "vianen"
+   },
+   {
+    "iblock": "brands",
+    "code": "angelo-po"
+   },
+   {
+    "iblock": "brands",
+    "code": "winterhalter"
+   },
+   {
+    "iblock": "brands",
+    "code": "halton"
+   },
+   {
+    "iblock": "brands",
+    "code": "unox"
+   },
+   {
+    "iblock": "brands",
+    "code": "convotherm"
+   },
+   {
+    "iblock": "brands",
+    "code": "scotsman"
+   },
+   {
+    "iblock": "brands",
+    "code": "liebherr"
+   },
+   {
+    "iblock": "brands",
+    "code": "josper"
+   },
+   {
+    "iblock": "brands",
+    "code": "mibrasa"
+   },
+   {
+    "iblock": "brands",
+    "code": "moretti-forni"
+   },
+   {
+    "iblock": "brands",
+    "code": "fimar"
+   },
+   {
+    "iblock": "brands",
+    "code": "coldline"
+   },
+   {
+    "iblock": "brands",
+    "code": "bravilor-bonamat"
+   }
+  ],
+  "LAND_MAT_BLOG": [
+   {
+    "iblock": "blog",
+    "code": "pochemu-zakryvayutsya-restorany-i-kafe-na-starte"
+   },
+   {
+    "iblock": "blog",
+    "code": "kak-vybrat-kuhonnoe-oborudovanie-dlya-kafe-i-restorana"
+   },
+   {
+    "iblock": "blog",
+    "code": "parokonvektomat-chto-eto-zachem-nuzhen-kak-polzovatsya"
+   },
+   {
+    "iblock": "blog",
+    "code": "osnovnye-pravila-i-rekomendatsii-rasstanovki-oborudovaniya-na-kuhne-zavedeniya-obshhepita"
+   }
+  ],
+  "LAND_MAT_NEWS": [
+   {
+    "iblock": "news",
+    "code": "profekvip-obespechivaet-besperebojnye-postavki-iz-evropy-dlya-parokonvektomatov-rational"
+   }
+  ]
+ },
+ "seo": {
+  "ELEMENT_META_TITLE": "Оборудование для профессиональной кухни и оснащение под ключ — ПРОФЭКВИП",
+  "ELEMENT_META_DESCRIPTION": "Проектирование, поставка, монтаж и сервис профессиональных кухонь для ресторанов, отелей, кафе и столовых. RATIONAL, HOBART, HOSHIZAKI, ANGELO PO и другие бренды, запчасти в наличии.",
+  "ELEMENT_PAGE_TITLE": "Оснащение профессиональных кухонь под ключ"
+ },
+ "cards": {},
+ "files": {
+  "4373": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "931",
+   "WIDTH": "1690",
+   "FILE_SIZE": "190707",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4373.jpg",
+   "ORIGINAL_NAME": "kuhnya-4373.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4374": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "931",
+   "WIDTH": "1689",
+   "FILE_SIZE": "207362",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4374.jpg",
+   "ORIGINAL_NAME": "kuhnya-4374.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4392": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "931",
+   "WIDTH": "1690",
+   "FILE_SIZE": "262951",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4392.jpg",
+   "ORIGINAL_NAME": "kuhnya-4392.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4393": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "941",
+   "WIDTH": "1672",
+   "FILE_SIZE": "193244",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4393.jpg",
+   "ORIGINAL_NAME": "kuhnya-4393.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4405": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "941",
+   "WIDTH": "1672",
+   "FILE_SIZE": "293631",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4405.jpg",
+   "ORIGINAL_NAME": "kuhnya-4405.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4407": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "941",
+   "WIDTH": "1672",
+   "FILE_SIZE": "251694",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4407.jpg",
+   "ORIGINAL_NAME": "kuhnya-4407.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4411": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "931",
+   "WIDTH": "1690",
+   "FILE_SIZE": "233774",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4411.jpg",
+   "ORIGINAL_NAME": "kuhnya-4411.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4413": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "941",
+   "WIDTH": "1672",
+   "FILE_SIZE": "192031",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4413.jpg",
+   "ORIGINAL_NAME": "kuhnya-4413.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4437": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "941",
+   "WIDTH": "1672",
+   "FILE_SIZE": "271825",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4437.jpg",
+   "ORIGINAL_NAME": "kuhnya-4437.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4441": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "941",
+   "WIDTH": "1672",
+   "FILE_SIZE": "319851",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4441.jpg",
+   "ORIGINAL_NAME": "kuhnya-4441.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4460": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "931",
+   "WIDTH": "1690",
+   "FILE_SIZE": "164956",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4460.jpg",
+   "ORIGINAL_NAME": "kuhnya-4460.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4462": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "931",
+   "WIDTH": "1690",
+   "FILE_SIZE": "226786",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4462.jpg",
+   "ORIGINAL_NAME": "kuhnya-4462.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4474": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "931",
+   "WIDTH": "1689",
+   "FILE_SIZE": "289541",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4474.jpg",
+   "ORIGINAL_NAME": "kuhnya-4474.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  },
+  "4477": {
+   "MODULE_ID": "iblock",
+   "HEIGHT": "1080",
+   "WIDTH": "1920",
+   "FILE_SIZE": "282897",
+   "CONTENT_TYPE": "image/jpeg",
+   "SUBDIR": "landing/kuh",
+   "FILE_NAME": "kuhnya-4477.jpg",
+   "ORIGINAL_NAME": "kuhnya-4477.jpg",
+   "DESCRIPTION": "",
+   "bundled": true
+  }
+ }
+}

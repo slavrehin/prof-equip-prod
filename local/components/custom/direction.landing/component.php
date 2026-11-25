@@ -105,6 +105,8 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
             'fileMax' => (int)($r['file_max'] ?? 0),
             'noStock' => $text($r, 'no_stock') === 'y',
             'stockBy' => $text($r, 'stock_by'),
+            // товары списком (Кухня): символьные коды по одному в строке — показываются именно они, с ценами
+            'products' => array_values(array_unique(array_filter(array_map('trim', preg_split('/[\s,;]+/u', $text($r, 'products')))))),
             // вкладки блока «Зоны» (Текстиль): код типа объекта => заголовок и фото на фото-панели
             'zoneGroups' => array_filter(array_map(
                 static fn(string $code) => array_filter(['hero' => $text($r, 'hero_' . $code), 'pic' => (int)($r['gpic_' . $code] ?? 0)]),
@@ -495,7 +497,7 @@ $buildStatic = static function () use ($direction, $dirIblockCode, $lp): array {
 $cache = Cache::createInstance();
 $cachePath = '/profequip/direction_landing/' . $direction;
 $static = null;
-if ($ttl > 0 && $cache->initCache($ttl, 'v14_' . $direction, $cachePath)) {
+if ($ttl > 0 && $cache->initCache($ttl, 'v15_' . $direction, $cachePath)) {
     $static = $cache->getVars();
 } else {
     if ($ttl > 0) {
@@ -542,13 +544,17 @@ if ($stockSec && !$stockSec['noStock']) {
     $catIblock = (int)GetIBlockIDByCode('catalog');
     // «В наличии» = флажок STOCK_BADGE (по умолчанию) или свойство «Наличие» = СКЛАД МОСКВА (Текстиль)
     $byMoskva = $stockSec['stockBy'] === 'moskva';
+    $byList = !empty($stockSec['products']);
     $filter = ['IBLOCK_ID' => $catIblock, 'ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y'];
-    if ($byMoskva) {
-        $filter['PROPERTY_NALICHIE'] = (int)(\CIBlockPropertyEnum::GetList([], ['IBLOCK_ID' => $catIblock, 'CODE' => 'NALICHIE', 'XML_ID' => 'sklad-moskva'])->Fetch()['ID'] ?? -1);
+    $moskvaEnum = (int)(\CIBlockPropertyEnum::GetList([], ['IBLOCK_ID' => $catIblock, 'CODE' => 'NALICHIE', 'XML_ID' => 'sklad-moskva'])->Fetch()['ID'] ?? -1);
+    if ($byList) {
+        $filter['=CODE'] = $stockSec['products'];
+    } elseif ($byMoskva) {
+        $filter['PROPERTY_NALICHIE'] = $moskvaEnum;
     } else {
         $filter['!PROPERTY_STOCK_BADGE'] = false;
     }
-    if ($stockSec['sectionCode'] !== '') {
+    if ($stockSec['sectionCode'] !== '' && !$byList) {
         $sec = \CIBlockSection::GetList([], ['IBLOCK_ID' => $catIblock, 'CODE' => $stockSec['sectionCode']], false, ['ID'])->Fetch();
         if ($sec) {
             $filter['SECTION_ID'] = (int)$sec['ID'];
@@ -606,6 +612,20 @@ if ($stockSec && !$stockSec['noStock']) {
             }
             unset($list);
         }
+    } elseif ($byList) {
+        // порядок — как в списке редактора; снятые с публикации коды просто пропускаются
+        $byCode = [];
+        while ($el = $rs->GetNext()) {
+            $byCode[$el['CODE']] ??= $el;
+        }
+        foreach ($stockSec['products'] as $code) {
+            if (isset($byCode[$code])) {
+                $picked[] = $byCode[$code];
+            }
+            if (count($picked) >= $limit) {
+                break;
+            }
+        }
     } else {
         while ($el = $rs->GetNext()) {
             if (isset($seen[$el['ID']])) { // товар может лежать в нескольких разделах
@@ -657,6 +677,9 @@ if ($stockSec && !$stockSec['noStock']) {
             'pic' => (int)($el['PREVIEW_PICTURE'] ?: $el['DETAIL_PICTURE']),
             'specs' => profequip_LandingProductSpecs($rows),
             'price' => profequip_LandingProductPrice((int)$el['ID']),
+            // список товаров (Кухня) — плашка «В наличии» только у реально складских позиций
+            'inStock' => !$byList || $get('STOCK_BADGE') !== ''
+                || in_array($moskvaEnum, array_map('intval', array_column(array_filter($rows, static fn($r) => $r['CODE'] === 'NALICHIE'), 'VALUE')), true),
         ];
     }
 }

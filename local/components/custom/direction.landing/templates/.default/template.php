@@ -48,11 +48,13 @@ $sectionOrderMaps = [
         'fm' => 6, 'own' => 7, 'brand_custom' => 8, 'parts' => 9, 'tech' => 10, 'design' => 11,
         'reviews' => 12, 'guarantee' => 13, 'library' => 14, 'expert' => 15, 'faq' => 16, 'final' => 17,
     ],
-    // Кухня — по карте секций брифа kuhnya-claude-code-instruction.md (раздел 3)
+    // Кухня — по брифу «брифы направления/бриф Кухня.docx» (ноябрь 2026): слайдер и пиктограммы · проекты + форма ·
+    // Rational с ценами · галерея кухонь · бренды · форма с ТЗ (id=design) · типы заведений · сервис и запчасти ·
+    // партнёрам · отзывы · экспертный центр · FAQ · подробная форма. Блоки, которых нет в брифе, стоят после.
     'kuhnya' => [
-        'top' => 1, 'trust' => 2, 'design' => 3, 'solutions' => 4, 'projects' => 5, 'checklist' => 6,
-        'stock' => 7, 'brands' => 8, 'compare' => 9, 'supply' => 10, 'service' => 11, 'guarantee' => 12,
-        'partners' => 13, 'reviews' => 14, 'faq' => 15, 'expert' => 16, 'final' => 17,
+        'top' => 1, 'trust' => 2, 'projects' => 3, 'checklist' => 4, 'stock' => 5, 'library' => 6, 'brands' => 7,
+        'design' => 8, 'solutions' => 9, 'compare' => 10, 'parts' => 11, 'supply' => 12, 'service' => 13,
+        'partners' => 14, 'reviews' => 15, 'guarantee' => 16, 'expert' => 17, 'faq' => 18, 'final' => 19,
     ],
 ];
 // Цели Метрики с префиксом направления (kuhnya_hero_cta, kuhnya_lead …) и микроразметка Service —
@@ -230,7 +232,7 @@ foreach ($has['stock'] ? $arResult['stock'] : [] as $p) {
     }
     if ($p['price']) {
         $prod['offers'] = ['@type' => 'Offer', 'price' => (string)(int)$p['price'], 'priceCurrency' => 'RUB',
-            'availability' => 'https://schema.org/InStock', 'url' => $abs($p['url'])];
+            'availability' => $p['inStock'] ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder', 'url' => $abs($p['url'])];
     }
     $ld[] = $prod;
 }
@@ -675,7 +677,7 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
       <article class="dl-pcard">
         <div class="dl-ph dl-ph--light">
           <?= profequip_LandingPicture($p['pic'], [480, 800], ['alt' => $p['name'], 'sizes' => '(max-width:860px) 78vw, 30vw']) ?>
-          <span class="dl-badge"><?= $ico('i-check') ?>В наличии</span>
+          <?php if ($p['inStock']): ?><span class="dl-badge"><?= $ico('i-check') ?>В наличии</span><?php endif; ?>
           <?= $art('washer') ?>
         </div>
         <div class="dl-pcard__body">
@@ -839,7 +841,7 @@ $splitSec = static function (string $key, array $sec, bool $dark, string $art0) 
         <div class="dl-fbody">
           <?= $formHidden($sec['source']) ?>
           <div class="dl-fgrid">
-            <div class="dl-field dl-full"><label for="dl-pf1">Производитель и модель оборудования</label><input id="dl-pf1" name="<?= $h($N['land_model'] ?? '') ?>" placeholder="Например, Electrolux WH6-20" required></div>
+            <div class="dl-field dl-full"><label for="dl-pf1">Производитель и модель оборудования</label><input id="dl-pf1" name="<?= $h($N['land_model'] ?? '') ?>" placeholder="<?= $arResult['DIRECTION_CODE'] === 'kuhnya' ? 'Например, RATIONAL iCombi Pro 6-1/1' : 'Например, Electrolux WH6-20' ?>" required></div>
             <div class="dl-field"><label for="dl-pf2">Артикул, если известен</label><input id="dl-pf2" name="<?= $h($N['land_article'] ?? '') ?>" placeholder="Необязательно"></div>
             <div class="dl-field"><label for="dl-pf3">Телефон или e-mail</label><input id="dl-pf3" name="<?= $h($N['land_phone'] ?? '') ?>" data-kind="contact" autocomplete="tel" required></div>
             <label class="dl-file dl-full"><?= $ico('i-clip') ?><span data-fname>Прикрепить фото детали или шильдика</span><em>JPG, PNG до 10 МБ</em><input type="file" accept="image/*" data-max="10" data-files-to=".dl-fileslots"></label>

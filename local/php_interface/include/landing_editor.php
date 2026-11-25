@@ -111,6 +111,7 @@ function profequip_LandingSchema(): array
         ]],
         'stock' => ['Оборудование в наличии — вкладка «В наличии» (флажок «В наличии» ставится у товара)', [$b['title'](), $b['lead'](), $b['anchor'](), $b['link_text'](), $b['link_url'](), $b['btn'](), $b['section_code'](), $b['limit'](), $b['price_note'](),
             $f('no_stock', 'Без вкладки «В наличии» (с ценами)', 'select', ['only' => ['kuhnya'], 'options' => ['y' => 'Не показывать — только выбранные позиции без цен'], 'hint' => 'Позиции — в свойстве «Каталог: новинки»']),
+            $f('products', 'Товары списком (символьные коды)', 'textarea', ['only' => ['kuhnya'], 'rows' => 6, 'hint' => 'По одному коду товара в строке, в нужном порядке. Заполнено — показываются именно эти товары с ценами (флажок «В наличии» не нужен; плашка «В наличии» — только у товаров, которые действительно на складе). Пусто — товары с флажком «В наличии».']),
             $f('stock_by', 'Вкладка «В наличии»: какие товары', 'select', ['only' => ['textile'], 'options' => ['moskva' => 'Свойство товара «Наличие» = СКЛАД МОСКВА'], 'hint' => 'Пусто — товары с флажком «В наличии». При «СКЛАД МОСКВА» карточки берутся из разных подразделов по очереди, чтобы не было шести одинаковых.']),
         ]],
         'brands' => ['Наши бренды (сами бренды — в свойстве «Производители»)', [
@@ -364,7 +365,7 @@ function profequip_LandingDirectionBlocks(): array
     return [
         'prachechnaya' => ['anchors', 'projects', 'consult', 'cats', 'stock', 'brands', 'parts', 'solutions', 'calc', 'design', 'tz', 'guarantee', 'expert', 'final'],
         'textile' => ['anchors', 'projects', 'task', 'stock', 'brands', 'own', 'fm', 'brand_custom', 'solutions', 'tech', 'tech_form', 'design', 'reviews', 'guarantee', 'guarantee_form', 'library', 'faq', 'final'],
-        'kuhnya' => ['anchors', 'fork', 'trust', 'projects', 'task', 'checklist', 'stock', 'brands', 'certs', 'solutions', 'compare', 'supply', 'service', 'design', 'reviews', 'guarantee', 'partners', 'expert', 'faq', 'final', 'sticky'],
+        'kuhnya' => ['anchors', 'fork', 'trust', 'projects', 'consult', 'task', 'checklist', 'stock', 'library', 'brands', 'certs', 'tz', 'solutions', 'compare', 'parts', 'supply', 'service', 'design', 'partners', 'reviews', 'guarantee', 'expert', 'faq', 'final', 'sticky'],
     ];
 }
 
