@@ -190,3 +190,12 @@
 .catalog-sidebar-filters .filter__item .filters__list .filter-label > span {
     color: #333;
 }
+
+/* Шильдик "В наличии" на фото в детальной карточке товара (галерея-swiper
+ * уже position:relative; поднимаем над слайдами и стрелками). */
+.catalog-card__badge--hero {
+    z-index: 5;
+    left: 1rem;
+    top: 1rem;
+    pointer-events: none;
+}

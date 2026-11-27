@@ -54,6 +54,12 @@ function getFilterSeoUrl($sectionCode, $propertyCode, $property, $value) {
             <?if(!empty($arResult['DETAIL_PICTURE']) || !empty($arResult['PROPERTIES']['GALLERY']['VALUE'])):?>
             <div class="catalog-product-hero__swiper-wrapper">
                 <div class="catalog-product-hero__swiper">
+                    <?php if (profequip_HasStockBadge((int)$arResult['ID'])): ?>
+                    <span class="catalog-card__badge catalog-card__badge--hero">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="#0E86A3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>В наличии</span>
+                    </span>
+                    <?php endif; ?>
                     <div class="swiper-wrapper">
                         <?php
                         // Массив для хранения всех изображений
