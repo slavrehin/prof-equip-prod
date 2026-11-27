@@ -129,6 +129,10 @@ if (!empty($opts['rollback'])) {
         }
         echo ($dry ? '[dry] ' : '') . "удалён $code ID=$id\n";
     }
+    foreach ($log['activated'] ?? [] as $code => $id) {
+        if (!$dry) { $DB->Query("UPDATE b_iblock_element SET ACTIVE='N', TIMESTAMP_X=NOW() WHERE ID=" . (int) $id . " AND CODE='" . $DB->ForSql($code) . "'"); }
+        echo ($dry ? '[dry] ' : '') . "выключен $code ID=$id\n";
+    }
     foreach ($log['series'] ?? [] as $code => $prev) {
         $id = (int) $prev['id'];
         if ($dry) { echo "[dry] вернуть $code: разделы " . implode(',', $prev['sections']) . ", тип " . ($prev['type'] ?: '—') . "\n"; continue; }
@@ -140,6 +144,28 @@ if (!empty($opts['rollback'])) {
         echo "возвращено $code: разделы " . implode(',', $now) . "\n";
     }
     if (!$dry) { clearCache(); echo "Кэш очищен\n"; }
+    exit(0);
+}
+
+// ---------- включение черновика после появления фото: --activate=winterhalter-uf-xl ----------
+if (!empty($opts['activate'])) {
+    $code = (string) $opts['activate'];
+    $e = $DB->Query("SELECT ID, ACTIVE, IBLOCK_SECTION_ID, DETAIL_PICTURE FROM b_iblock_element WHERE IBLOCK_ID=" . IBLOCK_ID . " AND CODE='" . $DB->ForSql($code) . "'")->Fetch();
+    if (!$e) { throw new RuntimeException("нет товара $code"); }
+    if (!(int) $e['DETAIL_PICTURE']) { throw new RuntimeException("$code: нет фото — не включаю"); }
+    if ($e['ACTIVE'] === 'Y') { echo "$code уже активен\n"; exit(0); }
+    echo ($dry ? '[dry] ' : '') . "включить $code ID={$e['ID']}\n";
+    if ($dry) { exit(0); }
+    if ($logFile === '' || is_file($logFile)) { throw new RuntimeException('Укажите новый --log=/path/rollback.json'); }
+    file_put_contents($logFile, json_encode(['site' => $_SERVER['SERVER_NAME'], 'activated' => [$code => (int) $e['ID']]], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    // прямым SQL, чтобы не задеть раздел (см. CLAUDE.md, «Известные особенности»)
+    $DB->Query("UPDATE b_iblock_element SET ACTIVE='Y', TIMESTAMP_X=NOW() WHERE ID=" . (int) $e['ID']);
+    \Bitrix\Iblock\PropertyIndex\Manager::updateElementIndex(IBLOCK_ID, (int) $e['ID']);
+    \CIBlock::clearIblockTagCache(IBLOCK_ID);
+    $chk = $DB->Query("SELECT ACTIVE, IBLOCK_SECTION_ID FROM b_iblock_element WHERE ID=" . (int) $e['ID'])->Fetch();
+    if ($chk['ACTIVE'] !== 'Y' || $chk['IBLOCK_SECTION_ID'] !== $e['IBLOCK_SECTION_ID']) { throw new RuntimeException("$code: не сошлось после включения"); }
+    clearCache();
+    echo "включён $code. Откат: --rollback=$logFile\n";
     exit(0);
 }
 
