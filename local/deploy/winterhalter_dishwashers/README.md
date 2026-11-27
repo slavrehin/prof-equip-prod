@@ -22,4 +22,10 @@ ssh root@89.111.178.85 "cd /var/www/prof-equip.ru/docs && sudo -u www-data php l
 
 ## UF-XL
 
-Когда будет фото: положить `img/winterhalter-uf-xl.jpg` (normalize.py, 1200×1200) в новую партию фото, импортировать её и активировать товар `winterhalter-uf-xl` (ACTIVE=Y) в админке или SQL.
+Когда будет фото: положить `img/winterhalter-uf-xl.jpg` (normalize.py, 1200×1200) в новую партию фото, импортировать её и активировать товар `winterhalter-uf-xl` (ACTIVE=Y) в админке или SQL. Затем перезапустить
+`local/deploy/winterhalter_series_links/apply.php` (с новым `--log`): он добавит ссылку на UF-XL в карточку котломоечных машин.
+
+## Карточки серий
+
+`local/deploy/winterhalter_series_links/apply.php` — в карточки серий UC, PT и котломоечных машин добавляется блок
+ссылок на модели; там же исправлены высоты UC (по листовкам V02) и вес UF. Запуск и откат такие же: `--dry`, `--log`, `--rollback`.
