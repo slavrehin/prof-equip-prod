@@ -2,7 +2,7 @@
 /**
  * Подставляет фото элементам по списку (JSON): [{"iblock":"catalog","code":"...","files":["/mnt/photos/..."],"mode":"product|logo|picture","source":"..."}]
  * Ставит, только если у элемента картинки нет или стоит заглушка (800×600 с фоном placeholder.php), с --force — всегда.
- *  product: PREVIEW_PICTURE + DETAIL_PICTURE = 1-й файл, GALLERY = все файлы;
+ *  product: PREVIEW_PICTURE + DETAIL_PICTURE = 1-й файл, GALLERY = остальные файлы;
  *  logo:    свойство LOGO + PREVIEW_PICTURE (бренды);
  *  picture: PREVIEW_PICTURE + DETAIL_PICTURE.
  * Картинки элементу — прямым SQL (см. «Известные грабли» в CLAUDE.md: Update() с картинками может обнулить раздел).
@@ -55,8 +55,10 @@ foreach ($list as $it) {
         CIBlockElement::SetPropertyValuesEx($id, $iblockId, ['LOGO' => CFile::MakeFileArray($files[0])]);
     } elseif ($mode === 'product') {
         $g = [];
-        foreach ($files as $k => $f) $g['n' . $k] = ['VALUE' => CFile::MakeFileArray($f), 'DESCRIPTION' => $el['NAME']];
-        CIBlockElement::SetPropertyValuesEx($id, $iblockId, ['GALLERY' => $g]);
+        // 1-й файл уже в DETAIL_PICTURE, а шаблон карточки выводит DETAIL + GALLERY: в галерею — только остальные,
+        // иначе первый кадр показывается дважды (так появились 1113 дублей, исправлено restore_photos_oct31.php)
+        foreach (array_slice($files, 1) as $k => $f) $g['n' . $k] = ['VALUE' => CFile::MakeFileArray($f), 'DESCRIPTION' => $el['NAME']];
+        CIBlockElement::SetPropertyValuesEx($id, $iblockId, ['GALLERY' => $g ?: false]);
     }
     \Bitrix\Iblock\PropertyIndex\Manager::updateElementIndex($iblockId, $id);
     $stat['set']++;
