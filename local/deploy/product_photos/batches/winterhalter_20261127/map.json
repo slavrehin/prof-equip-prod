@@ -1,0 +1,115 @@
+[
+ {
+  "name": "Машина посудомоечная фронтальная Winterhalter UC-S, корзина 400×400 мм",
+  "code": "winterhalter-uc-s",
+  "files": [
+   "img/winterhalter-uc-s.jpg",
+   "img/winterhalter-uc-open.jpg"
+  ],
+  "source": "официальная листовка Winterhalter UC-S V02 (assetId 510058, winterhalter.com/eu-ru/download-center), нормализовано 1200×1200; второе фото — фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина посудомоечная фронтальная Winterhalter UC-M, корзина 500×500 мм",
+  "code": "winterhalter-uc-m",
+  "files": [
+   "img/winterhalter-uc-front.jpg",
+   "img/winterhalter-uc-open.jpg",
+   "img/winterhalter-uc-interior.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина посудомоечная фронтальная Winterhalter UC-L, высота загрузки 404 мм",
+  "code": "winterhalter-uc-l",
+  "files": [
+   "img/winterhalter-uc-front.jpg",
+   "img/winterhalter-uc-open.jpg",
+   "img/winterhalter-uc-interior.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина посудомоечная фронтальная Winterhalter UC-XL, корзина 500×540 мм",
+  "code": "winterhalter-uc-xl",
+  "files": [
+   "img/winterhalter-uc-front.jpg",
+   "img/winterhalter-uc-open.jpg",
+   "img/winterhalter-uc-interior.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина посудомоечная купольная Winterhalter PT-M, корзина 500×500 мм",
+  "code": "winterhalter-pt-m",
+  "files": [
+   "img/winterhalter-pt-front.jpg",
+   "img/winterhalter-pt-interior.jpg",
+   "img/winterhalter-pt-corner.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина посудомоечная купольная Winterhalter PT-L, корзины 500×500 и 500×600 мм",
+  "code": "winterhalter-pt-l",
+  "files": [
+   "img/winterhalter-pt-front.jpg",
+   "img/winterhalter-pt-interior.jpg",
+   "img/winterhalter-pt-corner.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина посудомоечная купольная Winterhalter PT-XL, высота загрузки 560 мм",
+  "code": "winterhalter-pt-xl",
+  "files": [
+   "img/winterhalter-pt-front.jpg",
+   "img/winterhalter-pt-interior.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина посудомоечная купольная Winterhalter PT-L Utensil для посуды и кухонной утвари",
+  "code": "winterhalter-pt-l-utensil",
+  "files": [
+   "img/winterhalter-pt-utensil.jpg",
+   "img/winterhalter-pt-utensil-interior.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина посудомоечная купольная Winterhalter PT-XL Utensil для посуды и кухонной утвари, высота загрузки 560 мм",
+  "code": "winterhalter-pt-xl-utensil",
+  "files": [
+   "img/winterhalter-pt-utensil.jpg",
+   "img/winterhalter-pt-utensil-interior.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина котломоечная Winterhalter UF-M, корзина 612×672 мм",
+  "code": "winterhalter-uf-m",
+  "files": [
+   "img/winterhalter-uf.jpg",
+   "img/winterhalter-uf-interior.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина котломоечная Winterhalter UF-L, высота загрузки 800 мм",
+  "code": "winterhalter-uf-l",
+  "files": [
+   "img/winterhalter-uf.jpg",
+   "img/winterhalter-uf-interior.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ },
+ {
+  "name": "Машина котломоечная подстольная Winterhalter GS 630",
+  "code": "winterhalter-gs-630",
+  "files": [
+   "img/winterhalter-gs-630.jpg",
+   "img/winterhalter-gs-630-open.jpg"
+  ],
+  "source": "фото карточек серий Winterhalter на сайте (ID 2444–2446, загружены 2026-11-07), нормализованы 1200×1200"
+ }
+]
